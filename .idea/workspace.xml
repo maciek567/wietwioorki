@@ -10,9 +10,19 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to2019/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to2019/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to2019/controller/AddBookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to2019/controller/AddBookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to2019/controller/AddReaderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to2019/controller/AddReaderController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to2019/controller/HomeSceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to2019/controller/HomeSceneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/AddBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/AddBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/AddReader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/AddReader.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/controller/AddBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/controller/AddBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/controller/AddReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/controller/AddReaderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/controller/HomeSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/controller/HomeSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/AddReader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/AddReader.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -249,7 +259,7 @@
       <updated>1574637882252</updated>
       <workItem from="1574637885806" duration="1682000" />
       <workItem from="1574698188581" duration="4799000" />
-      <workItem from="1574706252420" duration="4751000" />
+      <workItem from="1574706252420" duration="7962000" />
     </task>
     <servers />
   </component>

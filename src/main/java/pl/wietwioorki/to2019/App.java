@@ -14,15 +14,17 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class App extends Application {
 
     private ConfigurableApplicationContext springContext;
-    private Parent rootNode;
     private FXMLLoader fxmlLoader;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        primaryStage.setTitle("Library system");
+
         fxmlLoader.setLocation(getClass().getResource("/layouts/HomeScene.fxml"));
+        Parent rootNode = null;
+
         rootNode = fxmlLoader.load();
 
-        primaryStage.setTitle("Library system");
         Scene scene = new Scene(rootNode, 800, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
