@@ -2,29 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="624e59f1-dc4d-4b1e-a99f-fd023e150464" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/controller/AddBookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/controller/AddReaderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/controller/HomeSceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/dao/BookDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/dao/ReaderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReservationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/dao/ReservationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/model/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/AddReader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/AddReader.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to2019/controller/HomeSceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to2019/controller/HomeSceneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/controller/HomeSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to2019/controller/HomeSceneController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -241,9 +229,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.pt-1115-wietwioorki [run]" />
         <item itemvalue="Application.App" />
         <item itemvalue="Gradle.pt-1115-wietwioorki [bootRun]" />
-        <item itemvalue="Gradle.pt-1115-wietwioorki [run]" />
         <item itemvalue="Gradle.pt-1115-wietwioorki [init]" />
         <item itemvalue="Gradle.pt-1115-wietwioorki [jar]" />
       </list>
@@ -261,7 +249,7 @@
       <updated>1574637882252</updated>
       <workItem from="1574637885806" duration="1682000" />
       <workItem from="1574698188581" duration="4799000" />
-      <workItem from="1574706252420" duration="919000" />
+      <workItem from="1574706252420" duration="4751000" />
     </task>
     <servers />
   </component>
