@@ -23,6 +23,6 @@ public class AddBookController {
 
     @FXML
     public void handleAddNewBook(ActionEvent actionEvent) {
-        System.out.println("Added new book!");
+        System.out.println("Added new book");
     }
 }

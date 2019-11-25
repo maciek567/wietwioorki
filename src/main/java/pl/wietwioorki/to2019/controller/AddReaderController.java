@@ -20,6 +20,6 @@ public class AddReaderController {
 
     @FXML
     public void handleAddNewReader(ActionEvent actionEvent) {
-        System.out.println("Added new reader!");
+        System.out.println("Added new reader");
     }
 }

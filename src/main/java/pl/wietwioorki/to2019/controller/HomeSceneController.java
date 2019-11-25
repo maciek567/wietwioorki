@@ -28,12 +28,12 @@ public class HomeSceneController {
 
     @FXML
     public void handleNewReader(ActionEvent actionEvent) {
-        System.out.println("New reader added");
+        System.out.println("New reader view");
     }
 
     @FXML
     public void handleNewBook(ActionEvent actionEvent) {
-        System.out.println("New book added");
+        System.out.println("New book view");
 //        fxmlLoader.setLocation(getClass().getResource("/layouts/AddBook.fxml"));
 //        Parent rootNode = null;
 //
