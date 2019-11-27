@@ -27,7 +27,12 @@
                 <VBox.margin>
                     <Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
-            <TextField text="Release date:"  id="releaseDate" fx:id="releaseDate"
+            <TextField text="Release date:"  id="publicationDate" fx:id="publicationDate"
+                       prefHeight="30" prefWidth="200">
+                <VBox.margin>
+                    <Insets bottom="15" left="20" right="20" top="20" />
+                </VBox.margin></TextField>
+            <TextField text="Genre:"  id="genre" fx:id="genre"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="20" left="20" right="20" top="20" />

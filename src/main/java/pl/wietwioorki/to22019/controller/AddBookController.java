@@ -16,7 +16,10 @@ public class AddBookController {
     public TextField authorName;
 
     @FXML
-    public TextField releaseDate;
+    public TextField publicationDate;
+
+    @FXML
+    public TextField genre;
 
     @FXML
     public Button addBook;

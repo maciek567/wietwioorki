@@ -16,7 +16,15 @@ public class AddReaderController {
     public TextField surname;
 
     @FXML
+    public TextField pesel;
+
+    @FXML
+    public TextField birthDate;
+
+    @FXML
     public Button addReader;
+
+
 
     @FXML
     public void handleAddNewReader(ActionEvent actionEvent) {

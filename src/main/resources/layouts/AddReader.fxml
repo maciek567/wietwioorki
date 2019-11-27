@@ -27,6 +27,16 @@
                     <VBox.margin>
                         <Insets bottom="15" left="20" right="20" top="15" />
                     </VBox.margin></TextField>
+                <TextField text="Pesel"  id="pesel" fx:id="pesel"
+                           prefHeight="30" prefWidth="200">
+                    <VBox.margin>
+                        <Insets bottom="15" left="20" right="20" top="15" />
+                    </VBox.margin></TextField>
+                <TextField text="Date of birth:"  id="birthDate" fx:id="birthDate"
+                           prefHeight="30" prefWidth="200">
+                    <VBox.margin>
+                        <Insets bottom="15" left="20" right="20" top="15" />
+                    </VBox.margin></TextField>
                 <Button text="Add" id="addReader" fx:id="addReader" onAction="#handleAddNewReader"
                         prefHeight="50.0" prefWidth="200">
                     <VBox.margin>
