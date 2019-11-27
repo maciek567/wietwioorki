@@ -1,4 +1,4 @@
-package pl.wietwioorki.to2019.controller;
+package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +16,7 @@ public class AddReaderController {
     public TextField surname;
 
     @FXML
-    public Button add_reader;
+    public Button addReader;
 
     @FXML
     public void handleAddNewReader(ActionEvent actionEvent) {

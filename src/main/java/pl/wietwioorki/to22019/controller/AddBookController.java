@@ -1,4 +1,4 @@
-package pl.wietwioorki.to2019.controller;
+package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,16 +10,16 @@ import org.springframework.stereotype.Controller;
 public class AddBookController {
 
     @FXML
-    public TextField book_tittle;
+    public TextField bookTittle;
 
     @FXML
-    public TextField authors_name;
+    public TextField authorName;
 
     @FXML
-    public TextField release_date;
+    public TextField releaseDate;
 
     @FXML
-    public Button add_book;
+    public Button addBook;
 
     @FXML
     public void handleAddNewBook(ActionEvent actionEvent) {

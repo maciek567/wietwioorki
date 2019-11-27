@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="pl.wietwioorki.to2019.controller.AddBookController">
+            fx:controller="pl.wietwioorki.to22019.controller.AddBookController">
 <center>
     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <opaqueInsets>
@@ -17,22 +17,22 @@
                 <VBox.margin>
                     <Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></Text>
-            <TextField text="Book's tittle:"  id="book_tittle" fx:id="book_tittle"
+            <TextField text="Book's tittle:"  id="bookTittle" fx:id="bookTittle"
                     prefHeight="30" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
-            <TextField text="Author's name:"  id="authors_name" fx:id="authors_name"
+            <TextField text="Author's name:"  id="authorName" fx:id="authorName"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
-            <TextField text="Release date:"  id="release_date" fx:id="release_date"
+            <TextField text="Release date:"  id="releaseDate" fx:id="releaseDate"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></TextField>
-            <Button text="Add" id="add_book" fx:id="add_book" onAction="#handleAddNewBook"
+            <Button text="Add" id="add_book" fx:id="addBook" onAction="#handleAddNewBook"
                     prefHeight="50.0" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="20" left="20" right="20" top="20" />

@@ -1,4 +1,4 @@
-package pl.wietwioorki.to2019;
+package pl.wietwioorki.to22019;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +14,12 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class App extends Application {
 
     private ConfigurableApplicationContext springContext;
+
     private FXMLLoader fxmlLoader;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
         primaryStage.setTitle("Library system");
 
         fxmlLoader.setLocation(getClass().getResource("/layouts/HomeScene.fxml"));

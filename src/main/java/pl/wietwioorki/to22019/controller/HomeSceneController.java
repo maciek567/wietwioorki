@@ -1,4 +1,4 @@
-package pl.wietwioorki.to2019.controller;
+package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,9 +8,10 @@ import javafx.stage.Stage;
 import org.springframework.stereotype.Controller;
 
 @Controller
-//@EnableAutoConfiguration
+//@Component
 public class HomeSceneController {
 
+  //  @Autowired @Qualifier("primaryStage")
     private Stage primaryStage;
 
     private FXMLLoader fxmlLoader;
@@ -21,9 +22,9 @@ public class HomeSceneController {
     @FXML
     private Button book;
 
-//    public HomeSceneController(Stage primaryStage, FXMLLoader loader) {
+//   public HomeSceneController(Stage primaryStage, FXMLLoader loader) {
 //        this.primaryStage = primaryStage;
- //         this.fxmlLoader = loader;
+//          this.fxmlLoader = loader;
 //    }
 
     @FXML
