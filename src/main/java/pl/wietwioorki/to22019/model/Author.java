@@ -6,6 +6,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Getter
+@ToString
 public class Author {
     private int authorId;
     private String fullName;
