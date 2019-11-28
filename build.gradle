@@ -7,10 +7,16 @@ buildscript {
     }
 }
 
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+
+
 
 group 'pl.wietwioorki.to22019'
 version '1.0-SNAPSHOT'
@@ -29,3 +35,11 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.4'
     annotationProcessor 'org.projectlombok:lombok:1.18.4'
 }
+
+javafx {
+    version = "13"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.graphics' ]
+}
+
+
+mainClassName = 'pl.wietwioorki.to22019.App'

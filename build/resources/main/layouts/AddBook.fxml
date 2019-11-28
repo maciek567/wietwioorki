@@ -17,27 +17,22 @@
                 <VBox.margin>
                     <Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></Text>
-            <TextField text="Book's tittle:"  id="bookTittle" fx:id="bookTittle"
+            <TextField text="Book's tittle:"  id="book_tittle" fx:id="book_tittle"
                     prefHeight="30" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
-            <TextField text="Author's name:"  id="authorName" fx:id="authorName"
+            <TextField text="Author's name:"  id="authors_name" fx:id="authors_name"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
-            <TextField text="Release date:"  id="publicationDate" fx:id="publicationDate"
-                       prefHeight="30" prefWidth="200">
-                <VBox.margin>
-                    <Insets bottom="15" left="20" right="20" top="20" />
-                </VBox.margin></TextField>
-            <TextField text="Genre:"  id="genre" fx:id="genre"
+            <TextField text="Release date:"  id="release_date" fx:id="release_date"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></TextField>
-            <Button text="Add" id="add_book" fx:id="addBook" onAction="#handleAddNewBook"
+            <Button text="Add" id="add_book" fx:id="add_book" onAction="#handleAddNewBook"
                     prefHeight="50.0" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="20" left="20" right="20" top="20" />
