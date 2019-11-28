@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
+import pl.wietwioorki.to22019.model.Reader;
+
+import java.util.Date;
 
 @Controller
 public class AddReaderController {
@@ -22,12 +25,11 @@ public class AddReaderController {
     public TextField birthDate;
 
     @FXML
-    public Button addReader;
-
-
+    public Button addReaderButton;
 
     @FXML
     public void handleAddNewReader(ActionEvent actionEvent) {
         System.out.println("Added new reader");
+        Reader reader = new Reader(Integer.parseInt(pesel.getText()), name + " " + surname, new Date()); //fixme: should be birthDate instead of Date(). We can't do it now, because date format might depend on database type
     }
 }

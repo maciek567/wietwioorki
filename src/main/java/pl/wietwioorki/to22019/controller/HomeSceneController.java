@@ -17,10 +17,10 @@ public class HomeSceneController {
     private FXMLLoader fxmlLoader;
 
     @FXML
-    private Button reader;
+    private Button addReaderButton;
 
     @FXML
-    private Button book;
+    private Button addBookButton;
 
 //   public HomeSceneController(Stage primaryStage, FXMLLoader loader) {
 //        this.primaryStage = primaryStage;

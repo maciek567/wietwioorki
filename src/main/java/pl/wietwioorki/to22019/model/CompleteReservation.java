@@ -9,14 +9,10 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @ToString
-public class Reservation {
+public class CompleteReservation {
     private Long reservationId;
     private Book book;
     private Reader reader;
-    private Date reservationDate;
-    private ReservationStatus status;
-
-    public void changeStatusTo(ReservationStatus status) {
-        this.status = status;
-    }
+    private Date reservationStartDate;
+    private Date reservationEndDate;
 }

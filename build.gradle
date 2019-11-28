@@ -30,6 +30,10 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter')
     testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // https://projectlombok.org
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
 }
 
 javafx {
