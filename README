@@ -1,1 +1,8 @@
 Library Project created by Maciej Banaś, Monika Dziedzic, Hubert Guzowski, Sebastian Wilk.
+
+Wymagania:
+- java 11
+- lombok plugin (przy uruchamianiu w Intellij)
+
+Uruchamianie:
+wywołanie komendy ./gradlew run z roota projektu

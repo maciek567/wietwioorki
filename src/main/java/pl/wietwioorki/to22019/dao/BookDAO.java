@@ -23,6 +23,7 @@ public class BookDAO {
 
     public static void addBook(Book book){
         books.add(book);
+        System.out.println(book);
     }
 
     public List<Book> getAllBooks(){
