@@ -1,5 +1,8 @@
 package pl.wietwioorki.to22019.dao;
 
+import javafx.beans.Observable;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
 import pl.wietwioorki.to22019.dao.generator.DataGenerator;
 import pl.wietwioorki.to22019.model.Book;
 
@@ -24,6 +27,20 @@ public class BookDAO {
 
     public List<Book> getAllBooks(){
         return books;
+    }
+
+    public static ObservableList<Book> getBooksObservable(){
+        return new ObservableListBase<Book>() {
+            @Override
+            public Book get(int index) {
+                return books.get(index);
+            }
+
+            @Override
+            public int size() {
+                return books.size();
+            }
+        };
     }
     public static Book findById(Long id) {
         return DataGenerator.generateBook();

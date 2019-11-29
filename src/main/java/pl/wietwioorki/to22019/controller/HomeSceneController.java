@@ -35,6 +35,9 @@ public class HomeSceneController {
     @FXML
     private Button addBookButton;
 
+    @FXML
+    private Button showBookListButton;
+
 /*
 public HomeSceneController(Stage primaryStage, FXMLLoader loader) {
 this.primaryStage = primaryStage;
@@ -75,6 +78,27 @@ this.fxmlLoader = loader;
         rootNode = fxmlLoader.load();
         } catch (IOException e) {
         e.printStackTrace();
+        }
+
+        Scene scene = new Scene(rootNode, 800, 600);
+
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+    @FXML
+    public void handleShowBookList(ActionEvent actionEvent) {
+        System.out.println("Show book list");
+        generateLoader();
+
+        fxmlLoader.setLocation(getClass().getResource("/layouts/BooksList.fxml"));
+        Parent rootNode = null;
+
+        try {
+            rootNode = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         Scene scene = new Scene(rootNode, 800, 600);

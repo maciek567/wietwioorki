@@ -17,13 +17,18 @@
                  <VBox.margin>
                      <Insets bottom="20" left="20" right="20" top="20" />
                  </VBox.margin></Text>
-             <Button text="Add new reader"  id="reader" fx:id="reader" onAction="#handleNewReader"
+             <Button text="Add new reader"  id="reader" fx:id="addReaderButton" onAction="#handleNewReader"
                      prefHeight="50" prefWidth="200">
                   <VBox.margin>
                       <Insets bottom="20" left="20" right="20" top="20" />
                   </VBox.margin></Button>
-             <Button text="Add new book" id="book" fx:id="book"  onAction="#handleNewBook"
+             <Button text="Add new book" id="book" fx:id="addBookButton"  onAction="#handleNewBook"
                      prefHeight="50.0" prefWidth="200">
+                  <VBox.margin>
+                      <Insets bottom="20" left="20" right="20" top="20" />
+                  </VBox.margin></Button>
+              <Button text="Show books list" id="bookList" fx:id="showBookListButton"  onAction="#handleShowBookList"
+                      prefHeight="50.0" prefWidth="200" visible="false">
                   <VBox.margin>
                       <Insets bottom="20" left="20" right="20" top="20" />
                   </VBox.margin></Button>
