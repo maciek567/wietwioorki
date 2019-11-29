@@ -9,20 +9,21 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public interface DataGenerator {
-    static Long generateId() {
-        return 23456789L; // todo
+public class DataGenerator {
+    static Long lastID = 0L;
+    public static Long generateId() {
+        return ++lastID;
     }
 
     static Author generateAuthor() {
-        return new Author(1, "Malgorzata Musierowicz");
+        return new Author(1L, "Malgorzata Musierowicz");
     }
 
-    static Genre generateGenre() {
-        return new Genre(1, "powiesc", "prawie najlepsze ksiazki mojego dziecinstwa");
+    public static Genre generateGenre() {
+        return new Genre(1L, "powiesc", "prawie najlepsze ksiazki mojego dziecinstwa");
     }
 
-    static Book generateBook() {
+    public static Book generateBook() {
         return new Book(1L, "Szosta klepka", generateAuthor(), new Date(), generateGenre());
     }
 
@@ -33,7 +34,7 @@ public interface DataGenerator {
         return writtenBooks;
     }
 
-    static Reader generateReader() {
+    public static Reader generateReader() {
         return new Reader(1234567890, "Monika Dziedzic", new Date());
     }
 }
