@@ -4,19 +4,35 @@ import pl.wietwioorki.to22019.dao.generator.DataGenerator;
 import pl.wietwioorki.to22019.model.Author;
 import pl.wietwioorki.to22019.model.Book;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AuthorDAO {
-    //    public static Author findByName(String name) { // fixme - I think it's not necessary, because we should return id of author object chosen from combobox instead of simply name (better time complexity)
+    private static List<Author> authors = new ArrayList<Author>();
 
-//        int id = 1; //persistencyLayer.find(...)
-//        return DataGenerator.generateAuthor();
-//    }
-    public List<Book> findAllBooks(int id) { //todo
+    public static Author findByName(String name) {
+        for (Author author: authors) {
+            if(author.getFullName().equals(name)){
+                return author;
+            }
+        }
+        return new Author(DataGenerator.generateId(), name);
+   }
+
+   public static void addAuthor(Author author){
+        authors.add(author);
+   }
+
+/*    public List<Book> findAllBooks() { //todo //not now
         return DataGenerator.generateBookList();
     }
-
-    public static Author findById(int id) {
-        return DataGenerator.generateAuthor();
+*/
+    public static Author findById(Long id) {
+        for (Author author: authors) {
+            if(author.getAuthorId()==id){
+                return author;
+            }
+        }
+        return null;
     }
 }

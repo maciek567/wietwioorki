@@ -37,7 +37,7 @@
                     <VBox.margin>
                         <Insets bottom="15" left="20" right="20" top="15" />
                     </VBox.margin></TextField>
-                <Button text="Add" id="addReader" fx:id="addReader" onAction="#handleAddNewReader"
+                <Button text="Add" id="addReader" fx:id="addReaderButton" onAction="#handleAddNewReader"
                         prefHeight="50.0" prefWidth="200">
                     <VBox.margin>
                         <Insets bottom="20" left="20" right="20" top="20" />

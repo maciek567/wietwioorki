@@ -6,7 +6,7 @@ import lombok.*;
 @Getter
 @ToString
 public class Author {
-    private int authorId;
+    private Long authorId;
     private String fullName;
 //    private List<Book> writtenBooks;
 }

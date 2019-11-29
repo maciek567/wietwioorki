@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="624e59f1-dc4d-4b1e-a99f-fd023e150464" name="Default Changelist" comment="Connect add book and add reader window">
+    <list default="true" id="624e59f1-dc4d-4b1e-a99f-fd023e150464" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java" afterDir="false" />
-    </list>
-    <list id="463e9967-a0a7-44e0-be8f-2fdf77bad199" name="Revert: Connect add book and add reader window" comment="I don't have idea what was happend">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddAuthorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReservationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/FindAllBooksController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/FindAllReadersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/GenerateStatisticsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/AuthorDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/GenreDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/AuthorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/AuthorDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/GenreDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/GenreDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Genre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/AddReader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/AddReader.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,26 +60,28 @@
     <session id="-244515388">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="1" />
-          <entry key="java" value="25" />
+          <entry key="fxml" value="5" />
+          <entry key="java" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="25" />
-          <entry key="XML" value="1" />
+          <entry key="JAVA" value="40" />
+          <entry key="XML" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="731" />
-          <entry key="txt" value="100" />
+          <entry key="fxml" value="6" />
+          <entry key="java" value="2070" />
+          <entry key="txt" value="201" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="731" />
-          <entry key="PLAIN_TEXT" value="100" />
+          <entry key="JAVA" value="2070" />
+          <entry key="PLAIN_TEXT" value="201" />
+          <entry key="XML" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -106,41 +104,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+            <state relative-caret-position="459">
+              <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
               <folding>
-                <element signature="e#436#437#0" expanded="true" />
-                <element signature="e#498#499#0" expanded="true" />
+                <element signature="e#383#384#0" expanded="true" />
+                <element signature="e#414#415#0" expanded="true" />
+                <element signature="e#1094#1095#0" expanded="true" />
+                <element signature="e#1170#1171#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="263">
+              <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#271#279#0" expanded="true" />
+                <element signature="e#208#209#0" expanded="true" />
+                <element signature="e#261#262#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-335">
-              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="297">
+              <caret line="63" column="36" lean-forward="true" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -151,59 +148,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Author.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Book.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Genre.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+            <state relative-caret-position="177">
+              <caret line="43" column="19" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -658,9 +604,19 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/layouts/AddReader.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/AuthorDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Author.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Genre.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/GenreDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java" />
       </list>
     </option>
   </component>
@@ -774,7 +730,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575001113239" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575013220727" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../to-javafx-3" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -882,7 +838,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="624e59f1-dc4d-4b1e-a99f-fd023e150464" name="Default Changelist" comment="" />
-      <changelist id="463e9967-a0a7-44e0-be8f-2fdf77bad199" name="Revert: Connect add book and add reader window" comment="I don't have idea what was happend" />
+      <changelist id="" name="Revert: Connect add book and add reader window" comment="I don't have idea what was happend" />
       <created>1574637882252</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -917,7 +873,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574999962119</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Revert changes on some files">
+      <created>1575001250092</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1575001250092</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Remove unused imports">
+      <created>1575001325927</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1575001325927</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -925,8 +895,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49292454" visible="true" weight="0.16912752" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49292454" visible="true" weight="0.16912752" />
       <window_info id="Structure" order="1" sideWeight="0.5070755" side_tool="true" weight="0.1671141" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -935,8 +906,8 @@
       <window_info id="Image Layers" order="6" />
       <window_info id="Repositories" order="7" sideWeight="0.4976415" weight="0.3295302" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32841823" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3297587" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32841823" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3994638" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -946,7 +917,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3297587" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.43163538" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="12" sideWeight="0.49932885" visible="true" weight="0.43163538" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49932885" weight="0.43163538" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.3297587" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -959,6 +930,40 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49292454" weight="0.16912752" />
+      <window_info id="Structure" order="1" sideWeight="0.5070755" side_tool="true" weight="0.1671141" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Image Layers" order="6" />
+      <window_info id="Repositories" order="7" sideWeight="0.4976415" weight="0.3295302" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3297587" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32841823" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3994638" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32841823" />
+      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3297587" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.43163538" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49932885" weight="0.43163538" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3297587" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.3295302" />
+      <window_info anchor="right" id="Gradle" order="7" weight="0.21677852" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1023,7 +1028,9 @@
     <MESSAGE value="Added Lombok to dependencies" />
     <MESSAGE value="Repo cleanup" />
     <MESSAGE value="Connect add book and add reader window" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connect add book and add reader window" />
+    <MESSAGE value="Revert changes on some files" />
+    <MESSAGE value="Remove unused imports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove unused imports" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.2.1.RELEASE/d2a036b0652391aa91828b00e87f9354822a2e70/spring-beans-5.2.1.RELEASE-sources.jar!/org/springframework/beans/factory/BeanFactory.java">
@@ -1045,17 +1052,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/SpringAppDataContainer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReservationDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1073,49 +1069,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReservationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="62" selection-start-line="7" selection-start-column="62" selection-end-line="7" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Author.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-          <folding>
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Genre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1129,17 +1086,119 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/AddReader.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="40" column="58" lean-forward="true" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Book.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Genre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/GenreDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+          <folding>
+            <element signature="e#270#277#0" expanded="true" />
+            <element signature="e#205#206#0" expanded="true" />
+            <element signature="e#257#258#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Author.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+          <folding>
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#1094#1095#0" expanded="true" />
+            <element signature="e#1170#1171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
+        <state relative-caret-position="177">
+          <caret line="43" column="19" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/AuthorDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" selection-start-line="10" selection-end-line="23" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#271#279#0" expanded="true" />
+            <element signature="e#208#209#0" expanded="true" />
+            <element signature="e#261#262#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+        <state relative-caret-position="297">
+          <caret line="63" column="36" lean-forward="true" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

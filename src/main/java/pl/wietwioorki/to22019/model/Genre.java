@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @ToString
 public class Genre {
-    private int id;
+    private Long id;
     private String name;
     private String description;
 }
