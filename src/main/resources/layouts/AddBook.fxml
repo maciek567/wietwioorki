@@ -42,6 +42,11 @@
                 <VBox.margin>
                     <Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></Button>
+            <Button text="Show books list" id="bookList" fx:id="showBookListButton"  onAction="#handleShowBookList"
+                    prefHeight="50.0" prefWidth="200">
+                <VBox.margin>
+                    <Insets bottom="20" left="20" right="20" top="20" />
+                </VBox.margin></Button>
         </children>
     </VBox>
 

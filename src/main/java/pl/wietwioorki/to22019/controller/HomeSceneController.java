@@ -85,6 +85,7 @@ this.fxmlLoader = loader;
         primaryStage.setScene(scene);
         primaryStage.show();
 
+        AddBookController.setPrimaryStage(primaryStage);
     }
 
     @FXML

@@ -2,8 +2,15 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.AuthorDAO;
 import pl.wietwioorki.to22019.dao.BookDAO;
@@ -13,12 +20,22 @@ import pl.wietwioorki.to22019.model.Author;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Genre;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
 public class AddBookController {
+
+    @Setter
+    private static Stage primaryStage;
+
+
+    @Autowired
+    private ConfigurableApplicationContext springContext;
+
+    private FXMLLoader fxmlLoader;
 
     @FXML
     public TextField bookTitle;
@@ -65,4 +82,35 @@ public class AddBookController {
         BookDAO.addBook(book);
         System.out.println("Book add succesfull");
     }
+
+    @FXML
+    public void handleShowBookList(ActionEvent actionEvent) {
+        System.out.println("Show book list");
+        generateLoader();
+
+        fxmlLoader.setLocation(getClass().getResource("/layouts/BooksList.fxml"));
+        Parent rootNode = null;
+
+        try {
+            rootNode = fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Scene scene = new Scene(rootNode, 800, 600);
+
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+    }
+
+    private void generateLoader(){
+        if(fxmlLoader==null){
+            //springContext = SpringApplication.run(App.class);
+            fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(springContext::getBean);
+        }
+    }
+
+
 }
