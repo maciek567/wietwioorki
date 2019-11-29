@@ -10,7 +10,7 @@ import java.util.Date;
 @Getter
 @ToString
 public class Reader {
-    private int pesel;
+    private long pesel;
     private String fullName;
     private Date dateOfBirth;
 }

@@ -5,14 +5,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import pl.wietwioorki.to22019.controller.HomeSceneController;
 
 
 @SpringBootApplication
 public class App extends Application {
 
+    @Autowired
     private ConfigurableApplicationContext springContext;
 
     private FXMLLoader fxmlLoader;
@@ -30,6 +34,8 @@ public class App extends Application {
         Scene scene = new Scene(rootNode, 800, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        HomeSceneController.setPrimaryStage(primaryStage);
     }
 
     @Override
