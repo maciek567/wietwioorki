@@ -17,17 +17,27 @@
                     <VBox.margin>
                         <Insets bottom="20" left="20" right="20" top="20" />
                     </VBox.margin></Text>
-                <TextField text="Name:" id="book_tittle" fx:id="book_tittle"
+                <TextField text="Name:" id="name" fx:id="name"
                            prefHeight="30" prefWidth="200">
                     <VBox.margin>
                         <Insets bottom="15" left="20" right="20" top="15" />
                     </VBox.margin></TextField>
-                <TextField text="Surname:"  id="authors_name" fx:id="authors_name"
+                <TextField text="Surname:"  id="surname" fx:id="surname"
                            prefHeight="30" prefWidth="200">
                     <VBox.margin>
                         <Insets bottom="15" left="20" right="20" top="15" />
                     </VBox.margin></TextField>
-                <Button text="Add" id="add_book" fx:id="add_book" onAction="#handleAddNewReader"
+                <TextField text="Pesel"  id="pesel" fx:id="pesel"
+                           prefHeight="30" prefWidth="200">
+                    <VBox.margin>
+                        <Insets bottom="15" left="20" right="20" top="15" />
+                    </VBox.margin></TextField>
+                <TextField text="Date of birth:"  id="birthDate" fx:id="birthDate"
+                           prefHeight="30" prefWidth="200">
+                    <VBox.margin>
+                        <Insets bottom="15" left="20" right="20" top="15" />
+                    </VBox.margin></TextField>
+                <Button text="Add" id="addReader" fx:id="addReader" onAction="#handleAddNewReader"
                         prefHeight="50.0" prefWidth="200">
                     <VBox.margin>
                         <Insets bottom="20" left="20" right="20" top="20" />
