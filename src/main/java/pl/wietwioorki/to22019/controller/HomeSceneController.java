@@ -9,10 +9,8 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.App;
 
 import java.io.IOException;
 
