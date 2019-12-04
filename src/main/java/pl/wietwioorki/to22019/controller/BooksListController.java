@@ -23,6 +23,12 @@ import java.util.Date;
 @Controller
 public class BooksListController { //todo
 
+    @Setter
+    private static Stage primaryStage;
+
+    @Autowired
+    private ConfigurableApplicationContext springContext;
+
     @FXML
     private TableView<Book> booksTable;
 

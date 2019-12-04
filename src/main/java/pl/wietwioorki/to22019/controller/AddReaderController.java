@@ -4,6 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReaderDAO;
 import pl.wietwioorki.to22019.model.Reader;
@@ -14,6 +18,12 @@ import java.util.Date;
 
 @Controller
 public class AddReaderController {
+
+    @Setter
+    private static Stage primaryStage;
+
+    @Autowired
+    private ConfigurableApplicationContext springContext;
 
     @FXML
     public TextField name;

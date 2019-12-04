@@ -12,42 +12,33 @@
         <opaqueInsets>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
         </opaqueInsets>
-        <children>
-            <Text text="Fill in information about the book:">
-                <VBox.margin>
-                    <Insets bottom="20" left="20" right="20" top="20" />
-                </VBox.margin></Text>
-            <TextField text="Book's tittle:"  id="bookTittle" fx:id="bookTitle"
-                    prefHeight="30" prefWidth="200">
-                <VBox.margin>
-                    <Insets bottom="15" left="20" right="20" top="15" />
-                </VBox.margin></TextField>
-            <TextField text="Author's name:"  id="authorName" fx:id="authorName"
-                       prefHeight="30" prefWidth="200">
-                <VBox.margin>
-                    <Insets bottom="15" left="20" right="20" top="15" />
-                </VBox.margin></TextField>
-            <TextField text="Release date:"  id="publicationDate" fx:id="publicationDate"
-                       prefHeight="30" prefWidth="200">
-                <VBox.margin>
-                    <Insets bottom="15" left="20" right="20" top="20" />
-                </VBox.margin></TextField>
-            <TextField text="Genre:"  id="genre" fx:id="genre"
-                       prefHeight="30" prefWidth="200">
-                <VBox.margin>
-                    <Insets bottom="20" left="20" right="20" top="20" />
-                </VBox.margin></TextField>
-            <Button text="Add" id="add_book" fx:id="addBookButton" onAction="#handleAddNewBook"
-                    prefHeight="50.0" prefWidth="200">
-                <VBox.margin>
-                    <Insets bottom="20" left="20" right="20" top="20" />
-                </VBox.margin></Button>
-            <Button text="Show books list" id="bookList" fx:id="showBookListButton"  onAction="#handleShowBookList"
-                    prefHeight="50.0" prefWidth="200">
-                <VBox.margin>
-                    <Insets bottom="20" left="20" right="20" top="20" />
-                </VBox.margin></Button>
-        </children>
+        <Text text="Fill in information about the book:">
+            <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
+            </VBox.margin></Text>
+        <TextField promptText="Book's tittle:"  id="bookTittle" fx:id="bookTitle"
+                prefHeight="30" prefWidth="200">
+            <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
+            </VBox.margin></TextField>
+        <TextField promptText="Author's name:"  id="authorName" fx:id="authorName"
+                   prefHeight="30" prefWidth="200">
+            <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
+            </VBox.margin></TextField>
+        <TextField promptText="Publication date:"  id="publicationDate" fx:id="publicationDate"
+                   prefHeight="30" prefWidth="200">
+            <VBox.margin><Insets bottom="15" left="20" right="20" top="20" />
+            </VBox.margin></TextField>
+        <TextField promptText="Genre:"  id="genre" fx:id="genre"
+                   prefHeight="30" prefWidth="200">
+            <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
+            </VBox.margin></TextField>
+        <Button text="Add" id="add_book" fx:id="addBookButton" onAction="#handleAddNewBook"
+                prefHeight="50.0" prefWidth="200">
+            <VBox.margin> <Insets bottom="20" left="20" right="20" top="20" />
+            </VBox.margin></Button>
+        <Button text="Show books list" id="bookList" fx:id="showBookListButton"  onAction="#handleShowBookList"
+                prefHeight="50.0" prefWidth="200">
+            <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
+            </VBox.margin></Button>
     </VBox>
 
 </center>

@@ -15,14 +15,10 @@ import org.springframework.stereotype.Controller;
 import java.io.IOException;
 
 @Controller
-//@Component
 public class HomeSceneController {
 
-
-  //  @Autowired @Qualifier("primaryStage")
-    @Setter
+    @Setter  // @Autowired @Qualifier("primaryStage")
     private static Stage primaryStage;
-
 
     @Autowired
     private ConfigurableApplicationContext springContext;
@@ -38,62 +34,36 @@ public class HomeSceneController {
     @FXML
     private Button showBookListButton;
 
-/*
-public HomeSceneController(Stage primaryStage, FXMLLoader loader) {
-this.primaryStage = primaryStage;
-this.fxmlLoader = loader;
-}
-*/
 
     @FXML
     public void handleNewReader(ActionEvent actionEvent) {
         System.out.println("New reader view");
-        generateLoader();
-
-        fxmlLoader.setLocation(getClass().getResource("/layouts/AddReader.fxml"));
-        Parent rootNode = null;
-
-        try {
-            rootNode = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Scene scene = new Scene(rootNode, 800, 600);
-
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
+        loadScene("/layouts/AddReader.fxml");
+        AddReaderController.setPrimaryStage(primaryStage);
     }
 
     @FXML
     public void handleNewBook(ActionEvent actionEvent) {
         System.out.println("New book view");
-        generateLoader();
-
-        fxmlLoader.setLocation(getClass().getResource("/layouts/AddBook.fxml"));
-        Parent rootNode = null;
-
-        try {
-        rootNode = fxmlLoader.load();
-        } catch (IOException e) {
-        e.printStackTrace();
-        }
-
-        Scene scene = new Scene(rootNode, 800, 600);
-
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
+        loadScene("/layouts/AddBook.fxml");
         AddBookController.setPrimaryStage(primaryStage);
     }
 
     @FXML
     public void handleShowBookList(ActionEvent actionEvent) {
         System.out.println("Show book list");
-        generateLoader();
+        loadScene("/layouts/BooksList.fxml");
+        BooksListController.setPrimaryStage(primaryStage);
+    }
 
-        fxmlLoader.setLocation(getClass().getResource("/layouts/BooksList.fxml"));
+    private void loadScene(String layoutPath){
+        if(fxmlLoader==null){
+            //springContext = SpringApplication.run(App.class);
+            fxmlLoader = new FXMLLoader();
+            fxmlLoader.setControllerFactory(springContext::getBean);
+        }
+
+        fxmlLoader.setLocation(getClass().getResource(layoutPath));
         Parent rootNode = null;
 
         try {
@@ -106,15 +76,6 @@ this.fxmlLoader = loader;
 
         primaryStage.setScene(scene);
         primaryStage.show();
-
-    }
-
-    private void generateLoader(){
-        if(fxmlLoader==null){
-            //springContext = SpringApplication.run(App.class);
-            fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(springContext::getBean);
-        }
     }
 
 }

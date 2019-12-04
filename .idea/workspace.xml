@@ -2,35 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="624e59f1-dc4d-4b1e-a99f-fd023e150464" name="Default Changelist" comment="Repo cleanup">
-      <change afterPath="$PROJECT_DIR$/documentation/classDiagram.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileContent/fileContent.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/taskHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/RegisterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/layouts/Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/layouts/Register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pt-1115-wietwioorki.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pt-1115-wietwioorki.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddBookController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddReaderController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/HomeSceneController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/BookDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReaderDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReservationDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Book.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/AddBook.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/AddReader.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddBookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddBookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddReaderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddReaderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/HomeSceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/HomeSceneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/BookDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/BookDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReaderDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReaderDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reader.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/AddBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/AddBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/AddReader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/AddReader.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BooksListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BooksListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/AddReader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/AddReader.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/.gradle/" />
-    <ignored path="$PROJECT_DIR$/build/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,99 +81,11 @@
       </state>
     </system>
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="-386312871">
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="fxml" value="1" />
-          <entry key="gradle" value="1" />
-          <entry key="gradlew" value="2" />
-          <entry key="java" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="3" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="XML" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-              <folding>
-                <element signature="e#1201#1202#0" expanded="true" />
-                <element signature="e#1237#1238#0" expanded="true" />
-                <element signature="e#1283#1284#0" expanded="true" />
-                <element signature="e#1311#1312#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="88" selection-start-line="19" selection-start-column="88" selection-end-line="19" selection-end-column="88" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-561">
-              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
-              <folding>
-                <element signature="e#459#460#0" expanded="true" />
-                <element signature="e#522#523#0" expanded="true" />
-                <element signature="e#1123#1124#0" expanded="true" />
-                <element signature="e#1199#1200#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -184,479 +98,8 @@
       </map>
     </option>
   </component>
-  <component name="GradleLocalSettings">
-    <option name="myGradleHomes">
-      <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\Hubert\.gradle\wrapper\dists\gradle-5.5-bin\6vk9q53mqlx7v10usp64xqfpd\gradle-5.5" />
-      </map>
-    </option>
-    <option name="myGradleVersions">
-      <map>
-        <entry key="$PROJECT_DIR$" value="5.5" />
-      </map>
-    </option>
-    <option name="availableProjects">
-      <map>
-        <entry>
-          <key>
-            <ExternalProjectPojo>
-              <option name="name" value="librarySystem" />
-              <option name="path" value="$PROJECT_DIR$" />
-            </ExternalProjectPojo>
-          </key>
-          <value>
-            <list>
-              <ExternalProjectPojo>
-                <option name="name" value="librarySystem" />
-                <option name="path" value="$PROJECT_DIR$" />
-              </ExternalProjectPojo>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="availableTasks">
-      <map>
-        <entry key="$PROJECT_DIR$">
-          <value>
-            <list>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the sub-projects of root project 'librarySystem'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="projects" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Installs the project as a distribution as-is." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="installBootDist" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles the boot distributions" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="assembleBootDist" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs this project as a JVM application" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="run" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates Gradle wrapper files." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="wrapper" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Creates OS specific scripts to run the project as a JVM application." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="startScripts" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles an executable jar archive containing the main classes and their dependencies." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="bootJar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles a jar archive containing the main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="jar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the configuration model of root project 'librarySystem'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="model" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Processes main resources." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="processResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the tasks runnable from root project 'librarySystem'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="tasks" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles the main distributions" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="assembleDist" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Initializes a new Gradle build." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="init" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs the unit tests." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="test" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the dependency management declared in root project 'librarySystem'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependencyManagement" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Compiles main Java source." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="compileJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs all checks." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="check" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all dependencies declared in root project 'librarySystem'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependencies" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Processes test resources." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="processTestResources" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Bundles the project as a distribution." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="bootDistZip" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Bundles the project as a distribution." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="bootDistTar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects it depends on." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildNeeded" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Bundles the project as a distribution." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="distTar" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Bundles the project as a distribution." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="distZip" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the components produced by root project 'librarySystem'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="components" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project and all projects that depend on it." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildDependents" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates OS-specific start scripts to run the project as a Spring Boot application." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="bootStartScripts" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles main classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="classes" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the dependent components of components in root project 'librarySystem'. [incubating]" />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependentComponents" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays all buildscript dependencies declared in root project 'librarySystem'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="buildEnvironment" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles test classes." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="testClasses" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Generates Javadoc API documentation for the main source code." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="javadoc" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="configJavafxRun" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Installs the project as a distribution as-is." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="installDist" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Runs this project as a Spring Boot application." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="bootRun" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the insight into a specific dependency in root project 'librarySystem'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="dependencyInsight" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles the outputs of this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="assemble" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Deletes the build directory." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="clean" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Compiles test Java source." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="compileTestJava" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="prepareKotlinBuildScriptModel" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays a help message." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="help" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Assembles and tests this project." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="build" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="description" value="Displays the properties of root project 'librarySystem'." />
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
-                <option name="name" value="properties" />
-              </ExternalTaskPojo>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="modificationStamps">
-      <map>
-        <entry key="$PROJECT_DIR$" value="6299338925133" />
-        <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="873896872" />
-        <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="1119666297" />
-        <entry key="$PROJECT_DIR$/settings.gradle" value="3126493218" />
-      </map>
-    </option>
-    <option name="projectBuildClasspath">
-      <map>
-        <entry key="$PROJECT_DIR$">
-          <value>
-            <ExternalProjectBuildClasspathPojo>
-              <option name="modulesBuildClasspath">
-                <map>
-                  <entry key="$PROJECT_DIR$">
-                    <value>
-                      <ExternalModuleBuildClasspathPojo>
-                        <option name="entries">
-                          <list>
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/2.2.1.RELEASE/f02c308d312976fe0cb3d332d24bcfe5f1169683/spring-boot-gradle-plugin-2.2.1.RELEASE-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-plugin/0.0.8/8045f2d17c412d25c024f6861bdb764a96d1618b/javafx-plugin-0.0.8-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/2.2.1.RELEASE/95f8908bc8e6b77bdb64f8942dc7aa36dc6f7d31/spring-boot-loader-tools-2.2.1.RELEASE-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.spring.gradle/dependency-management-plugin/1.0.8.RELEASE/69223d2094838ca19d82d137ade2a496c2a39c38/dependency-management-plugin-1.0.8.RELEASE-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.gradle/osdetector-gradle-plugin/1.6.1/6b9977e736780666ae7740d9fd75a3a4b9429c3b/osdetector-gradle-plugin-1.6.1-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.javamodularity/moduleplugin/1.5.0/3360155ee298a3bebc436286229978cbc15bba1/moduleplugin-1.5.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.2.1.RELEASE/55e7202309d932c4d47ccec00500f98425406309/spring-core-5.2.1.RELEASE-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.19/9c242093f81288289bc433e383c8a8de89489406/commons-compress-1.19-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/kr.motd.maven/os-maven-plugin/1.6.0/3b935479d271d0ae7588256a7b3a1cbec3e95868/os-maven-plugin-1.6.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.javaparser/javaparser-symbol-solver-core/3.13.5/682e59f10025fc46fc5d536ba7aae333164ccb72/javaparser-symbol-solver-core-3.13.5-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jcl/5.2.1.RELEASE/19db06922c966feb4948282f51d7b5e960e0d013/spring-jcl-5.2.1.RELEASE-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.2/b19b5927c2c25b6c70f093767041e641ae0b1b35/jsr305-3.0.2-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.javaparser/javaparser-symbol-solver-logic/3.13.5/7a1117adc1da0f5bc6952fbe1ec045fa00e6a39/javaparser-symbol-solver-logic-3.13.5-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.24.0-GA/88e88c8e043968bac9b2e86df5cb4a7c2b9f0023/javassist-3.24.0-GA-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.javaparser/javaparser-symbol-solver-model/3.13.5/aae72dd261d2390a6e9fc6ac2baea896d3e4d89d/javaparser-symbol-solver-model-3.13.5-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.javaparser/javaparser-core/3.13.5/9c00a3d11d125570f97c736696826d75a7f0dc80/javaparser-core-3.13.5-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/27.0-jre/d6484e2ee11ad928ccf61cf3e4ce9cedc2eead7e/guava-27.0-jre-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0/1e90402881010c96ea5e4b7e6f56acb283e78db3/failureaccess-1.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-qual/2.5.2/ebb8ebccd42218434674f3e1d9022c13df1c19f8/checker-qual-2.5.2-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.2.0/a8cd7823aa1dcd2fd6677c0c5988fdde9d1fb0a3/error_prone_annotations-2.2.0-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.j2objc/j2objc-annotations/1.1/1efdf5b737b02f9b72ebdec4f72c37ec411302ff/j2objc-annotations-1.1-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.mojo/animal-sniffer-annotations/1.17/8fb5b5ad9c9723951b9fccaba5bb657fa6064868/animal-sniffer-annotations-1.17-sources.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-gradle-plugin/2.2.1.RELEASE/91e4484d5b0c58d3c450392c360c8ef5ea910d39/spring-boot-gradle-plugin-2.2.1.RELEASE.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-plugin/0.0.8/1cc8b1427117bc166cfeb426969b72425f955af5/javafx-plugin-0.0.8.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-loader-tools/2.2.1.RELEASE/25b142471a4dbe38a2aad912c77d9b3f1b45b18f/spring-boot-loader-tools-2.2.1.RELEASE.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.spring.gradle/dependency-management-plugin/1.0.8.RELEASE/dac7b4bf302cee376312d741ef73098482bf1d8e/dependency-management-plugin-1.0.8.RELEASE.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.gradle/osdetector-gradle-plugin/1.6.1/4d1d2ecdd8886a90ae4fd627fe7f8de2ce17ec89/osdetector-gradle-plugin-1.6.1.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.javamodularity/moduleplugin/1.5.0/872645fbbb73b6de4336d5b5eaf886fa333af86/moduleplugin-1.5.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.2.1.RELEASE/32b265ff5c7c35257b5a242b9628dcd321a2b010/spring-core-5.2.1.RELEASE.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.19/7e65777fb451ddab6a9c054beb879e521b7eab78/commons-compress-1.19.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/kr.motd.maven/os-maven-plugin/1.6.0/ebab521e0e724ce07c55fd19a13b391d93661502/os-maven-plugin-1.6.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.javaparser/javaparser-symbol-solver-core/3.13.5/4be1b5ea30c8fabe0627d3408480525af874768d/javaparser-symbol-solver-core-3.13.5.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-jcl/5.2.1.RELEASE/a9f6e0b98cd3980b25ab6ead1e59ced0d294d67/spring-jcl-5.2.1.RELEASE.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.2/25ea2e8b0c338a877313bd4672d3fe056ea78f0d/jsr305-3.0.2.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.javaparser/javaparser-symbol-solver-logic/3.13.5/4f54a4614b77d914503cf9e6aaa627e749b96aaf/javaparser-symbol-solver-logic-3.13.5.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.javassist/javassist/3.24.0-GA/d7466fc2e3af7c023e95c510f06448ad29b225b3/javassist-3.24.0-GA.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.javaparser/javaparser-symbol-solver-model/3.13.5/f2b487be6c199da08698c624c85515ab8515abcb/javaparser-symbol-solver-model-3.13.5.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.javaparser/javaparser-core/3.13.5/e5f0a020b359e30c03235441988dc0467d4e72ee/javaparser-core-3.13.5.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/27.0-jre/c6ad87d2575af8ac8ec38e28e75aefa882cc3a1f/guava-27.0-jre.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0/50bacb0bdbbeeda25142aff57e2214c402e1193c/failureaccess-1.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-qual/2.5.2/cea74543d5904a30861a61b4643a5f2bb372efc4/checker-qual-2.5.2.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.2.0/88e3c593e9b3586e1c6177f89267da6fc6986f0c/error_prone_annotations-2.2.0.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.j2objc/j2objc-annotations/1.1/ed28ded51a8b1c6b112568def5f4b455e6809019/j2objc-annotations-1.1.jar" />
-                            <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.mojo/animal-sniffer-annotations/1.17/f97ce6decaea32b36101e37979f8b647f00681fb/animal-sniffer-annotations-1.17.jar" />
-                          </list>
-                        </option>
-                        <option name="path" value="$PROJECT_DIR$" />
-                      </ExternalModuleBuildClasspathPojo>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-              <option name="name" value="librarySystem" />
-              <option name="projectBuildClasspath">
-                <list>
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/ant-1.9.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/ant-launcher-1.9.14.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-api-metadata-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-base-services-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-base-services-groovy-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-build-cache-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-build-cache-packaging-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-build-option-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-cli-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-core-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-core-api-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-docs-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-execution-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-files-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-installation-beacon-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-instant-execution-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-jvm-services-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-kotlin-dsl-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-kotlin-dsl-tooling-models-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-launcher-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-logging-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-messaging-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-model-core-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-model-groovy-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-persistent-cache-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-process-services-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-resources-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-runtime-api-info-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-snapshots-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-tooling-api-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/gradle-wrapper-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-announce-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-antlr-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-build-cache-http-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-build-comparison-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-build-init-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-build-profile-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-code-quality-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-composite-builds-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-dependency-management-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-diagnostics-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-ear-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-ide-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-ide-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-ide-play-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-ivy-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-jacoco-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-javascript-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-kotlin-dsl-provider-plugins-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-kotlin-dsl-tooling-builders-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-language-groovy-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-language-java-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-language-jvm-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-language-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-language-scala-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-maven-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-osgi-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-platform-base-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-platform-jvm-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-platform-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-platform-play-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-plugin-development-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-plugin-use-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-plugins-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-publish-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-reporting-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-resources-gcs-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-resources-http-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-resources-s3-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-resources-sftp-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-scala-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-signing-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-test-kit-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-testing-base-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-testing-junit-platform-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-testing-jvm-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-testing-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-tooling-api-builders-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-tooling-native-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-version-control-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/gradle-workers-5.5.jar" />
-                  <option value="$USER_HOME$/.gradle/wrapper/dists/gradle-5.5-bin/6vk9q53mqlx7v10usp64xqfpd/gradle-5.5/lib/plugins/ivy-2.3.0.jar" />
-                </list>
-              </option>
-            </ExternalProjectBuildClasspathPojo>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="projectSyncType">
-      <map>
-        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
-      </map>
-    </option>
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1098" />
-  </component>
   <component name="ProjectId" id="1U9HUk5RpWFvMKOefM2YGm2s9bu" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="librarySystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librarySystem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="librarySystem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="librarySystem" type="462c0819:PsiDirectoryNode" />
-              <item name="documentation" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -667,149 +110,23 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575045632999" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../to-javafx-3" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="pl.wietwioorki.to22019.model" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/README</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/AuthorDAO.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/GenreDAO.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReservationDAO.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Author.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Book.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Genre.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reader.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/layouts/AddBook.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/layouts/AddReader.fxml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BooksListController.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/resources/layouts/BooksList.fxml</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/FindAllBooksController.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -823,7 +140,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.librarySystem [clean]">
+  <component name="RunManager" selected="Gradle.librarySystem [run]">
     <configuration name="librarySystem [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -840,6 +157,7 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <configuration name="librarySystem [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -858,6 +176,7 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <configuration name="pt-1115-wietwioorki [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -876,6 +195,7 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <configuration name="App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -892,10 +212,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.App" />
       <item itemvalue="Gradle.librarySystem [clean]" />
       <item itemvalue="Gradle.pt-1115-wietwioorki [bootRun]" />
       <item itemvalue="Gradle.librarySystem [run]" />
+      <item itemvalue="Spring Boot.App" />
     </list>
     <recent_temporary>
       <list>
@@ -919,6 +239,8 @@
       <updated>1574637882252</updated>
       <workItem from="1574637885806" duration="1682000" />
       <workItem from="1575044983473" duration="612000" />
+      <workItem from="1575476045088" duration="237000" />
+      <workItem from="1575476295443" duration="4179000" />
     </task>
     <task id="LOCAL-00001" summary="Added model">
       <created>1574806722513</created>
@@ -944,46 +266,6 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2909000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49292454" visible="true" weight="0.21108742" />
-      <window_info id="Structure" order="1" sideWeight="0.5070755" side_tool="true" weight="0.1671141" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Image Layers" order="6" />
-      <window_info id="Repositories" order="7" sideWeight="0.4976415" weight="0.3295302" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3297587" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.159436" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3994638" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32907802" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.3275488" />
-      <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3297587" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.43163538" />
-      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.49932885" weight="0.43163538" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.3297587" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" weight="0.3295302" />
-      <window_info anchor="right" id="Gradle" order="7" visible="true" weight="0.22974414" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Theme Preview" order="9" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -993,12 +275,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -1006,116 +282,11 @@
       </map>
     </option>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added model" />
     <MESSAGE value="Added Lombok to dependencies" />
     <MESSAGE value="Repo cleanup" />
     <option name="LAST_COMMIT_MESSAGE" value="Repo cleanup" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#713#714#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Genre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#669#670#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="88" selection-start-line="19" selection-start-column="88" selection-end-line="19" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="e#1201#1202#0" expanded="true" />
-            <element signature="e#1237#1238#0" expanded="true" />
-            <element signature="e#1283#1284#0" expanded="true" />
-            <element signature="e#1311#1312#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="39" column="16" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-561">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradlew">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#459#460#0" expanded="true" />
-            <element signature="e#522#523#0" expanded="true" />
-            <element signature="e#1123#1124#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>

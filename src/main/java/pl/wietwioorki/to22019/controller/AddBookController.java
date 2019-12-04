@@ -31,7 +31,6 @@ public class AddBookController {
     @Setter
     private static Stage primaryStage;
 
-
     @Autowired
     private ConfigurableApplicationContext springContext;
 
