@@ -9,6 +9,12 @@ import org.springframework.stereotype.Controller;
 public class HomeSceneController extends AbstractWindowControler{
 
     @FXML
+    public Button enterLogin;
+
+    @FXML
+    public Button enterRegistration;
+
+    @FXML
     private Button addReaderButton;
 
     @FXML
@@ -33,5 +39,17 @@ public class HomeSceneController extends AbstractWindowControler{
     public void handleShowBookList(ActionEvent actionEvent) {
         System.out.println("Show book list");
         openNewWindow("/layouts/BooksList.fxml");
+    }
+
+    @FXML
+    public void handleEnterLogin(ActionEvent actionEvent) {
+        System.out.println("login view");
+        openNewWindow("/layouts/Login.fxml");
+    }
+
+    @FXML
+    public void handleEnterRegistration(ActionEvent actionEvent) {
+        System.out.println("Registration view");
+        openNewWindow("/layouts/Register.fxml");
     }
 }

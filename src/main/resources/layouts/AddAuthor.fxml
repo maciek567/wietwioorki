@@ -6,12 +6,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="pl.wietwioorki.to22019.controller.AddReaderController">
+            fx:controller="pl.wietwioorki.to22019.controller.AddAuthorController">
     <center>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <opaqueInsets><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </opaqueInsets>
-            <Text text="Fill in information about the reader:">
+            <Text text="Fill in information about the author of the books:">
                 <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></Text>
             <TextField promptText="Name:" id="name" fx:id="name"
@@ -22,15 +22,11 @@
                        prefHeight="30" prefWidth="200">
                 <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
-            <TextField promptText="Pesel:"  id="pesel" fx:id="pesel"
+            <TextField promptText="Date of birth:"  id="authorBirthDate" fx:id="authorBirthDate"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
-            <TextField promptText="Date of birth:"  id="birthDate" fx:id="birthDate"
-                       prefHeight="30" prefWidth="200">
-                <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
-                </VBox.margin></TextField>
-            <Button text="Add" id="addReader" fx:id="addReaderButton" onAction="#handleAddNewReader"
+            <Button text="Add" id="addReader" fx:id="addAuthorButton" onAction="#handleAddNewAuthor"
                     prefHeight="50.0" prefWidth="200">
                 <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></Button>
