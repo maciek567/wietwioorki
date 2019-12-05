@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="624e59f1-dc4d-4b1e-a99f-fd023e150464" name="Default Changelist" comment="Add abstract class which open new windows">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/layouts/AddAuthor.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/layouts/AddReservation.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddBookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddBookController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/HomeSceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/HomeSceneController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/AddBook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/AddBook.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/AddReader.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/AddReader.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddAuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddAuthorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReservationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/RegisterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/BooksList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/BooksList.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -249,7 +246,7 @@
       <workItem from="1575044983473" duration="612000" />
       <workItem from="1575476045088" duration="237000" />
       <workItem from="1575476295443" duration="4179000" />
-      <workItem from="1575569716970" duration="4267000" />
+      <workItem from="1575569716970" duration="6112000" />
     </task>
     <task id="LOCAL-00001" summary="Added model">
       <created>1574806722513</created>

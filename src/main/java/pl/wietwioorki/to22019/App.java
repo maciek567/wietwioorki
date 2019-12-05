@@ -24,6 +24,8 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         primaryStage.setTitle("Library system");
+        primaryStage.setMinWidth(720);
+        primaryStage.setMinHeight(580);
 
         fxmlLoader.setLocation(getClass().getResource("/layouts/HomeScene.fxml"));
 
