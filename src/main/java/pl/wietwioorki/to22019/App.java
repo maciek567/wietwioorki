@@ -26,15 +26,12 @@ public class App extends Application {
         primaryStage.setTitle("Library system");
 
         fxmlLoader.setLocation(getClass().getResource("/layouts/HomeScene.fxml"));
-        Parent rootNode = null;
 
-        rootNode = fxmlLoader.load();
+        Parent rootNode = fxmlLoader.load();
 
-        Scene scene = new Scene(rootNode, 800, 600);
+        Scene scene = new Scene(rootNode);
         primaryStage.setScene(scene);
         primaryStage.show();
-
-        HomeSceneController.setPrimaryStage(primaryStage);
     }
 
     @Override

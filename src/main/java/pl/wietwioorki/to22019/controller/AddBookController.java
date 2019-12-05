@@ -26,15 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
-public class AddBookController {
-
-    @Setter
-    private static Stage primaryStage;
-
-    @Autowired
-    private ConfigurableApplicationContext springContext;
-
-    private FXMLLoader fxmlLoader;
+public class AddBookController extends AbstractWindowControler{
 
     @FXML
     public TextField bookTitle;
@@ -59,7 +51,7 @@ public class AddBookController {
             System.out.println("We dont know this author.");
             return;
         }
-        Date date = null;
+        Date date;
         try {
              date = new SimpleDateFormat("dd/MM/yyyy").parse(publicationDate.getText());
         } catch (ParseException e) {
@@ -84,32 +76,6 @@ public class AddBookController {
 
     @FXML
     public void handleShowBookList(ActionEvent actionEvent) {
-        System.out.println("Show book list");
-        generateLoader();
-
-        fxmlLoader.setLocation(getClass().getResource("/layouts/BooksList.fxml"));
-        Parent rootNode = null;
-
-        try {
-            rootNode = fxmlLoader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Scene scene = new Scene(rootNode, 800, 600);
-
-        primaryStage.setScene(scene);
-        primaryStage.show();
-
+        openNewWindow("/layouts/BooksList.fxml");
     }
-
-    private void generateLoader(){
-        if(fxmlLoader==null){
-            //springContext = SpringApplication.run(App.class);
-            fxmlLoader = new FXMLLoader();
-            fxmlLoader.setControllerFactory(springContext::getBean);
-        }
-    }
-
-
 }
