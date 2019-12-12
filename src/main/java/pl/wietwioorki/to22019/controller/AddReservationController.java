@@ -50,6 +50,7 @@ public class AddReservationController {
         Date borrowingDate;
         Date returnDate;
         try {
+          // todo - current date and some rule for determine return date
             borrowingDate = new SimpleDateFormat("dd/MM/yyyy").parse("26/12/2019");
             returnDate = new SimpleDateFormat("dd/MM/yyyy").parse("26/12/2019");
         } catch (ParseException e) {
@@ -60,6 +61,7 @@ public class AddReservationController {
             System.out.println("Bad date");
             return;
         }
+        // todo - id generation
         Reservation reservation = new Reservation(1L, reader, book, borrowingDate, returnDate);
 
         ReservationDAO.addReservation(reservation);
