@@ -10,6 +10,11 @@ import java.util.List;
 public class ReservationDAO {
     private static List<Reservation> reservations = new ArrayList<>();
 
+    public static void addReservation(Reservation reservation){
+        reservations.add(reservation);
+        System.out.println(reservation);
+    }
+
     public static ObservableList<Reservation> getBooksObservable(){
         return new ObservableListBase<Reservation>() {
             @Override

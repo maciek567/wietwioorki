@@ -1,6 +1,5 @@
 package pl.wietwioorki.to22019.dao;
 
-import pl.wietwioorki.to22019.dao.generator.DataGenerator;
 import pl.wietwioorki.to22019.model.Reader;
 
 import java.util.ArrayList;
@@ -22,11 +21,11 @@ public class ReaderDAO {
         readers.add(reader);
     }
 
-    public List<Reader> getAllReaders(){
-        return readers;
+    public static Reader findByName(String text) {
+        for(Reader reader : readers) {
+            if(reader.equals(text)) return reader;
+        }
+        return null;
     }
 
-    public static Reader findById(int id) {
-        return DataGenerator.generateReader();
-    }
 }
