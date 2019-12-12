@@ -14,9 +14,13 @@
             <opaqueInsets>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </opaqueInsets>
-            <Text text="Give book's tittle:">
+            <Text text="Reservation's details:">
                 <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></Text>
+            <TextField promptText="name:" id="name" fx:id="name"
+                       prefHeight="30" prefWidth="200">
+                <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
+                </VBox.margin></TextField>
             <TextField promptText="Book tittle:" id="reservationBookTittle" fx:id="reservationBookTittle"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />

@@ -36,9 +36,24 @@
           <Button id="author" fx:id="addAuthorButton" onAction="#handleNewAuthor" prefHeight="50" prefWidth="200" text="Add new author">
               <VBox.margin><Insets bottom="10" left="20" right="10" top="20" />
               </VBox.margin></Button>
-          <Button id="author" fx:id="addReservationButton" onAction="#handleNewReservation" prefHeight="50" prefWidth="200" text="Add new reservation">
-              <VBox.margin><Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
-              </VBox.margin></Button>
+
+          <HBox alignment="CENTER">
+              <Button id="author" fx:id="addReservationButton" onAction="#handleNewReservation" prefHeight="50" prefWidth="200" text="Add new reservation">
+                  <VBox.margin><Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                  </VBox.margin></Button>
+              <Button id="reservationList" fx:id="showReservationListButton" onAction="#handleShowReservationList" prefHeight="50.0"
+                      prefWidth="200" text="Show reservations list">
+                  <VBox.margin> <Insets bottom="10" left="20" right="10" top="20" />
+                  </VBox.margin>
+                  <HBox.margin>
+                      <Insets left="20.0" />
+                  </HBox.margin></Button>
+              <VBox.margin>
+                  <Insets />
+              </VBox.margin>
+          </HBox>
+
+
       </VBox>
    </center>
 
@@ -51,8 +66,11 @@
                <VBox.margin><Insets bottom="7" left="0" right="30" top="40" />
                </VBox.margin></Button>
            <Button id="enterRegistration" fx:id="enterRegistration" onAction="#handleEnterRegistration" prefHeight="30.0" prefWidth="100" text="Register">
-               <VBox.margin><Insets bottom="10" left="0" right="30" top="7" />
+               <VBox.margin><Insets bottom="5" left="0" right="30" top="7" />
                </VBox.margin></Button>
+           <Text text="Logged as: guest ">
+               <VBox.margin><Insets bottom="20" left="0" right="20" top="5" />
+               </VBox.margin></Text>
        </VBox>
    </right>
 

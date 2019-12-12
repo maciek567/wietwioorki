@@ -35,6 +35,6 @@ public class DataGenerator {
     }
 
     public static Reader generateReader() {
-        return new Reader(1234567890, "Monika Dziedzic", new Date());
+        return new Reader(1234567890L, "Monika Dziedzic", new Date());
     }
 }

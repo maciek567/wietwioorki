@@ -21,6 +21,9 @@ public class HomeSceneController extends AbstractWindowControler{
     public Button addReservationButton;
 
     @FXML
+    public Button showReservationListButton;
+
+    @FXML
     private Button addReaderButton;
 
     @FXML
@@ -69,5 +72,10 @@ public class HomeSceneController extends AbstractWindowControler{
     public void handleNewReservation(ActionEvent actionEvent) {
         System.out.println("New reservation view");
         openNewWindow("/layouts/AddReservation.fxml");
+    }
+
+    public void handleShowReservationList(ActionEvent actionEvent) {
+        System.out.println("Show reservation list");
+        openNewWindow("/layouts/ReservationList.fxml");
     }
 }
