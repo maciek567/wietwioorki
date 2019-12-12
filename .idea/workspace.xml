@@ -2,17 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="624e59f1-dc4d-4b1e-a99f-fd023e150464" name="Default Changelist" comment="Add abstract class which open new windows">
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BookBorrowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BookReturnController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/layouts/BookBorrow.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/layouts/BookReturn.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/BookDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/BookDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReaderDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReservationDAO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReservationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/HomeSceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/HomeSceneController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReservationDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReservationDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BooksListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BooksListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/HomeSceneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/ReservationListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/ReservationListController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReservationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReservationDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/AddReservation.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/AddReservation.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/HomeScene.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +66,29 @@
                 <item name="librarySystem" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="distribution" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -110,14 +142,14 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="Lombok plugin" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="pl.wietwioorki.to22019.model" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Maciek\Desktop\TO\projekt\pt-1115-wietwioorki\src\main\resources\layouts" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="pl.wietwioorki.to22019.model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -250,7 +282,7 @@
       <workItem from="1575569716970" duration="6112000" />
       <workItem from="1576168701783" duration="1788000" />
       <workItem from="1576170518176" duration="487000" />
-      <workItem from="1576171018121" duration="3822000" />
+      <workItem from="1576171018121" duration="10376000" />
     </task>
     <task id="LOCAL-00001" summary="Added model">
       <created>1574806722513</created>
@@ -298,93 +330,5 @@
     <MESSAGE value="Repo cleanup" />
     <MESSAGE value="Add abstract class which open new windows" />
     <option name="LAST_COMMIT_MESSAGE" value="Add abstract class which open new windows" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Spring</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Elixir 1.8.2</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>librarySystem</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Gradle: ch.qos.logback:logback-classic:1.2.3</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

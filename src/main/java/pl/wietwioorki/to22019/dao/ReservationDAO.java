@@ -15,7 +15,7 @@ public class ReservationDAO {
         System.out.println(reservation);
     }
 
-    public static ObservableList<Reservation> getBooksObservable(){
+    public static ObservableList<Reservation> getReservationsObservable(){
         return new ObservableListBase<Reservation>() {
             @Override
             public Reservation get(int index) {

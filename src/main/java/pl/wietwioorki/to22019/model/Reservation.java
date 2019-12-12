@@ -14,8 +14,8 @@ public class Reservation {
     private Long reservationId;
     private Reader reader;
     private Book book;
-    private Date borrowingDate;
-    private Date returnDate;
+    private Date reservationStartDate;
+    private Date reservationEndDate;
 
 
     public ObjectProperty<Long> getReservationIdProperty(){
@@ -29,9 +29,9 @@ public class Reservation {
         return new SimpleStringProperty(book.getTitle());
     }
     public ObjectProperty<Date> getBorrowingDateProperty(){
-        return new SimpleObjectProperty<Date>(borrowingDate);
+        return new SimpleObjectProperty<>(reservationStartDate);
     }
     public ObjectProperty<Date> getReturnDateProperty(){
-        return new SimpleObjectProperty<Date>(returnDate);
+        return new SimpleObjectProperty<Date>(reservationEndDate);
     }
 }

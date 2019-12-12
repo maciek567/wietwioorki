@@ -45,7 +45,7 @@ public class ReservationListController {
 
     @FXML
     private void initialize() {
-        reservationTable.setItems(ReservationDAO.getBooksObservable());
+        reservationTable.setItems(ReservationDAO.getReservationsObservable());
 
         reservationId.setCellValueFactory(dataValue -> dataValue.getValue().getReservationIdProperty());
         readerPesel.setCellValueFactory(dataValue -> dataValue.getValue().getReaderPeselProperty());
