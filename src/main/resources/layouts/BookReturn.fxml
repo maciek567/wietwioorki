@@ -8,24 +8,24 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.PasswordField?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="pl.wietwioorki.to22019.controller.AddReservationController">
+            fx:controller="pl.wietwioorki.to22019.controller.BookReturnController">
     <center>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <opaqueInsets>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </opaqueInsets>
-            <Text text="Reservation's details:">
+            <Text text="Return book:">
                 <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></Text>
             <TextField promptText="pesel:" id="pesel" fx:id="pesel"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
-            <TextField promptText="Book's id:" id="reservationBookId" fx:id="reservationBookId"
+            <TextField promptText="Reservation's id:" id="reservationId" fx:id="reservationId"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
-            <Button text="Add reservation" id="addReservation" fx:id="addReservation" onAction="#handleAddReservation"
+            <Button text="Return book" id="returnBook" fx:id="returnBook" onAction="#handleReturnBook"
                     prefHeight="50.0" prefWidth="200">
                 <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></Button>
