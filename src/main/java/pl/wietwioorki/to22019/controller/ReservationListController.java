@@ -1,10 +1,10 @@
 package pl.wietwioorki.to22019.controller;
 
-import lombok.Setter;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -54,5 +54,4 @@ public class ReservationListController {
         borrowingDate.setCellValueFactory(dataValue -> dataValue.getValue().getBorrowingDateProperty());
         returnDate.setCellValueFactory(dataValue -> dataValue.getValue().getReturnDateProperty());
     }
-
 }

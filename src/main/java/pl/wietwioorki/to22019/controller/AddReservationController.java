@@ -8,12 +8,11 @@ import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.BookDAO;
 import pl.wietwioorki.to22019.dao.ReaderDAO;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
+import pl.wietwioorki.to22019.dao.generator.DataGenerator;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
@@ -43,26 +42,32 @@ public class AddReservationController {
             System.out.println("Bad pesel");
             return;
         }
-        Reader reader = ReaderDAO.findByName(pesel.getText());
+        Reader reader = ReaderDAO.findByPesel(peselNumber);
 
-        Book book = BookDAO.findById(reservationBookId.getId());
+        if(reader == null){
+            System.out.println("Can't find reader with pesel:" + peselNumber);
+            return;
+        }
 
-        Date borrowingDate;
-        Date returnDate;
+        long bookID;
         try {
-          // todo - current date and some rule for determine return date
-            borrowingDate = new SimpleDateFormat("dd/MM/yyyy").parse("26/12/2019");
-            returnDate = new SimpleDateFormat("dd/MM/yyyy").parse("26/12/2019");
-        } catch (ParseException e) {
-            System.out.println("Bad date");
+            bookID = Long.parseLong(reservationBookId.getText());
+        }
+        catch(NumberFormatException e){
+            System.out.println("Can't read book id :" + reservationBookId.getText());
             return;
         }
-        if(borrowingDate==null || returnDate==null){
-            System.out.println("Bad date");
+        Book book = BookDAO.findById(bookID);
+
+        if(book == null){
+            System.out.println("Can't find book with id:" + bookID);
             return;
         }
-        // todo - id generation
-        Reservation reservation = new Reservation(1L, reader, book, borrowingDate, returnDate);
+
+        Date borrowingDate = null;
+        Date returnDate = null;
+
+        Reservation reservation = new Reservation(DataGenerator.generateId(), reader, book, borrowingDate, returnDate);
 
         ReservationDAO.addReservation(reservation);
 

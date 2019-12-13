@@ -77,12 +77,12 @@ public class HomeSceneController extends AbstractWindowControler{
     }
 
     public void handleBorrowBook(ActionEvent actionEvent) {
-        System.out.println("Show reservation list");
+        System.out.println("Show borrow book");
         openNewWindow("/layouts/BookBorrow.fxml");
     }
 
     public void handleReturnBook(ActionEvent actionEvent) {
-        System.out.println("Show reservation list");
+        System.out.println("Show return book");
         openNewWindow("/layouts/BookReturn.fxml");
     }
 }

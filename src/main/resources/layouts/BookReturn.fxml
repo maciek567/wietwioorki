@@ -25,7 +25,7 @@
                        prefHeight="30" prefWidth="200">
                 <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
-            <Button text="Return book" id="borrowBook" fx:id="returnBook" onAction="#handleReturnBook"
+            <Button text="Return book" id="returnBook" fx:id="returnBook" onAction="#handleReturnBook"
                     prefHeight="50.0" prefWidth="200">
                 <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></Button>

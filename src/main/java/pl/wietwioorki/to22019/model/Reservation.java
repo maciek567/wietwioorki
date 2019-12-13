@@ -1,6 +1,9 @@
 package pl.wietwioorki.to22019.model;
 
-import javafx.beans.property.*;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
@@ -16,7 +19,6 @@ public class Reservation {
     private Book book;
     private Date reservationStartDate;
     private Date reservationEndDate;
-
 
     public ObjectProperty<Long> getReservationIdProperty(){
         return new SimpleObjectProperty<>(reservationId);
