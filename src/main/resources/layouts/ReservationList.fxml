@@ -5,6 +5,13 @@
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="pl.wietwioorki.to22019.controller.ReservationListController">
+    <top>
+        <VBox alignment="TOP_RIGHT" prefHeight="30" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TextField promptText="Id:" id="filterField" fx:id="filterField"
+                       prefHeight="30" prefWidth="200">
+            </TextField>
+        </VBox>
+    </top>
     <center>
         <TableView fx:id="reservationTable" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <columns>
