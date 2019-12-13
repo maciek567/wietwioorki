@@ -28,4 +28,13 @@ public class ReservationDAO {
             }
         };
     }
+
+    public static Reservation findById(Long id) {
+        for (Reservation reservation: reservations) {
+            if(reservation.getReservationId()==id){
+                return reservation;
+            }
+        }
+        return null;
+    }
 }

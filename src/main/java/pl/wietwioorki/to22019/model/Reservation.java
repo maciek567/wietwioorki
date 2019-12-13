@@ -36,4 +36,12 @@ public class Reservation {
     public ObjectProperty<Date> getReturnDateProperty(){
         return new SimpleObjectProperty<Date>(reservationEndDate);
     }
+
+    public void borrowBook(){
+        reservationStartDate = new Date(System.currentTimeMillis());
+    }
+
+    public void returnBook(){
+        reservationEndDate = new Date(System.currentTimeMillis());
+    }
 }

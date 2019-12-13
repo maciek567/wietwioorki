@@ -21,7 +21,7 @@
                        prefHeight="30" prefWidth="200">
                 <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
-            <TextField promptText="Book's id:" id="returnedBookId" fx:id="returnedBookId"
+            <TextField promptText="Reservation's id:" id="reservationId" fx:id="reservationId"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></TextField>
