@@ -1,6 +1,8 @@
 package pl.wietwioorki.to22019.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
@@ -9,8 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.BookDAO;
+import pl.wietwioorki.to22019.dao.ReservationDAO;
+import pl.wietwioorki.to22019.dao.generator.DataGenerator;
 import pl.wietwioorki.to22019.model.Book;
+import pl.wietwioorki.to22019.model.Reader;
+import pl.wietwioorki.to22019.model.Reservation;
 
+import java.util.Calendar;
 import java.util.Date;
 
 @Controller
@@ -21,6 +28,12 @@ public class BooksListController { //todo
 
     @Autowired
     private ConfigurableApplicationContext springContext;
+
+    @FXML
+    public Button addReservationFromBookList;
+
+    @FXML
+    public Button borrowBookFromBookList;
 
     @FXML
     private TableView<Book> booksTable;
@@ -51,4 +64,26 @@ public class BooksListController { //todo
         genreColumn.setCellValueFactory(dataValue -> dataValue.getValue().getGenreProperty());
     }
 
+    @FXML
+    public void handleAddReservationFromBookList(ActionEvent actionEvent) {
+        System.out.println("Adding new reservation");
+
+        // todo - should be currently lloged in user
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(1998, Calendar.JUNE, 25);
+        Reader reader = new Reader(98062523456L, "Dawid", calendar.getTime());
+
+        Book book = booksTable.getSelectionModel().getSelectedItem();
+
+        Reservation reservation = new Reservation(DataGenerator.generateId(), reader, book, null, null);
+
+        ReservationDAO.addReservation(reservation);
+
+        System.out.println("Reservation added succesfully");
+    }
+
+    @FXML
+    public void handleBorrowBookFromBookList(ActionEvent actionEvent) {
+
+    }
 }

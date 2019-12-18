@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="pl.wietwioorki.to22019.controller.BooksListController">
     <center>
@@ -19,4 +20,16 @@
             </columnResizePolicy>
         </TableView>
     </center>
+    <right>
+        <VBox>
+            <Button id="addReservationFromBookList" fx:id="addReservationFromBookList" onAction="#handleAddReservationFromBookList"
+                    prefHeight="30" prefWidth="100" text="Add reservation">
+                <VBox.margin><Insets bottom="7" left="10" right="15" top="40" />
+                </VBox.margin></Button>
+            <Button id="borrowBookFromBookList" fx:id="borrowBookFromBookList" onAction="#handleBorrowBookFromBookList"
+                    prefHeight="30" prefWidth="100" text="Borrow book">
+                <VBox.margin><Insets bottom="7" left="10" right="15" top="20" />
+                </VBox.margin></Button>
+        </VBox>
+    </right>
 </BorderPane>
