@@ -6,8 +6,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReservationDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReservationDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BooksListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BooksListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/ReservationListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/ReservationListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReservationDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReservationDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reservation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/BooksList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/BooksList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/ReservationList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/ReservationList.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -304,7 +310,7 @@
       <workItem from="1576168701783" duration="1788000" />
       <workItem from="1576170518176" duration="487000" />
       <workItem from="1576171018121" duration="10376000" />
-      <workItem from="1576686737764" duration="4230000" />
+      <workItem from="1576686737764" duration="8435000" />
     </task>
     <task id="LOCAL-00001" summary="Added model">
       <created>1574806722513</created>

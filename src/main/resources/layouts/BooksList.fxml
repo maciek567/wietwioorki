@@ -26,10 +26,6 @@
                     prefHeight="30" prefWidth="100" text="Add reservation">
                 <VBox.margin><Insets bottom="7" left="10" right="15" top="40" />
                 </VBox.margin></Button>
-            <Button id="borrowBookFromBookList" fx:id="borrowBookFromBookList" onAction="#handleBorrowBookFromBookList"
-                    prefHeight="30" prefWidth="100" text="Borrow book">
-                <VBox.margin><Insets bottom="7" left="10" right="15" top="20" />
-                </VBox.margin></Button>
         </VBox>
     </right>
 </BorderPane>

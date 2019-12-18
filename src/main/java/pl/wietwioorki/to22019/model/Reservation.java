@@ -44,4 +44,15 @@ public class Reservation {
     public void returnBook(){
         reservationEndDate = new Date(System.currentTimeMillis());
     }
+
+    // fixme - to discuss - how long should be borrowing time?
+    public static int getBorrowingTimeInDays(){ return 14; }
+
+    public void setReservationStartDate(Date reservationStartDate) {
+        this.reservationStartDate = reservationStartDate;
+    }
+
+    public void setReservationEndDate(Date reservationEndDate) {
+        this.reservationEndDate = reservationEndDate;
+    }
 }

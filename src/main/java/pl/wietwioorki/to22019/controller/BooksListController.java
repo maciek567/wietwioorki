@@ -33,9 +33,6 @@ public class BooksListController { //todo
     public Button addReservationFromBookList;
 
     @FXML
-    public Button borrowBookFromBookList;
-
-    @FXML
     private TableView<Book> booksTable;
 
     @FXML
@@ -74,6 +71,10 @@ public class BooksListController { //todo
         Reader reader = new Reader(98062523456L, "Dawid", calendar.getTime());
 
         Book book = booksTable.getSelectionModel().getSelectedItem();
+        if(book == null){
+            System.out.println("No book selected");
+            return;
+        }
 
         Reservation reservation = new Reservation(DataGenerator.generateId(), reader, book, null, null);
 
@@ -82,8 +83,4 @@ public class BooksListController { //todo
         System.out.println("Reservation added succesfully");
     }
 
-    @FXML
-    public void handleBorrowBookFromBookList(ActionEvent actionEvent) {
-
-    }
 }
