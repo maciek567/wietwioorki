@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="pl.wietwioorki.to22019.controller.ReservationListController">
     <top>
@@ -27,4 +27,20 @@
             </columnResizePolicy>
         </TableView>
     </center>
+    <right>
+        <VBox>
+            <Button id="cancelReservationFromReservationList" fx:id="cancelReservationFromReservationList" onAction="#handleCancelReservationFromReservationList"
+                    prefHeight="30" prefWidth="130" text="Cancel reservation">
+                <VBox.margin><Insets bottom="7" left="10" right="15" top="20" />
+                </VBox.margin></Button>
+            <Button id="borrowBookFromReservationList" fx:id="borrowBookFromReservationList" onAction="#handleBorrowBookFromReservationList"
+                    prefHeight="30" prefWidth="130" text="Borrow book">
+                <VBox.margin><Insets bottom="7" left="10" right="15" top="20" />
+                </VBox.margin></Button>
+            <Button id="returnBookFromReservationList" fx:id="returnBookFromReservationList" onAction="#handleReturnBookFromReservationList"
+                    prefHeight="30" prefWidth="130" text="Return book">
+                <VBox.margin><Insets bottom="7" left="10" right="15" top="20" />
+                </VBox.margin></Button>
+        </VBox>
+    </right>
 </BorderPane>

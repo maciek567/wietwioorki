@@ -2,15 +2,8 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.AuthorDAO;
 import pl.wietwioorki.to22019.dao.BookDAO;
@@ -20,10 +13,10 @@ import pl.wietwioorki.to22019.model.Author;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Genre;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
 
 @Controller
 public class AddBookController extends AbstractWindowControler{
@@ -69,7 +62,7 @@ public class AddBookController extends AbstractWindowControler{
             return;
         }
 
-        Book book = new Book(DataGenerator.generateId(), bookTitle.getText(), authorObject, date, genreObject);
+        Book book = new Book(DataGenerator.generateId(), bookTitle.getText(), authorObject, date, genreObject, new LinkedList<>());
         BookDAO.addBook(book);
         System.out.println("Book add succesfull");
     }

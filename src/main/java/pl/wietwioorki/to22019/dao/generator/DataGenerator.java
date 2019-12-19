@@ -7,6 +7,7 @@ import pl.wietwioorki.to22019.model.Reader;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public class DataGenerator {
@@ -24,13 +25,13 @@ public class DataGenerator {
     }
 
     public static Book generateBook() {
-        return new Book(1L, "Szosta klepka", generateAuthor(), new Date(), generateGenre());
+        return new Book(1L, "Szosta klepka", generateAuthor(), new Date(), generateGenre(), new LinkedList<>());
     }
 
     static List<Book> generateBookList() {
         List<Book> writtenBooks = new ArrayList<>();
         writtenBooks.add(generateBook());
-        writtenBooks.add(new Book(2L, "Opium w rosole", generateAuthor(), new Date(), generateGenre()));
+        writtenBooks.add(new Book(2L, "Opium w rosole", generateAuthor(), new Date(), generateGenre(), new LinkedList<>()));
         return writtenBooks;
     }
 

@@ -1,7 +1,9 @@
 package pl.wietwioorki.to22019.controller;
 
 import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -12,7 +14,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.model.Reservation;
+import pl.wietwioorki.to22019.model.ReservationStatus;
 
+import java.util.Calendar;
 import java.util.Date;
 
 @Controller
@@ -21,8 +25,18 @@ public class ReservationListController {
     @Setter
     private static Stage primaryStage;
 
+
     @Autowired
     private ConfigurableApplicationContext springContext;
+
+    @FXML
+    public Button cancelReservationFromReservationList;
+
+    @FXML
+    public Button borrowBookFromReservationList;
+
+    @FXML
+    public Button returnBookFromReservationList;
 
     @FXML
     private TableView<Reservation> reservationTable;
@@ -73,5 +87,56 @@ public class ReservationListController {
         });
 
         reservationTable.setItems(filteredData);
+    }
+
+    @FXML
+    public void handleBorrowBookFromReservationList(ActionEvent actionEvent) {
+        Reservation reservation = reservationTable.getSelectionModel().getSelectedItem();
+        if(reservation == null){
+            System.out.println("No reservation selected");
+            return;
+        }
+
+        if(!reservation.getReservationStatus().equals(ReservationStatus.R)) {
+            System.out.println("Wrong reservation status: " + reservation.getReservationStatus());
+            return;
+        }
+
+        reservation.setReservationStatus(ReservationStatus.A);
+
+        Calendar calendar = Calendar.getInstance();
+        reservation.setReservationStartDate(calendar.getTime());
+
+        calendar.add(Calendar.DATE, Reservation.getBorrowingTimeInDays());
+        reservation.setReservationEndDate(calendar.getTime());
+
+        reservation.borrowBook();
+        System.out.println("Book borrowed successfully");
+    }
+
+    @FXML
+    public void handleReturnBookFromReservationList(ActionEvent actionEvent) {
+        Reservation reservation = reservationTable.getSelectionModel().getSelectedItem();
+        if(reservation == null){
+            System.out.println("No reservation selected");
+            return;
+        }
+
+        reservation.setReservationStatus(ReservationStatus.E);
+
+        reservation.returnBook();
+        System.out.println("Book returned successfully");
+    }
+
+    @FXML
+    public void handleCancelReservationFromReservationList(ActionEvent actionEvent) {
+        Reservation reservation = reservationTable.getSelectionModel().getSelectedItem();
+        if(reservation == null){
+            System.out.println("No reservation selected");
+            return;
+        }
+
+        ReservationDAO.removeById(reservation.getReservationId());
+        System.out.println("Reservation removed successfully");
     }
 }

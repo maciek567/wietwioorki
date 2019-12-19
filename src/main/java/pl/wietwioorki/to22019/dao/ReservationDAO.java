@@ -37,4 +37,9 @@ public class ReservationDAO {
         }
         return null;
     }
+
+    public static void removeById(Long id) {
+        Reservation reservation = findById(id);
+        reservations.remove(reservation);
+    }
 }

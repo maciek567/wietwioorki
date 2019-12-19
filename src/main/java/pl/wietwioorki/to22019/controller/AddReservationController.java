@@ -12,6 +12,7 @@ import pl.wietwioorki.to22019.dao.generator.DataGenerator;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
+import pl.wietwioorki.to22019.model.ReservationStatus;
 
 import java.util.Date;
 
@@ -67,7 +68,10 @@ public class AddReservationController {
         Date borrowingDate = null;
         Date returnDate = null;
 
-        Reservation reservation = new Reservation(DataGenerator.generateId(), reader, book, borrowingDate, returnDate);
+        ReservationStatus reservationStatus = ReservationStatus.P;
+        if(book.isEmpty()) reservationStatus = ReservationStatus.R;
+
+        Reservation reservation = new Reservation(DataGenerator.generateId(), reader, book, borrowingDate, returnDate, reservationStatus);
 
         ReservationDAO.addReservation(reservation);
 

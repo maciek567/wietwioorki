@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
@@ -19,6 +20,8 @@ public class Reservation {
     private Book book;
     private Date reservationStartDate;
     private Date reservationEndDate;
+    @Setter
+    private ReservationStatus reservationStatus;
 
     public ObjectProperty<Long> getReservationIdProperty(){
         return new SimpleObjectProperty<>(reservationId);
@@ -43,5 +46,16 @@ public class Reservation {
 
     public void returnBook(){
         reservationEndDate = new Date(System.currentTimeMillis());
+    }
+
+    // fixme - to discuss - how long should be borrowing time?
+    public static int getBorrowingTimeInDays(){ return 14; }
+
+    public void setReservationStartDate(Date reservationStartDate) {
+        this.reservationStartDate = reservationStartDate;
+    }
+
+    public void setReservationEndDate(Date reservationEndDate) {
+        this.reservationEndDate = reservationEndDate;
     }
 }
