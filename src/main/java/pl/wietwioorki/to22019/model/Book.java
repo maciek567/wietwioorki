@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 import java.util.Date;
+import java.util.Queue;
 
 @AllArgsConstructor
 @Getter
@@ -19,6 +20,7 @@ public class Book {
     private Author author;
     private Date publicationDate;
     private Genre genre;
+    private Queue<Reader> waitingReaders;
 
     public ObjectProperty<Long> getIdProperty(){
         return new SimpleObjectProperty<Long>(bookId);
@@ -34,5 +36,17 @@ public class Book {
     }
     public StringProperty getGenreProperty(){
         return new SimpleStringProperty(genre.getName());
+    }
+
+    public void pushReaderToQueue(Reader reader) {
+        this.waitingReaders.add(reader);
+    }
+
+    public Reader popReaderFromQueue() {
+       return this.waitingReaders.remove();
+    }
+
+    public boolean isEmpty() {
+        return this.waitingReaders.isEmpty();
     }
 }

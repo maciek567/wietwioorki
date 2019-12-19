@@ -14,6 +14,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.model.Reservation;
+import pl.wietwioorki.to22019.model.ReservationStatus;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -96,6 +97,19 @@ public class ReservationListController {
             return;
         }
 
+        if(!reservation.getReservationStatus().equals(ReservationStatus.R)) {
+            System.out.println("Wrong reservation status: " + reservation.getReservationStatus());
+            return;
+        }
+
+        reservation.setReservationStatus(ReservationStatus.A);
+
+        Calendar calendar = Calendar.getInstance();
+        reservation.setReservationStartDate(calendar.getTime());
+
+        calendar.add(Calendar.DATE, Reservation.getBorrowingTimeInDays());
+        reservation.setReservationEndDate(calendar.getTime());
+
         reservation.borrowBook();
         System.out.println("Book borrowed successfully");
     }
@@ -108,11 +122,7 @@ public class ReservationListController {
             return;
         }
 
-        Calendar calendar = Calendar.getInstance();
-        reservation.setReservationStartDate(calendar.getTime());
-
-        calendar.add(Calendar.DATE, Reservation.getBorrowingTimeInDays());
-        reservation.setReservationEndDate(calendar.getTime());
+        reservation.setReservationStatus(ReservationStatus.E);
 
         reservation.returnBook();
         System.out.println("Book returned successfully");
