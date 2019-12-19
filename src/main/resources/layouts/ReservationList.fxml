@@ -19,7 +19,8 @@
                 <TableColumn fx:id="readerPesel" prefWidth="75.0" text="pesel" />
                 <TableColumn fx:id="readerName" prefWidth="75.0" text="name" />
                 <TableColumn fx:id="booksTittle" prefWidth="75.0" text="book's tittle" />
-                <TableColumn fx:id="borrowingDate" prefWidth="75.0" text="borrowing date" />
+                <TableColumn fx:id="reservationStatus" prefWidth="75.0" text="status" />
+                <TableColumn fx:id="borrowingDate" prefWidth="75.0" text="borrow date" />
                 <TableColumn fx:id="returnDate" prefWidth="75.0" text="return date" />
             </columns>
             <columnResizePolicy>

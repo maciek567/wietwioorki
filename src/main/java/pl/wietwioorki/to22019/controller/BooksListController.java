@@ -77,8 +77,8 @@ public class BooksListController { //todo
             return;
         }
 
-        ReservationStatus reservationStatus = ReservationStatus.P;
-        if(book.isEmpty()) reservationStatus = ReservationStatus.R;
+        ReservationStatus reservationStatus = ReservationStatus.PENDING;
+        if(book.isEmpty()) reservationStatus = ReservationStatus.READY;
 
         Reservation reservation = new Reservation(DataGenerator.generateId(), reader, book, null, null, reservationStatus);
 

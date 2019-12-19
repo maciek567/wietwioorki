@@ -1,11 +1,11 @@
 package pl.wietwioorki.to22019.model;
 
 public enum ReservationStatus {
-    P("pending"),
-    R("ready"),
-    A("active"),
-    O("overdue"),
-    E("executed");
+    PENDING("pending"),
+    READY("ready"),
+    ACTIVE("active"),
+    OVERDUE("overdue"),
+    RETURNED("returned");
 
     private String description;
 

@@ -33,6 +33,8 @@ public abstract class AbstractWindowControler {
 
         Stage primaryStage = new Stage();
         primaryStage.setScene(scene);
+        primaryStage.setWidth(800);
+        primaryStage.setHeight(480);
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         primaryStage.show();
     }
