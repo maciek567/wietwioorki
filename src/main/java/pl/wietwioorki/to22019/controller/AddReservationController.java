@@ -68,8 +68,8 @@ public class AddReservationController {
         Date borrowingDate = null;
         Date returnDate = null;
 
-        ReservationStatus reservationStatus = ReservationStatus.P;
-        if(book.isEmpty()) reservationStatus = ReservationStatus.R;
+        ReservationStatus reservationStatus = ReservationStatus.PENDING;
+        if(book.isEmpty()) reservationStatus = ReservationStatus.READY;
 
         Reservation reservation = new Reservation(DataGenerator.generateId(), reader, book, borrowingDate, returnDate, reservationStatus);
 

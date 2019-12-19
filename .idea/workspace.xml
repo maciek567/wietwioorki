@@ -5,19 +5,18 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddBookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddBookController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddBookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/BookDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReaderDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReservationDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AbstractWindowControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AbstractWindowControler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReservationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReservationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BooksListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BooksListController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/ReservationListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/ReservationListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Book.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reservation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/ReservationStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/ReservationStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/layouts/ReservationList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/layouts/ReservationList.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

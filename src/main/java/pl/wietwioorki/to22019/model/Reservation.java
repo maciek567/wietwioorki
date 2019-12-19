@@ -33,12 +33,9 @@ public class Reservation {
     public StringProperty getBooksTittleProperty(){
         return new SimpleStringProperty(book.getTitle());
     }
-    public ObjectProperty<Date> getBorrowingDateProperty(){
-        return new SimpleObjectProperty<>(reservationStartDate);
-    }
-    public ObjectProperty<Date> getReturnDateProperty(){
-        return new SimpleObjectProperty<Date>(reservationEndDate);
-    }
+    public  ObjectProperty<ReservationStatus> getReservationStatusProperty() {return new SimpleObjectProperty<>(reservationStatus); }
+    public ObjectProperty<Date> getBorrowingDateProperty(){ return new SimpleObjectProperty<>(reservationStartDate); }
+    public ObjectProperty<Date> getReturnDateProperty(){ return new SimpleObjectProperty<>(reservationEndDate); }
 
     public void borrowBook(){
         reservationStartDate = new Date(System.currentTimeMillis());
@@ -58,4 +55,5 @@ public class Reservation {
     public void setReservationEndDate(Date reservationEndDate) {
         this.reservationEndDate = reservationEndDate;
     }
+
 }

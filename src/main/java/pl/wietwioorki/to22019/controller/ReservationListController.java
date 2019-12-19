@@ -25,7 +25,6 @@ public class ReservationListController {
     @Setter
     private static Stage primaryStage;
 
-
     @Autowired
     private ConfigurableApplicationContext springContext;
 
@@ -54,6 +53,9 @@ public class ReservationListController {
     private TableColumn<Reservation, String> booksTittle;
 
     @FXML
+    public TableColumn<Reservation, ReservationStatus> reservationStatus;
+
+    @FXML
     private TableColumn<Reservation, Date> borrowingDate;
 
     @FXML
@@ -68,6 +70,7 @@ public class ReservationListController {
         readerPesel.setCellValueFactory(dataValue -> dataValue.getValue().getReaderPeselProperty());
         readerName.setCellValueFactory(dataValue -> dataValue.getValue().getReaderNameProperty());
         booksTittle.setCellValueFactory(dataValue -> dataValue.getValue().getBooksTittleProperty());
+        reservationStatus.setCellValueFactory(dataValue -> dataValue.getValue().getReservationStatusProperty());
         borrowingDate.setCellValueFactory(dataValue -> dataValue.getValue().getBorrowingDateProperty());
         returnDate.setCellValueFactory(dataValue -> dataValue.getValue().getReturnDateProperty());
 
@@ -97,12 +100,12 @@ public class ReservationListController {
             return;
         }
 
-        if(!reservation.getReservationStatus().equals(ReservationStatus.R)) {
+        if(!reservation.getReservationStatus().equals(ReservationStatus.READY)) {
             System.out.println("Wrong reservation status: " + reservation.getReservationStatus());
             return;
         }
 
-        reservation.setReservationStatus(ReservationStatus.A);
+        reservation.setReservationStatus(ReservationStatus.ACTIVE);
 
         Calendar calendar = Calendar.getInstance();
         reservation.setReservationStartDate(calendar.getTime());
@@ -122,7 +125,7 @@ public class ReservationListController {
             return;
         }
 
-        reservation.setReservationStatus(ReservationStatus.E);
+        reservation.setReservationStatus(ReservationStatus.RETURNED);
 
         reservation.returnBook();
         System.out.println("Book returned successfully");
