@@ -26,9 +26,17 @@ public class Reservation {
     public ObjectProperty<Long> getReservationIdProperty(){
         return new SimpleObjectProperty<>(reservationId);
     }
-    public ObjectProperty<Long> getReaderPeselProperty(){ return new SimpleObjectProperty<>(reader.getPesel()); }
+    public ObjectProperty<Long> getReaderPeselProperty(){
+        if(reader == null) {
+            System.out.println("Zaloguj się na swoje konto, aby wypożyczyć książkę!");
+        }
+        return new SimpleObjectProperty<>(reader == null ? -1L : reader.getPesel());
+    }
     public StringProperty getReaderNameProperty(){
-        return new SimpleStringProperty(reader.getFullName());
+        if(reader == null) {
+            System.out.println("Zaloguj się na swoje konto, aby wypożyczyć książkę!");
+        }
+        return new SimpleStringProperty(reader == null ? "": reader.getFullName());
     }
     public StringProperty getBooksTittleProperty(){
         return new SimpleStringProperty(book.getTitle());

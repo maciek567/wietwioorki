@@ -45,9 +45,10 @@ public class BookDAO {
     public static Book findById(String id) {
         return DataGenerator.generateBook();
     }
-    public static Book findById(long id) {
+
+    public static Book findById(Long id) {
         for (Book book: books) {
-            if(book.getBookId()==id){
+            if(book.getBookId().equals(id)){
                 return book;
             }
         }
