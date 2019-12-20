@@ -34,4 +34,8 @@ public class ReaderDAO {
         }
         return null;
     }
+
+    public static List<Reader> getReaders() {
+        return readers;
+    }
 }

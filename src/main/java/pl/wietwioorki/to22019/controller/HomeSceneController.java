@@ -7,7 +7,7 @@ import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class HomeSceneController extends AbstractWindowControler{
+public class HomeSceneController extends AbstractWindowController {
 
     @FXML
     public Button enterLogin;

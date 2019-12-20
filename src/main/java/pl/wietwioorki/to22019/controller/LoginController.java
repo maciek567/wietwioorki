@@ -5,17 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.UserDAO;
-import pl.wietwioorki.to22019.model.Constants;
 import pl.wietwioorki.to22019.model.User;
 
 @Controller
-public class LoginController {
-
-    @Autowired
-    private Constants constant;
+public class LoginController extends AbstractWindowController{
 
     @FXML
     public TextField userName;
@@ -33,8 +28,8 @@ public class LoginController {
             System.out.println("bad password or login");
         }
         else{
-            constant.setActualUser(user);
-            System.out.println("logged in as: " + constant.getActualUser().getLogin());
+            constants.setActualUser(user);
+            System.out.println("logged in as: " + constants.getActualUser().getLogin());
         }
     }
 }
