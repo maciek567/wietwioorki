@@ -12,8 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
+import pl.wietwioorki.to22019.model.Constants;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
+import pl.wietwioorki.to22019.model.Role;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +27,9 @@ public class ReservationListController {
 
     @Setter
     private static Stage primaryStage;
+
+    @Autowired
+    private Constants constants;
 
     @Autowired
     private ConfigurableApplicationContext springContext;
@@ -78,9 +83,14 @@ public class ReservationListController {
         borrowingDate.setCellValueFactory(dataValue -> dataValue.getValue().getBorrowingDateProperty());
         returnDate.setCellValueFactory(dataValue -> dataValue.getValue().getReturnDateProperty());
 
-        reservationTable.setItems(inicjujFiltry());
+        reservationTable.setItems(InitializeFilters());
 
-        selectedFilter.setItems(getFilterItems(true));
+        boolean isAdmin = false;
+        if(constants.getActualUser() != null){
+            isAdmin = constants.getActualUser().getRole().equals(Role.L);
+        }
+
+        selectedFilter.setItems(getFilterItems(isAdmin));
     }
 
     private boolean compareSelectedFilter(FilterValue expected){
@@ -163,7 +173,7 @@ public class ReservationListController {
         return FXCollections.observableList(list);
     }
 
-    private FilteredList<Reservation> inicjujFiltry(){
+    private FilteredList<Reservation> InitializeFilters(){
         FilteredList<Reservation> filteredData = new FilteredList<>(ReservationDAO.getReservationsObservable(), p -> true);
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(reservation -> {
