@@ -10,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReaderDAO;
+import pl.wietwioorki.to22019.dao.UserDAO;
 import pl.wietwioorki.to22019.model.Reader;
+import pl.wietwioorki.to22019.model.Role;
+import pl.wietwioorki.to22019.model.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -69,10 +72,14 @@ public class AddReaderController {
             return;
         }
 
-        Reader reader = new Reader(Long.parseLong(pesel.getText()), name.getText() + " " + surname.getText(), date);
+        User user = new User(peselNumber, Role.U, name.getText() + surname.getText(), "password");
 
+        Reader reader = new Reader(Long.parseLong(pesel.getText()), name.getText() + " " + surname.getText(), date, user);
+
+        UserDAO.addUser(user);
         ReaderDAO.addReader(reader);
 
-        System.out.println("Reader added succesfull");
+        System.out.println("User added succesfully " + user.getLogin());
+        System.out.println("Reader added succesfully");
     }
 }

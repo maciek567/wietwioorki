@@ -20,4 +20,13 @@ public class UserDAO {
         }
         return null;
     }
+
+    public static User findByLogin(String login){
+        for(User user: users){
+            if(user.getLogin().equals(login)){
+                return user;
+            }
+        }
+        return null;
+    }
 }

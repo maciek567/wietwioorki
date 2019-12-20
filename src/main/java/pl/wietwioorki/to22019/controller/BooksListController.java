@@ -13,10 +13,7 @@ import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.BookDAO;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.dao.generator.DataGenerator;
-import pl.wietwioorki.to22019.model.Book;
-import pl.wietwioorki.to22019.model.Reader;
-import pl.wietwioorki.to22019.model.Reservation;
-import pl.wietwioorki.to22019.model.ReservationStatus;
+import pl.wietwioorki.to22019.model.*;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -69,7 +66,8 @@ public class BooksListController { //todo
         // todo - should be currently lloged in user
         Calendar calendar = Calendar.getInstance();
         calendar.set(1998, Calendar.JUNE, 25);
-        Reader reader = new Reader(98062523456L, "Dawid", calendar.getTime());
+        User user = new User(98062523456L, Role.U, "Dawid", "password");
+        Reader reader = new Reader(98062523456L, "Dawid", calendar.getTime(), user);
 
         Book book = booksTable.getSelectionModel().getSelectedItem();
         if(book == null){
