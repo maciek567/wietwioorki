@@ -3,6 +3,8 @@ package pl.wietwioorki.to22019.controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +39,11 @@ public abstract class AbstractWindowControler {
         primaryStage.setHeight(480);
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         primaryStage.show();
+        rootNode.requestFocus();
+        primaryStage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
+            if (KeyCode.ESCAPE == event.getCode()) {
+                primaryStage.close();
+            }
+        });
     }
 }

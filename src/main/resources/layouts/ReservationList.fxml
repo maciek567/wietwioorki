@@ -3,14 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="pl.wietwioorki.to22019.controller.ReservationListController">
     <top>
-        <VBox alignment="TOP_RIGHT" prefHeight="30" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <TextField promptText="Id:" id="filterField" fx:id="filterField"
-                       prefHeight="30" prefWidth="200">
-            </TextField>
-        </VBox>
+        <HBox alignment="TOP_LEFT" prefHeight="30" prefWidth="500" BorderPane.alignment="CENTER">
+            <Text text="Filter: "/>
+            <ComboBox fx:id="selectedFilter" onAction="#handleChangeSelectedFilter"/>
+            <TextField promptText="Write searching value" fx:id="filterField" prefHeight="30" prefWidth="300"/>
+        </HBox>
     </top>
     <center>
         <TableView fx:id="reservationTable" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">

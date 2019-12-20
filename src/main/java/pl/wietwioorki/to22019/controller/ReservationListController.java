@@ -1,12 +1,11 @@
 package pl.wietwioorki.to22019.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,8 @@ import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -62,6 +63,9 @@ public class ReservationListController {
     private TableColumn<Reservation, Date> returnDate;
 
     @FXML
+    private ComboBox selectedFilter;
+
+    @FXML
     private TextField filterField;
 
     @FXML
@@ -74,22 +78,25 @@ public class ReservationListController {
         borrowingDate.setCellValueFactory(dataValue -> dataValue.getValue().getBorrowingDateProperty());
         returnDate.setCellValueFactory(dataValue -> dataValue.getValue().getReturnDateProperty());
 
-        FilteredList<Reservation> filteredData = new FilteredList<>(ReservationDAO.getReservationsObservable(), p -> true);
+        reservationTable.setItems(inicjujFiltry());
 
-        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(reservation -> {
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-                String caseFilter = newValue;
-                if (reservation.getReaderPeselProperty().getValue().toString().startsWith(caseFilter)) {
-                    return true;
-                }
-                return false;
-            });
-        });
+        selectedFilter.setItems(getFilterItems(true));
+    }
 
-        reservationTable.setItems(filteredData);
+    private boolean compareSelectedFilter(FilterValue expected){
+        return selectedFilter.getSelectionModel().getSelectedItem().equals(expected);
+    }
+
+    @FXML
+    public void handleChangeSelectedFilter(ActionEvent actionEvent){
+        boolean visible = true;
+        if(compareSelectedFilter(FilterValue.Expiration)){
+            visible = false;
+        }
+        filterField.setVisible(visible);
+        filterField.setText(".");
+        filterField.setText("");
+        reservationTable.refresh();
     }
 
     @FXML
@@ -115,6 +122,7 @@ public class ReservationListController {
 
         reservation.borrowBook();
         System.out.println("Book borrowed successfully");
+        reservationTable.refresh();
     }
 
     @FXML
@@ -129,6 +137,7 @@ public class ReservationListController {
 
         reservation.returnBook();
         System.out.println("Book returned successfully");
+        reservationTable.refresh();
     }
 
     @FXML
@@ -141,5 +150,62 @@ public class ReservationListController {
 
         ReservationDAO.removeById(reservation.getReservationId());
         System.out.println("Reservation removed successfully");
+        reservationTable.refresh();
     }
+
+    private ObservableList getFilterItems(boolean isAdmin){
+        ArrayList list = new ArrayList();
+
+        list.addAll(Arrays.asList(FilterValue.values()));
+        if(!isAdmin) {
+            list.remove(FilterValue.Pesel);
+        }
+        return FXCollections.observableList(list);
+    }
+
+    private FilteredList<Reservation> inicjujFiltry(){
+        FilteredList<Reservation> filteredData = new FilteredList<>(ReservationDAO.getReservationsObservable(), p -> true);
+        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(reservation -> {
+                if (newValue == null || selectedFilter.getSelectionModel().getSelectedItem() == null) {
+                    return true;
+                }
+                else if(compareSelectedFilter(FilterValue.Expiration)){
+                    if(reservation.getReservationStatus().equals(ReservationStatus.ACTIVE) && reservation.getBorrowingDateProperty().getValue().compareTo(new Date()) > 0) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+                }
+                else if(newValue.isEmpty()){
+                    return true;
+                }
+
+                String caseFilter = newValue;
+                if (compareSelectedFilter(FilterValue.Pesel) && reservation.getReaderPeselProperty().getValue().toString().startsWith(caseFilter)) {
+                    return true;
+                }
+                else if(compareSelectedFilter(FilterValue.ReservationID) && reservation.getReservationId().toString().startsWith(caseFilter)){
+                    return true;
+                }
+                else if(compareSelectedFilter(FilterValue.BookTitle) && reservation.getBooksTittleProperty().toString().startsWith(caseFilter)){
+                    return true;
+                }
+                else if(compareSelectedFilter(FilterValue.BorrowDate) && reservation.getBorrowingDateProperty().toString().startsWith(caseFilter)){
+                    return true;
+                }
+                else if(compareSelectedFilter(FilterValue.ReturnDate) && reservation.getReturnDateProperty().toString().startsWith(caseFilter)){
+                    return true;
+                }
+                else
+                    return false;
+            });
+        });
+        return filteredData;
+    }
+}
+
+enum FilterValue{
+    Pesel, BorrowDate, ReturnDate, Expiration, BookTitle, ReservationID
 }
