@@ -9,7 +9,7 @@ import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.model.Reservation;
 
 @Controller
-public class BookBorrowController {
+public class BookBorrowController extends AbstractWindowController{
 
     @FXML
     public TextField pesel;
@@ -37,6 +37,6 @@ public class BookBorrowController {
             return;
         }
         reservation.borrowBook();
-        System.out.println("Book borrowed succesfully");
+        System.out.println("Book borrowed successfully");
     }
 }

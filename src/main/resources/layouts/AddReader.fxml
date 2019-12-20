@@ -34,10 +34,10 @@
                     <Insets bottom="15" left="20" right="20" top="15"/>
                 </VBox.margin>
             </TextField>
-
             <Label prefHeight="24.0" prefWidth="97.0" text="Date of birth: " GridPane.halignment="CENTER"
                    GridPane.rowIndex="2" GridPane.valignment="CENTER"/>
             <DatePicker id="birthDate" fx:id="birthDate" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
             <Button text="Add" id="addReader" fx:id="addReaderButton" onAction="#handleAddNewReader"
                     prefHeight="50.0" prefWidth="200">
                 <VBox.margin>

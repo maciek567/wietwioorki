@@ -7,27 +7,22 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.BookDAO;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.dao.generator.DataGenerator;
-import pl.wietwioorki.to22019.model.*;
+import pl.wietwioorki.to22019.model.Book;
+import pl.wietwioorki.to22019.model.Reader;
+import pl.wietwioorki.to22019.model.Reservation;
+import pl.wietwioorki.to22019.model.ReservationStatus;
 
 import java.util.Date;
 
 @Controller
-public class BooksListController { //todo
+public class BooksListController extends AbstractWindowController { //todo
 
     @Setter
     private static Stage primaryStage;
-
-    @Autowired
-    private Constants constants;
-
-    @Autowired
-    private ConfigurableApplicationContext springContext;
 
     @FXML
     public Button addReservationFromBookList;
@@ -85,7 +80,7 @@ public class BooksListController { //todo
 
         ReservationDAO.addReservation(reservation);
 
-        System.out.println("Reservation added succesfully");
+        System.out.println("Reservation added successfully");
     }
 
 }

@@ -3,6 +3,7 @@ package pl.wietwioorki.to22019.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.AuthorDAO;
@@ -14,12 +15,11 @@ import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Genre;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
 
 @Controller
-public class AddBookController extends AbstractWindowControler{
+public class AddBookController extends AbstractWindowController {
 
     @FXML
     public TextField bookTitle;
@@ -28,7 +28,7 @@ public class AddBookController extends AbstractWindowControler{
     public TextField authorName;
 
     @FXML
-    public TextField publicationDate;
+    public DatePicker publicationDate;
 
     @FXML
     public TextField genre;
@@ -44,27 +44,25 @@ public class AddBookController extends AbstractWindowControler{
             System.out.println("We dont know this author.");
             return;
         }
+
         Date date;
         try {
-             date = new SimpleDateFormat("dd/MM/yyyy").parse(publicationDate.getText());
-        } catch (ParseException e) {
+            date = constants.datePickerConverter(publicationDate);
+        } catch (ParseException | NullPointerException e) {
             System.out.println("Bad date");
             return;
         }
-        if(date==null){
-            System.out.println("Bad date");
-            return;
-        }
+
         Genre genreObject;
         genreObject = GenreDAO.findByName(genre.getText());
-        if(genre==null){
+        if (genre == null) {
             System.out.println("We dont know this genre.");
             return;
         }
 
         Book book = new Book(DataGenerator.generateId(), bookTitle.getText(), authorObject, date, genreObject, new LinkedList<>());
         BookDAO.addBook(book);
-        System.out.println("Book add succesfull");
+        System.out.println("Book add successfully");
     }
 
     @FXML

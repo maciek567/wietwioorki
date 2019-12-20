@@ -8,11 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
-import pl.wietwioorki.to22019.model.Constants;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
 import pl.wietwioorki.to22019.model.Role;
@@ -23,16 +20,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Controller
-public class ReservationListController {
+public class ReservationListController extends AbstractWindowController {
 
     @Setter
     private static Stage primaryStage;
-
-    @Autowired
-    private Constants constants;
-
-    @Autowired
-    private ConfigurableApplicationContext springContext;
 
     @FXML
     public Button cancelReservationFromReservationList;
@@ -184,35 +175,25 @@ public class ReservationListController {
                     return true;
                 }
                 else if(compareSelectedFilter(FilterValue.Expiration)){
-                    if(reservation.getReservationStatus().equals(ReservationStatus.ACTIVE) && reservation.getBorrowingDateProperty().getValue().compareTo(new Date()) > 0) {
-                        return true;
-                    }
-                    else {
-                        return false;
-                    }
+                    return reservation.getReservationStatus().equals(ReservationStatus.ACTIVE) && reservation.getBorrowingDateProperty().getValue().compareTo(new Date()) > 0;
                 }
                 else if(newValue.isEmpty()){
                     return true;
                 }
 
-                String caseFilter = newValue;
-                if (compareSelectedFilter(FilterValue.Pesel) && reservation.getReaderPeselProperty().getValue().toString().startsWith(caseFilter)) {
+                if (compareSelectedFilter(FilterValue.Pesel) && reservation.getReaderPeselProperty().getValue().toString().startsWith(newValue)) {
                     return true;
                 }
-                else if(compareSelectedFilter(FilterValue.ReservationID) && reservation.getReservationId().toString().startsWith(caseFilter)){
+                else if(compareSelectedFilter(FilterValue.ReservationID) && reservation.getReservationId().toString().startsWith(newValue)){
                     return true;
                 }
-                else if(compareSelectedFilter(FilterValue.BookTitle) && reservation.getBooksTittleProperty().getValue().startsWith(caseFilter)){
+                else if(compareSelectedFilter(FilterValue.BookTitle) && reservation.getBooksTittleProperty().getValue().startsWith(newValue)){
                     return true;
                 }
-                else if(compareSelectedFilter(FilterValue.BorrowDate) && reservation.getBorrowingDateProperty().toString().startsWith(caseFilter)){
+                else if(compareSelectedFilter(FilterValue.BorrowDate) && reservation.getBorrowingDateProperty().toString().startsWith(newValue)){
                     return true;
                 }
-                else if(compareSelectedFilter(FilterValue.ReturnDate) && reservation.getReturnDateProperty().toString().startsWith(caseFilter)){
-                    return true;
-                }
-                else
-                    return false;
+                else return compareSelectedFilter(FilterValue.ReturnDate) && reservation.getReturnDateProperty().toString().startsWith(newValue);
             });
         });
         return filteredData;

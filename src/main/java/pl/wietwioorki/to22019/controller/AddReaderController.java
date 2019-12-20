@@ -7,25 +7,17 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReaderDAO;
 import pl.wietwioorki.to22019.model.Reader;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Controller
-public class AddReaderController {
-
+public class AddReaderController extends AbstractWindowController {
     @Setter
     private static Stage primaryStage;
-
-    @Autowired
-    private ConfigurableApplicationContext springContext;
 
     @FXML
     public TextField name;
@@ -53,16 +45,8 @@ public class AddReaderController {
         }
 
         Date date;
-
         try {
-            // workaround to enable manual (using keyboard) date changing (from https://bugs.openjdk.java.net/browse/JDK-8144499)
-            DatePicker datePicker = new DatePicker(birthDate.getConverter().fromString(birthDate.getEditor().getText()));
-
-            String formatted = datePicker.getValue().format((DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            date = sdf.parse(formatted);
-
+            date = constants.datePickerConverter(birthDate);
         } catch (ParseException | NullPointerException e) {
             System.out.println("Bad date");
             return;

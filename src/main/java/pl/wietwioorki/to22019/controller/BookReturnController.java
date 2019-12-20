@@ -9,7 +9,7 @@ import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.model.Reservation;
 
 @Controller
-public class BookReturnController {
+public class BookReturnController extends AbstractWindowController {
 
     @FXML
     public TextField pesel;
@@ -25,19 +25,18 @@ public class BookReturnController {
         long reservationID;
         try {
             reservationID = Long.parseLong(reservationId.getText());
-        }
-        catch(NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Can't read reservation id :" + reservationId.getText());
             return;
         }
         Reservation reservation = ReservationDAO.findById(reservationID);
 
-        if(reservation == null){
+        if (reservation == null) {
             System.out.println("Can't find reservation with id:" + reservationID);
             return;
         }
         reservation.returnBook();
-        System.out.println("Book returned succesfully");
+        System.out.println("Book returned successfully");
     }
 
 }
