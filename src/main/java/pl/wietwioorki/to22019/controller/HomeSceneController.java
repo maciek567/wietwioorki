@@ -61,9 +61,7 @@ public class HomeSceneController extends AbstractWindowControler{
     public void handleEnterLogin(ActionEvent actionEvent) {
         System.out.println("login view");
         openNewWindow("/layouts/Login.fxml");
-        if(constants.getActualUser()!=null){
-            loggedInUser.setText(String.valueOf(constants.getActualUser().getPesel()));
-        }
+        loggedInUser.setText(String.valueOf(constants.getUserLogin()));
     }
 
     @FXML

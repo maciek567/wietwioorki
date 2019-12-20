@@ -142,7 +142,10 @@ public class ReservationListController {
             System.out.println("No reservation selected");
             return;
         }
-
+        if(!reservation.getReservationStatus().equals(ReservationStatus.ACTIVE)){
+            System.out.println("Bad reservation status");
+            return;
+        }
         reservation.setReservationStatus(ReservationStatus.RETURNED);
 
         reservation.returnBook();
@@ -199,7 +202,7 @@ public class ReservationListController {
                 else if(compareSelectedFilter(FilterValue.ReservationID) && reservation.getReservationId().toString().startsWith(caseFilter)){
                     return true;
                 }
-                else if(compareSelectedFilter(FilterValue.BookTitle) && reservation.getBooksTittleProperty().toString().startsWith(caseFilter)){
+                else if(compareSelectedFilter(FilterValue.BookTitle) && reservation.getBooksTittleProperty().getValue().startsWith(caseFilter)){
                     return true;
                 }
                 else if(compareSelectedFilter(FilterValue.BorrowDate) && reservation.getBorrowingDateProperty().toString().startsWith(caseFilter)){

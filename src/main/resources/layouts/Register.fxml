@@ -33,6 +33,10 @@
                            prefHeight="30" prefWidth="200">
                 <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
                 </VBox.margin></PasswordField>
+            <TextField promptText="Pesel:" fx:id="pesel"
+                       prefHeight="30" prefWidth="200">
+                <VBox.margin><Insets bottom="15" left="20" right="20" top="15" />
+                </VBox.margin></TextField>
             <Button text="Register" id="register" fx:id="register" onAction="#handleRegistration"
                     prefHeight="50.0" prefWidth="200">
                 <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />

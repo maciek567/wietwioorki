@@ -13,12 +13,8 @@ import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.BookDAO;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.dao.generator.DataGenerator;
-import pl.wietwioorki.to22019.model.Book;
-import pl.wietwioorki.to22019.model.Reader;
-import pl.wietwioorki.to22019.model.Reservation;
-import pl.wietwioorki.to22019.model.ReservationStatus;
+import pl.wietwioorki.to22019.model.*;
 
-import java.util.Calendar;
 import java.util.Date;
 
 @Controller
@@ -26,6 +22,9 @@ public class BooksListController { //todo
 
     @Setter
     private static Stage primaryStage;
+
+    @Autowired
+    private Constants constants;
 
     @Autowired
     private ConfigurableApplicationContext springContext;
@@ -66,11 +65,11 @@ public class BooksListController { //todo
     public void handleAddReservationFromBookList(ActionEvent actionEvent) {
         System.out.println("Adding new reservation");
 
-        // todo - should be currently lloged in user
-        Calendar calendar = Calendar.getInstance();
+        /*Calendar calendar = Calendar.getInstance();
         calendar.set(1998, Calendar.JUNE, 25);
         Reader reader = new Reader(98062523456L, "Dawid", calendar.getTime());
-
+*/
+        Reader reader = constants.getActualReader();
         Book book = booksTable.getSelectionModel().getSelectedItem();
         if(book == null){
             System.out.println("No book selected");
@@ -79,6 +78,8 @@ public class BooksListController { //todo
 
         ReservationStatus reservationStatus = ReservationStatus.PENDING;
         if(book.isEmpty()) reservationStatus = ReservationStatus.READY;
+
+        book.pushReaderToQueue(reader);
 
         Reservation reservation = new Reservation(DataGenerator.generateId(), reader, book, null, null, reservationStatus);
 

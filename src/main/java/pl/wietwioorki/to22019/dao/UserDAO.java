@@ -20,4 +20,30 @@ public class UserDAO {
         }
         return null;
     }
+
+    public static User findByPesel(long pesel){
+        for(User user : users){
+            if(user.getPesel() == pesel){
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public static User findByLogin(String login){
+        for(User user : users){
+            if(user.getLogin().equals(login)){
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public static User tryLogin(String login, String password){
+        User user = findByLogin(login);
+        if(user!=null && user.checkPassword(password)) {
+            return user;
+        }
+        return null;
+    }
 }
