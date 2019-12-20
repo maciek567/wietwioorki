@@ -28,7 +28,7 @@
                     <Insets bottom="15" left="20" right="20" top="15"/>
                 </VBox.margin>
             </TextField>
-            <Label prefHeight="24.0" prefWidth="97.0" text="Publication date: " GridPane.halignment="CENTER"
+            <Label prefHeight="24.0" prefWidth="117.0" text="Publication date: " GridPane.halignment="CENTER"
                    GridPane.rowIndex="2" GridPane.valignment="CENTER"/>
             <DatePicker id="publicationDate" fx:id="publicationDate" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
             <TextField promptText="Genre:" id="genre" fx:id="genre"
