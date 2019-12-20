@@ -40,8 +40,6 @@ public class AddReaderController {
     @FXML
     public Button addReaderButton;
 
-
-
     @FXML
     public void handleAddNewReader(ActionEvent actionEvent) {
         System.out.println("Adding new reader");

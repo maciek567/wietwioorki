@@ -9,4 +9,20 @@ import org.springframework.stereotype.Component;
 @Setter
 public class Constants {
     User actualUser = null;
+
+    public String getUserLogin(){
+        String name = "";
+        if(actualUser!=null){
+            name = actualUser.getLogin();
+        }
+        return name;
+    }
+
+    public Reader getActualReader(){
+        Reader reader = null;
+        if(actualUser!=null){
+            reader = actualUser.getReader();
+        }
+        return reader;
+    }
 }
