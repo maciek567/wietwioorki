@@ -30,7 +30,7 @@ public class ReaderDAO {
 
     public static Reader findByPesel(Long pesel) {
         for(Reader reader : readers) {
-            if(reader.getPesel()==pesel) return reader;
+            if(reader.getPesel().equals(pesel)) return reader;
         }
         return null;
     }
