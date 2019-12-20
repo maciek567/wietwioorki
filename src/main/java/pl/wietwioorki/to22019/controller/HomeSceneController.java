@@ -3,6 +3,7 @@ package pl.wietwioorki.to22019.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -36,6 +37,9 @@ public class HomeSceneController extends AbstractWindowControler{
     private Button showBookListButton;
 
     @FXML
+    public Text loggedInUser;
+
+    @FXML
     public void handleNewReader(ActionEvent actionEvent) {
         System.out.println("New reader view");
         openNewWindow("/layouts/AddReader.fxml");
@@ -57,6 +61,9 @@ public class HomeSceneController extends AbstractWindowControler{
     public void handleEnterLogin(ActionEvent actionEvent) {
         System.out.println("login view");
         openNewWindow("/layouts/Login.fxml");
+        if(constants.getActualUser()!=null){
+            loggedInUser.setText(String.valueOf(constants.getActualUser().getPesel()));
+        }
     }
 
     @FXML
