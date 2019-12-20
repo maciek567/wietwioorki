@@ -3,6 +3,7 @@ package pl.wietwioorki.to22019.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import pl.wietwioorki.to22019.model.Reader;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Controller
@@ -35,7 +37,7 @@ public class AddReaderController {
     public TextField pesel;
 
     @FXML
-    public TextField birthDate;
+    public DatePicker birthDate = new DatePicker();
 
     @FXML
     public Button addReaderButton;
@@ -43,26 +45,25 @@ public class AddReaderController {
     @FXML
     public void handleAddNewReader(ActionEvent actionEvent) {
         System.out.println("Adding new reader");
-        Long peselNumber = null;
-        try {
-            peselNumber = Long.parseLong(pesel.getText());
-        }
-        catch(NumberFormatException e){
-            System.out.println("Bad pesel format");
-            return;
-        }
-        if(peselNumber==null || peselNumber<=0){
+        long peselNumber = Long.parseLong(pesel.getText());
+
+        if (peselNumber <= 0) {
             System.out.println("Bad pesel");
             return;
         }
-        Date date = null;
+
+        Date date;
+
         try {
-            date = new SimpleDateFormat("dd/MM/yyyy").parse(birthDate.getText());
-        } catch (ParseException e) {
-            System.out.println("Bad date");
-            return;
-        }
-        if(date==null){
+            // workaround to enable manual (using keyboard) date changing (from https://bugs.openjdk.java.net/browse/JDK-8144499)
+            DatePicker datePicker = new DatePicker(birthDate.getConverter().fromString(birthDate.getEditor().getText()));
+
+            String formatted = datePicker.getValue().format((DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            date = sdf.parse(formatted);
+
+        } catch (ParseException | NullPointerException e) {
             System.out.println("Bad date");
             return;
         }
@@ -71,6 +72,10 @@ public class AddReaderController {
 
         ReaderDAO.addReader(reader);
 
-        System.out.println("Reader added succesfull");
+        System.out.println("Reader added successfully. All readers: ");
+
+        for (Reader r : ReaderDAO.getReaders()) {
+            System.out.println("READER: " + r);
+        }
     }
 }
