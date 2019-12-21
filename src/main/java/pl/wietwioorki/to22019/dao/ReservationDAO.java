@@ -2,9 +2,11 @@ package pl.wietwioorki.to22019.dao;
 
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableListBase;
+import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ReservationDAO {
@@ -31,11 +33,21 @@ public class ReservationDAO {
 
     public static Reservation findById(Long id) {
         for (Reservation reservation: reservations) {
-            if(reservation.getReservationId()==id){
+            if(reservation.getReservationId().equals(id)){
                 return reservation;
             }
         }
         return null;
+    }
+
+    public static List<Reservation> findByReader(Reader reader){
+        List<Reservation> result = new LinkedList<>();
+        for (Reservation reservation: reservations){
+            if(reservation.getReader().equals(reader)){
+                result.add(reservation);
+            }
+        }
+        return result;
     }
 
     public static void removeById(Long id) {
