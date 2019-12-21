@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import org.controlsfx.control.Rating;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
+import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reservation;
 
 import java.net.URL;
@@ -48,6 +49,11 @@ public class BookReturnController extends AbstractWindowController implements In
             return;
         }
         reservation.returnBook();
+
+        Book book = reservation.getBook();
+        double tempSum = book.getAverageRating() * book.getVotesCount() + Double.parseDouble(msg.getText().substring(8));
+        book.incrementVotesCount();
+        book.setAverageRating(tempSum / book.getVotesCount());
         System.out.println("Book returned successfully");
     }
 

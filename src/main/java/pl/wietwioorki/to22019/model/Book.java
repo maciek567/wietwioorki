@@ -53,4 +53,8 @@ public class Book {
     public boolean isEmpty() {
         return this.waitingReaders.isEmpty();
     }
+
+    public void incrementVotesCount() {
+        this.votesCount++;
+    }
 }
