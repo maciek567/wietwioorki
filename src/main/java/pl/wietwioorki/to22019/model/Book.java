@@ -1,9 +1,6 @@
 package pl.wietwioorki.to22019.model;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -40,6 +37,9 @@ public class Book {
     }
     public StringProperty getGenreProperty(){
         return new SimpleStringProperty(genre.getName());
+    }
+    public DoubleProperty getAverageRatingProperty() {
+        return new SimpleDoubleProperty(averageRating);
     }
 
     public void pushReaderToQueue(Reader reader) {
