@@ -69,7 +69,7 @@ public class RegisterController {
             System.out.println("You need to add reader with this pesel");
             return;
         }
-        User user = new User(DataGenerator.generateId(), login, password, Role.U, peselNumber);
+        User user = new User(DataGenerator.generateId(), login, password, Role.U, email.getText(), peselNumber);
         UserDAO.addUser(user);
         System.out.println("User added succesfully: ID: " + user.getId());
     }

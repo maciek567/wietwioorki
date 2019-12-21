@@ -8,18 +8,15 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.SessionConfig;
 import pl.wietwioorki.to22019.dao.ReaderDAO;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.dao.UserDAO;
+import pl.wietwioorki.to22019.model.Constants;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.User;
 
 import java.util.List;
-import pl.wietwioorki.to22019.dao.UserDAO;
-import pl.wietwioorki.to22019.model.Constants;
-import pl.wietwioorki.to22019.model.User;
 
 @Controller
 public class LoginController {
@@ -41,7 +38,7 @@ public class LoginController {
         System.out.println("Searching for " + userName.getText());
         User logUser = UserDAO.findByLogin(userName.getText());
         if(logUser != null){
-            SessionConfig.logUser(logUser);
+            constant.logUser(logUser);
             System.out.println("You are logged in as " + logUser.getLogin());
             Reader reader = ReaderDAO.findByUser(logUser);
             List<Reservation> reservations = ReservationDAO.findByReader(reader);
@@ -61,15 +58,6 @@ public class LoginController {
             a.setHeaderText("Login error");
             a.setContentText("Wrong credentials given");
             a.show();
-        }
-
-        User user = UserDAO.tryLogin(userName.getText(), password.getText());
-        if(user == null){
-            System.out.println("bad password or login");
-        }
-        else{
-            constant.setActualUser(user);
-            System.out.println("logged in as: " + constant.getActualUser().getLogin());
         }
     }
 }

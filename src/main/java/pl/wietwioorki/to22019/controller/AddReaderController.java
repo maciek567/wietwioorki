@@ -70,7 +70,7 @@ public class AddReaderController {
             return;
         }
 
-        User user = new User(peselNumber, Role.U, name.getText() + surname.getText(), "password");
+        User user = new User(peselNumber, name.getText() + surname.getText(), "password", Role.U, "a@a.com", 1L);
 
         Reader reader = new Reader(Long.parseLong(pesel.getText()), name.getText() + " " + surname.getText(), date, user);
 

@@ -33,7 +33,7 @@ public class DataGenerator {
     }
 
     public static Reader generateReader() {
-        User user = new User(1234567890L, Role.U, "MonikaDziedzic", "password");
+        User user = new User(1234567890L, "MonikaDziedzic", "password", Role.U, "a@a.com", 1L);
         return new Reader(1234567890L, "Monika Dziedzic", new Date(), user);
     }
 }
