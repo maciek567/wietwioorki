@@ -16,6 +16,10 @@ import java.util.Date;
 public class Constants {
     User actualUser = null;
 
+    public void logUser(User user){
+        actualUser = user;
+    }
+
     public String getUserLogin(){
         String name = "";
         if(actualUser!=null){

@@ -13,6 +13,7 @@ public class User {
     private String login;
     private String password;
     private Role role;
+    private String eMail;
     private long pesel;
 
     public Reader getReader(){
@@ -20,6 +21,6 @@ public class User {
     }
 
     public boolean checkPassword(String password){
-        return (password.equals(password));
+        return (this.password.equals(password));
     }
 }

@@ -9,7 +9,10 @@ import javafx.stage.Stage;
 import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReaderDAO;
+import pl.wietwioorki.to22019.dao.UserDAO;
 import pl.wietwioorki.to22019.model.Reader;
+import pl.wietwioorki.to22019.model.Role;
+import pl.wietwioorki.to22019.model.User;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -52,14 +55,14 @@ public class AddReaderController extends AbstractWindowController {
             return;
         }
 
-        Reader reader = new Reader(Long.parseLong(pesel.getText()), name.getText() + " " + surname.getText(), date);
+        User user = new User(peselNumber, name.getText() + surname.getText(), "password", Role.U, "a@a.com", 1L);
 
+        Reader reader = new Reader(Long.parseLong(pesel.getText()), name.getText() + " " + surname.getText(), date, user);
+
+        UserDAO.addUser(user);
         ReaderDAO.addReader(reader);
 
-        System.out.println("Reader added successfully. All readers: ");
-
-        for (Reader r : ReaderDAO.getReaders()) {
-            System.out.println("READER: " + r);
-        }
+        System.out.println("User added succesfully " + user.getLogin());
+        System.out.println("Reader added succesfully");
     }
 }
