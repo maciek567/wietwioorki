@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReaderDAO;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.dao.UserDAO;
-import pl.wietwioorki.to22019.model.Constants;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.User;
@@ -34,7 +33,7 @@ public class LoginController extends AbstractWindowController{
         System.out.println("Searching for " + userName.getText());
         User logUser = UserDAO.findByLogin(userName.getText());
         if(logUser != null){
-            constant.logUser(logUser);
+            constants.logUser(logUser);
             System.out.println("You are logged in as " + logUser.getLogin());
             Reader reader = ReaderDAO.findByUser(logUser);
             List<Reservation> reservations = ReservationDAO.findByReader(reader);
