@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="624e59f1-dc4d-4b1e-a99f-fd023e150464" name="Default Changelist" comment="filter on reservations">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="624e59f1-dc4d-4b1e-a99f-fd023e150464" name="Default Changelist" comment="Merge with Hubert branch">
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.5/javaCompile/javaCompile.lock" afterDir="false" />
@@ -11,14 +10,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddReaderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/AddReaderController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/HomeSceneController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/controller/HomeSceneController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/BookDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/BookDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReaderDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/dao/ReaderDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/pl/wietwioorki/to22019/model/Reservation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/layouts/HomeScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/BookDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/ReaderDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/SessionConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/AddReaderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/dao/generator/DataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,20 +28,6 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -55,7 +42,57 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Source Sets" type="e897c970:GradleViewContributor$SourceSetsNode" />
+                <item name="main" type="396b929e:GradleViewContributor$SourceSetNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="distribution" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="librarySystem" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -88,6 +125,11 @@
   </component>
   <component name="ProjectId" id="1U9HUk5RpWFvMKOefM2YGm2s9bu" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -107,8 +149,8 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15429688" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
@@ -253,12 +295,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:librarydb@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -286,6 +323,7 @@
       <workItem from="1576686737764" duration="9238000" />
       <workItem from="1576703603067" duration="472000" />
       <workItem from="1576772018516" duration="4510000" />
+      <workItem from="1576823180348" duration="11314000" />
     </task>
     <task id="LOCAL-00001" summary="Added model">
       <created>1574806722513</created>
@@ -322,7 +360,28 @@
       <option name="project" value="LOCAL" />
       <updated>1576227480087</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Improve filter on reservations;&#10;Remove default focus;&#10;Close window when press Esc button">
+      <created>1576803365175</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1576803365175</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add constants">
+      <created>1576807262893</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1576807262893</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Login, registration, improve other things">
+      <created>1576833627698</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1576833627698</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,54 +408,73 @@
     <MESSAGE value="Repair add reservation" />
     <MESSAGE value="borrow and return book" />
     <MESSAGE value="filter on reservations" />
-    <option name="LAST_COMMIT_MESSAGE" value="filter on reservations" />
+    <MESSAGE value="Improve filter on reservations;&#10;Remove default focus;&#10;Close window when press Esc button" />
+    <MESSAGE value="add constants" />
+    <MESSAGE value="Login, registration, improve other things" />
+    <MESSAGE value="Merge with Hubert branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge with Hubert branch" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="388" y="61" width="1018" height="816" key="CommitChangelistDialog2" timestamp="1576836170388">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="223" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576798097540">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="310" y="28" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1576233004284" />
-    <state x="388" y="61" width="1018" height="816" key="CommitChangelistDialog2/0.27.1920.1053@0.27.1920.1053" timestamp="1576836170388" />
-    <state x="124" y="33" width="1536" height="879" key="DiffContextDialog" timestamp="1576835103312">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="223" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1576798097540" />
+    <state x="574" y="141" key="#com.intellij.ide.util.MemberChooser" timestamp="1576792874385">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="124" y="33" width="1536" height="879" key="DiffContextDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1576835103312" />
+    <state x="574" y="141" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1576792874385" />
+    <state x="620" y="324" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1576798264209">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="620" y="324" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.864@0.0.1536.864" timestamp="1576798264209" />
+    <state x="310" y="28" key="CommitChangelistDialog2" timestamp="1576931585011">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="310" y="28" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1576931585011" />
+    <state width="435" height="466" key="DebuggerActiveHint" timestamp="1576801730857">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="435" height="466" key="DebuggerActiveHint/0.0.1536.864@0.0.1536.864" timestamp="1576801730857" />
+    <state x="160" y="66" key="DiffContextDialog" timestamp="1576807221943">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="160" y="66" key="DiffContextDialog/0.0.1536.864@0.0.1536.864" timestamp="1576807221943" />
     <state x="562" y="174" key="FileChooserDialogImpl" timestamp="1576223950528">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="562" y="174" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1576223950528" />
-    <state width="1015" height="83" key="GridCell.Tab.0.bottom" timestamp="1576232729779">
+    <state width="1067" height="230" key="GridCell.Tab.0.bottom" timestamp="1576931718694">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1015" height="83" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1576232729779" />
-    <state width="1015" height="83" key="GridCell.Tab.0.center" timestamp="1576232729779">
+    <state width="1067" height="230" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1576931718694" />
+    <state width="1067" height="230" key="GridCell.Tab.0.center" timestamp="1576931718694">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1015" height="83" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1576232729779" />
-    <state width="1015" height="83" key="GridCell.Tab.0.left" timestamp="1576232729779">
+    <state width="1067" height="230" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1576931718694" />
+    <state width="1067" height="230" key="GridCell.Tab.0.left" timestamp="1576931718694">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1015" height="83" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1576232729779" />
-    <state width="1015" height="83" key="GridCell.Tab.0.right" timestamp="1576232729779">
+    <state width="1067" height="230" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1576931718694" />
+    <state width="1067" height="230" key="GridCell.Tab.0.right" timestamp="1576931718694">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1015" height="83" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1576232729779" />
-    <state width="693" height="259" key="GridCell.Tab.1.bottom" timestamp="1576224527587">
+    <state width="1067" height="230" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1576931718694" />
+    <state width="714" height="268" key="GridCell.Tab.1.bottom" timestamp="1576833012923">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="693" height="259" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1576224527587" />
-    <state width="693" height="259" key="GridCell.Tab.1.center" timestamp="1576224527587">
+    <state width="714" height="268" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1576833012923" />
+    <state width="714" height="268" key="GridCell.Tab.1.center" timestamp="1576833012923">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="693" height="259" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1576224527587" />
-    <state width="693" height="259" key="GridCell.Tab.1.left" timestamp="1576224527587">
+    <state width="714" height="268" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1576833012923" />
+    <state width="714" height="268" key="GridCell.Tab.1.left" timestamp="1576833012923">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="693" height="259" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1576224527587" />
-    <state width="693" height="259" key="GridCell.Tab.1.right" timestamp="1576224527587">
+    <state width="714" height="268" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1576833012923" />
+    <state width="714" height="268" key="GridCell.Tab.1.right" timestamp="1576833012923">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="693" height="259" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1576224527587" />
+    <state width="714" height="268" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1576833012923" />
     <state width="693" height="259" key="GridCell.Tab.2.bottom" timestamp="1576217201836">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -413,23 +491,30 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state width="693" height="259" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1576217201836" />
-    <state x="287" y="72" key="SettingsEditor" timestamp="1576192141009">
+    <state x="147" y="68" width="1338" height="727" key="MergeDialog" timestamp="1576924541074">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="287" y="72" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1576192141009" />
+    <state x="147" y="68" width="1338" height="727" key="MergeDialog/0.0.1536.864@0.0.1536.864" timestamp="1576924541074" />
+    <state x="481" y="149" key="MultipleFileMergeDialog" timestamp="1576924541084">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="481" y="149" key="MultipleFileMergeDialog/0.0.1536.864@0.0.1536.864" timestamp="1576924541084" />
+    <state x="287" y="19" key="SettingsEditor" timestamp="1576798310609">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="287" y="19" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1576798310609" />
     <state x="159" y="117" width="1244" height="626" key="ShowDiffWithBranchDialog" timestamp="1576218015040">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="159" y="117" width="1244" height="626" key="ShowDiffWithBranchDialog/0.0.1536.864@0.0.1536.864" timestamp="1576218015040" />
-    <state x="374" y="166" key="Vcs.Push.Dialog.v2" timestamp="1576227483962">
+    <state x="374" y="166" key="Vcs.Push.Dialog.v2" timestamp="1576833769158">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="374" y="166" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1576227483962" />
-    <state x="741" y="452" width="455" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576834457938">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="374" y="166" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1576833769158" />
+    <state x="593" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1576788424767">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="593" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1576225671692" />
-    <state x="741" y="452" width="455" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1920.1053@0.27.1920.1053" timestamp="1576834457938" />
+    <state x="593" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1576788424767" />
     <state x="434" y="196" width="672" height="677" key="run.anything.popup" timestamp="1576192073179">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -438,5 +523,21 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="504" y="348" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1536.864@0.0.1536.864" timestamp="1576231230880" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BooksListController.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/wietwioorki/to22019/controller/BooksListController.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
