@@ -35,6 +35,8 @@ dependencies {
     // https://projectlombok.org
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.4'
+
+    compile group: 'org.controlsfx', name: 'controlsfx', version: '11.0.0'
 }
 
 javafx {

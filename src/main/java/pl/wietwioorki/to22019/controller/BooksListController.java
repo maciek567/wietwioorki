@@ -46,6 +46,9 @@ public class BooksListController extends AbstractWindowController { //todo
     private TableColumn<Book, String> genreColumn;
 
     @FXML
+    public TableColumn<Book, Double> ratingColumn;
+
+    @FXML
     private void initialize() {
         booksTable.setItems(BookDAO.getBooksObservable());
 
@@ -54,6 +57,7 @@ public class BooksListController extends AbstractWindowController { //todo
         authorColumn.setCellValueFactory(dataValue -> dataValue.getValue().getAuthorProperty());
         dateColumn.setCellValueFactory(dataValue -> dataValue.getValue().getDateProperty());
         genreColumn.setCellValueFactory(dataValue -> dataValue.getValue().getGenreProperty());
+        ratingColumn.setCellValueFactory(dataValue -> dataValue.getValue().getAverageRatingProperty().asObject());
     }
 
     @FXML

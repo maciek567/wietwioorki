@@ -60,9 +60,9 @@ public class AddBookController extends AbstractWindowController {
             return;
         }
 
-        Book book = new Book(DataGenerator.generateId(), bookTitle.getText(), authorObject, date, genreObject, new LinkedList<>());
+        Book book = new Book(DataGenerator.generateId(), bookTitle.getText(), authorObject, date, genreObject, new LinkedList<>(), 0.0, 0);
         BookDAO.addBook(book);
-        System.out.println("Book add successfully");
+        System.out.println("Book added successfully");
     }
 
     @FXML

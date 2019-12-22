@@ -22,13 +22,13 @@ public class DataGenerator {
     }
 
     public static Book generateBook() {
-        return new Book(1L, "Szosta klepka", generateAuthor(), new Date(), generateGenre(), new LinkedList<>());
+        return new Book(1L, "Szosta klepka", generateAuthor(), new Date(), generateGenre(), new LinkedList<>(), 0.0, 0);
     }
 
     static List<Book> generateBookList() {
         List<Book> writtenBooks = new ArrayList<>();
         writtenBooks.add(generateBook());
-        writtenBooks.add(new Book(2L, "Opium w rosole", generateAuthor(), new Date(), generateGenre(), new LinkedList<>()));
+        writtenBooks.add(new Book(2L, "Opium w rosole", generateAuthor(), new Date(), generateGenre(), new LinkedList<>(), 0.0, 0));
         return writtenBooks;
     }
 

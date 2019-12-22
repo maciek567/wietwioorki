@@ -2,20 +2,33 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.controlsfx.control.Rating;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
+import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reservation;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 @Controller
-public class BookReturnController extends AbstractWindowController {
+public class BookReturnController extends AbstractWindowController implements Initializable {
 
     @FXML
     public TextField pesel;
 
     @FXML
     public TextField reservationId;
+
+    @FXML
+    private Rating bookRating = new Rating();
+
+    @FXML
+    private Label msg;
 
     @FXML
     public Button returnBook;
@@ -36,7 +49,18 @@ public class BookReturnController extends AbstractWindowController {
             return;
         }
         reservation.returnBook();
+
+        Book book = reservation.getBook();
+        double tempSum = book.getAverageRating() * book.getVotesCount() + Double.parseDouble(msg.getText().substring(8));
+        book.incrementVotesCount();
+        book.setAverageRating(tempSum / book.getVotesCount());
         System.out.println("Book returned successfully");
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+//        bookRating.setUpdateOnHover(true);
+        msg.setText("Rating: 3.0");
+        bookRating.ratingProperty().addListener((observable, oldValue, newValue) -> msg.setText("Rating: " + newValue));
+    }
 }
