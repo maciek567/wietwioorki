@@ -9,12 +9,12 @@ import pl.wietwioorki.to22019.dao.ReaderDAO;
 @Getter
 @ToString
 public class User {
-    private long id;
+    private Long id;
     private String login;
     private String password;
     private Role role;
-    private String eMail;
-    private long pesel;
+    private String email;
+    private Long pesel;
 
     public Reader getReader(){
         return ReaderDAO.findByPesel(pesel);

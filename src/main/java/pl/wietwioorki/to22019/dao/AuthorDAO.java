@@ -15,7 +15,7 @@ public class AuthorDAO {
                 return author;
             }
         }
-        return new Author(DataGenerator.generateId(), name); // is it ok? todo
+        return null;
    }
 
    public static void addAuthor(Author author){
@@ -28,7 +28,7 @@ public class AuthorDAO {
 */
     public static Author findById(Long id) {
         for (Author author: authors) {
-            if(author.getAuthorId()==id){
+            if(author.getAuthorId().equals(id)){
                 return author;
             }
         }

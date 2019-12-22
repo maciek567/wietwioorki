@@ -6,8 +6,8 @@ import pl.wietwioorki.to22019.model.Genre;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GenreDAO {
-    private static List<Genre> genres = new ArrayList<Genre>();
+public class GenreDAO { //todo: fix DAO objects
+    private static List<Genre> genres = new ArrayList<>();
 
     public static Genre findByName(String name) {
         for (Genre genre: genres) {
@@ -15,7 +15,7 @@ public class GenreDAO {
                 return genre;
             }
         }
-        return new Genre(DataGenerator.generateId(), name, "Add default");
+        return null;
     }
     public static Genre findById(Long id) {
         return DataGenerator.generateGenre();

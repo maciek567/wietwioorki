@@ -17,6 +17,10 @@ import pl.wietwioorki.to22019.util.AlertFactory;
 
 import java.util.List;
 
+import static pl.wietwioorki.to22019.util.ErrorMessage.loginErrorHeader;
+import static pl.wietwioorki.to22019.util.ErrorMessage.wrongCredentialsErrorContent;
+import static pl.wietwioorki.to22019.util.InfoMessage.pendingReservationsInfoHeader;
+
 @Controller
 public class LoginController extends AbstractWindowController {
 
@@ -44,10 +48,10 @@ public class LoginController extends AbstractWindowController {
                     contentText.append(reservation.getBooksTittleProperty());
                     contentText.append("\n");
                 }
-                AlertFactory.showAlert(Alert.AlertType.INFORMATION, "You have pending reservations", contentText.toString());
+                AlertFactory.showAlert(Alert.AlertType.INFORMATION, pendingReservationsInfoHeader, contentText.toString());
             }
         } else {
-            AlertFactory.showAlert(Alert.AlertType.ERROR, "Login error", "Wrong credentials given");
+            AlertFactory.showAlert(Alert.AlertType.ERROR, loginErrorHeader, wrongCredentialsErrorContent);
         }
     }
 }
