@@ -17,7 +17,7 @@ import pl.wietwioorki.to22019.model.ReservationStatus;
 import java.util.Date;
 
 @Controller
-public class AddReservationController {
+public class AddReservationController extends AbstractWindowController {
 
     @FXML
     public TextField pesel;
@@ -39,7 +39,7 @@ public class AddReservationController {
             System.out.println("Bad pesel format");
             return;
         }
-        if(peselNumber==null || peselNumber<=0){
+        if(peselNumber <= 0){
             System.out.println("Bad pesel");
             return;
         }
@@ -75,6 +75,6 @@ public class AddReservationController {
 
         ReservationDAO.addReservation(reservation);
 
-        System.out.println("Reservation added succesfully");
+        System.out.println("Reservation added successfully");
     }
 }

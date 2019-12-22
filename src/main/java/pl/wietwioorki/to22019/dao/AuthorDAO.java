@@ -2,7 +2,6 @@ package pl.wietwioorki.to22019.dao;
 
 import pl.wietwioorki.to22019.dao.generator.DataGenerator;
 import pl.wietwioorki.to22019.model.Author;
-import pl.wietwioorki.to22019.model.Book;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +15,7 @@ public class AuthorDAO {
                 return author;
             }
         }
-        return new Author(DataGenerator.generateId(), name);
+        return new Author(DataGenerator.generateId(), name); // is it ok? todo
    }
 
    public static void addAuthor(Author author){

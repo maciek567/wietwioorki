@@ -13,7 +13,7 @@ import pl.wietwioorki.to22019.model.Constants;
 
 import java.io.IOException;
 
-public abstract class AbstractWindowControler {
+public abstract class AbstractWindowController {
     @Autowired
     protected Constants constants;
 

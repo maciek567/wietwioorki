@@ -6,7 +6,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReaderDAO;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
@@ -19,10 +18,7 @@ import pl.wietwioorki.to22019.model.User;
 import java.util.List;
 
 @Controller
-public class LoginController {
-
-    @Autowired
-    private Constants constant;
+public class LoginController extends AbstractWindowController{
 
     @FXML
     public TextField userName;
