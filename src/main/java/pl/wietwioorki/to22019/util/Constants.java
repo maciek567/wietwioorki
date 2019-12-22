@@ -1,9 +1,11 @@
-package pl.wietwioorki.to22019.model;
+package pl.wietwioorki.to22019.util;
 
 import javafx.scene.control.DatePicker;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
+import pl.wietwioorki.to22019.model.Reader;
+import pl.wietwioorki.to22019.model.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

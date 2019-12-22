@@ -13,11 +13,12 @@ import pl.wietwioorki.to22019.dao.UserDAO;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.User;
+import pl.wietwioorki.to22019.util.AlertFactory;
 
 import java.util.List;
 
 @Controller
-public class LoginController extends AbstractWindowController{
+public class LoginController extends AbstractWindowController {
 
     @FXML
     public TextField userName;
@@ -32,27 +33,21 @@ public class LoginController extends AbstractWindowController{
     public void handleLogin(ActionEvent actionEvent) {
         System.out.println("Searching for " + userName.getText());
         User logUser = UserDAO.findByLogin(userName.getText());
-        if(logUser != null){
+        if (logUser != null) {
             constants.logUser(logUser);
             System.out.println("You are logged in as " + logUser.getLogin());
             Reader reader = ReaderDAO.findByUser(logUser);
             List<Reservation> reservations = ReservationDAO.findByReader(reader);
-            if(reservations.size() > 0){
-                Alert a = new Alert(Alert.AlertType.INFORMATION);
-                a.setHeaderText("You have pending reservations");
+            if (reservations.size() > 0) {
                 StringBuilder contentText = new StringBuilder();
-                for(Reservation reservation: reservations){
+                for (Reservation reservation : reservations) {
                     contentText.append(reservation.getBooksTittleProperty());
                     contentText.append("\n");
                 }
-                a.setContentText(contentText.toString());
-                a.show();
+                AlertFactory.showAlert(Alert.AlertType.INFORMATION, "You have pending reservations", contentText.toString());
             }
-        }else{
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setHeaderText("Login error");
-            a.setContentText("Wrong credentials given");
-            a.show();
+        } else {
+            AlertFactory.showAlert(Alert.AlertType.ERROR, "Login error", "Wrong credentials given");
         }
     }
 }

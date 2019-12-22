@@ -9,7 +9,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
-import pl.wietwioorki.to22019.model.Constants;
+import pl.wietwioorki.to22019.util.Constants;
 
 import java.io.IOException;
 
