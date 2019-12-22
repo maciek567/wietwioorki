@@ -1,3 +1,10 @@
 .gradle
 build
+
+/build/
+
+#User-specific files
 workspace.xml
+
+#Intelliji
+/out/
