@@ -12,11 +12,18 @@ public class ReaderValidator {
         if (name.isBlank() || surname.isBlank()) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "adding reader", "name" + emptyFieldErrorContent);
             return false;
+        } else if (!StringUtils.isAlpha(name) || !StringUtils.isAlpha(name)){
+            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "adding reader", wrongNamesErrorContent);
+            return false;
         }
-        return true;
+            return true;
     }
 
     public boolean validatePesel(String pesel) {
+        if (pesel.isBlank()) {
+            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "adding reader", "pesel" + emptyFieldErrorContent);
+            return false;
+        }
         if (pesel.length() != 11 || !StringUtils.isNumeric(pesel)) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "adding reader", wrongPeselErrorContent);
             return false;

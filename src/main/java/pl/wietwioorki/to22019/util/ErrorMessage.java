@@ -9,6 +9,7 @@ public class ErrorMessage {
     public static String wrongCredentialsErrorContent = "Wrong credentials given";
     public static String wrongDateErrorContent = "Wrong date format. Proper format is dd/mm/yyyy";
     public static String wrongPeselErrorContent = "Wrong pesel format";
+    public static String wrongNamesErrorContent = "Wrong name format";
 
     public static String emptyFieldErrorContent = " should not be empty";
 
