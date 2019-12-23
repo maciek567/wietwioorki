@@ -14,14 +14,14 @@ import pl.wietwioorki.to22019.model.Genre;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
 import java.text.ParseException;
-import java.time.format.DateTimeParseException;
+import java.time.DateTimeException;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.Optional;
 
-import static javafx.scene.control.ButtonBar.*;
-import static jdk.internal.net.http.common.Utils.close;
-import static pl.wietwioorki.to22019.util.ErrorMessage.*;
+import static javafx.scene.control.ButtonBar.ButtonData;
+import static pl.wietwioorki.to22019.util.ErrorMessage.generalErrorHeader;
+import static pl.wietwioorki.to22019.util.ErrorMessage.wrongDateErrorContent;
 import static pl.wietwioorki.to22019.util.InfoMessage.*;
 
 @Controller
@@ -65,8 +65,7 @@ public class AddBookController extends AbstractWindowController {
         Date date;
         try {
             date = constants.datePickerConverter(publicationDate);
-        } catch (DateTimeParseException | ParseException |
-                NullPointerException e) {
+        } catch (ParseException | DateTimeException | NullPointerException e) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "adding book", wrongDateErrorContent);
             return;
         }

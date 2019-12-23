@@ -20,6 +20,7 @@ public class ReaderDAO {
 
     public static void addReader(Reader reader){
         readers.add(reader);
+        System.out.println(reader);
     }
 
     public static Reader findByName(String text) {

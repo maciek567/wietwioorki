@@ -9,6 +9,7 @@ import pl.wietwioorki.to22019.model.User;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
@@ -38,7 +39,7 @@ public class Constants {
         return reader;
     }
 
-    public Date datePickerConverter(DatePicker datePicker) throws ParseException {
+    public Date datePickerConverter(DatePicker datePicker) throws ParseException, DateTimeException {
         // workaround to enable manual (using keyboard) date changing (from https://bugs.openjdk.java.net/browse/JDK-8144499)
         DatePicker newDatePicker = new DatePicker(datePicker.getConverter().fromString(datePicker.getEditor().getText()));
 
