@@ -76,5 +76,6 @@ public class AddReaderController extends AbstractWindowController {
 //        System.out.println("User added succesfully. Login: " + user.getLogin());
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, readerSuccessfullyCreatedContent);
+        closeWindowAfterSuccessfulAction(actionEvent);
     }
 }

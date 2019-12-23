@@ -71,5 +71,7 @@ public class RegisterController extends AbstractWindowController {
         User user = new User(DataGenerator.generateId(), login, password, Role.U, email.getText(), peselNumber);
         UserDAO.addUser(user);
         System.out.println("User added successfully: ID: " + user.getId());
+
+        closeWindowAfterSuccessfulAction(actionEvent);
     }
 }

@@ -76,5 +76,7 @@ public class AddReservationController extends AbstractWindowController {
         ReservationDAO.addReservation(reservation);
 
         System.out.println("Reservation added successfully");
+
+        closeWindowAfterSuccessfulAction(actionEvent);
     }
 }

@@ -2,7 +2,10 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.BookDAO;
 import pl.wietwioorki.to22019.dao.generator.DataGenerator;
@@ -12,7 +15,8 @@ import pl.wietwioorki.to22019.validator.BookValidator;
 
 import java.util.LinkedList;
 
-import static pl.wietwioorki.to22019.util.InfoMessage.*;
+import static pl.wietwioorki.to22019.util.InfoMessage.bookSuccessfullyCreatedContent;
+import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class AddBookController extends AbstractWindowController {
@@ -47,6 +51,7 @@ public class AddBookController extends AbstractWindowController {
                 bookValidator.getDate(), bookValidator.getGenre(), new LinkedList<>(), 0.0, 0));
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyCreatedContent);
+        closeWindowAfterSuccessfulAction(actionEvent);
     }
 
     @FXML

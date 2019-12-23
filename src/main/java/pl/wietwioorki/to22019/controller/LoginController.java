@@ -34,5 +34,8 @@ public class LoginController extends AbstractWindowController {
         if (!credentialsValidator.validateCredentials(constants, userName.getText(), password.getText())) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, loginErrorHeader, wrongCredentialsErrorContent);
         }
+        else {
+            closeWindowAfterSuccessfulAction(actionEvent);
+        }
     }
 }
