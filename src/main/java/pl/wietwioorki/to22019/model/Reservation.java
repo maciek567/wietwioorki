@@ -38,7 +38,7 @@ public class Reservation {
         }
         return new SimpleStringProperty(reader == null ? "": reader.getFullName());
     }
-    public StringProperty getBooksTittleProperty(){
+    public StringProperty getBooksTitleProperty(){
         return new SimpleStringProperty(book.getTitle());
     }
     public  ObjectProperty<ReservationStatus> getReservationStatusProperty() {return new SimpleObjectProperty<>(reservationStatus); }

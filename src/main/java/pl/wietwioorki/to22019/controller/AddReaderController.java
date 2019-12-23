@@ -55,7 +55,7 @@ public class AddReaderController extends AbstractWindowController {
             return;
         }
 
-        Date date; // todo: to remove
+        Date date; // todo: remove
         try {
             date = constants.datePickerConverter(birthDate);
         } catch (ParseException | DateTimeException | NullPointerException e) {
@@ -65,14 +65,15 @@ public class AddReaderController extends AbstractWindowController {
 
         Long peselNumber = Long.parseLong(pesel.getText());
 
-        User user = new User(peselNumber, name.getText() + " " + surname.getText(), "password", Role.U, "a@a.com", peselNumber);
+        //todo: to remove!! reader moze byc porownywany z userem za pomoca peselu, niepotrzebna jest kompozycja!
+//        User user = new User(peselNumber, name.getText() + " " + surname.getText(), "password", Role.U, "a@a.com", peselNumber);
 
-        Reader reader = new Reader(peselNumber, name.getText() + " " + surname.getText(), date, user);
+        Reader reader = new Reader(peselNumber, name.getText() + " " + surname.getText(), date);
 
-        UserDAO.addUser(user);
+//        UserDAO.addUser(user);
         ReaderDAO.addReader(reader);
 
-        System.out.println("User added succesfully. Login: " + user.getLogin());
+//        System.out.println("User added succesfully. Login: " + user.getLogin());
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, readerSuccessfullyCreatedContent);
     }

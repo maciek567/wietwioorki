@@ -69,7 +69,7 @@ public class ReservationListController extends AbstractWindowController {
         reservationId.setCellValueFactory(dataValue -> dataValue.getValue().getReservationIdProperty());
         readerPesel.setCellValueFactory(dataValue -> dataValue.getValue().getReaderPeselProperty());
         readerName.setCellValueFactory(dataValue -> dataValue.getValue().getReaderNameProperty());
-        booksTittle.setCellValueFactory(dataValue -> dataValue.getValue().getBooksTittleProperty());
+        booksTittle.setCellValueFactory(dataValue -> dataValue.getValue().getBooksTitleProperty());
         reservationStatus.setCellValueFactory(dataValue -> dataValue.getValue().getReservationStatusProperty());
         borrowingDate.setCellValueFactory(dataValue -> dataValue.getValue().getBorrowingDateProperty());
         returnDate.setCellValueFactory(dataValue -> dataValue.getValue().getReturnDateProperty());
@@ -187,7 +187,7 @@ public class ReservationListController extends AbstractWindowController {
                 else if(compareSelectedFilter(FilterValue.ReservationID) && reservation.getReservationId().toString().startsWith(newValue)){
                     return true;
                 }
-                else if(compareSelectedFilter(FilterValue.BookTitle) && reservation.getBooksTittleProperty().getValue().startsWith(newValue)){
+                else if(compareSelectedFilter(FilterValue.BookTitle) && reservation.getBooksTitleProperty().getValue().startsWith(newValue)){
                     return true;
                 }
                 else if(compareSelectedFilter(FilterValue.BorrowDate) && reservation.getBorrowingDateProperty().toString().startsWith(newValue)){

@@ -1,7 +1,6 @@
 package pl.wietwioorki.to22019.dao;
 
 import pl.wietwioorki.to22019.model.Reader;
-import pl.wietwioorki.to22019.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,12 +36,12 @@ public class ReaderDAO {
         return null;
     }
 
-    public static Reader findByUser(User user){
-        for(Reader reader : readers){
-            if(reader.getUser().equals(user)) return reader;
-        }
-        return null;
-    }
+//    public static Reader findByUser(User user){
+//        for(Reader reader : readers){
+//            if(reader.getUser().equals(user)) return reader;
+//        }
+//        return null;
+//    }
 
     public static List<Reader> getReaders() {
         return readers;

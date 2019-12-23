@@ -38,7 +38,8 @@ public class AddBookController extends AbstractWindowController {
 
         BookValidator bookValidator = new BookValidator();
 
-        if (!bookValidator.validateTitle(bookTitle.getText()) || !bookValidator.validateAuthor(authorName.getText()) || !bookValidator.validateDate(constants, publicationDate) || !bookValidator.validateGenre(genre.getText())) {
+        if (!bookValidator.validateTitle(bookTitle.getText()) || !bookValidator.validateAuthor(authorName.getText()) ||
+                !bookValidator.validateDate(constants, publicationDate) || !bookValidator.validateGenre(genre.getText())) {
             return;
         }
 

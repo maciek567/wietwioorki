@@ -44,6 +44,7 @@ public class BookValidator {
             if (result.isPresent()) {
                 ButtonBar.ButtonData buttonData = result.get().getButtonData();
                 if (buttonData == ButtonBar.ButtonData.YES) {
+
                     AuthorDAO.addAuthor(new Author(DataGenerator.generateId(), authorName)); // todo: id should not be generated
                     System.out.println("Created new author");
                     return true; // for the sake of readability...
@@ -75,6 +76,7 @@ public class BookValidator {
             if (result.isPresent()) {
                 ButtonBar.ButtonData buttonData = result.get().getButtonData();
                 if (buttonData == ButtonBar.ButtonData.YES) {
+                    // todo: add field for genre description
 //                                        GenreDAO.addGenre(new Genre(DataGenerator.generateId(), genre.getText(), "")); // todo: id should not be generated
                     System.out.println("Created new genre");
                     return true;

@@ -13,5 +13,4 @@ public class Reader {
     private Long pesel;
     private String fullName;
     private Date dateOfBirth;
-    private User user;
 }
