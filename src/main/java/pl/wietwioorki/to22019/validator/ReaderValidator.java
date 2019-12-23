@@ -6,7 +6,7 @@ import pl.wietwioorki.to22019.util.AlertFactory;
 
 import static pl.wietwioorki.to22019.util.ErrorMessage.*;
 
-public class ReaderValidator {//implements Validator<Reader>{ //todo: remove
+public class ReaderValidator {
 
     public boolean validateNames(String name, String surname) {
         if (name.isBlank() || surname.isBlank()) {

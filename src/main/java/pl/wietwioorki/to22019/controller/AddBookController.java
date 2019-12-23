@@ -4,24 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.dao.AuthorDAO;
 import pl.wietwioorki.to22019.dao.BookDAO;
-import pl.wietwioorki.to22019.dao.GenreDAO;
 import pl.wietwioorki.to22019.dao.generator.DataGenerator;
-import pl.wietwioorki.to22019.model.Author;
 import pl.wietwioorki.to22019.model.Book;
-import pl.wietwioorki.to22019.model.Genre;
 import pl.wietwioorki.to22019.util.AlertFactory;
+import pl.wietwioorki.to22019.validator.BookValidator;
 
-import java.text.ParseException;
-import java.time.DateTimeException;
-import java.util.Date;
 import java.util.LinkedList;
-import java.util.Optional;
 
-import static javafx.scene.control.ButtonBar.ButtonData;
-import static pl.wietwioorki.to22019.util.ErrorMessage.generalErrorHeader;
-import static pl.wietwioorki.to22019.util.ErrorMessage.wrongDateErrorContent;
 import static pl.wietwioorki.to22019.util.InfoMessage.*;
 
 @Controller
@@ -46,50 +36,14 @@ public class AddBookController extends AbstractWindowController {
     public void handleAddNewBook(ActionEvent actionEvent) {
         System.out.println("Adding new book");
 
-        Author authorObject = AuthorDAO.findByName(authorName.getText());
-        if (authorObject == null) {
-            Alert confirmationAlert = AlertFactory.createAlert(Alert.AlertType.CONFIRMATION, shouldNewAuthorBeCreatedHeader, shouldNewAuthorBeCreatedContent);
-            Optional<ButtonType> result = confirmationAlert.showAndWait();
-            if (result.isPresent()) {
-                ButtonData buttonData = result.get().getButtonData();
-                if (buttonData == ButtonData.YES) {
-                    AuthorDAO.addAuthor(new Author(DataGenerator.generateId(), authorName.getText())); // todo: id should not be generated
-                    System.out.println("Created new author");
-                } else if (buttonData == ButtonData.NO) {
-                    System.out.println("Did not create new author");
-                    return;
-                }
-            }
-        }
+        BookValidator bookValidator = new BookValidator();
 
-        Date date;
-        try {
-            date = constants.datePickerConverter(publicationDate);
-        } catch (ParseException | DateTimeException | NullPointerException e) {
-            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "adding book", wrongDateErrorContent);
+        if (!bookValidator.validateTitle(bookTitle.getText()) || !bookValidator.validateAuthor(authorName.getText()) || !bookValidator.validateDate(constants, publicationDate) || !bookValidator.validateGenre(genre.getText())) {
             return;
         }
 
-        Genre genreObject;
-        genreObject = GenreDAO.findByName(genre.getText());
-        if (genre == null) {
-            Alert confirmationAlert = AlertFactory.createAlert(Alert.AlertType.CONFIRMATION, shouldNewGenreBeCreatedHeader, shouldNewGenrerBeCreatedContent);
-
-            Optional<ButtonType> result = confirmationAlert.showAndWait();
-            if (result.isPresent()) {
-                ButtonData buttonData = result.get().getButtonData();
-                if (buttonData == ButtonData.YES) {
-                    //                    GenreDAO.addGenre(new Genre(DataGenerator.generateId(), genre.getText(), "")); // todo: id should not be generated
-                    System.out.println("Created new genre");
-                } else if (buttonData == ButtonData.NO) {
-                    System.out.println("Did not create new genre");
-                    return;
-                }
-            }
-        }
-
-        Book book = new Book(DataGenerator.generateId(), bookTitle.getText(), authorObject, date, genreObject, new LinkedList<>(), 0.0, 0);
-        BookDAO.addBook(book);
+        BookDAO.addBook(new Book(DataGenerator.generateId(), bookTitle.getText(), bookValidator.getAuthor(),
+                bookValidator.getDate(), bookValidator.getGenre(), new LinkedList<>(), 0.0, 0));
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyCreatedContent);
     }
