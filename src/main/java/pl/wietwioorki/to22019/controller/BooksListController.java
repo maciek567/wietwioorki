@@ -21,9 +21,6 @@ import java.util.Date;
 @Controller
 public class BooksListController extends AbstractWindowController { //todo
 
-    @Setter
-    private static Stage primaryStage;
-
     @FXML
     public Button addReservationFromBookList;
 

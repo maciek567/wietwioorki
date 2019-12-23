@@ -13,5 +13,6 @@ public class ErrorMessage {
 
     public static String emptyFieldErrorContent = " should not be empty";
 
+    public static String readerWithGivenPeselExistsErrorContent = "Reader with given pesel already exists";
 
 }

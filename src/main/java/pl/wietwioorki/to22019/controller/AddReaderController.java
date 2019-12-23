@@ -28,8 +28,6 @@ import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class AddReaderController extends AbstractWindowController {
-    @Setter
-    private static Stage primaryStage;
 
     @FXML
     public TextField name;
@@ -65,15 +63,8 @@ public class AddReaderController extends AbstractWindowController {
 
         Long peselNumber = Long.parseLong(pesel.getText());
 
-        //todo: to remove!! reader moze byc porownywany z userem za pomoca peselu, niepotrzebna jest kompozycja!
-//        User user = new User(peselNumber, name.getText() + " " + surname.getText(), "password", Role.U, "a@a.com", peselNumber);
-
         Reader reader = new Reader(peselNumber, name.getText() + " " + surname.getText(), date);
-
-//        UserDAO.addUser(user);
         ReaderDAO.addReader(reader);
-
-//        System.out.println("User added succesfully. Login: " + user.getLogin());
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, readerSuccessfullyCreatedContent);
         closeWindowAfterSuccessfulAction(actionEvent);
