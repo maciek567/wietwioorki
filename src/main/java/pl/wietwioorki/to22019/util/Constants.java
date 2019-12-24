@@ -4,6 +4,8 @@ import javafx.scene.control.DatePicker;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
+import pl.wietwioorki.to22019.dao.BookDAO;
+import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.User;
 
@@ -12,29 +14,30 @@ import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 
 @Component
 @Getter
 @Setter
 public class Constants {
-    User actualUser = null;
+    User currentUser = null;
 
     public void logUser(User user){
-        actualUser = user;
+        currentUser = user;
     }
 
     public String getUserLogin(){
         String name = "";
-        if(actualUser!=null){
-            name = actualUser.getLogin();
+        if(currentUser !=null){
+            name = currentUser.getLogin();
         }
         return name;
     }
 
-    public Reader getActualReader(){
+    public Reader getCurrentReader(){
         Reader reader = null;
-        if(actualUser!=null){
-            reader = actualUser.getReader();
+        if(currentUser !=null){
+            reader = currentUser.getReader();
         }
         return reader;
     }
@@ -47,5 +50,23 @@ public class Constants {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         return sdf.parse(formatted);
+    }
+
+    public Book getReservedBook(String bookTitle) {
+        List<Book> books = BookDAO.findAllByTitle(bookTitle);
+        Book reservedBook = books.get(0);
+        int smallestQueueSize = books.get(0).getReaderQueueSize();
+
+        for (Book book : books) {
+            if (book.isReaderQueueEmpty()) {
+                reservedBook = book;
+                break;
+            }
+            if (book.getReaderQueueSize() < smallestQueueSize) {
+                smallestQueueSize = book.getReaderQueueSize();
+                reservedBook = book;
+            }
+        }
+        return reservedBook;
     }
 }

@@ -77,8 +77,8 @@ public class ReservationListController extends AbstractWindowController {
         reservationTable.setItems(InitializeFilters());
 
         boolean isAdmin = false;
-        if(constants.getActualUser() != null){
-            isAdmin = constants.getActualUser().getRole().equals(Role.L);
+        if(constants.getCurrentUser() != null){
+            isAdmin = constants.getCurrentUser().getRole().equals(Role.L);
         }
 
         selectedFilter.setItems(getFilterItems(isAdmin));

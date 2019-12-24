@@ -12,6 +12,6 @@ public class InfoMessage {
     public static String shouldNewGenrerBeCreatedContent = "Create new genre?";
 
     public static String bookSuccessfullyCreatedContent = "Successfully added book";
-
     public static String readerSuccessfullyCreatedContent = "Successfully added reader";
+    public static String reservationSuccessfullyCreatedContent = "Successfully added reservation";
 }
