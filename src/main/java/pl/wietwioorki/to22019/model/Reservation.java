@@ -46,9 +46,7 @@ public class Reservation {
     public ObjectProperty<Date> getReturnDateProperty(){ return new SimpleObjectProperty<>(reservationEndDate); }
 
     public void borrowBook(){
-        if (reservationStatus.equals(ReservationStatus.PENDING)) {
-            book.popReaderFromQueue();
-        }
+        book.popReaderFromQueue();
         reservationStartDate = new Date(System.currentTimeMillis());
     }
 
