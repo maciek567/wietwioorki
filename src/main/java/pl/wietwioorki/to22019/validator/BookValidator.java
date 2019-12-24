@@ -45,7 +45,7 @@ public class BookValidator {
                 if (buttonData == ButtonBar.ButtonData.YES) {
 
                     AuthorDAO.addAuthor(new Author(DataGenerator.generateId(), authorName)); // todo: id should not be generated
-                    // todo: there should be a popup to fill ALL author's data
+                    // todo: there should be a popup to fill ALL author's data. the same thing refers to genre
                     System.out.println("Created new author");
                     return true; // for the sake of readability...
                 } else if (buttonData == ButtonBar.ButtonData.NO) {
