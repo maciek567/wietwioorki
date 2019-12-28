@@ -6,14 +6,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.dao.ReaderDAO;
-import pl.wietwioorki.to22019.dao.UserDAO;
 import pl.wietwioorki.to22019.model.Reader;
-import pl.wietwioorki.to22019.model.Role;
-import pl.wietwioorki.to22019.model.User;
+import pl.wietwioorki.to22019.repository.ReaderRepository;
 import pl.wietwioorki.to22019.util.AlertFactory;
 import pl.wietwioorki.to22019.validator.ReaderValidator;
 
@@ -28,6 +24,9 @@ import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class AddReaderController extends AbstractWindowController {
+
+    @Autowired
+    ReaderRepository repository;
 
     @FXML
     public TextField name;
@@ -64,7 +63,7 @@ public class AddReaderController extends AbstractWindowController {
         Long peselNumber = Long.parseLong(pesel.getText());
 
         Reader reader = new Reader(peselNumber, name.getText() + " " + surname.getText(), date);
-        ReaderDAO.addReader(reader);
+        repository.save(reader);
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, readerSuccessfullyCreatedContent);
         closeWindowAfterSuccessfulAction(actionEvent);

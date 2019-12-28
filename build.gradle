@@ -41,6 +41,10 @@ dependencies {
 
     // StringUtils
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+
+    //postgres
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('org.postgresql:postgresql')
 }
 
 javafx {
