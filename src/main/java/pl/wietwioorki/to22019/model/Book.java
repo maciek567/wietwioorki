@@ -1,27 +1,55 @@
 package pl.wietwioorki.to22019.model;
 
 import javafx.beans.property.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.*;
 import java.util.Date;
-import java.util.Queue;
 
-@AllArgsConstructor
+@NoArgsConstructor
 @Getter
-@Setter
 @ToString
+@Entity
+@Table(name = "book")
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "book_id")
     private Long bookId;
     private String title;
-    private Author author;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author author; // todo: each book has only one author
+
     private Date publicationDate;
+
+//    @ManyToMany(cascade = { CascadeType.ALL })
+//    @JoinTable(
+//            name = "book_genre",
+//            joinColumns = { @JoinColumn(name = "book_id") },
+//            inverseJoinColumns = { @JoinColumn(name = "genre_id") }
+//    )
+//    private Set<Genre> genres = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "genre_id")
     private Genre genre;
-    private Queue<Reader> waitingReaders;
-    private Double averageRating;
-    private int votesCount;
+
+//    private Queue<Reader> waitingReaders = new LinkedList<>();
+    @Setter
+    private Double averageRating = 0.0;
+    private int votesCount = 0;
+
+    public Book(String title, Author author, Date publicationDate, Genre genre) {
+        this.title = title;
+        this.author = author;
+        this.publicationDate = publicationDate;
+        this.genre = genre;
+    }
 
     public ObjectProperty<Long> getIdProperty(){
         return new SimpleObjectProperty<>(bookId);
@@ -43,19 +71,22 @@ public class Book {
     }
 
     public void pushReaderToQueue(Reader reader) {
-        this.waitingReaders.add(reader);
+//        this.waitingReaders.add(reader);
     }
 
     public Reader popReaderFromQueue() {
-       return this.waitingReaders.remove();
+//       return this.waitingReaders.remove();
+        return null;
     }
 
     public boolean isReaderQueueEmpty() {
-        return this.waitingReaders.isEmpty();
+        return true;
+//        return this.waitingReaders.isEmpty();
     }
 
     public int getReaderQueueSize() {
-        return waitingReaders.size();
+        return 0;
+//        return waitingReaders.size();
     }
 
     public void incrementVotesCount() {

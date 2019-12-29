@@ -7,16 +7,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.controlsfx.control.Rating;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reservation;
+import pl.wietwioorki.to22019.repository.ReservationRepository;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 @Controller
 public class BookReturnController extends AbstractWindowController implements Initializable {
+
+    @Autowired
+    ReservationRepository reservationRepository;
 
     @FXML
     public TextField pesel;
@@ -42,15 +47,15 @@ public class BookReturnController extends AbstractWindowController implements In
             System.out.println("Can't read reservation id :" + reservationId.getText());
             return;
         }
-        Reservation reservation = ReservationDAO.findById(reservationID);
+        Optional<Reservation> reservation = reservationRepository.findById(reservationID);
 
-        if (reservation == null) {
+        if (reservation.isEmpty()) {
             System.out.println("Can't find reservation with id:" + reservationID);
             return;
         }
-        reservation.returnBook();
+        reservation.get().returnBook();
 
-        Book book = reservation.getBook();
+        Book book = reservation.get().getBook();
         double tempSum = book.getAverageRating() * book.getVotesCount() + Double.parseDouble(msg.getText().substring(8));
         book.incrementVotesCount();
         book.setAverageRating(tempSum / book.getVotesCount());

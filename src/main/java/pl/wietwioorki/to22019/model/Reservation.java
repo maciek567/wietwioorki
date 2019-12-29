@@ -4,24 +4,53 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.*;
 import java.util.Date;
 
-@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @ToString
+@Entity
+@Table(name = "reservation")
 public class Reservation {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "reservation_id")
     private Long reservationId;
+
+    @ManyToOne
+    @JoinColumn(name = "pesel",
+    referencedColumnName = "pesel")
     private Reader reader;
-    private Book book;
+
+    @ManyToOne
+    @JoinColumn(name = "book_id",
+    referencedColumnName = "book_id")
+    private Book book; // todo: only one book in each reservation?
+
+    @Column(name = "start_date")
     private Date reservationStartDate;
+
+    @Column(name = "end_date")
     private Date reservationEndDate;
+
+    @Column(name = "status")
+    @Convert(converter = ReservationStatusConverter.class)
     @Setter
     private ReservationStatus reservationStatus;
+
+    public Reservation(Reader reader, Book book, Date reservationStartDate, Date reservationEndDate, ReservationStatus reservationStatus) {
+        this.reader = reader;
+        this.book = book;
+        this.reservationStartDate = reservationStartDate;
+        this.reservationEndDate = reservationEndDate;
+        this.reservationStatus = reservationStatus;
+    }
 
     public ObjectProperty<Long> getReservationIdProperty(){
         return new SimpleObjectProperty<>(reservationId);

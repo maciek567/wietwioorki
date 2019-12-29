@@ -5,9 +5,7 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import lombok.Getter;
-import pl.wietwioorki.to22019.dao.AuthorDAO;
-import pl.wietwioorki.to22019.dao.GenreDAO;
-import pl.wietwioorki.to22019.dao.generator.DataGenerator;
+import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.model.Author;
 import pl.wietwioorki.to22019.model.Genre;
 import pl.wietwioorki.to22019.util.AlertFactory;
@@ -22,7 +20,8 @@ import static pl.wietwioorki.to22019.util.ErrorMessage.*;
 import static pl.wietwioorki.to22019.util.InfoMessage.*;
 
 @Getter
-public class BookValidator {
+@Component
+public class BookValidator extends MyValidator {
     private Author author;
     private Date date;
     private Genre genre;
@@ -36,15 +35,15 @@ public class BookValidator {
     }
 
     public boolean validateAuthor(String authorName) {
-        author = AuthorDAO.findByName(authorName);
+        author = authorRepository.findByFullName(authorName);
         if (author == null) {
             Alert confirmationAlert = AlertFactory.createAlert(Alert.AlertType.CONFIRMATION, shouldNewAuthorBeCreatedHeader, shouldNewAuthorBeCreatedContent);
             Optional<ButtonType> result = confirmationAlert.showAndWait();
             if (result.isPresent()) {
                 ButtonBar.ButtonData buttonData = result.get().getButtonData();
                 if (buttonData == ButtonBar.ButtonData.YES) {
-
-                    AuthorDAO.addAuthor(new Author(DataGenerator.generateId(), authorName)); // todo: id should not be generated
+                    author = new Author(authorName);
+                    authorRepository.save(author); // todo: id should not be generated
                     // todo: there should be a popup to fill ALL author's data. the same thing refers to genre
                     System.out.println("Created new author");
                     return true; // for the sake of readability...
@@ -68,7 +67,7 @@ public class BookValidator {
     }
 
     public boolean validateGenre(String genre) {
-        this.genre = GenreDAO.findByName(genre);
+        this.genre = genreRepository.findByName(genre);
         if (this.genre == null) {
             Alert confirmationAlert = AlertFactory.createAlert(Alert.AlertType.CONFIRMATION, shouldNewGenreBeCreatedHeader, shouldNewGenrerBeCreatedContent);
 
@@ -77,7 +76,9 @@ public class BookValidator {
                 ButtonBar.ButtonData buttonData = result.get().getButtonData();
                 if (buttonData == ButtonBar.ButtonData.YES) {
                     // todo: add field for genre description
-//                                        GenreDAO.addGenre(new Genre(DataGenerator.generateId(), genre.getText(), "")); // todo: id should not be generated
+                    //  and add book to this newly-created genre!
+                    this.genre = new Genre(genre, "");
+                    genreRepository.save(this.genre); // todo: id should not be generated
                     System.out.println("Created new genre");
                     return true;
                 } else if (buttonData == ButtonBar.ButtonData.NO) {

@@ -3,11 +3,15 @@ package pl.wietwioorki.to22019.util;
 import javafx.scene.control.DatePicker;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pl.wietwioorki.to22019.dao.BookDAO;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.User;
+import pl.wietwioorki.to22019.repository.BookRepository;
+import pl.wietwioorki.to22019.validator.BookValidator;
+import pl.wietwioorki.to22019.validator.ReaderValidator;
+import pl.wietwioorki.to22019.validator.ReservationValidator;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,11 +19,26 @@ import java.time.DateTimeException;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @Getter
 @Setter
 public class Constants {
+    @Autowired
+    ReaderValidator readerValidator;
+    @Autowired
+    BookValidator bookValidator;
+//    @Autowired
+//    AuthorValidator authorValidator;
+//    @Autowired
+//    GenreValidator genreValidator;
+    @Autowired
+    ReservationValidator reservationValidator;
+    //    @Autowired todo: add more repos
+    @Autowired
+    BookRepository bookRepository;
+
     User currentUser = null;
 
     public void logUser(User user){
@@ -28,15 +47,15 @@ public class Constants {
 
     public String getUserLogin(){
         String name = "";
-        if(currentUser !=null){
+        if(currentUser != null){
             name = currentUser.getLogin();
         }
         return name;
     }
 
-    public Reader getCurrentReader(){
-        Reader reader = null;
-        if(currentUser !=null){
+    public Optional<Reader> getCurrentReader(){
+        Optional<Reader> reader = Optional.empty();
+        if(currentUser != null){
             reader = currentUser.getReader();
         }
         return reader;
@@ -53,7 +72,7 @@ public class Constants {
     }
 
     public Book getReservedBook(String bookTitle) {
-        List<Book> books = BookDAO.findAllByTitle(bookTitle);
+        List<Book> books = bookRepository.findAllByTitle(bookTitle);
         Book reservedBook = books.get(0);
         int smallestQueueSize = books.get(0).getReaderQueueSize();
 

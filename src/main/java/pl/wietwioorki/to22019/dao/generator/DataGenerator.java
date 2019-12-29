@@ -1,10 +1,12 @@
 package pl.wietwioorki.to22019.dao.generator;
 
-import pl.wietwioorki.to22019.model.*;
+import pl.wietwioorki.to22019.model.Author;
+import pl.wietwioorki.to22019.model.Book;
+import pl.wietwioorki.to22019.model.Genre;
+import pl.wietwioorki.to22019.model.Reader;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 public class DataGenerator {
@@ -14,21 +16,21 @@ public class DataGenerator {
     }
 
     static Author generateAuthor() {
-        return new Author(1L, "Malgorzata Musierowicz");
+        return new Author("Malgorzata Musierowicz");
     }
 
     public static Genre generateGenre() {
-        return new Genre(1L, "powiesc", "prawie najlepsze ksiazki mojego dziecinstwa");
+        return new Genre("powiesc", "prawie najlepsze ksiazki mojego dziecinstwa");
     }
 
     public static Book generateBook() {
-        return new Book(1L, "Szosta klepka", generateAuthor(), new Date(), generateGenre(), new LinkedList<>(), 0.0, 0);
+        return new Book("Szosta klepka", generateAuthor(), new Date(), generateGenre());
     }
 
     static List<Book> generateBookList() {
         List<Book> writtenBooks = new ArrayList<>();
         writtenBooks.add(generateBook());
-        writtenBooks.add(new Book(2L, "Opium w rosole", generateAuthor(), new Date(), generateGenre(), new LinkedList<>(), 0.0, 0));
+        writtenBooks.add(new Book("Opium w rosole", generateAuthor(), new Date(), generateGenre()));
         return writtenBooks;
     }
 

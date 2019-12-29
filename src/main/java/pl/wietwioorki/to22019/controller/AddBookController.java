@@ -6,20 +6,21 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.dao.BookDAO;
-import pl.wietwioorki.to22019.dao.generator.DataGenerator;
 import pl.wietwioorki.to22019.model.Book;
+import pl.wietwioorki.to22019.repository.BookRepository;
 import pl.wietwioorki.to22019.util.AlertFactory;
 import pl.wietwioorki.to22019.validator.BookValidator;
-
-import java.util.LinkedList;
 
 import static pl.wietwioorki.to22019.util.InfoMessage.bookSuccessfullyCreatedContent;
 import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class AddBookController extends AbstractWindowController {
+
+    @Autowired
+    BookRepository bookRepository;
 
     @FXML
     public TextField bookTitle;
@@ -40,15 +41,15 @@ public class AddBookController extends AbstractWindowController {
     public void handleAddNewBook(ActionEvent actionEvent) {
         System.out.println("Adding new book");
 
-        BookValidator bookValidator = new BookValidator();
+        BookValidator bookValidator = constants.getBookValidator();
 
         if (!bookValidator.validateTitle(bookTitle.getText()) || !bookValidator.validateAuthor(authorName.getText()) ||
                 !bookValidator.validateDate(constants, publicationDate) || !bookValidator.validateGenre(genre.getText())) {
             return;
         }
 
-        BookDAO.addBook(new Book(DataGenerator.generateId(), bookTitle.getText(), bookValidator.getAuthor(),
-                bookValidator.getDate(), bookValidator.getGenre(), new LinkedList<>(), 0.0, 0));
+        bookRepository.save(new Book(bookTitle.getText(), bookValidator.getAuthor(),
+                bookValidator.getDate(), bookValidator.getGenre()));
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyCreatedContent);
         closeWindowAfterSuccessfulAction(actionEvent);

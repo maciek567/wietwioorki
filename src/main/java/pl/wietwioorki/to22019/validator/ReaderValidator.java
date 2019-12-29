@@ -1,14 +1,21 @@
 package pl.wietwioorki.to22019.validator;
 
 import javafx.scene.control.Alert;
+import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
-import pl.wietwioorki.to22019.dao.ReaderDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
 import static pl.wietwioorki.to22019.util.ErrorMessage.*;
 
-public class ReaderValidator {
+@Getter
+@Component
+public class ReaderValidator extends MyValidator {
     private String specificErrorHeader = "adding reader";
+
+    @Autowired
+    PeselValidator peselValidator;
 
     public boolean validateNames(String name, String surname) {
         if (name.isBlank() || surname.isBlank()) {
@@ -22,8 +29,11 @@ public class ReaderValidator {
     }
 
     public boolean validatePesel(String pesel) {
+        System.out.println("READER: pesel validator: " + peselValidator);
+
         if (new PeselValidator().validate(pesel, specificErrorHeader)) {
-            if (ReaderDAO.findByPesel(Long.parseLong(pesel)) != null) {
+            System.out.println("reader repository is: " + readerRepository);
+            if (readerRepository.findById(Long.parseLong(pesel)).isPresent()) {
                 AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, readerWithGivenPeselExistsErrorContent);
                 return false;
             }
