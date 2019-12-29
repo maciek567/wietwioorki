@@ -47,7 +47,7 @@ public class AddReaderController extends AbstractWindowController {
     public void handleAddNewReader(ActionEvent actionEvent) {
         System.out.println("Adding new reader");
 
-        ReaderValidator readerValidator = new ReaderValidator();
+        ReaderValidator readerValidator = constants.getReaderValidator();
         if (!readerValidator.validateNames(name.getText(), surname.getText()) || !readerValidator.validatePesel(pesel.getText())) {
             return;
         }

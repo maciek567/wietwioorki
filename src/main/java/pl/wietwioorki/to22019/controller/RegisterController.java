@@ -5,15 +5,19 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.dao.ReaderDAO;
 import pl.wietwioorki.to22019.dao.UserDAO;
 import pl.wietwioorki.to22019.dao.generator.DataGenerator;
 import pl.wietwioorki.to22019.model.Role;
 import pl.wietwioorki.to22019.model.User;
+import pl.wietwioorki.to22019.repository.ReaderRepository;
 
 @Controller
 public class RegisterController extends AbstractWindowController {
+
+    @Autowired
+    ReaderRepository readerRepository;
 
     @FXML
     public TextField registrationUserName;
@@ -64,11 +68,11 @@ public class RegisterController extends AbstractWindowController {
             System.out.println("User with this pesel already exist");
             return;
         }
-        if (ReaderDAO.findByPesel(peselNumber) == null) {
+        if (readerRepository.findById(peselNumber).isEmpty()) {
             System.out.println("You need to add reader with this pesel");
             return;
         }
-        User user = new User(DataGenerator.generateId(), login, password, Role.U, email.getText(), peselNumber);
+        User user = new User(DataGenerator.generateId(), login, password, Role.U, email.getText(), peselNumber, readerRepository);
         UserDAO.addUser(user);
         System.out.println("User added successfully: ID: " + user.getId());
 

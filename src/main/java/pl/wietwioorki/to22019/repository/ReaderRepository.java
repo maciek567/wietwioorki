@@ -9,5 +9,4 @@ import java.util.List;
 @Repository
 public interface ReaderRepository extends JpaRepository<Reader, Long> {
     List<Reader> findByFullName(String fullName);
-    List<Reader> findByPesel(String pesel);
 }

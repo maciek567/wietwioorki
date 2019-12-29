@@ -2,22 +2,25 @@ package pl.wietwioorki.to22019.validator;
 
 import javafx.scene.control.Alert;
 import lombok.Getter;
+import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.dao.BookDAO;
-import pl.wietwioorki.to22019.dao.ReaderDAO;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
+import java.util.Optional;
+
 import static pl.wietwioorki.to22019.util.ErrorMessage.*;
 
 @Getter
-public class ReservationValidator {
+@Component
+public class ReservationValidator extends MyValidator {
     private String specificErrorHeader = "adding reservation";
-    private Reader reader;
+    private Optional<Reader> reader;
 
     public boolean validatePesel(String pesel) {
         if (new PeselValidator().validate(pesel, specificErrorHeader)) {
-            if (ReaderDAO.findByPesel(Long.parseLong(pesel)) == null) {
+            if (readerRepository.findById(Long.parseLong(pesel)).isEmpty()) {
                 AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, readerWithGivenPeselDoesNotExistErrorContent);
                 return false;
             }
@@ -27,9 +30,9 @@ public class ReservationValidator {
     }
 
     public boolean validateReader(String pesel) {
-        reader = ReaderDAO.findByPesel(Long.parseLong(pesel));
+        reader = readerRepository.findById(Long.parseLong(pesel));
 
-        if (reader == null) {
+        if (reader.isEmpty()) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, readerWithGivenPeselDoesNotExistErrorContent);
             return false;
         }

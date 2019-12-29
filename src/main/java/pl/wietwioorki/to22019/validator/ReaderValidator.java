@@ -2,12 +2,13 @@ package pl.wietwioorki.to22019.validator;
 
 import javafx.scene.control.Alert;
 import org.apache.commons.lang3.StringUtils;
-import pl.wietwioorki.to22019.dao.ReaderDAO;
+import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
 import static pl.wietwioorki.to22019.util.ErrorMessage.*;
 
-public class ReaderValidator {
+@Component
+public class ReaderValidator extends MyValidator {
     private String specificErrorHeader = "adding reader";
 
     public boolean validateNames(String name, String surname) {
@@ -23,7 +24,8 @@ public class ReaderValidator {
 
     public boolean validatePesel(String pesel) {
         if (new PeselValidator().validate(pesel, specificErrorHeader)) {
-            if (ReaderDAO.findByPesel(Long.parseLong(pesel)) != null) {
+            System.out.println("reader repository is: " + readerRepository);
+            if (readerRepository.findById(Long.parseLong(pesel)).isPresent()) {
                 AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, readerWithGivenPeselExistsErrorContent);
                 return false;
             }

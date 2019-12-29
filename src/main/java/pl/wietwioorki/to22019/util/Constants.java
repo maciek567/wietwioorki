@@ -3,11 +3,14 @@ package pl.wietwioorki.to22019.util;
 import javafx.scene.control.DatePicker;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.dao.BookDAO;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.User;
+import pl.wietwioorki.to22019.repository.ReaderRepository;
+import pl.wietwioorki.to22019.validator.ReaderValidator;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,11 +18,19 @@ import java.time.DateTimeException;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @Getter
 @Setter
 public class Constants {
+    @Autowired
+    ReaderRepository readerRepository;
+    @Autowired
+    ReaderValidator readerValidator;
+
+//    @Autowired todo: add more repos
+
     User currentUser = null;
 
     public void logUser(User user){
@@ -28,15 +39,15 @@ public class Constants {
 
     public String getUserLogin(){
         String name = "";
-        if(currentUser !=null){
+        if(currentUser != null){
             name = currentUser.getLogin();
         }
         return name;
     }
 
-    public Reader getCurrentReader(){
-        Reader reader = null;
-        if(currentUser !=null){
+    public Optional<Reader> getCurrentReader(){
+        Optional<Reader> reader = Optional.empty();
+        if(currentUser != null){
             reader = currentUser.getReader();
         }
         return reader;

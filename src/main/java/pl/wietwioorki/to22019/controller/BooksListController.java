@@ -15,6 +15,7 @@ import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Controller
 public class BooksListController extends AbstractWindowController { //todo
@@ -63,7 +64,12 @@ public class BooksListController extends AbstractWindowController { //todo
         calendar.set(1998, Calendar.JUNE, 25);
         Reader reader = new Reader(98062523456L, "Dawid", calendar.getTime());
 */
-        Reader reader = constants.getCurrentReader();
+        Optional<Reader> reader = constants.getCurrentReader();
+//todo: add validator
+        if (reader.isEmpty()) {
+            return;
+        }
+
         Book book = booksTable.getSelectionModel().getSelectedItem();
         if (book == null) {
             System.out.println("No book selected");
@@ -77,9 +83,9 @@ public class BooksListController extends AbstractWindowController { //todo
             reservationStatus = ReservationStatus.PENDING;
         }
 
-        book.pushReaderToQueue(reader);
+        book.pushReaderToQueue(reader.get());
 
-        Reservation reservation = new Reservation(DataGenerator.generateId(), reader, book, null, null, reservationStatus);
+        Reservation reservation = new Reservation(DataGenerator.generateId(), reader.get(), book, null, null, reservationStatus);
 
         ReservationDAO.addReservation(reservation);
 
