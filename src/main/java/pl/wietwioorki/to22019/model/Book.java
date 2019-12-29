@@ -50,8 +50,12 @@ public class Book {
        return this.waitingReaders.remove();
     }
 
-    public boolean isEmpty() {
+    public boolean isReaderQueueEmpty() {
         return this.waitingReaders.isEmpty();
+    }
+
+    public int getReaderQueueSize() {
+        return waitingReaders.size();
     }
 
     public void incrementVotesCount() {

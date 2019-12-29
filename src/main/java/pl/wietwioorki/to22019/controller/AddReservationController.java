@@ -2,19 +2,20 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.dao.BookDAO;
-import pl.wietwioorki.to22019.dao.ReaderDAO;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.dao.generator.DataGenerator;
 import pl.wietwioorki.to22019.model.Book;
-import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
+import pl.wietwioorki.to22019.util.AlertFactory;
+import pl.wietwioorki.to22019.validator.ReservationValidator;
 
-import java.util.Date;
+import static pl.wietwioorki.to22019.util.InfoMessage.reservationSuccessfullyCreatedContent;
+import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class AddReservationController extends AbstractWindowController {
@@ -23,7 +24,7 @@ public class AddReservationController extends AbstractWindowController {
     public TextField pesel;
 
     @FXML
-    public TextField reservationBookId;
+    public TextField bookTitle;
 
     @FXML
     public Button addReservation;
@@ -31,50 +32,23 @@ public class AddReservationController extends AbstractWindowController {
     @FXML
     public void handleAddReservation(ActionEvent actionEvent) {
         System.out.println("Adding new reservation");
-        Long peselNumber = null;
-        try {
-            peselNumber = Long.parseLong(pesel.getText());
-        }
-        catch(NumberFormatException e){
-            System.out.println("Bad pesel format");
-            return;
-        }
-        if(peselNumber <= 0){
-            System.out.println("Bad pesel");
-            return;
-        }
-        Reader reader = ReaderDAO.findByPesel(peselNumber);
 
-        if(reader == null){
-            System.out.println("Can't find reader with pesel:" + peselNumber);
+        ReservationValidator reservationValidator = new ReservationValidator();
+        if (!reservationValidator.validatePesel(pesel.getText()) ||
+                !reservationValidator.validateReader(pesel.getText()) ||
+                !reservationValidator.validateBook(bookTitle.getText())) {
             return;
         }
 
-        long bookID;
-        try {
-            bookID = Long.parseLong(reservationBookId.getText());
-        }
-        catch(NumberFormatException e){
-            System.out.println("Can't read book id :" + reservationBookId.getText());
-            return;
-        }
-        Book book = BookDAO.findById(bookID);
+        Book reservedBook = constants.getReservedBook(bookTitle.getText());
+        ReservationStatus reservationStatus = reservedBook.getReaderQueueSize() == 0 ? ReservationStatus.READY : ReservationStatus.PENDING;
 
-        if(book == null){
-            System.out.println("Can't find book with id:" + bookID);
-            return;
-        }
+        Reservation reservation = new Reservation(DataGenerator.generateId(), reservationValidator.getReader(), reservedBook, null, null, reservationStatus);
 
-        Date borrowingDate = null;
-        Date returnDate = null;
-
-        ReservationStatus reservationStatus = ReservationStatus.PENDING;
-        if(book.isEmpty()) reservationStatus = ReservationStatus.READY;
-
-        Reservation reservation = new Reservation(DataGenerator.generateId(), reader, book, borrowingDate, returnDate, reservationStatus);
-
+        reservedBook.pushReaderToQueue(reservationValidator.getReader());
         ReservationDAO.addReservation(reservation);
 
-        System.out.println("Reservation added successfully");
+        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyCreatedContent);
+        closeWindowAfterSuccessfulAction(actionEvent);
     }
 }

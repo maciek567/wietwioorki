@@ -9,27 +9,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookDAO {
-    private static List<Book> books = new ArrayList<Book>();
+    private static List<Book> books = new ArrayList<>();
 
-    public static Book findByTitle(String title) {
-        for (Book book: books) {
-            if(book.getTitle().equals(title)){
+    public static List<Book> findAllByTitle(String title) {
+        List<Book> foundBooks = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
+                foundBooks.add(book);
+            }
+        }
+        return foundBooks;
+    }
+
+    public static Book findOneByTitle(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
                 return book;
             }
         }
         return null;
     }
 
-    public static void addBook(Book book){
+    public static void addBook(Book book) {
         books.add(book);
         System.out.println(book);
     }
 
-    public List<Book> getAllBooks(){
+    public List<Book> getAllBooks() {
         return books;
     }
 
-    public static ObservableList<Book> getBooksObservable(){
+    public static ObservableList<Book> getBooksObservable() {
         return new ObservableListBase<Book>() {
             @Override
             public Book get(int index) {
@@ -42,13 +52,14 @@ public class BookDAO {
             }
         };
     }
+
     public static Book findById(String id) {
         return DataGenerator.generateBook();
     }
 
     public static Book findById(Long id) {
-        for (Book book: books) {
-            if(book.getBookId().equals(id)){
+        for (Book book : books) {
+            if (book.getBookId().equals(id)) {
                 return book;
             }
         }

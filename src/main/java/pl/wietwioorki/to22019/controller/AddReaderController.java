@@ -2,6 +2,7 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -9,15 +10,24 @@ import javafx.stage.Stage;
 import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.ReaderDAO;
+import pl.wietwioorki.to22019.dao.UserDAO;
 import pl.wietwioorki.to22019.model.Reader;
+import pl.wietwioorki.to22019.model.Role;
+import pl.wietwioorki.to22019.model.User;
+import pl.wietwioorki.to22019.util.AlertFactory;
+import pl.wietwioorki.to22019.validator.ReaderValidator;
 
 import java.text.ParseException;
+import java.time.DateTimeException;
 import java.util.Date;
+
+import static pl.wietwioorki.to22019.util.ErrorMessage.generalErrorHeader;
+import static pl.wietwioorki.to22019.util.ErrorMessage.wrongDateErrorContent;
+import static pl.wietwioorki.to22019.util.InfoMessage.readerSuccessfullyCreatedContent;
+import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class AddReaderController extends AbstractWindowController {
-    @Setter
-    private static Stage primaryStage;
 
     @FXML
     public TextField name;
@@ -37,29 +47,26 @@ public class AddReaderController extends AbstractWindowController {
     @FXML
     public void handleAddNewReader(ActionEvent actionEvent) {
         System.out.println("Adding new reader");
-        long peselNumber = Long.parseLong(pesel.getText());
 
-        if (peselNumber <= 0) {
-            System.out.println("Bad pesel");
+        ReaderValidator readerValidator = new ReaderValidator();
+        if (!readerValidator.validateNames(name.getText(), surname.getText()) || !readerValidator.validatePesel(pesel.getText())) {
             return;
         }
 
-        Date date;
+        Date date; // todo: remove
         try {
             date = constants.datePickerConverter(birthDate);
-        } catch (ParseException | NullPointerException e) {
-            System.out.println("Bad date");
+        } catch (ParseException | DateTimeException | NullPointerException e) {
+            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "adding reader", wrongDateErrorContent);
             return;
         }
 
-        Reader reader = new Reader(Long.parseLong(pesel.getText()), name.getText() + " " + surname.getText(), date);
+        Long peselNumber = Long.parseLong(pesel.getText());
 
+        Reader reader = new Reader(peselNumber, name.getText() + " " + surname.getText(), date);
         ReaderDAO.addReader(reader);
 
-        System.out.println("Reader added successfully. All readers: ");
-
-        for (Reader r : ReaderDAO.getReaders()) {
-            System.out.println("READER: " + r);
-        }
+        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, readerSuccessfullyCreatedContent);
+        closeWindowAfterSuccessfulAction(actionEvent);
     }
 }

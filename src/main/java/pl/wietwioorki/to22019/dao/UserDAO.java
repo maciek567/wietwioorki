@@ -38,12 +38,4 @@ public class UserDAO {
         }
         return null;
     }
-
-    public static User tryLogin(String login, String password){
-        User user = findByLogin(login);
-        if(user!=null && user.checkPassword(password)) {
-            return user;
-        }
-        return null;
-    }
 }

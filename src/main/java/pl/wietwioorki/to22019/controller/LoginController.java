@@ -2,15 +2,19 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.dao.UserDAO;
-import pl.wietwioorki.to22019.model.User;
+import pl.wietwioorki.to22019.util.AlertFactory;
+import pl.wietwioorki.to22019.validator.CredentialsValidator;
+
+import static pl.wietwioorki.to22019.util.ErrorMessage.loginErrorHeader;
+import static pl.wietwioorki.to22019.util.ErrorMessage.wrongCredentialsErrorContent;
 
 @Controller
-public class LoginController extends AbstractWindowController{
+public class LoginController extends AbstractWindowController {
 
     @FXML
     public TextField userName;
@@ -23,13 +27,15 @@ public class LoginController extends AbstractWindowController{
 
     @FXML
     public void handleLogin(ActionEvent actionEvent) {
-        User user = UserDAO.tryLogin(userName.getText(), password.getText());
-        if(user == null){
-            System.out.println("bad password or login");
+        System.out.println("Searching for " + userName.getText());
+
+        CredentialsValidator credentialsValidator = new CredentialsValidator();
+
+        if (!credentialsValidator.validateCredentials(constants, userName.getText(), password.getText())) {
+            AlertFactory.showAlert(Alert.AlertType.ERROR, loginErrorHeader, wrongCredentialsErrorContent);
         }
-        else{
-            constants.setActualUser(user);
-            System.out.println("logged in as: " + constants.getActualUser().getLogin());
+        else {
+            closeWindowAfterSuccessfulAction(actionEvent);
         }
     }
 }

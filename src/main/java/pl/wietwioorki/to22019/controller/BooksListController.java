@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.stage.Stage;
-import lombok.Setter;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.dao.BookDAO;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
@@ -20,9 +18,6 @@ import java.util.Date;
 
 @Controller
 public class BooksListController extends AbstractWindowController { //todo
-
-    @Setter
-    private static Stage primaryStage;
 
     @FXML
     public Button addReservationFromBookList;
@@ -68,21 +63,26 @@ public class BooksListController extends AbstractWindowController { //todo
         calendar.set(1998, Calendar.JUNE, 25);
         Reader reader = new Reader(98062523456L, "Dawid", calendar.getTime());
 */
-        Reader reader = constants.getActualReader();
+        Reader reader = constants.getCurrentReader();
         Book book = booksTable.getSelectionModel().getSelectedItem();
-        if(book == null){
+        if (book == null) {
             System.out.println("No book selected");
             return;
         }
 
-        ReservationStatus reservationStatus = ReservationStatus.PENDING;
-        if(book.isEmpty()) reservationStatus = ReservationStatus.READY;
+        ReservationStatus reservationStatus;
+        if (book.isReaderQueueEmpty()) {
+            reservationStatus = ReservationStatus.READY;
+        } else {
+            reservationStatus = ReservationStatus.PENDING;
+        }
 
         book.pushReaderToQueue(reader);
 
         Reservation reservation = new Reservation(DataGenerator.generateId(), reader, book, null, null, reservationStatus);
 
         ReservationDAO.addReservation(reservation);
+
 
         System.out.println("Reservation added successfully");
     }

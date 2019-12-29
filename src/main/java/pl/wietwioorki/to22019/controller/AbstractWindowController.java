@@ -1,6 +1,8 @@
 package pl.wietwioorki.to22019.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -9,7 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
-import pl.wietwioorki.to22019.model.Constants;
+import pl.wietwioorki.to22019.util.Constants;
 
 import java.io.IOException;
 
@@ -48,5 +50,10 @@ public abstract class AbstractWindowController {
                 primaryStage.close();
             }
         });
+    }
+
+    public void closeWindowAfterSuccessfulAction(ActionEvent actionEvent){
+        final Stage stage = (Stage) (((Node) (actionEvent.getSource())).getScene().getWindow());
+        stage.close();
     }
 }

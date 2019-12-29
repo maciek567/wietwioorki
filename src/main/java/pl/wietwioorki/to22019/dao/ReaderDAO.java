@@ -19,11 +19,12 @@ public class ReaderDAO {
 
     public static void addReader(Reader reader){
         readers.add(reader);
+        System.out.println(reader);
     }
 
     public static Reader findByName(String text) {
         for(Reader reader : readers) {
-            if(reader.equals(text)) return reader;
+            if(reader.getFullName().equals(text)) return reader;
         }
         return null;
     }
@@ -34,6 +35,13 @@ public class ReaderDAO {
         }
         return null;
     }
+
+//    public static Reader findByUser(User user){
+//        for(Reader reader : readers){
+//            if(reader.getUser().equals(user)) return reader;
+//        }
+//        return null;
+//    }
 
     public static List<Reader> getReaders() {
         return readers;

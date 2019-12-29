@@ -20,7 +20,7 @@
                     <Insets bottom="20" left="20" right="20" top="20"/>
                 </VBox.margin>
             </Text>
-            <TextField promptText="pesel:" id="pesel" fx:id="pesel"
+            <TextField promptText="Pesel:" id="pesel" fx:id="pesel"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="15" left="20" right="20" top="15"/>

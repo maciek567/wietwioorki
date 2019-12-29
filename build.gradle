@@ -36,7 +36,11 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.4'
 
+    // lib for rating books
     compile group: 'org.controlsfx', name: 'controlsfx', version: '11.0.0'
+
+    // StringUtils
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
 }
 
 javafx {

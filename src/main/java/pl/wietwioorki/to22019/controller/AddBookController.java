@@ -2,21 +2,21 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.dao.AuthorDAO;
 import pl.wietwioorki.to22019.dao.BookDAO;
-import pl.wietwioorki.to22019.dao.GenreDAO;
 import pl.wietwioorki.to22019.dao.generator.DataGenerator;
-import pl.wietwioorki.to22019.model.Author;
 import pl.wietwioorki.to22019.model.Book;
-import pl.wietwioorki.to22019.model.Genre;
+import pl.wietwioorki.to22019.util.AlertFactory;
+import pl.wietwioorki.to22019.validator.BookValidator;
 
-import java.text.ParseException;
-import java.util.Date;
 import java.util.LinkedList;
+
+import static pl.wietwioorki.to22019.util.InfoMessage.bookSuccessfullyCreatedContent;
+import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class AddBookController extends AbstractWindowController {
@@ -39,30 +39,19 @@ public class AddBookController extends AbstractWindowController {
     @FXML
     public void handleAddNewBook(ActionEvent actionEvent) {
         System.out.println("Adding new book");
-        Author authorObject = AuthorDAO.findByName(authorName.getText());
-        if (authorObject == null) {
-            System.out.println("We dont know this author.");
+
+        BookValidator bookValidator = new BookValidator();
+
+        if (!bookValidator.validateTitle(bookTitle.getText()) || !bookValidator.validateAuthor(authorName.getText()) ||
+                !bookValidator.validateDate(constants, publicationDate) || !bookValidator.validateGenre(genre.getText())) {
             return;
         }
 
-        Date date;
-        try {
-            date = constants.datePickerConverter(publicationDate);
-        } catch (ParseException | NullPointerException e) {
-            System.out.println("Bad date");
-            return;
-        }
+        BookDAO.addBook(new Book(DataGenerator.generateId(), bookTitle.getText(), bookValidator.getAuthor(),
+                bookValidator.getDate(), bookValidator.getGenre(), new LinkedList<>(), 0.0, 0));
 
-        Genre genreObject;
-        genreObject = GenreDAO.findByName(genre.getText());
-        if (genre == null) {
-            System.out.println("We dont know this genre.");
-            return;
-        }
-
-        Book book = new Book(DataGenerator.generateId(), bookTitle.getText(), authorObject, date, genreObject, new LinkedList<>(), 0.0, 0);
-        BookDAO.addBook(book);
-        System.out.println("Book added successfully");
+        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyCreatedContent);
+        closeWindowAfterSuccessfulAction(actionEvent);
     }
 
     @FXML
