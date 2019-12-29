@@ -1,9 +1,6 @@
 package pl.wietwioorki.to22019.validator;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DatePicker;
+import javafx.scene.control.*;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.model.Author;
@@ -43,8 +40,7 @@ public class BookValidator extends MyValidator {
                 ButtonBar.ButtonData buttonData = result.get().getButtonData();
                 if (buttonData == ButtonBar.ButtonData.YES) {
                     author = new Author(authorName);
-                    authorRepository.save(author); // todo: id should not be generated
-                    // todo: there should be a popup to fill ALL author's data. the same thing refers to genre
+                    authorRepository.save(author);
                     System.out.println("Created new author");
                     return true; // for the sake of readability...
                 } else if (buttonData == ButtonBar.ButtonData.NO) {
@@ -75,12 +71,21 @@ public class BookValidator extends MyValidator {
             if (result.isPresent()) {
                 ButtonBar.ButtonData buttonData = result.get().getButtonData();
                 if (buttonData == ButtonBar.ButtonData.YES) {
-                    // todo: add field for genre description
-                    //  and add book to this newly-created genre!
-                    this.genre = new Genre(genre, "");
-                    genreRepository.save(this.genre); // todo: id should not be generated
-                    System.out.println("Created new genre");
-                    return true;
+
+                    TextInputDialog dialog = new TextInputDialog("");
+                    dialog.setTitle("Text input dialog");
+                    dialog.setHeaderText("Genre creation dialog");
+                    dialog.setContentText("Please enter gender description:");
+
+                    Optional<String> input = dialog.showAndWait();
+                    if (input.isPresent()) {
+                        //  and add book to this newly-created genre!
+                        this.genre = new Genre(genre, input.get());
+                        genreRepository.save(this.genre);
+                        System.out.println("Created new genre");
+                        return true;
+                    }
+                    return false;
                 } else if (buttonData == ButtonBar.ButtonData.NO) {
                     System.out.println("Did not create new genre");
                     return false;
