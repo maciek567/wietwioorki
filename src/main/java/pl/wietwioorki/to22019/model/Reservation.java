@@ -9,17 +9,34 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.*;
 import java.util.Date;
 
 @NoArgsConstructor
 @Getter
 @ToString
+@Entity
+@Table(name = "reservation")
 public class Reservation {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "reservation_id")
     private Long reservationId;
+
+    @ManyToOne
     private Reader reader;
-    private Book book;
+
+    @ManyToOne
+    private Book book; // todo: only one book in each reservation?
+
+    @Column(name = "start_date")
     private Date reservationStartDate;
+
+    @Column(name = "end_date")
     private Date reservationEndDate;
+
+    @Column(name = "status")
+    @Convert(converter = ReservationStatusConverter.class)
     @Setter
     private ReservationStatus reservationStatus;
 

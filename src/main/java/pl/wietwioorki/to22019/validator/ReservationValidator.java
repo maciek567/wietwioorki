@@ -2,6 +2,7 @@ package pl.wietwioorki.to22019.validator;
 
 import javafx.scene.control.Alert;
 import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
@@ -17,7 +18,11 @@ public class ReservationValidator extends MyValidator {
     private String specificErrorHeader = "adding reservation";
     private Optional<Reader> reader;
 
+    @Autowired
+    PeselValidator peselValidator;
+
     public boolean validatePesel(String pesel) {
+        System.out.println("READER REPOSITORY: " + readerRepository);
         if (new PeselValidator().validate(pesel, specificErrorHeader)) {
             if (readerRepository.findById(Long.parseLong(pesel)).isEmpty()) {
                 AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, readerWithGivenPeselDoesNotExistErrorContent);

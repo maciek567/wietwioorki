@@ -1,14 +1,10 @@
 package pl.wietwioorki.to22019.validator;
 
 import javafx.scene.control.Alert;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pl.wietwioorki.to22019.dao.ReservationDAO;
-import pl.wietwioorki.to22019.dao.UserDAO;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.User;
-import pl.wietwioorki.to22019.repository.ReaderRepository;
 import pl.wietwioorki.to22019.util.AlertFactory;
 import pl.wietwioorki.to22019.util.Constants;
 
@@ -18,13 +14,10 @@ import java.util.Optional;
 import static pl.wietwioorki.to22019.util.InfoMessage.pendingReservationsInfoHeader;
 
 @Component
-public class CredentialsValidator {
-
-    @Autowired
-    ReaderRepository readerRepository;
+public class CredentialsValidator extends MyValidator {
 
     public boolean validateCredentials(Constants constants, String userName, String password) {
-        User logUser = UserDAO.findByLogin(userName);
+        User logUser = userRepository.findByLogin(userName);
         if (logUser == null || !logUser.checkPassword(password)) {
             return false;
         }
@@ -38,7 +31,7 @@ public class CredentialsValidator {
             return false;
         }
 
-        List<Reservation> reservations = ReservationDAO.findByReader(reader.get());
+        List<Reservation> reservations = reservationRepository.findByReader(reader.get());
         if (reservations.size() > 0) {
             StringBuilder contentText = new StringBuilder();
             for (Reservation reservation : reservations) {

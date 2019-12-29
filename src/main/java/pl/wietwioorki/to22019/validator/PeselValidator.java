@@ -2,10 +2,12 @@ package pl.wietwioorki.to22019.validator;
 
 import javafx.scene.control.Alert;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
 import static pl.wietwioorki.to22019.util.ErrorMessage.*;
 
+@Component
 public class PeselValidator {
     public boolean validate(String pesel, String specificErrorHeader) {
         if (pesel.isBlank()) {

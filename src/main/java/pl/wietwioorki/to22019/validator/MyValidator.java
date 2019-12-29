@@ -2,10 +2,7 @@ package pl.wietwioorki.to22019.validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pl.wietwioorki.to22019.repository.AuthorRepository;
-import pl.wietwioorki.to22019.repository.BookRepository;
-import pl.wietwioorki.to22019.repository.GenreRepository;
-import pl.wietwioorki.to22019.repository.ReaderRepository;
+import pl.wietwioorki.to22019.repository.*;
 
 @Component
 public class MyValidator {
@@ -17,5 +14,8 @@ public class MyValidator {
     protected AuthorRepository authorRepository;
     @Autowired
     protected GenreRepository genreRepository;
-//    protected ; todo: add more repos
+    @Autowired
+    protected ReservationRepository reservationRepository;
+    @Autowired
+    protected UserRepository userRepository;
 }

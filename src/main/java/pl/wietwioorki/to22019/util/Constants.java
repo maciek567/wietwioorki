@@ -11,6 +11,7 @@ import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.repository.BookRepository;
 import pl.wietwioorki.to22019.validator.BookValidator;
 import pl.wietwioorki.to22019.validator.ReaderValidator;
+import pl.wietwioorki.to22019.validator.ReservationValidator;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,7 +33,8 @@ public class Constants {
 //    AuthorValidator authorValidator;
 //    @Autowired
 //    GenreValidator genreValidator;
-
+    @Autowired
+    ReservationValidator reservationValidator;
     //    @Autowired todo: add more repos
     @Autowired
     BookRepository bookRepository;

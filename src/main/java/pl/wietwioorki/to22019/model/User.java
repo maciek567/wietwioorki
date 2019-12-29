@@ -24,7 +24,7 @@ public class User {
     private String password;
     private Role role;
     private String email;
-    private Long pesel; //todo: change to user
+    private Long pesel; //todo: change to reader
 
     @Transient //@Autowired //todo: is it ok?
     ReaderRepository readerRepository;

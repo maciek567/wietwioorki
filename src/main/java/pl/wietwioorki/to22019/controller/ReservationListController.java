@@ -2,25 +2,27 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
 import pl.wietwioorki.to22019.model.Role;
+import pl.wietwioorki.to22019.repository.ReservationRepository;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 @Controller
 public class ReservationListController extends AbstractWindowController {
+
+    @Autowired
+    ReservationRepository reservationRepository;
 
     @Setter
     private static Stage primaryStage;
@@ -152,7 +154,7 @@ public class ReservationListController extends AbstractWindowController {
             return;
         }
 
-        ReservationDAO.removeById(reservation.getReservationId());
+        reservationRepository.delete(reservation);
         System.out.println("Reservation removed successfully");
         reservationTable.refresh();
     }
@@ -168,7 +170,7 @@ public class ReservationListController extends AbstractWindowController {
     }
 
     private FilteredList<Reservation> InitializeFilters(){
-        FilteredList<Reservation> filteredData = new FilteredList<>(ReservationDAO.getReservationsObservable(), p -> true);
+        FilteredList<Reservation> filteredData = new FilteredList<>(getReservationsObservable(reservationRepository.findAll()), p -> true);
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(reservation -> {
                 if (newValue == null || selectedFilter.getSelectionModel().getSelectedItem() == null) {
@@ -197,6 +199,20 @@ public class ReservationListController extends AbstractWindowController {
             });
         });
         return filteredData;
+    }
+
+    private ObservableList<Reservation> getReservationsObservable(List<Reservation> reservations){
+        return new ObservableListBase<Reservation>() {
+            @Override
+            public Reservation get(int index) {
+                return reservations.get(index);
+            }
+
+            @Override
+            public int size() {
+                return reservations.size();
+            }
+        };
     }
 }
 

@@ -8,12 +8,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.dao.ReservationDAO;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
 import pl.wietwioorki.to22019.repository.BookRepository;
+import pl.wietwioorki.to22019.repository.ReservationRepository;
 
 import java.util.Date;
 import java.util.List;
@@ -24,6 +24,9 @@ public class BooksListController extends AbstractWindowController { //todo
 
     @Autowired
     BookRepository bookRepository;
+
+    @Autowired
+    ReservationRepository reservationRepository;
 
     @FXML
     public Button addReservationFromBookList;
@@ -104,9 +107,9 @@ public class BooksListController extends AbstractWindowController { //todo
 
         book.pushReaderToQueue(reader.get());
 
-        Reservation reservation = new Reservation(reader.get(), book, null, null, reservationStatus);
+        Reservation reservation = new Reservation(reader.get(), book, null /*todo: today? */, null, reservationStatus);
 
-        ReservationDAO.addReservation(reservation);
+        reservationRepository.save(reservation);
 
 
         System.out.println("Reservation added successfully");

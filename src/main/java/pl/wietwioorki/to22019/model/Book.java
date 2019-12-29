@@ -23,7 +23,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "author_id")
-    private Author author;
+    private Author author; // todo: each book has only one author
 
     private Date publicationDate;
 
