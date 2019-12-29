@@ -24,9 +24,13 @@ public class Reservation {
     private Long reservationId;
 
     @ManyToOne
+    @JoinColumn(name = "pesel",
+    referencedColumnName = "pesel")
     private Reader reader;
 
     @ManyToOne
+    @JoinColumn(name = "book_id",
+    referencedColumnName = "book_id")
     private Book book; // todo: only one book in each reservation?
 
     @Column(name = "start_date")

@@ -17,14 +17,13 @@ import java.util.Date;
 @ToString
 @Entity
 @Table(name = "reader")
-public class Reader { // implements Serializable {
-//    private static final long serialVersionUID = -2343243243242432341L;
+public class Reader {
     @Id
     private Long pesel;
 
-    @Column(name = "fullname")
+    @Column(name = "full_name")
     private String fullName;
 
-    @Column(name = "birthdate")
+    @Column(name = "birth_date")
     private Date dateOfBirth;
 }
