@@ -72,7 +72,7 @@ public class RegisterController extends AbstractWindowController {
             System.out.println("You need to add reader with this pesel");
             return;
         }
-        User user = new User(DataGenerator.generateId(), login, password, Role.U, email.getText(), peselNumber, readerRepository);
+        User user = new User(login, password, Role.U, email.getText(), peselNumber, readerRepository);
         UserDAO.addUser(user);
         System.out.println("User added successfully: ID: " + user.getId());
 

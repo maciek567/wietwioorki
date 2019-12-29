@@ -3,7 +3,6 @@ package pl.wietwioorki.to22019.validator;
 import javafx.scene.control.Alert;
 import lombok.Getter;
 import org.springframework.stereotype.Component;
-import pl.wietwioorki.to22019.dao.BookDAO;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.util.AlertFactory;
@@ -45,7 +44,7 @@ public class ReservationValidator extends MyValidator {
             return false;
         }
 
-        Book book = BookDAO.findOneByTitle(bookTitle);
+        Book book = bookRepository.findByTitle(bookTitle);
         if (book == null) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, bookWithGivenTitleDoesNotExistErrorContent);
             return false;

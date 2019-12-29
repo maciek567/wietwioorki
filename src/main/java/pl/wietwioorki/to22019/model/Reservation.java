@@ -4,14 +4,14 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Date;
 
-@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @ToString
 public class Reservation {
@@ -22,6 +22,14 @@ public class Reservation {
     private Date reservationEndDate;
     @Setter
     private ReservationStatus reservationStatus;
+
+    public Reservation(Reader reader, Book book, Date reservationStartDate, Date reservationEndDate, ReservationStatus reservationStatus) {
+        this.reader = reader;
+        this.book = book;
+        this.reservationStartDate = reservationStartDate;
+        this.reservationEndDate = reservationEndDate;
+        this.reservationStatus = reservationStatus;
+    }
 
     public ObjectProperty<Long> getReservationIdProperty(){
         return new SimpleObjectProperty<>(reservationId);

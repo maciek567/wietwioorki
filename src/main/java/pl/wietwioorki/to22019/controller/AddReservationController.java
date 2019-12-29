@@ -44,7 +44,7 @@ public class AddReservationController extends AbstractWindowController {
         ReservationStatus reservationStatus = reservedBook.getReaderQueueSize() == 0 ? ReservationStatus.READY : ReservationStatus.PENDING;
 
         // todo: validate whole reservation
-        Reservation reservation = new Reservation(DataGenerator.generateId(), reservationValidator.getReader().get(), reservedBook, null, null, reservationStatus);
+        Reservation reservation = new Reservation(reservationValidator.getReader().get(), reservedBook, null, null, reservationStatus);
 
         reservedBook.pushReaderToQueue(reservationValidator.getReader().get());
         ReservationDAO.addReservation(reservation);

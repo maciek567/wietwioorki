@@ -5,11 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import pl.wietwioorki.to22019.dao.BookDAO;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.User;
-import pl.wietwioorki.to22019.repository.ReaderRepository;
+import pl.wietwioorki.to22019.repository.BookRepository;
+import pl.wietwioorki.to22019.validator.BookValidator;
 import pl.wietwioorki.to22019.validator.ReaderValidator;
 
 import java.text.ParseException;
@@ -25,11 +25,17 @@ import java.util.Optional;
 @Setter
 public class Constants {
     @Autowired
-    ReaderRepository readerRepository;
-    @Autowired
     ReaderValidator readerValidator;
+    @Autowired
+    BookValidator bookValidator;
+//    @Autowired
+//    AuthorValidator authorValidator;
+//    @Autowired
+//    GenreValidator genreValidator;
 
-//    @Autowired todo: add more repos
+    //    @Autowired todo: add more repos
+    @Autowired
+    BookRepository bookRepository;
 
     User currentUser = null;
 
@@ -64,7 +70,7 @@ public class Constants {
     }
 
     public Book getReservedBook(String bookTitle) {
-        List<Book> books = BookDAO.findAllByTitle(bookTitle);
+        List<Book> books = bookRepository.findAllByTitle(bookTitle);
         Book reservedBook = books.get(0);
         int smallestQueueSize = books.get(0).getReaderQueueSize();
 

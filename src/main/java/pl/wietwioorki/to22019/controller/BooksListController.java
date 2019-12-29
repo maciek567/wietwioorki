@@ -1,24 +1,29 @@
 package pl.wietwioorki.to22019.controller;
 
+import javafx.collections.ObservableListBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.dao.BookDAO;
 import pl.wietwioorki.to22019.dao.ReservationDAO;
-import pl.wietwioorki.to22019.dao.generator.DataGenerator;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
+import pl.wietwioorki.to22019.repository.BookRepository;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class BooksListController extends AbstractWindowController { //todo
+
+    @Autowired
+    BookRepository bookRepository;
 
     @FXML
     public Button addReservationFromBookList;
@@ -46,7 +51,7 @@ public class BooksListController extends AbstractWindowController { //todo
 
     @FXML
     private void initialize() {
-        booksTable.setItems(BookDAO.getBooksObservable());
+        booksTable.setItems(getObservableItems(bookRepository.findAll()));
 
         idColumn.setCellValueFactory(dataValue -> dataValue.getValue().getIdProperty());
         titleColumn.setCellValueFactory(dataValue -> dataValue.getValue().getTitleProperty());
@@ -54,6 +59,20 @@ public class BooksListController extends AbstractWindowController { //todo
         dateColumn.setCellValueFactory(dataValue -> dataValue.getValue().getDateProperty());
         genreColumn.setCellValueFactory(dataValue -> dataValue.getValue().getGenreProperty());
         ratingColumn.setCellValueFactory(dataValue -> dataValue.getValue().getAverageRatingProperty().asObject());
+    }
+
+    private ObservableListBase<Book> getObservableItems(List<Book> books) {
+        return new ObservableListBase<Book>() { // do not remove Book from here - doesn't compile without it even though it's redundant...
+            @Override
+            public Book get(int index) {
+                return books.get(index);
+            }
+
+            @Override
+            public int size() {
+                return books.size();
+            }
+        };
     }
 
     @FXML
@@ -85,7 +104,7 @@ public class BooksListController extends AbstractWindowController { //todo
 
         book.pushReaderToQueue(reader.get());
 
-        Reservation reservation = new Reservation(DataGenerator.generateId(), reader.get(), book, null, null, reservationStatus);
+        Reservation reservation = new Reservation(reader.get(), book, null, null, reservationStatus);
 
         ReservationDAO.addReservation(reservation);
 
