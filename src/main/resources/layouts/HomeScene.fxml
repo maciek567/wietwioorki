@@ -34,24 +34,12 @@
             </HBox>
 
             <HBox alignment="CENTER">
-                <Button id="book" fx:id="borrowBookButton" onAction="#handleBorrowBook" prefHeight="50.0" prefWidth="200" text="Borrow book">
-                    <VBox.margin><Insets bottom="10" left="20" right="10" top="20" />
-                    </VBox.margin></Button>
-                <Button id="bookList" fx:id="returnBookButton" onAction="#handleReturnBook" prefHeight="50.0" prefWidth="200" text="Return book">
-                    <VBox.margin> <Insets bottom="10" left="20" right="10" top="20" />
-                    </VBox.margin>
-                    <HBox.margin>
-                        <Insets left="20.0" />
-                    </HBox.margin></Button>
                 <VBox.margin>
                     <Insets bottom="15.0" />
                 </VBox.margin>
             </HBox>
 
             <HBox alignment="CENTER">
-                <Button id="author" fx:id="addReservationButton" onAction="#handleNewReservation" prefHeight="50" prefWidth="200" text="Add new reservation">
-                    <VBox.margin><Insets bottom="10" left="20" right="10" top="10" />
-                    </VBox.margin></Button>
                 <Button id="reservationList" fx:id="showReservationListButton" onAction="#handleShowReservationList" prefHeight="50.0" prefWidth="200" text="Show reservations list">
                     <VBox.margin> <Insets bottom="10" left="20" right="10" top="20" />
                     </VBox.margin>
