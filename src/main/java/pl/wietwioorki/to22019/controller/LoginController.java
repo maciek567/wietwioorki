@@ -8,7 +8,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.util.AlertFactory;
-import pl.wietwioorki.to22019.validator.CredentialsValidator;
 
 import static pl.wietwioorki.to22019.util.ErrorMessage.loginErrorHeader;
 import static pl.wietwioorki.to22019.util.ErrorMessage.wrongCredentialsErrorContent;
@@ -29,7 +28,7 @@ public class LoginController extends AbstractWindowController {
     public void handleLogin(ActionEvent actionEvent) {
         System.out.println("Searching for " + userName.getText());
 
-        if (!constants.getCredentialsValidator().validateCredentials(constants, userName.getText(), password.getText())) {
+        if (!sessionConstants.getCredentialsValidator().validateCredentials(sessionConstants, userName.getText(), password.getText())) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, loginErrorHeader, wrongCredentialsErrorContent);
         }
         else {

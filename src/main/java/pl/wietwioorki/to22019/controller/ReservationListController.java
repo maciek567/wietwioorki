@@ -15,8 +15,13 @@ import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
 import pl.wietwioorki.to22019.model.Role;
 import pl.wietwioorki.to22019.repository.ReservationRepository;
+import pl.wietwioorki.to22019.util.AlertFactory;
 
 import java.util.*;
+
+import static pl.wietwioorki.to22019.util.ErrorMessage.generalErrorHeader;
+import static pl.wietwioorki.to22019.util.ErrorMessage.noReservationSelectedErrorContent;
+import static pl.wietwioorki.to22019.util.InfoMessage.*;
 
 @Controller
 public class ReservationListController extends AbstractWindowController {
@@ -58,6 +63,9 @@ public class ReservationListController extends AbstractWindowController {
     private TableColumn<Reservation, Date> borrowingDate;
 
     @FXML
+    private TableColumn<Reservation, Date> returnUntil;
+
+    @FXML
     private TableColumn<Reservation, Date> returnDate;
 
     @FXML
@@ -74,13 +82,14 @@ public class ReservationListController extends AbstractWindowController {
         booksTittle.setCellValueFactory(dataValue -> dataValue.getValue().getBooksTitleProperty());
         reservationStatus.setCellValueFactory(dataValue -> dataValue.getValue().getReservationStatusProperty());
         borrowingDate.setCellValueFactory(dataValue -> dataValue.getValue().getBorrowingDateProperty());
+        returnUntil.setCellValueFactory(dataValue -> dataValue.getValue().getReturnUntilDateProperty());
         returnDate.setCellValueFactory(dataValue -> dataValue.getValue().getReturnDateProperty());
 
         reservationTable.setItems(InitializeFilters());
 
         boolean isAdmin = false;
-        if(constants.getCurrentUser() != null){
-            isAdmin = constants.getCurrentUser().getRole().equals(Role.L);
+        if(sessionConstants.getCurrentUser() != null){
+            isAdmin = sessionConstants.getCurrentUser().getRole().equals(Role.L);
         }
 
         selectedFilter.setItems(getFilterItems(isAdmin));
@@ -103,15 +112,17 @@ public class ReservationListController extends AbstractWindowController {
     }
 
     @FXML
-    public void handleBorrowBookFromReservationList(ActionEvent actionEvent) {
+    public void handleBorrowBookFromReservationList(ActionEvent actionEvent) { //todo: add alerts
         Reservation reservation = reservationTable.getSelectionModel().getSelectedItem();
         if(reservation == null){
             System.out.println("No reservation selected");
+            // here
             return;
         }
 
         if(!reservation.getReservationStatus().equals(ReservationStatus.READY)) {
             System.out.println("Wrong reservation status: " + reservation.getReservationStatus());
+            // here
             return;
         }
 
@@ -124,7 +135,9 @@ public class ReservationListController extends AbstractWindowController {
         reservation.setReservationEndDate(calendar.getTime());
 
         reservation.borrowBook();
-        System.out.println("Book borrowed successfully");
+
+        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyBorrowedContent);
+
         reservationTable.refresh();
     }
 
@@ -132,17 +145,20 @@ public class ReservationListController extends AbstractWindowController {
     public void handleReturnBookFromReservationList(ActionEvent actionEvent) {
         Reservation reservation = reservationTable.getSelectionModel().getSelectedItem();
         if(reservation == null){
-            System.out.println("No reservation selected");
+            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "returning book", noReservationSelectedErrorContent);
             return;
         }
         if(!reservation.getReservationStatus().equals(ReservationStatus.ACTIVE)){
             System.out.println("Bad reservation status");
+            //todo: add alert
             return;
         }
         reservation.setReservationStatus(ReservationStatus.RETURNED);
 
         reservation.returnBook();
-        System.out.println("Book returned successfully");
+
+        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyReturnedContent);
+
         reservationTable.refresh();
     }
 
@@ -150,12 +166,13 @@ public class ReservationListController extends AbstractWindowController {
     public void handleCancelReservationFromReservationList(ActionEvent actionEvent) {
         Reservation reservation = reservationTable.getSelectionModel().getSelectedItem();
         if(reservation == null){
-            System.out.println("No reservation selected");
+            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "cancelling reservation", noReservationSelectedErrorContent);
             return;
         }
 
         reservationRepository.delete(reservation);
-        System.out.println("Reservation removed successfully");
+        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyDeletedContent);
+
         reservationTable.refresh();
     }
 
@@ -195,6 +212,9 @@ public class ReservationListController extends AbstractWindowController {
                 else if(compareSelectedFilter(FilterValue.BorrowDate) && reservation.getBorrowingDateProperty().toString().startsWith(newValue)){
                     return true;
                 }
+                else if(compareSelectedFilter(FilterValue.ReturnUntil) && reservation.getReturnUntilDateProperty().toString().startsWith(newValue)){
+                    return true;
+                }
                 else return compareSelectedFilter(FilterValue.ReturnDate) && reservation.getReturnDateProperty().toString().startsWith(newValue);
             });
         });
@@ -217,5 +237,5 @@ public class ReservationListController extends AbstractWindowController {
 }
 
 enum FilterValue{
-    Pesel, BorrowDate, ReturnDate, Expiration, BookTitle, ReservationID
+    Pesel, BorrowDate, ReturnUntil, ReturnDate, Expiration, BookTitle, ReservationID
 }

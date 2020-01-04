@@ -4,6 +4,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +20,7 @@ import java.util.Date;
 @Table(name = "reservation")
 public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "reservation_id")
     private Long reservationId;
 
@@ -36,6 +37,9 @@ public class Reservation {
     @Column(name = "start_date")
     private Date reservationStartDate;
 
+    @Column(name = "return_date")
+    private Date reservationReturnDate;
+
     @Column(name = "end_date")
     private Date reservationEndDate;
 
@@ -44,10 +48,11 @@ public class Reservation {
     @Setter
     private ReservationStatus reservationStatus;
 
-    public Reservation(Reader reader, Book book, Date reservationStartDate, Date reservationEndDate, ReservationStatus reservationStatus) {
+    public Reservation(Reader reader, Book book, Date reservationStartDate, Date reservationReturnDate, Date reservationEndDate, ReservationStatus reservationStatus) {
         this.reader = reader;
         this.book = book;
         this.reservationStartDate = reservationStartDate;
+        this.reservationReturnDate = reservationReturnDate;
         this.reservationEndDate = reservationEndDate;
         this.reservationStatus = reservationStatus;
     }
@@ -72,18 +77,19 @@ public class Reservation {
     }
     public  ObjectProperty<ReservationStatus> getReservationStatusProperty() {return new SimpleObjectProperty<>(reservationStatus); }
     public ObjectProperty<Date> getBorrowingDateProperty(){ return new SimpleObjectProperty<>(reservationStartDate); }
-    public ObjectProperty<Date> getReturnDateProperty(){ return new SimpleObjectProperty<>(reservationEndDate); }
+    public ObjectProperty<Date> getReturnDateProperty(){ return new SimpleObjectProperty<>(reservationReturnDate); }
+    public ObjectProperty<Date> getReturnUntilDateProperty(){ return new SimpleObjectProperty<>(reservationEndDate); }
 
     public void borrowBook(){
         book.popReaderFromQueue();
-        reservationStartDate = new Date(System.currentTimeMillis());
+        setReservationStartDate(new Date(System.currentTimeMillis()));
+        setReservationStatus(ReservationStatus.ACTIVE);
     }
 
     public void returnBook(){
         reservationEndDate = new Date(System.currentTimeMillis());
     }
 
-    // fixme - to discuss - how long should be borrowing time?
     public static int getBorrowingTimeInDays(){ return 14; }
 
     public void setReservationStartDate(Date reservationStartDate) {

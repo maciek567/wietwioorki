@@ -12,14 +12,14 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.util.Constants;
+import pl.wietwioorki.to22019.util.SessionConstants;
 
 import java.io.IOException;
 
 @Controller
 public abstract class AbstractWindowController {
     @Autowired
-    protected Constants constants;
+    protected SessionConstants sessionConstants;
 
     @Autowired
     private ConfigurableApplicationContext springContext;
