@@ -86,9 +86,9 @@ public class BooksListController extends AbstractWindowController { //todo
         calendar.set(1998, Calendar.JUNE, 25);
         Reader reader = new Reader(98062523456L, "Dawid", calendar.getTime());
 */
-        Optional<Reader> reader = constants.getCurrentReader();
+        Reader reader = constants.getCurrentReader();
 //todo: add validator
-        if (reader.isEmpty()) {
+        if (reader == null) {
             return;
         }
 
@@ -105,9 +105,9 @@ public class BooksListController extends AbstractWindowController { //todo
             reservationStatus = ReservationStatus.PENDING;
         }
 
-        book.pushReaderToQueue(reader.get());
+        book.pushReaderToQueue(reader);
 
-        Reservation reservation = new Reservation(reader.get(), book, null /*todo: today? */, null, reservationStatus);
+        Reservation reservation = new Reservation(reader, book, null /*todo: today? */, null, reservationStatus);
 
         reservationRepository.save(reservation);
 

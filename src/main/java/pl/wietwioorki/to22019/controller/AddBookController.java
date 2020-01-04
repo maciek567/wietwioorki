@@ -18,10 +18,6 @@ import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class AddBookController extends AbstractWindowController {
-
-    @Autowired
-    BookRepository bookRepository;
-
     @FXML
     public TextField bookTitle;
 
@@ -48,7 +44,7 @@ public class AddBookController extends AbstractWindowController {
             return;
         }
 
-        bookRepository.save(new Book(bookTitle.getText(), bookValidator.getAuthor(),
+        constants.getBookRepository().save(new Book(bookTitle.getText(), bookValidator.getAuthor(),
                 bookValidator.getDate(), bookValidator.getGenre()));
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyCreatedContent);

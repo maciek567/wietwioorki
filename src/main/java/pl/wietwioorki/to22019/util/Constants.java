@@ -10,7 +10,8 @@ import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.repository.BookRepository;
 import pl.wietwioorki.to22019.validator.BookValidator;
-import pl.wietwioorki.to22019.validator.ReaderValidator;
+import pl.wietwioorki.to22019.validator.CredentialsValidator;
+import pl.wietwioorki.to22019.validator.RegistrationValidator;
 import pl.wietwioorki.to22019.validator.ReservationValidator;
 
 import java.text.ParseException;
@@ -19,14 +20,13 @@ import java.time.DateTimeException;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Component
 @Getter
 @Setter
 public class Constants {
     @Autowired
-    ReaderValidator readerValidator;
+    RegistrationValidator registrationValidator;
     @Autowired
     BookValidator bookValidator;
 //    @Autowired
@@ -35,6 +35,9 @@ public class Constants {
 //    GenreValidator genreValidator;
     @Autowired
     ReservationValidator reservationValidator;
+    @Autowired
+    CredentialsValidator credentialsValidator;
+
     //    @Autowired todo: add more repos
     @Autowired
     BookRepository bookRepository;
@@ -53,8 +56,8 @@ public class Constants {
         return name;
     }
 
-    public Optional<Reader> getCurrentReader(){
-        Optional<Reader> reader = Optional.empty();
+    public Reader getCurrentReader(){
+        Reader reader = null;
         if(currentUser != null){
             reader = currentUser.getReader();
         }

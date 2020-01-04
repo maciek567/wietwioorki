@@ -37,12 +37,6 @@ public class HomeSceneController extends AbstractWindowController {
     public Text loggedInUser;
 
     @FXML
-    public void handleNewReader(ActionEvent actionEvent) {
-        System.out.println("New reader view");
-        openNewWindow("/layouts/AddReader.fxml");
-    }
-
-    @FXML
     public void handleNewBook(ActionEvent actionEvent) {
         System.out.println("New book view");
         openNewWindow("/layouts/AddBook.fxml");
