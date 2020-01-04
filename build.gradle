@@ -42,7 +42,10 @@ dependencies {
     // StringUtils
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
 
-    //postgres
+    // email validator
+    compile group: 'commons-validator', name: 'commons-validator', version: '1.6'
+
+    // postgres
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('org.postgresql:postgresql')
 }

@@ -9,7 +9,7 @@
 <?import javafx.scene.control.PasswordField?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="pl.wietwioorki.to22019.controller.RegisterController">
+            fx:controller="pl.wietwioorki.to22019.controller.RegistrationController">
 <!--    todo: make the window bigger   -->
     <center>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">

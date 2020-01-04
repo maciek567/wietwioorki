@@ -10,10 +10,13 @@ public class ErrorMessage {
     public static String wrongDateErrorContent = "Wrong date format. Proper format is dd/mm/yyyy";
     public static String wrongPeselErrorContent = "Wrong pesel format";
     public static String wrongNamesErrorContent = "Wrong name format";
+    public static String wrongEmailErrorContent = "Wrong email format";
+    public static String wrongPasswordsErrorContent = "Password and password confirmation do not match";
 
     public static String emptyFieldErrorContent = " should not be empty";
 
     public static String readerWithGivenPeselExistsErrorContent = "Reader with given pesel already exists";
+    public static String userWithGivenPeselExistsErrorContent = "User with given login already exists";
     public static String readerWithGivenPeselDoesNotExistErrorContent = "Reader with given pesel does not exist";
     public static String bookWithGivenTitleDoesNotExistErrorContent = "Book with given title does not exist";
 

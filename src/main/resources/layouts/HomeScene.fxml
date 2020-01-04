@@ -14,9 +14,6 @@
             <Text text="What do you want to do?">
                 <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
                 </VBox.margin></Text>
-            <Button id="reader" fx:id="addReaderButton" onAction="#handleNewReader" prefHeight="50" prefWidth="200" text="Add new reader">
-                <VBox.margin><Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
-                </VBox.margin></Button>
 
             <HBox alignment="CENTER">
                 <Button id="book" fx:id="addBookButton" onAction="#handleNewBook" prefHeight="50.0" prefWidth="200" text="Add new book">
