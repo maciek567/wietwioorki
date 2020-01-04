@@ -24,9 +24,8 @@ public class CredentialsValidator extends MyValidator {
 
         constants.logUser(logUser);
         System.out.println("You are logged in as " + logUser.getLogin());
-//        Reader reader = ReaderDAO.findByUser(logUser);
 
-        Optional<Reader> reader = readerRepository.findById(logUser.getPesel());
+        Optional<Reader> reader = readerRepository.findById(logUser.getReader().getPesel());
         if (reader.isEmpty()) {
             return false;
         }

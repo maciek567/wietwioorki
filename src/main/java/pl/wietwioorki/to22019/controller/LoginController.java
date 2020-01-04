@@ -29,9 +29,7 @@ public class LoginController extends AbstractWindowController {
     public void handleLogin(ActionEvent actionEvent) {
         System.out.println("Searching for " + userName.getText());
 
-        CredentialsValidator credentialsValidator = new CredentialsValidator();
-
-        if (!credentialsValidator.validateCredentials(constants, userName.getText(), password.getText())) {
+        if (!constants.getCredentialsValidator().validateCredentials(constants, userName.getText(), password.getText())) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, loginErrorHeader, wrongCredentialsErrorContent);
         }
         else {

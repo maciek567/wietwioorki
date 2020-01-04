@@ -7,10 +7,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Role;
 import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.repository.ReaderRepository;
 import pl.wietwioorki.to22019.repository.UserRepository;
+
+import java.util.Optional;
 
 @Controller
 public class RegisterController extends AbstractWindowController {
@@ -22,7 +25,13 @@ public class RegisterController extends AbstractWindowController {
     UserRepository userRepository;
 
     @FXML
-    public TextField registrationUserName;
+    public TextField name;
+
+    @FXML
+    public TextField pesel;
+
+    @FXML
+    public TextField login;
 
     @FXML
     public TextField email;
@@ -34,14 +43,11 @@ public class RegisterController extends AbstractWindowController {
     public PasswordField passwordConfirmation;
 
     @FXML
-    public TextField pesel;
-
-    @FXML
     public Button register;
 
     @FXML
     public void handleRegistration(ActionEvent actionEvent) {
-        String login = registrationUserName.getText();
+        String login = this.login.getText();
         if (userRepository.findByLogin(login) != null) {
             System.out.println("User with this login already exist");
             return;
@@ -55,7 +61,7 @@ public class RegisterController extends AbstractWindowController {
             return;
         }
 
-        Long peselNumber;
+        long peselNumber;
         try {
             peselNumber = Long.parseLong(pesel.getText());
         } catch (NumberFormatException e) {
@@ -66,17 +72,25 @@ public class RegisterController extends AbstractWindowController {
             System.out.println("Bad pesel");
             return;
         }
-        if (userRepository.findByPesel(peselNumber) != null) {
-            System.out.println("User with this pesel already exist");
-            return;
+        Reader reader;
+        Optional<Reader> optionalReader = readerRepository.findById(peselNumber);
+        if (optionalReader.isEmpty()) {
+            System.out.println("Reader with this pesel not found. Will be created");
+            reader = new Reader(peselNumber, name.getText());
+//            readerRepository.save(reader);
+            User user = new User(login, password, Role.U, email.getText(), reader);
+
+            reader.setUser(user);
+
+            userRepository.save(user);
+            System.out.println("SAVED!");
+
+//            System.out.println(userRepository.findByReader(reader));
+            System.out.println("User added successfully. Login: " + user.getLogin());
+        } else {
+//            reader = optionalReader.get(); // not implemented
+            System.out.println("Reader alread exists. Need to assign user to reader");
         }
-        if (readerRepository.findById(peselNumber).isEmpty()) {
-            System.out.println("You need to add reader with this pesel");
-            return;
-        }
-        User user = new User(login, password, Role.U, email.getText(), peselNumber, readerRepository);
-        userRepository.save(user);
-        System.out.println("User added successfully: ID: " + user.getId());
 
         closeWindowAfterSuccessfulAction(actionEvent);
     }

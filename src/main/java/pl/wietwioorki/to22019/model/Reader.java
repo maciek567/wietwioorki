@@ -1,15 +1,8 @@
 package pl.wietwioorki.to22019.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.Date;
+import javax.persistence.*;
 
 @AllArgsConstructor // ok here because its pesel, not just auto-generated id
 @NoArgsConstructor
@@ -24,6 +17,12 @@ public class Reader {
     @Column(name = "full_name")
     private String fullName;
 
-    @Column(name = "birth_date")
-    private Date dateOfBirth;
+    @Setter
+    @OneToOne(mappedBy = "reader")
+    private User user;
+
+    public Reader(Long pesel, String fullName) {
+        this.pesel = pesel;
+        this.fullName = fullName;
+    }
 }

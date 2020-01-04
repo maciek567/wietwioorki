@@ -52,17 +52,9 @@ public class AddReaderController extends AbstractWindowController {
             return;
         }
 
-        Date date; // todo: remove
-        try {
-            date = constants.datePickerConverter(birthDate);
-        } catch (ParseException | DateTimeException | NullPointerException e) {
-            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "adding reader", wrongDateErrorContent);
-            return;
-        }
-
         Long peselNumber = Long.parseLong(pesel.getText());
 
-        Reader reader = new Reader(peselNumber, name.getText() + " " + surname.getText(), date);
+        Reader reader = new Reader(peselNumber, name.getText() + " " + surname.getText());
         repository.save(reader);
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, readerSuccessfullyCreatedContent);
