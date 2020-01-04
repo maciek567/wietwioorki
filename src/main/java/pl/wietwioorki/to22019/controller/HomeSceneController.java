@@ -22,6 +22,9 @@ public class HomeSceneController extends AbstractWindowController {
     public Button showReservationListButton;
 
     @FXML
+    public Button statisticsButton;
+
+    @FXML
     private Button addReaderButton;
 
     @FXML
@@ -64,8 +67,15 @@ public class HomeSceneController extends AbstractWindowController {
         openNewWindow("/layouts/Register.fxml");
     }
 
+    @FXML
     public void handleShowReservationList(ActionEvent actionEvent) {
         System.out.println("Show reservation list");
         openNewWindow("/layouts/ReservationList.fxml");
+    }
+
+    @FXML
+    public void handleStatisticsButton(ActionEvent actionEvent) {
+        System.out.println("Show statistics");
+        openNewWindow("/layouts/Statistics.fxml");
     }
 }

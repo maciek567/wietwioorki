@@ -8,44 +8,37 @@
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.wietwioorki.to22019.controller.HomeSceneController">
     <center>
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <opaqueInsets>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </opaqueInsets>
+            <opaqueInsets><Insets bottom="10.0" left="10.0" right="10.0" top="10.0" /></opaqueInsets>
             <Text text="What do you want to do?">
-                <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
-                </VBox.margin></Text>
+                <VBox.margin><Insets bottom="20" left="20" right="20" top="20" /></VBox.margin>
+            </Text>
             <Button id="reader" fx:id="addReaderButton" onAction="#handleNewReader" prefHeight="50" prefWidth="200" text="Add new reader">
-                <VBox.margin><Insets bottom="20.0" left="20.0" right="10.0" top="20.0" />
-                </VBox.margin></Button>
+                <VBox.margin><Insets bottom="20.0" left="20.0" right="10.0" top="20.0" /></VBox.margin>
+            </Button>
 
             <HBox alignment="CENTER">
                 <Button id="book" fx:id="addBookButton" onAction="#handleNewBook" prefHeight="50.0" prefWidth="200" text="Add new book">
-                    <VBox.margin><Insets bottom="10" left="20" right="10" top="20" />
-                    </VBox.margin></Button>
+                    <VBox.margin><Insets bottom="10" left="20" right="10" top="20" /> </VBox.margin>
+                </Button>
                 <Button id="bookList" fx:id="showBookListButton" onAction="#handleShowBookList" prefHeight="50.0" prefWidth="200" text="Show books list">
-                    <VBox.margin> <Insets bottom="10" left="20" right="10" top="20" />
-                    </VBox.margin>
-                    <HBox.margin>
-                        <Insets left="20.0" />
-                    </HBox.margin></Button>
-                <VBox.margin>
-                    <Insets bottom="15.0" />
-                </VBox.margin>
-            </HBox>
-
-            <HBox alignment="CENTER">
-                <VBox.margin>
-                    <Insets bottom="15.0" />
-                </VBox.margin>
+                    <VBox.margin> <Insets bottom="10" left="20" right="10" top="20" /></VBox.margin>
+                    <HBox.margin><Insets left="20.0" /></HBox.margin>
+                </Button>
+                <VBox.margin><Insets bottom="15.0" /></VBox.margin>
             </HBox>
 
             <HBox alignment="CENTER">
                 <Button id="reservationList" fx:id="showReservationListButton" onAction="#handleShowReservationList" prefHeight="50.0" prefWidth="200" text="Show reservations list">
-                    <VBox.margin> <Insets bottom="10" left="20" right="10" top="20" />
-                    </VBox.margin>
-                    <HBox.margin>
-                        <Insets left="20.0" />
-                    </HBox.margin></Button>
+                    <VBox.margin> <Insets bottom="10" left="20" right="10" top="20" /></VBox.margin>
+                    <HBox.margin><Insets bottom="15.0" left="20.0" /></HBox.margin>
+                </Button>
+            </HBox>
+
+            <HBox alignment="CENTER">
+                <Button id="statisticsButton" fx:id="statisticsButton" onAction="#handleStatisticsButton" prefHeight="50.0" prefWidth="200" text="Statistics">
+                    <VBox.margin> <Insets bottom="10" left="20" right="10" top="20" /></VBox.margin>
+                    <HBox.margin><Insets left="20.0" /></HBox.margin>
+                </Button>
             </HBox>
 
         </VBox>
@@ -65,7 +58,7 @@
             <Text text="Logged as: ">
                 <VBox.margin><Insets bottom="20" left="0" right="20" top="5" />
                 </VBox.margin></Text>
-            <Text fx:id="loggedInUser"/>
+            <Text fx:id="loggedInUser" />
         </VBox>
     </right>
 
