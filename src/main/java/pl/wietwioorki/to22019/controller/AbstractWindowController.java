@@ -45,13 +45,13 @@ public abstract class AbstractWindowController {
         primaryStage.setWidth(800);
         primaryStage.setHeight(480);
         primaryStage.initModality(Modality.APPLICATION_MODAL);
-        primaryStage.show();
         rootNode.requestFocus();
         primaryStage.addEventHandler(KeyEvent.KEY_RELEASED, (KeyEvent event) -> {
             if (KeyCode.ESCAPE == event.getCode()) {
                 primaryStage.close();
             }
         });
+        primaryStage.showAndWait();
     }
 
     public void closeWindowAfterSuccessfulAction(ActionEvent actionEvent){
