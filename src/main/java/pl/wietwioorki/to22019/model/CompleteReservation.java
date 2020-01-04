@@ -1,5 +1,6 @@
 package pl.wietwioorki.to22019.model;
 
+import javafx.beans.property.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -40,5 +41,35 @@ public class CompleteReservation {
         this.book = book;
         this.reservationStartDate = reservationStartDate;
         this.wasOverdue = wasOverdue;
+    }
+
+    public ObjectProperty<Long> getReservationIdProperty() {
+        return new SimpleObjectProperty<>(reservationId);
+    }
+
+    public ObjectProperty<Long> getReaderPeselProperty() {
+        if (reader == null) {
+//            System.out.println("Zaloguj się na swoje konto, aby wypożyczyć książkę!");
+        }
+        return new SimpleObjectProperty<>(reader == null ? -1L : reader.getPesel());
+    }
+
+    public StringProperty getReaderNameProperty() {
+        if (reader == null) {
+//            System.out.println("Zaloguj się na swoje konto, aby wypożyczyć książkę!");
+        }
+        return new SimpleStringProperty(reader == null ? "" : reader.getFullName());
+    }
+
+    public StringProperty getBooksTitleProperty() {
+        return new SimpleStringProperty(book.getTitle());
+    }
+
+    public BooleanProperty getWasOverdueProperty() {
+        return new SimpleBooleanProperty(wasOverdue);
+    }
+
+    public ObjectProperty<Date> getBorrowingDateProperty() {
+        return new SimpleObjectProperty<>(reservationStartDate);
     }
 }

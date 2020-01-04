@@ -2,7 +2,6 @@ package pl.wietwioorki.to22019.validator;
 
 import javafx.scene.control.Alert;
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
@@ -21,12 +20,9 @@ public class ReservationValidator extends MyValidator {
     private Reader reader;
     private Book book;
 
-    @Autowired
-    PeselValidator peselValidator;
-
     public boolean validatePesel(String pesel) {
         if (new PeselValidator().validate(pesel, specificErrorHeader)) {
-            Optional<Reader> optionalReader = readerRepository.findById(Long.parseLong(pesel));
+            Optional<Reader> optionalReader = sessionConstants.getReaderRepository().findById(Long.parseLong(pesel));
             if (optionalReader.isEmpty()) {
                 AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, readerWithGivenPeselDoesNotExistErrorContent);
                 return false;
@@ -43,7 +39,7 @@ public class ReservationValidator extends MyValidator {
             return false;
         }
 
-        book = bookRepository.findByTitle(bookTitle);
+        book = sessionConstants.getBookRepository().findByTitle(bookTitle);
         if (book == null) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, bookWithGivenTitleDoesNotExistErrorContent);
             return false;
@@ -52,7 +48,7 @@ public class ReservationValidator extends MyValidator {
     }
 
     public boolean validateReservation(Book book) {
-        List<Reservation> reservations = reservationRepository.findByBook(book);
+        List<Reservation> reservations = sessionConstants.getReservationRepository().findByBook(book);
         if (reservations.size() == 1) { // then it's already reserved and reader cannot borrow this book. We don't have to
             // check the reservation status because when book is returned, then reservation is moved to CompleteReservations
         //todo: == availableBookItems // it won't be >=

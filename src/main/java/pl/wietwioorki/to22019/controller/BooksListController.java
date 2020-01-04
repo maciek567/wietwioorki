@@ -7,14 +7,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
-import pl.wietwioorki.to22019.repository.BookRepository;
-import pl.wietwioorki.to22019.repository.ReservationRepository;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
 import java.util.Date;
@@ -26,12 +23,6 @@ import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class BooksListController extends AbstractWindowController { //todo
-
-    @Autowired
-    BookRepository bookRepository;
-
-    @Autowired
-    ReservationRepository reservationRepository;
 
     @FXML
     public Button addReservationFromBookList;
@@ -59,7 +50,7 @@ public class BooksListController extends AbstractWindowController { //todo
 
     @FXML
     private void initialize() {
-        booksTable.setItems(getObservableItems(bookRepository.findAll()));
+        booksTable.setItems(getObservableItems(sessionConstants.getBookRepository().findAll()));
 
         idColumn.setCellValueFactory(dataValue -> dataValue.getValue().getIdProperty());
         titleColumn.setCellValueFactory(dataValue -> dataValue.getValue().getTitleProperty());
@@ -105,7 +96,7 @@ public class BooksListController extends AbstractWindowController { //todo
 
         Reservation reservation = new Reservation(reader, book, null /*todo: today? */, null, reservationStatus);
 
-        reservationRepository.save(reservation);
+        sessionConstants.getReservationRepository().save(reservation);
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyCreatedContent);
     }

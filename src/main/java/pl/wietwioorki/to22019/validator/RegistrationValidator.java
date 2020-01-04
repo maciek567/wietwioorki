@@ -4,7 +4,6 @@ import javafx.scene.control.Alert;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.validator.routines.EmailValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
@@ -14,9 +13,6 @@ import static pl.wietwioorki.to22019.util.ErrorMessage.*;
 @Component
 public class RegistrationValidator extends MyValidator {
     private String specificErrorHeader = "registering reader";
-
-    @Autowired
-    PeselValidator peselValidator;
 
     public boolean validateName(String name) {
         if (name.isBlank()) {
@@ -33,7 +29,7 @@ public class RegistrationValidator extends MyValidator {
 
     public boolean validatePesel(String pesel) {
         if (new PeselValidator().validate(pesel, specificErrorHeader)) {
-            if (readerRepository.findById(Long.parseLong(pesel)).isPresent()) {
+            if (sessionConstants.getReaderRepository().findById(Long.parseLong(pesel)).isPresent()) {
                 AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, readerWithGivenPeselExistsErrorContent);
                 return false;
             }
@@ -43,7 +39,7 @@ public class RegistrationValidator extends MyValidator {
     }
 
     public boolean validateUser(String login) {
-        if (userRepository.findByLogin(login) != null) {
+        if (sessionConstants.getUserRepository().findByLogin(login) != null) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, userWithGivenPeselExistsErrorContent);
             return false;
         }

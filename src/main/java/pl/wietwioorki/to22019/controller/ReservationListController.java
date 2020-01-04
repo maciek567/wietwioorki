@@ -7,14 +7,10 @@ import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import lombok.Setter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
 import pl.wietwioorki.to22019.model.Role;
-import pl.wietwioorki.to22019.repository.ReservationRepository;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
 import java.util.*;
@@ -25,12 +21,9 @@ import static pl.wietwioorki.to22019.util.InfoMessage.*;
 
 @Controller
 public class ReservationListController extends AbstractWindowController {
-
-    @Autowired
-    ReservationRepository reservationRepository;
-
-    @Setter
-    private static Stage primaryStage;
+    enum FilterValue{
+        Pesel, BorrowDate, ReturnDate, Expiration, BookTitle, ReservationID
+    }
 
     @FXML
     public Button cancelReservationFromReservationList;
@@ -166,7 +159,7 @@ public class ReservationListController extends AbstractWindowController {
             return;
         }
 
-        reservationRepository.delete(reservation);
+        sessionConstants.getReservationRepository().delete(reservation);
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyDeletedContent);
 
         reservationTable.refresh();
@@ -183,7 +176,7 @@ public class ReservationListController extends AbstractWindowController {
     }
 
     private FilteredList<Reservation> InitializeFilters(){
-        FilteredList<Reservation> filteredData = new FilteredList<>(getReservationsObservable(reservationRepository.findAll()), p -> true);
+        FilteredList<Reservation> filteredData = new FilteredList<>(getReservationsObservable(sessionConstants.getReservationRepository().findAll()), p -> true);
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(reservation -> {
                 if (newValue == null || selectedFilter.getSelectionModel().getSelectedItem() == null) {
@@ -227,8 +220,4 @@ public class ReservationListController extends AbstractWindowController {
             }
         };
     }
-}
-
-enum FilterValue{
-    Pesel, BorrowDate, ReturnDate, Expiration, BookTitle, ReservationID
 }

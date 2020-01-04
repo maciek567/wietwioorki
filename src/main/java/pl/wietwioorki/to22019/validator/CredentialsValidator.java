@@ -17,7 +17,7 @@ import static pl.wietwioorki.to22019.util.InfoMessage.pendingReservationsInfoHea
 public class CredentialsValidator extends MyValidator {
 
     public boolean validateCredentials(SessionConstants sessionConstants, String userName, String password) {
-        User logUser = userRepository.findByLogin(userName);
+        User logUser = sessionConstants.getUserRepository().findByLogin(userName);
         if (logUser == null || !logUser.checkPassword(password)) {
             return false;
         }
@@ -25,12 +25,12 @@ public class CredentialsValidator extends MyValidator {
         sessionConstants.logUser(logUser);
         System.out.println("You are logged in as " + logUser.getLogin());
 
-        Optional<Reader> reader = readerRepository.findById(logUser.getReader().getPesel());
+        Optional<Reader> reader = sessionConstants.getReaderRepository().findById(logUser.getReader().getPesel());
         if (reader.isEmpty()) {
             return false;
         }
 
-        List<Reservation> reservations = reservationRepository.findByReader(reader.get());
+        List<Reservation> reservations = sessionConstants.getReservationRepository().findByReader(reader.get());
         if (reservations.size() > 0) {
             StringBuilder contentText = new StringBuilder();
             for (Reservation reservation : reservations) {

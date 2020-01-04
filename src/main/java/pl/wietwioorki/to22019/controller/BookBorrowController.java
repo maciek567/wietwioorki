@@ -5,20 +5,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.Reservation;
-import pl.wietwioorki.to22019.repository.ReservationRepository;
 import pl.wietwioorki.to22019.util.AlertFactory;
 import pl.wietwioorki.to22019.validator.BookBorrowValidator;
 
-import static pl.wietwioorki.to22019.util.InfoMessage.*;
+import static pl.wietwioorki.to22019.util.InfoMessage.bookSuccessfullyBorrowedContent;
+import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class BookBorrowController extends AbstractWindowController{
-
-    @Autowired
-    ReservationRepository reservationRepository;
 
     @FXML
     public TextField pesel;
@@ -39,7 +35,7 @@ public class BookBorrowController extends AbstractWindowController{
 
         Reservation reservation = bookBorrowValidator.getReservation();
         reservation.borrowBook();
-        reservationRepository.save(reservation);
+        sessionConstants.getReservationRepository().save(reservation);
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyBorrowedContent);
         closeWindowAfterSuccessfulAction(actionEvent);

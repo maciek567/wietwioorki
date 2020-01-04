@@ -46,15 +46,34 @@
             </HBox>
 
             <HBox alignment="CENTER">
-                <Button id="author" fx:id="addReservationButton" onAction="#handleNewReservation" prefHeight="50" prefWidth="200" text="Add new reservation">
-                    <VBox.margin><Insets bottom="10" left="20" right="10" top="10" />
-                    </VBox.margin></Button>
-                <Button id="reservationList" fx:id="showReservationListButton" onAction="#handleShowReservationList" prefHeight="50.0" prefWidth="200" text="Show reservations list">
-                    <VBox.margin> <Insets bottom="10" left="20" right="10" top="20" />
+                <Button id="author" fx:id="addReservationButton" onAction="#handleNewReservation" prefHeight="50"
+                        prefWidth="200" text="Add new reservation">
+                    <VBox.margin>
+                        <Insets bottom="10" left="20" right="10" top="10"/>
+                    </VBox.margin>
+                </Button>
+                <Button id="reservationList" fx:id="showReservationListButton" onAction="#handleShowReservationList"
+                        prefHeight="50.0" prefWidth="200" text="Show reservations">
+                    <VBox.margin>
+                        <Insets bottom="10" left="20" right="10" top="20"/>
                     </VBox.margin>
                     <HBox.margin>
-                        <Insets left="20.0" />
-                    </HBox.margin></Button>
+                        <Insets left="20.0"/>
+                    </HBox.margin>
+                </Button>
+            </HBox>
+
+            <HBox>
+                <Button id="reservationList" fx:id="showCompleteReservationListButton"
+                        onAction="#handleShowCompleteReservationList"
+                        prefHeight="50.0" prefWidth="200" text="Show complete reservations">
+                    <VBox.margin>
+                        <Insets bottom="10" left="20" right="10" top="20"/>
+                    </VBox.margin>
+                    <HBox.margin>
+                        <Insets left="20.0"/>
+                    </HBox.margin>
+                </Button>
             </HBox>
 
         </VBox>

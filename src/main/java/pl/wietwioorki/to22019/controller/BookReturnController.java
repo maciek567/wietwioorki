@@ -8,14 +8,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.controlsfx.control.Rating;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.CompleteReservation;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
-import pl.wietwioorki.to22019.repository.CompleteReservationRepository;
-import pl.wietwioorki.to22019.repository.ReservationRepository;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
 import java.net.URL;
@@ -29,13 +26,6 @@ import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class BookReturnController extends AbstractWindowController implements Initializable {
-
-    @Autowired
-    ReservationRepository reservationRepository;
-
-    @Autowired
-    CompleteReservationRepository completeReservationRepository;
-
     @FXML
     public TextField pesel;
 
@@ -61,7 +51,7 @@ public class BookReturnController extends AbstractWindowController implements In
             System.out.println("Can't read reservation id :" + reservationId.getText());
             return;
         }
-        Optional<Reservation> reservation = reservationRepository.findById(reservationID);
+        Optional<Reservation> reservation = sessionConstants.getReservationRepository().findById(reservationID);
 
         if (reservation.isEmpty()) {
             System.out.println("Can't find reservation with id:" + reservationID);
@@ -87,10 +77,10 @@ public class BookReturnController extends AbstractWindowController implements In
 
         sessionConstants.getBookRepository().save(book);
 
-        reservationRepository.delete(reservation.get());
+        sessionConstants.getReservationRepository().delete(reservation.get());
 
         Reservation oldReservation = reservation.get();
-        completeReservationRepository.save(new CompleteReservation(oldReservation.getReader(), oldReservation.getBook(),
+        sessionConstants.getCompleteReservationRepository().save(new CompleteReservation(oldReservation.getReader(), oldReservation.getBook(),
                 oldReservation.getReservationStartDate(), oldReservation.getReservationStatus().equals(ReservationStatus.OVERDUE)));
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyReturnedContent);
