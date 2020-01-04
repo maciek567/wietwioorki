@@ -44,11 +44,14 @@ public class Book {
     private Double averageRating = 0.0;
     private int votesCount = 0;
 
+    private int noBorrows;
+
     public Book(String title, Author author, Date publicationDate, Genre genre) {
         this.title = title;
         this.author = author;
         this.publicationDate = publicationDate;
         this.genre = genre;
+        this.noBorrows = 0;
     }
 
     public ObjectProperty<Long> getIdProperty(){
@@ -91,5 +94,13 @@ public class Book {
 
     public void incrementVotesCount() {
         this.votesCount++;
+    }
+
+    public void incrementNoBorrows() {
+        this.noBorrows++;
+    }
+
+    public int getNoBorrows() {
+        return noBorrows;
     }
 }

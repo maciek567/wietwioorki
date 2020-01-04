@@ -124,7 +124,9 @@ public class ReservationListController extends AbstractWindowController {
         reservation.setReservationEndDate(calendar.getTime());
 
         reservation.borrowBook();
+        sessionConstants.getReservationRepository().save(reservation);
 
+        sessionConstants.getBookRepository().save(reservation.getBook());
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyBorrowedContent);
 
         reservationTable.refresh();
@@ -145,7 +147,7 @@ public class ReservationListController extends AbstractWindowController {
         reservation.setReservationStatus(ReservationStatus.RETURNED);
 
         reservation.returnBook();
-
+        sessionConstants.getReservationRepository().save(reservation);
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyReturnedContent);
 
         reservationTable.refresh();

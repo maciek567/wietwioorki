@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.wietwioorki.to22019.controller.GenerateStatisticsController">
+    <VBox prefHeight="200.0" prefWidth="200.0">
+
+        <HBox>
+            <Text text="Statistics:">
+            <font>
+               <Font size="19.0" />
+            </font></Text>
+            <Button id="generateStatisticsButton" fx:id="generateStatisticsButton" minWidth="150" onAction="#handleGenerateStatistics" prefHeight="25.0" prefWidth="200.0" text="generate statistics">
+            <HBox.margin>
+               <Insets left="20.0" />
+            </HBox.margin></Button>
+            <VBox.margin>
+                <Insets left="30" top="30.0" />
+            </VBox.margin>
+        </HBox>
+
+        <HBox>
+            <Text text="The most frequently borrowed book:   " />
+            <Text text="Tittle: " />
+            <Text id="mostBorrowedBookText" fx:id="mostBorrowedBookTittle" />
+            <Text text="   Borrows: " />
+            <Text id="mostBorrowedBookText" fx:id="mostBorrowedBookBorrows" />
+            <VBox.margin>
+                <Insets left="30" top="30.0" />
+            </VBox.margin>
+        </HBox>
+
+        <HBox>
+            <Text text="The most frequently logged in user:   ">
+            </Text>
+            <Text text="value">
+            </Text>
+            <VBox.margin>
+                <Insets left="30" top="15.0" />
+            </VBox.margin>
+        </HBox>
+
+        <HBox>
+            <Text text="Number of users:   ">
+            </Text>
+            <Text text="value">
+            </Text>
+            <VBox.margin>
+                <Insets left="30" top="15.0" />
+            </VBox.margin>
+        </HBox>
+
+        <HBox>
+            <Text text="User that borrowed the most books:   ">
+            </Text>
+            <Text text="value">
+            </Text>
+            <VBox.margin>
+                <Insets left="30" top="15.0" />
+            </VBox.margin>
+        </HBox>
+    </VBox>
+</BorderPane>
