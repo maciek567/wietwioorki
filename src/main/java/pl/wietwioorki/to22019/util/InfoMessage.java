@@ -14,4 +14,8 @@ public class InfoMessage {
     public static String bookSuccessfullyCreatedContent = "Successfully added book";
     public static String readerSuccessfullyCreatedContent = "Successfully added reader";
     public static String reservationSuccessfullyCreatedContent = "Successfully added reservation";
+    public static String bookSuccessfullyBorrowedContent = "Successfully borrowed book";
+    public static String bookSuccessfullyReturnedContent = "Successfully returned book";
+
+    public static String reservationSuccessfullyDeletedContent = "Successfully deleted reservation";
 }

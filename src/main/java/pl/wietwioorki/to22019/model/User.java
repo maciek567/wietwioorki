@@ -1,16 +1,10 @@
 package pl.wietwioorki.to22019.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-import pl.wietwioorki.to22019.repository.ReaderRepository;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-import java.util.Optional;
+import javax.persistence.*;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @ToString
@@ -18,29 +12,19 @@ import java.util.Optional;
 @Table(name = "\"user\"")
 public class User {
     @Id
-    private Long id;
-
     private String login;
+
     private String password;
+
+    @Column(name = "role")
+    @Convert(converter = RoleConverter.class)
     private Role role;
+
     private String email;
-    private Long pesel; //todo: change to reader
 
-    @Transient //@Autowired //todo: is it ok?
-    ReaderRepository readerRepository;
-
-    public User(String login, String password, Role role, String email, Long pesel, ReaderRepository readerRepository) {
-        this.login = login;
-        this.password = password;
-        this.role = role;
-        this.email = email;
-        this.pesel = pesel;
-        this.readerRepository = readerRepository;
-    }
-
-    public Optional<Reader> getReader() {
-        return readerRepository.findById(pesel); // todo: remove ReaderDAO
-    }
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pesel", referencedColumnName = "pesel")
+    private Reader reader;
 
     public boolean checkPassword(String password) {
         return this.password.equals(password);

@@ -1,9 +1,6 @@
 package pl.wietwioorki.to22019.dao.generator;
 
-import pl.wietwioorki.to22019.model.Author;
-import pl.wietwioorki.to22019.model.Book;
-import pl.wietwioorki.to22019.model.Genre;
-import pl.wietwioorki.to22019.model.Reader;
+import pl.wietwioorki.to22019.model.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,7 +32,9 @@ public class DataGenerator {
     }
 
     public static Reader generateReader() {
-//        User user = new User(1234567890L, "MonikaDziedzic", "password", Role.U, "a@a.com", 1L);
-        return new Reader(1234567890L, "Monika Dziedzic", new Date()); //, user);
+        Reader reader = new Reader(1234567890L, "Monika Dziedzic", null);
+        User user = new User("MonikaDziedzic", "password", Role.U, "a@a.com", reader);
+        reader.setUser(user);
+        return reader;
     }
 }

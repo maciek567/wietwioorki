@@ -2,14 +2,17 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.repository.ReservationRepository;
+import pl.wietwioorki.to22019.util.AlertFactory;
+import pl.wietwioorki.to22019.validator.BookBorrowValidator;
 
-import java.util.Optional;
+import static pl.wietwioorki.to22019.util.InfoMessage.*;
 
 @Controller
 public class BookBorrowController extends AbstractWindowController{
@@ -28,21 +31,17 @@ public class BookBorrowController extends AbstractWindowController{
 
     @FXML
     public void handleBorrowBook(ActionEvent actionEvent) {
-        long reservationID;
-        try {
-            reservationID = Long.parseLong(reservationId.getText());
-        }
-        catch(NumberFormatException e){
-            System.out.println("Can't read reservation id :" + reservationId.getText());
-            return;
-        }
-        Optional<Reservation> reservation = reservationRepository.findById(reservationID);
+        BookBorrowValidator bookBorrowValidator = sessionConstants.getBookBorrowValidator();
 
-        if(reservation.isEmpty()){
-            System.out.println("Can't find reservation with id:" + reservationID);
+        if (!bookBorrowValidator.validatePesel(pesel.getText()) || !bookBorrowValidator.validateReservation(reservationId.getText())) {
             return;
         }
-        reservation.get().borrowBook();
-        System.out.println("Book borrowed successfully");
+
+        Reservation reservation = bookBorrowValidator.getReservation();
+        reservation.borrowBook();
+        reservationRepository.save(reservation);
+
+        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyBorrowedContent);
+        closeWindowAfterSuccessfulAction(actionEvent);
     }
 }

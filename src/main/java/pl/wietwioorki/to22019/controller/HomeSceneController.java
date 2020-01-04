@@ -28,9 +28,6 @@ public class HomeSceneController extends AbstractWindowController {
     public Button returnBookButton;
 
     @FXML
-    private Button addReaderButton;
-
-    @FXML
     private Button addBookButton;
 
     @FXML
@@ -38,12 +35,6 @@ public class HomeSceneController extends AbstractWindowController {
 
     @FXML
     public Text loggedInUser;
-
-    @FXML
-    public void handleNewReader(ActionEvent actionEvent) {
-        System.out.println("New reader view");
-        openNewWindow("/layouts/AddReader.fxml");
-    }
 
     @FXML
     public void handleNewBook(ActionEvent actionEvent) {
@@ -61,7 +52,7 @@ public class HomeSceneController extends AbstractWindowController {
     public void handleEnterLogin(ActionEvent actionEvent) {
         System.out.println("login view");
         openNewWindow("/layouts/Login.fxml");
-        loggedInUser.setText(String.valueOf(constants.getUserLogin()));
+        loggedInUser.setText(String.valueOf(sessionConstants.getUserLogin()));
     }
 
     @FXML

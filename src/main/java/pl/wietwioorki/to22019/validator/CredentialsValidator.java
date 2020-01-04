@@ -6,7 +6,7 @@ import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.util.AlertFactory;
-import pl.wietwioorki.to22019.util.Constants;
+import pl.wietwioorki.to22019.util.SessionConstants;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,17 +16,16 @@ import static pl.wietwioorki.to22019.util.InfoMessage.pendingReservationsInfoHea
 @Component
 public class CredentialsValidator extends MyValidator {
 
-    public boolean validateCredentials(Constants constants, String userName, String password) {
+    public boolean validateCredentials(SessionConstants sessionConstants, String userName, String password) {
         User logUser = userRepository.findByLogin(userName);
         if (logUser == null || !logUser.checkPassword(password)) {
             return false;
         }
 
-        constants.logUser(logUser);
+        sessionConstants.logUser(logUser);
         System.out.println("You are logged in as " + logUser.getLogin());
-//        Reader reader = ReaderDAO.findByUser(logUser);
 
-        Optional<Reader> reader = readerRepository.findById(logUser.getPesel());
+        Optional<Reader> reader = readerRepository.findById(logUser.getReader().getPesel());
         if (reader.isEmpty()) {
             return false;
         }

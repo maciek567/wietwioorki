@@ -9,9 +9,7 @@ import pl.wietwioorki.to22019.model.Book;
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.repository.BookRepository;
-import pl.wietwioorki.to22019.validator.BookValidator;
-import pl.wietwioorki.to22019.validator.ReaderValidator;
-import pl.wietwioorki.to22019.validator.ReservationValidator;
+import pl.wietwioorki.to22019.validator.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,14 +17,13 @@ import java.time.DateTimeException;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Component
 @Getter
 @Setter
-public class Constants {
+public class SessionConstants {
     @Autowired
-    ReaderValidator readerValidator;
+    RegistrationValidator registrationValidator;
     @Autowired
     BookValidator bookValidator;
 //    @Autowired
@@ -35,6 +32,11 @@ public class Constants {
 //    GenreValidator genreValidator;
     @Autowired
     ReservationValidator reservationValidator;
+    @Autowired
+    CredentialsValidator credentialsValidator;
+    @Autowired
+    BookBorrowValidator bookBorrowValidator;
+
     //    @Autowired todo: add more repos
     @Autowired
     BookRepository bookRepository;
@@ -53,8 +55,8 @@ public class Constants {
         return name;
     }
 
-    public Optional<Reader> getCurrentReader(){
-        Optional<Reader> reader = Optional.empty();
+    public Reader getCurrentReader(){
+        Reader reader = null;
         if(currentUser != null){
             reader = currentUser.getReader();
         }
@@ -71,7 +73,7 @@ public class Constants {
         return sdf.parse(formatted);
     }
 
-    public Book getReservedBook(String bookTitle) {
+    public Book getReservedBook(String bookTitle) { // returns book to which waiting queue size is the smallest one
         List<Book> books = bookRepository.findAllByTitle(bookTitle);
         Book reservedBook = books.get(0);
         int smallestQueueSize = books.get(0).getReaderQueueSize();
