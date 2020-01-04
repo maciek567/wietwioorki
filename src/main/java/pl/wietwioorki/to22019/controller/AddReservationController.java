@@ -38,20 +38,20 @@ public class AddReservationController extends AbstractWindowController {
 
         //todo: check if book is not already booked or borrowed!
 
-        ReservationValidator reservationValidator = constants.getReservationValidator();
+        ReservationValidator reservationValidator = sessionConstants.getReservationValidator();
         if (!reservationValidator.validatePesel(pesel.getText()) ||
-                !reservationValidator.validateReader(pesel.getText()) ||
-                !reservationValidator.validateBook(bookTitle.getText())) {
+                !reservationValidator.validateBook(bookTitle.getText()) ||
+                !reservationValidator.validateReservation(reservationValidator.getBook())) {
             return;
         }
 
-        Book reservedBook = constants.getReservedBook(bookTitle.getText());
+        Book reservedBook = sessionConstants.getReservedBook(bookTitle.getText());
         ReservationStatus reservationStatus = reservedBook.getReaderQueueSize() == 0 ? ReservationStatus.READY : ReservationStatus.PENDING;
 
         // todo: validate whole reservation
-        Reservation reservation = new Reservation(reservationValidator.getReader().get(), reservedBook, null, null, reservationStatus);
+        Reservation reservation = new Reservation(reservationValidator.getReader(), reservedBook, null, null, reservationStatus);
 
-        reservedBook.pushReaderToQueue(reservationValidator.getReader().get());
+        reservedBook.pushReaderToQueue(reservationValidator.getReader());
         reservationRepository.save(reservation);
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyCreatedContent);

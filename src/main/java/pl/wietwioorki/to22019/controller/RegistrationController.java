@@ -53,7 +53,7 @@ public class RegistrationController extends AbstractWindowController {
     public void handleRegistration(ActionEvent actionEvent) {
         System.out.println("Adding new reader");
 
-        RegistrationValidator registrationValidator = constants.getRegistrationValidator();
+        RegistrationValidator registrationValidator = sessionConstants.getRegistrationValidator();
         if (!registrationValidator.validateName(name.getText()) || !registrationValidator.validatePesel(pesel.getText()) ||
                 !registrationValidator.validateUser(login.getText()) ||
                 !registrationValidator.validateEmail(email.getText()) ||

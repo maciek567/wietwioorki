@@ -19,7 +19,7 @@ import java.util.Date;
 @Table(name = "reservation")
 public class Reservation {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "reservation_id")
     private Long reservationId;
 
@@ -76,7 +76,8 @@ public class Reservation {
 
     public void borrowBook(){
         book.popReaderFromQueue();
-        reservationStartDate = new Date(System.currentTimeMillis());
+        setReservationStartDate(new Date(System.currentTimeMillis()));
+        setReservationStatus(ReservationStatus.ACTIVE);
     }
 
     public void returnBook(){

@@ -3,6 +3,7 @@ package pl.wietwioorki.to22019.controller;
 import javafx.collections.ObservableListBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -14,10 +15,14 @@ import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
 import pl.wietwioorki.to22019.repository.BookRepository;
 import pl.wietwioorki.to22019.repository.ReservationRepository;
+import pl.wietwioorki.to22019.util.AlertFactory;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
+
+import static pl.wietwioorki.to22019.util.ErrorMessage.*;
+import static pl.wietwioorki.to22019.util.InfoMessage.reservationSuccessfullyCreatedContent;
+import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
 @Controller
 public class BooksListController extends AbstractWindowController { //todo
@@ -82,28 +87,19 @@ public class BooksListController extends AbstractWindowController { //todo
     public void handleAddReservationFromBookList(ActionEvent actionEvent) {
         System.out.println("Adding new reservation");
 
-        /*Calendar calendar = Calendar.getInstance();
-        calendar.set(1998, Calendar.JUNE, 25);
-        Reader reader = new Reader(98062523456L, "Dawid", calendar.getTime());
-*/
-        Reader reader = constants.getCurrentReader();
-//todo: add validator
+        Reader reader = sessionConstants.getCurrentReader();
         if (reader == null) {
+            AlertFactory.showAlert(Alert.AlertType.ERROR, emptySelectionErrorHeader, userNotLoggedInErrorContent);
             return;
         }
 
         Book book = booksTable.getSelectionModel().getSelectedItem();
         if (book == null) {
-            System.out.println("No book selected");
+            AlertFactory.showAlert(Alert.AlertType.ERROR, emptySelectionErrorHeader, noBookSelectedErrorContent);
             return;
         }
 
-        ReservationStatus reservationStatus;
-        if (book.isReaderQueueEmpty()) {
-            reservationStatus = ReservationStatus.READY;
-        } else {
-            reservationStatus = ReservationStatus.PENDING;
-        }
+        ReservationStatus reservationStatus = book.isReaderQueueEmpty() ? ReservationStatus.READY : ReservationStatus.PENDING;
 
         book.pushReaderToQueue(reader);
 
@@ -111,8 +107,7 @@ public class BooksListController extends AbstractWindowController { //todo
 
         reservationRepository.save(reservation);
 
-
-        System.out.println("Reservation added successfully");
+        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyCreatedContent);
     }
 
 }

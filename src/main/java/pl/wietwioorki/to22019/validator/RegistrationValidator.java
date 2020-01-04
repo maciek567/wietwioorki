@@ -20,7 +20,7 @@ public class RegistrationValidator extends MyValidator {
 
     public boolean validateName(String name) {
         if (name.isBlank()) {
-            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, "name" + emptyFieldErrorContent);
+            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, "Name" + emptyFieldErrorContent);
             return false;
         }
         String[] names = name.split(" ");
@@ -59,6 +59,10 @@ public class RegistrationValidator extends MyValidator {
     }
 
     public boolean validatePasswords(String password, String passwordConfirmation) {
+        if (StringUtils.isBlank(password)) {
+            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, "Password" + emptyFieldErrorContent);
+            return false;
+        }
         if (!password.equals(passwordConfirmation)) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, wrongPasswordsErrorContent);
             return false;

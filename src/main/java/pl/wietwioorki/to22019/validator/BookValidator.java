@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.model.Author;
 import pl.wietwioorki.to22019.model.Genre;
 import pl.wietwioorki.to22019.util.AlertFactory;
-import pl.wietwioorki.to22019.util.Constants;
+import pl.wietwioorki.to22019.util.SessionConstants;
 
 import java.text.ParseException;
 import java.time.DateTimeException;
@@ -52,9 +52,9 @@ public class BookValidator extends MyValidator {
         return true;
     }
 
-    public boolean validateDate(Constants constants, DatePicker datePicker) {
+    public boolean validateDate(SessionConstants sessionConstants, DatePicker datePicker) {
         try {
-            date = constants.datePickerConverter(datePicker);
+            date = sessionConstants.datePickerConverter(datePicker);
         } catch (ParseException | DateTimeException | NullPointerException e) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "adding book", wrongDateErrorContent);
             return false;
