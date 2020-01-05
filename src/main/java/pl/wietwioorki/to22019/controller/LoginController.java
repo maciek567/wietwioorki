@@ -36,6 +36,7 @@ public class LoginController extends AbstractWindowController {
             closeWindowAfterSuccessfulAction(actionEvent);
         }
 
+        // for statistics
         User loggedInUser = sessionConstants.getUserRepository().findByLogin(userName.getText());
         loggedInUser.incrementNoLogins();
         sessionConstants.getUserRepository().save(loggedInUser);

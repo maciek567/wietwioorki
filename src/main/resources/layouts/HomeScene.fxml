@@ -111,10 +111,10 @@
             </Button>
             <Text text="Logged as: ">
                 <VBox.margin>
-                    <Insets bottom="20" right="20" top="5" />
+                    <Insets bottom="5" right="20" top="5" />
                 </VBox.margin>
             </Text>
-            <Text fx:id="loggedInUser" />
+            <Text fx:id="loggedInUser" text="guest"/>
         </VBox>
     </right>
 
