@@ -71,6 +71,8 @@ public class SessionConstants {
         currentUser = user;
     }
 
+    public void logoutUser() { currentUser = null; }
+
     public String getUserLogin() {
         String name = null;
         if (currentUser != null) {

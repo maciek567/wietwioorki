@@ -2,9 +2,15 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
+import pl.wietwioorki.to22019.model.User;
+import pl.wietwioorki.to22019.util.AlertFactory;
+
+import static pl.wietwioorki.to22019.util.InfoMessage.pendingReservationsInfoHeader;
+import static pl.wietwioorki.to22019.util.InfoMessage.successfulLogout;
 
 @Controller
 public class HomeSceneController extends AbstractWindowController {
@@ -56,9 +62,21 @@ public class HomeSceneController extends AbstractWindowController {
 
     @FXML
     public void handleEnterLogin(ActionEvent actionEvent) {
-        System.out.println("login view");
-        openNewWindow("/layouts/Login.fxml");
-        loggedInUser.setText(String.valueOf(sessionConstants.getUserLogin()));
+        if(sessionConstants.getUserLogin() == null) {
+            System.out.println("login view");
+            openNewWindow("/layouts/Login.fxml");
+            if(sessionConstants.getUserLogin() != null) {
+                loggedInUser.setText(sessionConstants.getUserLogin());
+                enterLogin.setText("Logout");
+            }
+        }
+        else {
+            sessionConstants.logoutUser();
+            loggedInUser.setText("guest");
+            enterLogin.setText("Login");
+            AlertFactory.showAlert(Alert.AlertType.INFORMATION, successfulLogout,
+                    "You have successfully logout");
+        }
     }
 
     @FXML

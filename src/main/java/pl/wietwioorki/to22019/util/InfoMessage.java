@@ -18,4 +18,6 @@ public class InfoMessage {
     public static String bookSuccessfullyReturnedContent = "Successfully returned book";
 
     public static String reservationSuccessfullyDeletedContent = "Successfully deleted reservation";
+
+    public static String successfulLogout = "Successful logout";
 }
