@@ -54,7 +54,7 @@ public class RegistrationController extends AbstractWindowController {
         Long peselNumber = Long.parseLong(pesel.getText());
 
         Reader reader = new Reader(peselNumber, name.getText());
-        User user = new User(login.getText(), registrationPassword.getText(), Role.U, email.getText(), reader, 0);
+        User user = new User(login.getText(), registrationPassword.getText(), Role.U, email.getText(), reader, 0, 0);
         reader.setUser(user);
 
         sessionConstants.getUserRepository().save(user);

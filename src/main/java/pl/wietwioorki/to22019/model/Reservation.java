@@ -78,7 +78,6 @@ public class Reservation {
         book.popReaderFromQueue();
         setReservationStartDate(new Date(System.currentTimeMillis()));
         setReservationStatus(ReservationStatus.ACTIVE);
-        book.incrementNoBorrows();
     }
 
     public void returnBook(){

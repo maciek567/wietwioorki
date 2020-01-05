@@ -1,6 +1,5 @@
 package pl.wietwioorki.to22019.controller;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,9 +18,8 @@ public class GenerateStatisticsController extends AbstractWindowController {
 
     @FXML
     private Text mostBorrowedBookTittle;
-
     @FXML
-    private Text mostBorrowedBookBorrows;
+    private Text mostBorrowedBookBorrowings;
 
     @FXML
     public Text mostLoggedInUserName;
@@ -29,16 +27,25 @@ public class GenerateStatisticsController extends AbstractWindowController {
     public Text mostLoggedInUserLogins;
 
     @FXML
+    public Text userWithMostBorrowingsName;
+    @FXML
+    public Text userWithMostBorrowingsBorrowings;
+
+    @FXML
     public void handleGenerateStatistics(ActionEvent actionEvent) {
         System.out.println("generating statistics");
 
         Book mostBorrowedBook = theMostBorrowedBook();
         mostBorrowedBookTittle.setText(mostBorrowedBook != null ? mostBorrowedBook.getTitle() : "no book in library");
-        mostBorrowedBookBorrows.setText(String.valueOf(mostBorrowedBook != null ? mostBorrowedBook.getNoBorrows() : 0));
+        mostBorrowedBookBorrowings.setText(String.valueOf(mostBorrowedBook != null ? mostBorrowedBook.getNoBorrows() : 0));
 
         User mostLoggedInUser = theMostFrequentlyLoggedInUser();
         mostLoggedInUserName.setText(mostLoggedInUser != null ? mostLoggedInUser.getLogin() : "no user in library");
         mostLoggedInUserLogins.setText(String.valueOf(mostLoggedInUser != null ? mostLoggedInUser.getNoLogins() : 0));
+
+        User mostBorrowingsUser = userWithTheMostBorrowings();
+        userWithMostBorrowingsName.setText(mostBorrowingsUser != null ? mostBorrowingsUser.getLogin() : "no user in library");
+        userWithMostBorrowingsBorrowings.setText(String.valueOf(mostBorrowingsUser != null ? mostBorrowingsUser.getNoBorrowings() : 0));
 
     }
 
@@ -72,4 +79,18 @@ public class GenerateStatisticsController extends AbstractWindowController {
         return mostLoggedInUser;
     }
 
+    private User userWithTheMostBorrowings() {
+        List<User> users = sessionConstants.getUserRepository().findAll();
+        if(users.isEmpty()) {
+            System.out.println("No user in library system");
+            return null;
+        }
+        User userWithMostBorrowings = users.get(0);
+        for(User user : users) {
+            if(user.getNoBorrowings() > userWithMostBorrowings.getNoBorrowings()) {
+                userWithMostBorrowings = user;
+            }
+        }
+        return userWithMostBorrowings;
+    }
 }

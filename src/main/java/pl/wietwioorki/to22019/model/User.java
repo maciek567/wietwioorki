@@ -28,13 +28,15 @@ public class User {
 
     private int noLogins;
 
-    public void incrementNoLogins() {
-        this.noLogins++;
-    }
+    private int noBorrowings;
 
-    public int getNoLogins() {
-        return noLogins;
-    }
+    public void incrementNoLogins() { this.noLogins++; }
+
+    public int getNoLogins() { return noLogins; }
+
+    public void incrementNoBorrowings() { this.noBorrowings++; }
+
+    public int getNoBorrowings() { return noBorrowings; }
 
     public boolean checkPassword(String password) {
         return this.password.equals(password);
