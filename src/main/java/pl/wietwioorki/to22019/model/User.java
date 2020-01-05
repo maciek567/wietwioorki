@@ -26,6 +26,16 @@ public class User {
     @JoinColumn(name = "pesel", referencedColumnName = "pesel")
     private Reader reader;
 
+    private int noLogins;
+
+    public void incrementNoLogins() {
+        this.noLogins++;
+    }
+
+    public int getNoLogins() {
+        return noLogins;
+    }
+
     public boolean checkPassword(String password) {
         return this.password.equals(password);
     }

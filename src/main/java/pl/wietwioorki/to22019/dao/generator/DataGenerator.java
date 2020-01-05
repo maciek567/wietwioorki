@@ -33,7 +33,7 @@ public class DataGenerator {
 
     public static Reader generateReader() {
         Reader reader = new Reader(1234567890L, "Monika Dziedzic", null);
-        User user = new User("MonikaDziedzic", "password", Role.U, "a@a.com", reader);
+        User user = new User("MonikaDziedzic", "password", Role.U, "a@a.com", reader, 0);
         reader.setUser(user);
         return reader;
     }

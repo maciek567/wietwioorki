@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.Book;
+import pl.wietwioorki.to22019.model.User;
 
 import java.util.List;
 
@@ -23,11 +24,22 @@ public class GenerateStatisticsController extends AbstractWindowController {
     private Text mostBorrowedBookBorrows;
 
     @FXML
+    public Text mostLoggedInUserName;
+    @FXML
+    public Text mostLoggedInUserLogins;
+
+    @FXML
     public void handleGenerateStatistics(ActionEvent actionEvent) {
         System.out.println("generating statistics");
+
         Book mostBorrowedBook = theMostBorrowedBook();
         mostBorrowedBookTittle.setText(mostBorrowedBook != null ? mostBorrowedBook.getTitle() : "no book in library");
         mostBorrowedBookBorrows.setText(String.valueOf(mostBorrowedBook != null ? mostBorrowedBook.getNoBorrows() : 0));
+
+        User mostLoggedInUser = theMostFrequentlyLoggedInUser();
+        mostLoggedInUserName.setText(mostLoggedInUser != null ? mostLoggedInUser.getLogin() : "no user in library");
+        mostLoggedInUserLogins.setText(String.valueOf(mostLoggedInUser != null ? mostLoggedInUser.getNoLogins() : 0));
+
     }
 
     private Book theMostBorrowedBook() {
@@ -38,12 +50,26 @@ public class GenerateStatisticsController extends AbstractWindowController {
         }
         Book mostBorrowedBook = books.get(0);
         for(Book book : books) {
-            System.out.println(book.getTitle() + " " + book.getNoBorrows());
             if(book.getNoBorrows() > mostBorrowedBook.getNoBorrows()) {
                 mostBorrowedBook = book;
             }
         }
         return mostBorrowedBook;
+    }
+
+    private User theMostFrequentlyLoggedInUser() {
+        List<User> users = sessionConstants.getUserRepository().findAll();
+        if(users.isEmpty()) {
+            System.out.println("No user in library system");
+            return null;
+        }
+        User mostLoggedInUser = users.get(0);
+        for(User user : users) {
+            if(user.getNoLogins() > mostLoggedInUser.getNoLogins()) {
+                mostLoggedInUser = user;
+            }
+        }
+        return mostLoggedInUser;
     }
 
 }
