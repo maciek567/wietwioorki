@@ -12,19 +12,25 @@
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </opaqueInsets>
             <Text text="What do you want to do?">
-                <VBox.margin><Insets bottom="20" left="20" right="20" top="20" />
-                </VBox.margin></Text>
+                <VBox.margin>
+                    <Insets bottom="20" left="20" right="20" top="20" />
+                </VBox.margin>
+            </Text>
 
             <HBox alignment="CENTER">
                 <Button id="book" fx:id="addBookButton" onAction="#handleNewBook" prefHeight="50.0" prefWidth="200" text="Add new book">
-                    <VBox.margin><Insets bottom="10" left="20" right="10" top="20" />
-                    </VBox.margin></Button>
+                    <VBox.margin>
+                        <Insets bottom="10" left="20" right="10" top="20" />
+                    </VBox.margin>
+                </Button>
                 <Button id="bookList" fx:id="showBookListButton" onAction="#handleShowBookList" prefHeight="50.0" prefWidth="200" text="Show books list">
-                    <VBox.margin> <Insets bottom="10" left="20" right="10" top="20" />
+                    <VBox.margin>
+                        <Insets bottom="10" left="20" right="10" top="20" />
                     </VBox.margin>
                     <HBox.margin>
                         <Insets left="20.0" />
-                    </HBox.margin></Button>
+                    </HBox.margin>
+                </Button>
                 <VBox.margin>
                     <Insets bottom="15.0" />
                 </VBox.margin>
@@ -32,49 +38,58 @@
 
             <HBox alignment="CENTER">
                 <Button id="book" fx:id="borrowBookButton" onAction="#handleBorrowBook" prefHeight="50.0" prefWidth="200" text="Borrow book">
-                    <VBox.margin><Insets bottom="10" left="20" right="10" top="20" />
-                    </VBox.margin></Button>
+                    <VBox.margin>
+                        <Insets bottom="10" left="20" right="10" top="20" />
+                    </VBox.margin>
+                </Button>
                 <Button id="bookList" fx:id="returnBookButton" onAction="#handleReturnBook" prefHeight="50.0" prefWidth="200" text="Return book">
-                    <VBox.margin> <Insets bottom="10" left="20" right="10" top="20" />
+                    <VBox.margin>
+                        <Insets bottom="10" left="20" right="10" top="20" />
                     </VBox.margin>
                     <HBox.margin>
                         <Insets left="20.0" />
-                    </HBox.margin></Button>
-                <VBox.margin>
-                    <Insets bottom="15.0" />
-                </VBox.margin>
+                    </HBox.margin>
+                </Button>
             </HBox>
 
             <HBox alignment="CENTER">
-                <Button id="author" fx:id="addReservationButton" onAction="#handleNewReservation" prefHeight="50"
-                        prefWidth="200" text="Add new reservation">
+                <Button id="author" fx:id="addReservationButton" onAction="#handleNewReservation" prefHeight="50" prefWidth="200" text="Add new reservation">
                     <VBox.margin>
-                        <Insets bottom="10" left="20" right="10" top="10"/>
+                        <Insets bottom="10" left="20" right="10" top="10" />
                     </VBox.margin>
                 </Button>
-                <Button id="reservationList" fx:id="showReservationListButton" onAction="#handleShowReservationList"
-                        prefHeight="50.0" prefWidth="200" text="Show reservations">
+                <Button id="reservationList" fx:id="showReservationListButton" onAction="#handleShowReservationList" prefHeight="50.0" prefWidth="200" text="Show reservations">
                     <VBox.margin>
-                        <Insets bottom="10" left="20" right="10" top="20"/>
+                        <Insets bottom="10" left="20" right="10" top="20" />
                     </VBox.margin>
                     <HBox.margin>
-                        <Insets left="20.0"/>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                </Button>
+            <VBox.margin>
+               <Insets top="20.0" />
+            </VBox.margin>
+            </HBox>
+
+            <HBox alignment="CENTER">
+                <Button id="reservationList" fx:id="showCompleteReservationListButton" onAction="#handleShowCompleteReservationList" prefHeight="50.0" prefWidth="200" text="Show complete reservations">
+                    <VBox.margin>
+                        <Insets bottom="10" left="20" right="10" top="10" />
+                    </VBox.margin>
+                    <HBox.margin>
+                        <Insets top="15.0" />
+                    </HBox.margin>
+                </Button>
+                <Button id="reservationList" fx:id="showStatisticsButton" onAction="#handleShowStatisticsButton" prefHeight="50.0" prefWidth="200" text="Show statistics">
+                    <VBox.margin>
+                        <Insets bottom="10" left="20" right="10" top="20" />
+                    </VBox.margin>
+                    <HBox.margin>
+                        <Insets left="20.0" top="15.0" />
                     </HBox.margin>
                 </Button>
             </HBox>
 
-            <HBox>
-                <Button id="reservationList" fx:id="showCompleteReservationListButton"
-                        onAction="#handleShowCompleteReservationList"
-                        prefHeight="50.0" prefWidth="200" text="Show complete reservations">
-                    <VBox.margin>
-                        <Insets bottom="10" left="20" right="10" top="20"/>
-                    </VBox.margin>
-                    <HBox.margin>
-                        <Insets left="20.0"/>
-                    </HBox.margin>
-                </Button>
-            </HBox>
 
         </VBox>
     </center>
@@ -85,15 +100,21 @@
                 <Insets bottom="10.0" left="10.0" right="10.0" top="40.0" />
             </opaqueInsets>
             <Button id="enterLogin" fx:id="enterLogin" onAction="#handleEnterLogin" prefHeight="30" prefWidth="100" text="Login">
-                <VBox.margin><Insets bottom="7" right="30" top="40" />
-                </VBox.margin></Button>
+                <VBox.margin>
+                    <Insets bottom="7" right="30" top="40" />
+                </VBox.margin>
+            </Button>
             <Button id="enterRegistration" fx:id="enterRegistration" onAction="#handleEnterRegistration" prefHeight="30.0" prefWidth="100" text="Register">
-                <VBox.margin><Insets bottom="5" right="30" top="7" />
-                </VBox.margin></Button>
+                <VBox.margin>
+                    <Insets bottom="5" right="30" top="7" />
+                </VBox.margin>
+            </Button>
             <Text text="Logged as: ">
-                <VBox.margin><Insets bottom="20" right="20" top="5" />
-                </VBox.margin></Text>
-            <Text fx:id="loggedInUser"/>
+                <VBox.margin>
+                    <Insets bottom="20" right="20" top="5" />
+                </VBox.margin>
+            </Text>
+            <Text fx:id="loggedInUser" />
         </VBox>
     </right>
 

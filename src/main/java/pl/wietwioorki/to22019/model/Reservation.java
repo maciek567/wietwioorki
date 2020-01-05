@@ -94,5 +94,4 @@ public class Reservation {
     public void setReservationEndDate(Date reservationEndDate) {
         this.reservationEndDate = reservationEndDate;
     }
-
 }

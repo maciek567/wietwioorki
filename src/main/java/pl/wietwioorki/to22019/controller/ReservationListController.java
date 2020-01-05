@@ -8,9 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.model.Reservation;
-import pl.wietwioorki.to22019.model.ReservationStatus;
-import pl.wietwioorki.to22019.model.Role;
+import pl.wietwioorki.to22019.model.*;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
 import java.util.*;
@@ -124,9 +122,18 @@ public class ReservationListController extends AbstractWindowController {
         reservation.setReservationEndDate(calendar.getTime());
 
         reservation.borrowBook();
+        sessionConstants.getReservationRepository().save(reservation);
+
+        // for statistics - save counters of borrowed books
+        Book borrowedBook = reservation.getBook();
+        borrowedBook.incrementNoBorrows();
+        sessionConstants.getBookRepository().save(borrowedBook);
+
+        User loggedInUser = sessionConstants.getCurrentUser();
+        loggedInUser.incrementNoBorrowings();
+        sessionConstants.getUserRepository().save(loggedInUser);
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyBorrowedContent);
-
         reservationTable.refresh();
     }
 
@@ -145,7 +152,7 @@ public class ReservationListController extends AbstractWindowController {
         reservation.setReservationStatus(ReservationStatus.RETURNED);
 
         reservation.returnBook();
-
+        sessionConstants.getReservationRepository().save(reservation);
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyReturnedContent);
 
         reservationTable.refresh();

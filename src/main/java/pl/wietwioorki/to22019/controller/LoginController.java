@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
+import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
 import static pl.wietwioorki.to22019.util.ErrorMessage.loginErrorHeader;
@@ -34,5 +35,9 @@ public class LoginController extends AbstractWindowController {
         else {
             closeWindowAfterSuccessfulAction(actionEvent);
         }
+
+        User loggedInUser = sessionConstants.getUserRepository().findByLogin(userName.getText());
+        loggedInUser.incrementNoLogins();
+        sessionConstants.getUserRepository().save(loggedInUser);
     }
 }
