@@ -56,10 +56,36 @@
         </HBox>
 
         <HBox>
-            <Text text="Number of users:   ">
-            </Text>
-            <Text text="value">
-            </Text>
+            <Text text="Number of users:   " />
+            <Text id="noUsers" fx:id="noUsers" />
+            <VBox.margin>
+                <Insets left="30" top="15.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox>
+            <Text text="Number of books:   " />
+            <Text id="noBooks" fx:id="noBooks" />
+            <VBox.margin>
+                <Insets left="30" top="15.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox>
+            <Text text="Number of reservations:   " />
+            <Text id="noReservations" fx:id="noReservations" />
+            <VBox.margin>
+                <Insets left="30" top="15.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox>
+            <Text text="Number of authors:   " />
+            <Text id="noAuthors" fx:id="noAuthors" />
+            <VBox.margin>
+                <Insets left="30" top="15.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox>
+            <Text text="Number of genres:   " />
+            <Text id="noGenres" fx:id="noGenres" />
             <VBox.margin>
                 <Insets left="30" top="15.0" />
             </VBox.margin>

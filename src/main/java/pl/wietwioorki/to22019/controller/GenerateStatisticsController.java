@@ -5,8 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.model.Book;
-import pl.wietwioorki.to22019.model.User;
+import pl.wietwioorki.to22019.model.*;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ import java.util.List;
 public class GenerateStatisticsController extends AbstractWindowController {
 
     @FXML
-    public Button generateStatisticsButton;
+    private Button generateStatisticsButton;
 
     @FXML
     private Text mostBorrowedBookTittle;
@@ -22,14 +21,25 @@ public class GenerateStatisticsController extends AbstractWindowController {
     private Text mostBorrowedBookBorrowings;
 
     @FXML
-    public Text mostLoggedInUserName;
+    private Text mostLoggedInUserName;
     @FXML
-    public Text mostLoggedInUserLogins;
+    private Text mostLoggedInUserLogins;
 
     @FXML
-    public Text userWithMostBorrowingsName;
+    private Text userWithMostBorrowingsName;
     @FXML
-    public Text userWithMostBorrowingsBorrowings;
+    private Text userWithMostBorrowingsBorrowings;
+
+    @FXML
+    private Text noUsers;
+    @FXML
+    private Text noBooks;
+    @FXML
+    private Text noReservations;
+    @FXML
+    private Text noAuthors;
+    @FXML
+    private Text noGenres;
 
     @FXML
     public void handleGenerateStatistics(ActionEvent actionEvent) {
@@ -47,6 +57,11 @@ public class GenerateStatisticsController extends AbstractWindowController {
         userWithMostBorrowingsName.setText(mostBorrowingsUser != null ? mostBorrowingsUser.getLogin() : "no user in library");
         userWithMostBorrowingsBorrowings.setText(String.valueOf(mostBorrowingsUser != null ? mostBorrowingsUser.getNoBorrowings() : 0));
 
+        noUsers.setText(String.valueOf(getNoUsers()));
+        noBooks.setText(String.valueOf(getNoBooks()));
+        noReservations.setText(String.valueOf(getNoReservations()));
+        noAuthors.setText(String.valueOf(getNoAuthors()));
+        noGenres.setText(String.valueOf(getNoGenres()));
     }
 
     private Book theMostBorrowedBook() {
@@ -92,5 +107,24 @@ public class GenerateStatisticsController extends AbstractWindowController {
             }
         }
         return userWithMostBorrowings;
+    }
+
+    private int getNoBooks() {
+        return sessionConstants.getBookRepository().findAll().size();
+    }
+    private int getNoUsers() {
+        return sessionConstants.getUserRepository().findAll().size();
+    }
+
+    private int getNoReservations() {
+        return sessionConstants.getReservationRepository().findAll().size();
+    }
+
+    private int getNoAuthors() {
+        return sessionConstants.getAuthorRepository().findAll().size();
+    }
+
+    private int getNoGenres() {
+        return sessionConstants.getGenreRepository().findAll().size();
     }
 }

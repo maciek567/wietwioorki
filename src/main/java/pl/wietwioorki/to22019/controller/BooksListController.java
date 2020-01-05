@@ -95,7 +95,6 @@ public class BooksListController extends AbstractWindowController { //todo
         book.pushReaderToQueue(reader);
 
         Reservation reservation = new Reservation(reader, book, null /*todo: today? */, null, reservationStatus);
-
         sessionConstants.getReservationRepository().save(reservation);
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyCreatedContent);

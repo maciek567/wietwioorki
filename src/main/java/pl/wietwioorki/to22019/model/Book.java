@@ -46,6 +46,7 @@ public class Book {
 
     private int noBorrows;
 
+
     public Book(String title, Author author, Date publicationDate, Genre genre) {
         this.title = title;
         this.author = author;
@@ -103,4 +104,5 @@ public class Book {
     public int getNoBorrows() {
         return noBorrows;
     }
+
 }
