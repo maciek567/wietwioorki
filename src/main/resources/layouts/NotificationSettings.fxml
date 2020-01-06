@@ -12,11 +12,11 @@
             <VBox.margin>
                <Insets bottom="15.0" />
             </VBox.margin></Text>
-            <CheckBox fx:id="readyBook" text="book ready to borrow" selected="true" onAction="#handleReadyBook">
+            <CheckBox fx:id="readyBook" text="book ready to borrow" onAction="#handleReadyBook">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin></CheckBox>
-            <CheckBox fx:id="overdueBook" text="overdue book" selected="true" onAction="#handleOverdueBook">
+            <CheckBox fx:id="overdueBook" text="overdue book" onAction="#handleOverdueBook">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin></CheckBox>

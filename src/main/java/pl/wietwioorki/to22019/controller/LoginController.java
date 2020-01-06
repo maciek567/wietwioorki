@@ -7,8 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
+import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.util.AlertFactory;
+import pl.wietwioorki.to22019.util.EmailUtil;
+
+import java.util.Date;
+import java.util.List;
 
 import static pl.wietwioorki.to22019.util.ErrorMessage.loginErrorHeader;
 import static pl.wietwioorki.to22019.util.ErrorMessage.wrongCredentialsErrorContent;
@@ -33,12 +38,26 @@ public class LoginController extends AbstractWindowController {
             AlertFactory.showAlert(Alert.AlertType.ERROR, loginErrorHeader, wrongCredentialsErrorContent);
         }
         else {
+            if(checkIfAnyBookIsOverdue() &&
+                    sessionConstants.getCurrentUser().getNotificationSettings().get("overdueBookNotification")) {
+                EmailUtil.handleEmail(sessionConstants, sessionConstants.getCurrentReader());
+            }
+
+            // for statistics
+            User loggedInUser = sessionConstants.getUserRepository().findByLogin(userName.getText());
+            loggedInUser.incrementNoLogins();
+            sessionConstants.getUserRepository().save(loggedInUser);
             closeWindowAfterSuccessfulAction(actionEvent);
         }
+    }
 
-        // for statistics
-        User loggedInUser = sessionConstants.getUserRepository().findByLogin(userName.getText());
-        loggedInUser.incrementNoLogins();
-        sessionConstants.getUserRepository().save(loggedInUser);
+    private boolean checkIfAnyBookIsOverdue() {
+        List<Reservation> reservations = sessionConstants.getReservationRepository().findByReader(sessionConstants.getCurrentReader());
+        for(Reservation reservation : reservations) {
+            if(reservation.getReservationEndDate().before(new Date())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

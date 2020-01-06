@@ -1,8 +1,12 @@
 package pl.wietwioorki.to22019.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashMap;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,61 +35,33 @@ public class User {
     private int noBorrowings;
 
     // notifications settings
-    private boolean readyBookNotification = true;
-    private  boolean overdueBookNotification = true;
-    private boolean newReservationNotification = false;
-    private boolean borrowedBookNotification = false;
-    private  boolean returnedBookNotification= false;
+    HashMap<String, Boolean> notificationSettings;
 
     public void incrementNoLogins() { this.noLogins++; }
 
-    public int getNoLogins() { return noLogins; }
-
     public void incrementNoBorrowings() { this.noBorrowings++; }
-
-    public int getNoBorrowings() { return noBorrowings; }
 
     public boolean checkPassword(String password) {
         return this.password.equals(password);
     }
 
     public void changeReadyBook() {
-        readyBookNotification = !readyBookNotification;
+        notificationSettings.replace("readyBookNotification", !notificationSettings.get("readyBookNotification"));
     }
 
     public void changeOverdueBook() {
-        overdueBookNotification = !overdueBookNotification;
+        notificationSettings.replace("overdueBookNotification", !notificationSettings.get("overdueBookNotification"));
     }
 
     public void changeNewReservation() {
-        newReservationNotification = !newReservationNotification;
+        notificationSettings.replace("newReservationNotification", !notificationSettings.get("newReservationNotification"));
     }
 
     public void changeBorrowedBook() {
-        borrowedBookNotification = !borrowedBookNotification;
+        notificationSettings.replace("borrowedBookNotification", !notificationSettings.get("borrowedBookNotification"));
     }
 
     public void changeReturnedBook() {
-        returnedBookNotification = !returnedBookNotification;
-    }
-
-    public boolean isReadyBookNotification() {
-        return readyBookNotification;
-    }
-
-    public boolean isOverdueBookNotification() {
-        return overdueBookNotification;
-    }
-
-    public boolean isNewReservationNotification() {
-        return newReservationNotification;
-    }
-
-    public boolean isBorrowedBookNotification() {
-        return borrowedBookNotification;
-    }
-
-    public boolean isReturnedBookNotification() {
-        return returnedBookNotification;
+        notificationSettings.replace("returnedBookNotification", !notificationSettings.get("returnedBookNotification"));
     }
 }

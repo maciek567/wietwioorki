@@ -98,7 +98,12 @@ public class BooksListController extends AbstractWindowController { //todo
         Reservation reservation = new Reservation(reader, book, null /*todo: today? */, null, reservationStatus);
         sessionConstants.getReservationRepository().save(reservation);
 
-        EmailUtil.handleEmail(sessionConstants, reader);
+        if(reservationStatus.equals(ReservationStatus.READY) &&
+                sessionConstants.getCurrentUser().getNotificationSettings().get("readyBookNotification")) {
+            EmailUtil.handleEmail(sessionConstants, reader);
+        } else if(reservationStatus.equals(ReservationStatus.PENDING) &&
+                sessionConstants.getCurrentUser().getNotificationSettings().get("newReservationNotification"))
+            EmailUtil.handleEmail(sessionConstants, reader);
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyCreatedContent);
     }

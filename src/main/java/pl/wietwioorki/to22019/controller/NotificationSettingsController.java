@@ -24,6 +24,15 @@ public class NotificationSettingsController extends AbstractWindowController {
     public CheckBox returnedBook;
 
     @FXML
+    private void initialize() {
+        readyBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("readyBookNotification"));
+        overdueBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("overdueBookNotification"));
+        newReservation.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("newReservationNotification"));
+        borrowedBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("borrowedBookNotification"));
+        returnedBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("returnedBookNotification"));
+    }
+
+    @FXML
     public void handleReadyBook(ActionEvent actionEvent) {
         sessionConstants.getCurrentUser().changeReadyBook();
         sessionConstants.getUserRepository().save(sessionConstants.getCurrentUser());

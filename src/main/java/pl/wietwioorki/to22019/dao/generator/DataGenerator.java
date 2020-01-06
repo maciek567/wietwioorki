@@ -2,9 +2,7 @@ package pl.wietwioorki.to22019.dao.generator;
 
 import pl.wietwioorki.to22019.model.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class DataGenerator {
     static Long lastID = 0L;
@@ -33,7 +31,14 @@ public class DataGenerator {
 
     public static Reader generateReader() {
         Reader reader = new Reader(1234567890L, "Monika Dziedzic", null);
-        User user = new User("MonikaDziedzic", "password", Role.U, "a@a.com", reader, 0, 0);
+        HashMap<String, Boolean> notificationSettings = new HashMap<>();
+        notificationSettings.put("readyBookNotification", true);
+        notificationSettings.put("overdueBookNotification", true);
+        notificationSettings.put("newReservationNotification", false);
+        notificationSettings.put("borrowedBookNotification", false);
+        notificationSettings.put("returnedBookNotification", false);
+        User user = new User("MonikaDziedzic", "password", Role.U, "a@a.com", reader,
+                0, 0, notificationSettings);
         reader.setUser(user);
         return reader;
     }

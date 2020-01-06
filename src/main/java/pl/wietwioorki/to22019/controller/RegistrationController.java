@@ -13,6 +13,8 @@ import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.util.AlertFactory;
 import pl.wietwioorki.to22019.validator.RegistrationValidator;
 
+import java.util.HashMap;
+
 import static pl.wietwioorki.to22019.util.InfoMessage.readerSuccessfullyCreatedContent;
 import static pl.wietwioorki.to22019.util.InfoMessage.successHeader;
 
@@ -54,7 +56,14 @@ public class RegistrationController extends AbstractWindowController {
         Long peselNumber = Long.parseLong(pesel.getText());
 
         Reader reader = new Reader(peselNumber, name.getText());
-        User user = new User(login.getText(), registrationPassword.getText(), Role.U, email.getText(), reader, 0, 0);
+        HashMap<String, Boolean> notificationSettings = new HashMap<>();
+        notificationSettings.put("readyBookNotification", true);
+        notificationSettings.put("overdueBookNotification", true);
+        notificationSettings.put("newReservationNotification", false);
+        notificationSettings.put("borrowedBookNotification", false);
+        notificationSettings.put("returnedBookNotification", false);
+        User user = new User(login.getText(), registrationPassword.getText(), Role.U, email.getText(), reader,
+                0, 0, notificationSettings);
         reader.setUser(user);
 
         sessionConstants.getUserRepository().save(user);
