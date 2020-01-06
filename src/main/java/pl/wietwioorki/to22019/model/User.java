@@ -30,6 +30,13 @@ public class User {
 
     private int noBorrowings;
 
+    // notifications settings
+    private boolean readyBookNotification = true;
+    private  boolean overdueBookNotification = true;
+    private boolean newReservationNotification = false;
+    private boolean borrowedBookNotification = false;
+    private  boolean returnedBookNotification= false;
+
     public void incrementNoLogins() { this.noLogins++; }
 
     public int getNoLogins() { return noLogins; }
@@ -40,5 +47,45 @@ public class User {
 
     public boolean checkPassword(String password) {
         return this.password.equals(password);
+    }
+
+    public void changeReadyBook() {
+        readyBookNotification = !readyBookNotification;
+    }
+
+    public void changeOverdueBook() {
+        overdueBookNotification = !overdueBookNotification;
+    }
+
+    public void changeNewReservation() {
+        newReservationNotification = !newReservationNotification;
+    }
+
+    public void changeBorrowedBook() {
+        borrowedBookNotification = !borrowedBookNotification;
+    }
+
+    public void changeReturnedBook() {
+        returnedBookNotification = !returnedBookNotification;
+    }
+
+    public boolean isReadyBookNotification() {
+        return readyBookNotification;
+    }
+
+    public boolean isOverdueBookNotification() {
+        return overdueBookNotification;
+    }
+
+    public boolean isNewReservationNotification() {
+        return newReservationNotification;
+    }
+
+    public boolean isBorrowedBookNotification() {
+        return borrowedBookNotification;
+    }
+
+    public boolean isReturnedBookNotification() {
+        return returnedBookNotification;
     }
 }

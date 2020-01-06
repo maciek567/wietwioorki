@@ -12,23 +12,23 @@
             <VBox.margin>
                <Insets bottom="15.0" />
             </VBox.margin></Text>
-            <CheckBox fx:id="readyBook" text="book ready to borrow" selected="true">
+            <CheckBox fx:id="readyBook" text="book ready to borrow" selected="true" onAction="#handleReadyBook">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin></CheckBox>
-            <CheckBox fx:id="overdueBook" text="overdue book" selected="true">
+            <CheckBox fx:id="overdueBook" text="overdue book" selected="true" onAction="#handleOverdueBook">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin></CheckBox>
-            <CheckBox fx:id="newReservation" text="new reservation">
+            <CheckBox fx:id="newReservation" text="new reservation" onAction="#handleNewReservation">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin></CheckBox>
-            <CheckBox fx:id="borrowedBook" text="borrowed book">
+            <CheckBox fx:id="borrowedBook" text="borrowed book" onAction="#handleBorrowedBook">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin></CheckBox>
-            <CheckBox fx:id="returnedBook" text="returned book">
+            <CheckBox fx:id="returnedBook" text="returned book" onAction="#handleReturnedBook">
             <VBox.margin>
                <Insets bottom="10.0" />
             </VBox.margin></CheckBox>
