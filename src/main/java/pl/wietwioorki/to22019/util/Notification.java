@@ -18,7 +18,7 @@ public class Notification {
             }
         }
         contentText.append("\n*********************************************************\n");
-        contentText.append("PENDING - book is already taken - we will notify you when it will be available\n");
+        contentText.append("PENDING - book is already taken by someone else - we will notify you when it will be available\n");
         contentText.append("READY - Book is available! Go to library to borrow it\n");
         contentText.append("ACTIVE - You have borrowed this book - please remember to return it on time\n");
         contentText.append("OVERDUE - Time of borrowing has ended - please return the book immediately\n");

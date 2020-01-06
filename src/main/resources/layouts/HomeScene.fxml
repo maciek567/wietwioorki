@@ -109,6 +109,12 @@
                     <Insets bottom="5" right="30" top="7" />
                 </VBox.margin>
             </Button>
+            <Button id="enterNotificationSettings" fx:id="enterNotificationSettings" onAction="#handleEnterNotificationSettings"
+                    prefHeight="30.0" prefWidth="100" text="settings" disable="true">
+                <VBox.margin>
+                    <Insets bottom="5" right="30" top="7" />
+                </VBox.margin>
+            </Button>
             <Text text="Logged as: ">
                 <VBox.margin>
                     <Insets bottom="5" right="20" top="5" />

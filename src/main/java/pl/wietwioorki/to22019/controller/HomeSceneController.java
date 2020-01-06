@@ -6,10 +6,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
-import static pl.wietwioorki.to22019.util.InfoMessage.pendingReservationsInfoHeader;
 import static pl.wietwioorki.to22019.util.InfoMessage.successfulLogout;
 
 @Controller
@@ -38,6 +36,9 @@ public class HomeSceneController extends AbstractWindowController {
 
     @FXML
     public Button showStatisticsButton;
+
+    @FXML
+    public Button enterNotificationSettings;
 
     @FXML
     private Button addBookButton;
@@ -118,7 +119,12 @@ public class HomeSceneController extends AbstractWindowController {
     @FXML
     public void handleShowStatisticsButton(ActionEvent actionEvent) {
         System.out.println("Show return book");
-        GenerateStatisticsController generateStatisticsController = new GenerateStatisticsController();
         openNewWindow("/layouts/Statistics.fxml");
+    }
+
+    @FXML
+    public void handleEnterNotificationSettings(ActionEvent actionEvent) {
+        System.out.println("Show notification settings");
+        openNewWindow("/layouts/NotificationSettings.fxml");
     }
 }

@@ -40,7 +40,7 @@ public class EmailUtil {
 
         Session session = Session.getDefaultInstance(props, auth);
         System.out.println("Session created");
-        EmailUtil.sendEmail(session, toEmail,"You have pending reservations:", mailBody(sessionConstants, reader));
+        EmailUtil.sendEmail(session, toEmail,"Your reservations", mailBody(sessionConstants, reader));
 
     }
 
@@ -83,8 +83,7 @@ public class EmailUtil {
 
     private static String mailBody(SessionConstants sessionConstants, Reader reader) {
         List<Reservation> reservations = sessionConstants.getReservationRepository().findByReader(reader);
-        String contentText = Notification.formNotification(reservations);
-        return contentText;
+        return Notification.formNotification(reservations);
     }
 
 }
