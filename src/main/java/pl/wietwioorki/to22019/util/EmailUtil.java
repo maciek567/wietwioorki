@@ -2,6 +2,7 @@ package pl.wietwioorki.to22019.util;
 
 import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
+import pl.wietwioorki.to22019.model.User;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -13,11 +14,13 @@ import java.util.Properties;
 public class EmailUtil {
 
 
-    public static void handleEmail(/*SessionConstants sessionConstants, Reader reader*/) {
+    public static void handleEmail(SessionConstants sessionConstants, Reader reader) {
+
+        User loggedInUser = sessionConstants.getCurrentUser();
 
         final String fromEmail = "wietwioorki@gmail.com"; //requires valid gmail id
         final String password = "743BLK%^&"; // correct password for gmail id
-        final String toEmail = "wietwioorki@gmail.com"; // can be any email id
+        final String toEmail = loggedInUser.getEmail(); // can be any email id
 
         System.out.println("SSLEmail Start");
         Properties props = new Properties();
@@ -37,7 +40,7 @@ public class EmailUtil {
 
         Session session = Session.getDefaultInstance(props, auth);
         System.out.println("Session created");
-        EmailUtil.sendEmail(session, toEmail,"SSLEmail Testing Subject", "SSLEmail Testing Body");
+        EmailUtil.sendEmail(session, toEmail,"You have pending reservations:", mailBody(sessionConstants, reader));
 
     }
 
@@ -80,15 +83,8 @@ public class EmailUtil {
 
     private static String mailBody(SessionConstants sessionConstants, Reader reader) {
         List<Reservation> reservations = sessionConstants.getReservationRepository().findByReader(reader);
-        StringBuilder contentText = null;
-        if (reservations.size() > 0) {
-            contentText = new StringBuilder();
-            for (Reservation reservation : reservations) {
-                contentText.append(reservation.getBooksTitleProperty());
-                contentText.append("\n");
-            }
-        }
-        return String.valueOf(contentText);
+        String contentText = Notification.formNotification(reservations);
+        return contentText;
     }
 
 }

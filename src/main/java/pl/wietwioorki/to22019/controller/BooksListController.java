@@ -13,6 +13,7 @@ import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
 import pl.wietwioorki.to22019.util.AlertFactory;
+import pl.wietwioorki.to22019.util.EmailUtil;
 
 import java.util.Date;
 import java.util.List;
@@ -96,6 +97,8 @@ public class BooksListController extends AbstractWindowController { //todo
 
         Reservation reservation = new Reservation(reader, book, null /*todo: today? */, null, reservationStatus);
         sessionConstants.getReservationRepository().save(reservation);
+
+        EmailUtil.handleEmail(sessionConstants, reader);
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyCreatedContent);
     }
