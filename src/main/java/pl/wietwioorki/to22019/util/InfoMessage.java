@@ -4,6 +4,7 @@ public class InfoMessage {
     public static String successHeader = "Success";
 
     public static String pendingReservationsInfoHeader = "You have pending reservations";
+    public static String receiveFineInfoHeader = "You receive fine";
 
     public static String shouldNewAuthorBeCreatedHeader = "Author is unknown";
     public static String shouldNewAuthorBeCreatedContent = "Create new author?";
@@ -20,4 +21,7 @@ public class InfoMessage {
     public static String reservationSuccessfullyDeletedContent = "Successfully deleted reservation";
 
     public static String successfulLogout = "Successful logout";
+
+    public static String loggedAsGuestHeader = "Logged as guest";
+    public static String loggedAsGuestContent = "You need to log in to continue";
 }

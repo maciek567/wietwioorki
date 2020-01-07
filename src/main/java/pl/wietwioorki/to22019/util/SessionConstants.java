@@ -56,6 +56,9 @@ public class SessionConstants {
     GenreRepository genreRepository;
 
     @Autowired
+    FineRepository fineRepository;
+
+    @Autowired
     ReaderRepository readerRepository;
 
     @Autowired
@@ -71,7 +74,9 @@ public class SessionConstants {
         currentUser = user;
     }
 
-    public void logoutUser() { currentUser = null; }
+    public void logoutUser() {
+        currentUser = null;
+    }
 
     public String getUserLogin() {
         String name = null;

@@ -151,7 +151,11 @@ public class ReservationListController extends AbstractWindowController {
         }
         reservation.setReservationStatus(ReservationStatus.RETURNED);
 
-        reservation.returnBook();
+        Fine fine = reservation.returnBook();
+        if(fine != null){
+            sessionConstants.getFineRepository().save(fine);
+            AlertFactory.showAlert(Alert.AlertType.INFORMATION, receiveFineInfoHeader, fine.getDescription() + "\nValue: " + fine.getValue());
+        }
         sessionConstants.getReservationRepository().save(reservation);
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyReturnedContent);
 

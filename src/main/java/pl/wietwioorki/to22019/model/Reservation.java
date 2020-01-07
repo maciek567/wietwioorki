@@ -25,13 +25,13 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "pesel",
-    referencedColumnName = "pesel")
+            referencedColumnName = "pesel")
     private Reader reader;
 
     @ManyToOne
     @JoinColumn(name = "book_id",
-    referencedColumnName = "book_id")
-    private Book book; // todo: only one book in each reservation?
+            referencedColumnName = "book_id")
+    private Book book; // todo: only one book in each reservation? //SW Dont change this, what if many readers want get the same book
 
     @Column(name = "start_date")
     private Date reservationStartDate;
@@ -52,40 +52,63 @@ public class Reservation {
         this.reservationStatus = reservationStatus;
     }
 
-    public ObjectProperty<Long> getReservationIdProperty(){
+    public ObjectProperty<Long> getReservationIdProperty() {
         return new SimpleObjectProperty<>(reservationId);
     }
-    public ObjectProperty<Long> getReaderPeselProperty(){
-        if(reader == null) {
+
+    public ObjectProperty<Long> getReaderPeselProperty() {
+        if (reader == null) {
             System.out.println("Zaloguj się na swoje konto, aby wypożyczyć książkę!");
         }
         return new SimpleObjectProperty<>(reader == null ? -1L : reader.getPesel());
     }
-    public StringProperty getReaderNameProperty(){
-        if(reader == null) {
+
+    public StringProperty getReaderNameProperty() {
+        if (reader == null) {
             System.out.println("Zaloguj się na swoje konto, aby wypożyczyć książkę!");
         }
-        return new SimpleStringProperty(reader == null ? "": reader.getFullName());
+        return new SimpleStringProperty(reader == null ? "" : reader.getFullName());
     }
-    public StringProperty getBooksTitleProperty(){
+
+    public StringProperty getBooksTitleProperty() {
         return new SimpleStringProperty(book.getTitle());
     }
-    public  ObjectProperty<ReservationStatus> getReservationStatusProperty() {return new SimpleObjectProperty<>(reservationStatus); }
-    public ObjectProperty<Date> getBorrowingDateProperty(){ return new SimpleObjectProperty<>(reservationStartDate); }
-    public ObjectProperty<Date> getReturnDateProperty(){ return new SimpleObjectProperty<>(reservationEndDate); }
 
-    public void borrowBook(){
+    public ObjectProperty<ReservationStatus> getReservationStatusProperty() {
+        return new SimpleObjectProperty<>(reservationStatus);
+    }
+
+    public ObjectProperty<Date> getBorrowingDateProperty() {
+        return new SimpleObjectProperty<>(reservationStartDate);
+    }
+
+    public ObjectProperty<Date> getReturnDateProperty() {
+        return new SimpleObjectProperty<>(reservationEndDate);
+    }
+
+    public void borrowBook() {
         book.popReaderFromQueue();
         setReservationStartDate(new Date(System.currentTimeMillis()));
         setReservationStatus(ReservationStatus.ACTIVE);
     }
 
-    public void returnBook(){
-        reservationEndDate = new Date(System.currentTimeMillis());
+    public Fine returnBook() {
+        Date returnDate = new Date(System.currentTimeMillis());
+        Fine fine = null;
+        int late = returnDate.compareTo(reservationEndDate);
+        if (late > 0) {
+            float amount = late * 1; //todo: add price to book
+            String description = late + " days to late return book: " + book.getTitle() + ". Return date: " + returnDate;
+            fine = new Fine(amount, description, reader);
+        }
+        reservationEndDate = returnDate;
+        return fine;
     }
 
     // fixme - to discuss - how long should be borrowing time?
-    public static int getBorrowingTimeInDays(){ return 14; }
+    public static int getBorrowingTimeInDays() {
+        return 14;
+    }
 
     public void setReservationStartDate(Date reservationStartDate) {
         this.reservationStartDate = reservationStartDate;

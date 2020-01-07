@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
+import pl.wietwioorki.to22019.model.Role;
 import pl.wietwioorki.to22019.util.SessionConstants;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public abstract class AbstractWindowController {
     @Autowired
     private ConfigurableApplicationContext springContext;
 
-    public void openNewWindow(String layoutPath){
+    public void openNewWindow(String layoutPath) {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(springContext::getBean);
 
@@ -54,8 +55,22 @@ public abstract class AbstractWindowController {
         primaryStage.showAndWait();
     }
 
-    public void closeWindowAfterSuccessfulAction(ActionEvent actionEvent){
+    public void closeWindowAfterSuccessfulAction(ActionEvent actionEvent) {
         final Stage stage = (Stage) (((Node) (actionEvent.getSource())).getScene().getWindow());
         stage.close();
+    }
+
+    public boolean isCurrentUserAdmin() {
+        if (sessionConstants.getCurrentUser() != null) {
+            return sessionConstants.getCurrentUser().getRole().equals(Role.L);
+        }
+        return false;
+    }
+
+    public boolean isCurrentUserGuest() {
+        if (sessionConstants.getCurrentUser() != null) {
+            return sessionConstants.getCurrentUser().getRole().equals(Role.G);
+        }
+        return true;
     }
 }
