@@ -9,7 +9,7 @@
     <top>
         <HBox alignment="TOP_LEFT" prefHeight="30" prefWidth="500" BorderPane.alignment="CENTER">
             <Text text="Pesel: " fx:id="peselText"/>
-            <TextField promptText="Write searching pesel" fx:id="filterField" prefHeight="30" prefWidth="300"/>
+            <TextField promptText="Write searching pesel" fx:id="peselField" prefHeight="30" prefWidth="300"/>
             <Text text="Status: "/>
             <ComboBox fx:id="selectedStatus"/>
         </HBox>

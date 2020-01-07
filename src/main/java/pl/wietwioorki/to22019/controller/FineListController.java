@@ -1,5 +1,6 @@
 package pl.wietwioorki.to22019.controller;
 
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableListBase;
@@ -50,7 +51,7 @@ public class FineListController extends AbstractWindowController {
     private Text peselText;
 
     @FXML
-    private TextField filterField;
+    private TextField peselField;
 
     @FXML
     private ComboBox selectedStatus;
@@ -63,8 +64,11 @@ public class FineListController extends AbstractWindowController {
         amount.setCellValueFactory(dataValue -> dataValue.getValue().getAmountProperty());
         payed.setCellValueFactory(dataValue -> dataValue.getValue().getIsPayedProperty());
 
+        cancelFine.disableProperty().bind(Bindings.isEmpty(fineTable.getSelectionModel().getSelectedItems()));
+        payFine.disableProperty().bind(Bindings.isEmpty(fineTable.getSelectionModel().getSelectedItems()));
+
         if (!isCurrentUserAdmin()) {
-            filterField.setVisible(false);
+            peselField.setVisible(false);
             peselText.setVisible(false);
             cancelFine.setVisible(false);
             payFine.setVisible(false);
@@ -84,7 +88,7 @@ public class FineListController extends AbstractWindowController {
 
     private FilteredList<Fine> InitializeFilters() {
         FilteredList<Fine> filteredData = new FilteredList<>(getFineObservable(), p -> true);
-        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+        peselField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(fine -> {
                 if (isCurrentUserAdmin()) {
                     if (!(newValue == null || newValue.isEmpty() || fine.getReaderPeselProperty().getValue().toString().startsWith(newValue))) {
@@ -120,9 +124,9 @@ public class FineListController extends AbstractWindowController {
         selectedStatus.getSelectionModel().selectNext();
         selectedStatus.getSelectionModel().select(selectedIndex);
 
-        String text = filterField.getText();
-        filterField.setText(text + " ");
-        filterField.setText(text);
+        String text = peselField.getText();
+        peselField.setText(text + " ");
+        peselField.setText(text);
     }
 
     private void refreshDataInTable() {

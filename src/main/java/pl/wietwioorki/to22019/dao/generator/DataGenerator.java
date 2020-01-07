@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class DataGenerator {
+public class DataGenerator {//todo: Do we really need this class?
     static Long lastID = 0L;
+
     public static Long generateId() {
         return ++lastID;
     }
