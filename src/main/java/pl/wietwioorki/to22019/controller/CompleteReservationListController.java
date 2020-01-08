@@ -22,7 +22,6 @@ import java.util.List;
 
 @Controller
 public class CompleteReservationListController extends AbstractWindowController {
-
     enum FilterValue {
         BookTitle, BorrowDate, ReservationID, WasOverdue
     }

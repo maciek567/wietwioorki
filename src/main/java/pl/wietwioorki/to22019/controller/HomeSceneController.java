@@ -122,10 +122,10 @@ public class HomeSceneController extends AbstractWindowController {
         openNewWindow("/layouts/Statistics.fxml");
     }
 
-    private void refreshButtons() {/*
+    private void refreshButtons() {
         addBookButton.setVisible(isCurrentUserAdmin());
         showFinesButton.setVisible(!isCurrentUserGuest());
         showReservationListButton.setVisible(!isCurrentUserGuest());
-        showCompleteReservationListButton.setVisible(!isCurrentUserGuest());*/
+        showCompleteReservationListButton.setVisible(!isCurrentUserGuest());
     }
 }

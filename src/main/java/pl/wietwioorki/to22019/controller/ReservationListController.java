@@ -81,7 +81,6 @@ public class ReservationListController extends AbstractWindowController {
     @FXML
     private DatePicker dateTo;
 
-
     @FXML
     private void initialize() {
         reservationId.setCellValueFactory(dataValue -> dataValue.getValue().getReservationIdProperty());
@@ -191,10 +190,13 @@ public class ReservationListController extends AbstractWindowController {
             sessionConstants.getFineRepository().save(fine);
             AlertFactory.showAlert(Alert.AlertType.INFORMATION, receiveFineInfoHeader, fine.getDescription() + "\nValue: " + fine.getValue());
         }
-        sessionConstants.getReservationRepository().save(reservation);
-        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyReturnedContent);
+        sessionConstants.getReservationRepository().delete(reservation);
 
-        reservationTable.refresh();
+        CompleteReservation completeReservation = new CompleteReservation(reservation, fine != null);
+        sessionConstants.getCompleteReservationRepository().save(completeReservation);
+        refreshData();
+        refreshFilters();
+        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyReturnedContent);
     }
 
     @FXML
