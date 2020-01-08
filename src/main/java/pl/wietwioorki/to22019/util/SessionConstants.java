@@ -67,7 +67,6 @@ public class SessionConstants {
     @Autowired
     UserRepository userRepository;
 
-
     User currentUser = null;
 
     public void logUser(User user) {

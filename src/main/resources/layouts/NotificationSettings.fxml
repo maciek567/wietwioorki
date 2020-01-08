@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.wietwioorki.to22019.controller.NotificationSettingsController">
+    <center>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <Text text="Set your e-mail notifications options:">
+            <VBox.margin>
+               <Insets bottom="15.0" />
+            </VBox.margin></Text>
+            <CheckBox fx:id="readyBook" text="book ready to borrow" onAction="#handleReadyBook">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin></CheckBox>
+            <CheckBox fx:id="overdueBook" text="overdue book" onAction="#handleOverdueBook">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin></CheckBox>
+            <CheckBox fx:id="newReservation" text="new reservation" onAction="#handleNewReservation">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin></CheckBox>
+            <CheckBox fx:id="borrowedBook" text="borrowed book" onAction="#handleBorrowedBook">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin></CheckBox>
+            <CheckBox fx:id="returnedBook" text="returned book" onAction="#handleReturnedBook">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin></CheckBox>
+        </VBox>
+
+    </center>
+</BorderPane>

@@ -1,8 +1,12 @@
 package pl.wietwioorki.to22019.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashMap;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,15 +34,34 @@ public class User {
 
     private int noBorrowings;
 
-    public void incrementNoLogins() { this.noLogins++; }
+    // notifications settings
+    HashMap<ReservationStatus, Boolean> notificationSettings;
 
-    public int getNoLogins() { return noLogins; }
+    public void incrementNoLogins() { this.noLogins++; }
 
     public void incrementNoBorrowings() { this.noBorrowings++; }
 
-    public int getNoBorrowings() { return noBorrowings; }
-
     public boolean checkPassword(String password) {
         return this.password.equals(password);
+    }
+
+    public void changeReadyBook() {
+        notificationSettings.replace(ReservationStatus.READY, !notificationSettings.get(ReservationStatus.READY));
+    }
+
+    public void changeOverdueBook() {
+        notificationSettings.replace(ReservationStatus.OVERDUE, !notificationSettings.get(ReservationStatus.OVERDUE));
+    }
+
+    public void changeNewReservation() {
+        notificationSettings.replace(ReservationStatus.PENDING, !notificationSettings.get(ReservationStatus.PENDING));
+    }
+
+    public void changeBorrowedBook() {
+        notificationSettings.replace(ReservationStatus.ACTIVE, !notificationSettings.get(ReservationStatus.ACTIVE));
+    }
+
+    public void changeReturnedBook() {
+        notificationSettings.replace(ReservationStatus.RETURNED, !notificationSettings.get(ReservationStatus.RETURNED));
     }
 }

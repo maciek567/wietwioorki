@@ -12,6 +12,7 @@ import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.*;
 import pl.wietwioorki.to22019.util.AlertFactory;
+import pl.wietwioorki.to22019.util.EmailUtil;
 
 import java.text.ParseException;
 import java.time.DateTimeException;
@@ -167,6 +168,10 @@ public class ReservationListController extends AbstractWindowController {
         loggedInUser.incrementNoBorrowings();
         sessionConstants.getUserRepository().save(loggedInUser);
 
+        if(loggedInUser.getNotificationSettings().get(ReservationStatus.ACTIVE)) {
+            EmailUtil.handleEmail(sessionConstants, reservation.getReader());
+        }
+
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyBorrowedContent);
         reservationTable.refresh();
     }
@@ -196,6 +201,13 @@ public class ReservationListController extends AbstractWindowController {
         sessionConstants.getCompleteReservationRepository().save(completeReservation);
         refreshData();
         refreshFilters();
+        reservation.returnBook();
+        sessionConstants.getReservationRepository().save(reservation);
+
+        if(sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.RETURNED)) {
+            EmailUtil.handleEmail(sessionConstants, reservation.getReader());
+        }
+
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyReturnedContent);
     }
 

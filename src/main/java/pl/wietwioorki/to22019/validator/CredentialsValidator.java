@@ -6,6 +6,7 @@ import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.util.AlertFactory;
+import pl.wietwioorki.to22019.util.Notification;
 import pl.wietwioorki.to22019.util.SessionConstants;
 
 import java.util.List;
@@ -32,12 +33,8 @@ public class CredentialsValidator extends MyValidator {
 
         List<Reservation> reservations = sessionConstants.getReservationRepository().findByReader(reader.get());
         if (reservations.size() > 0) {
-            StringBuilder contentText = new StringBuilder();
-            for (Reservation reservation : reservations) {
-                contentText.append(reservation.getBooksTitleProperty());
-                contentText.append("\n");
-            }
-            AlertFactory.showAlert(Alert.AlertType.INFORMATION, pendingReservationsInfoHeader, contentText.toString());
+            String contentText = Notification.formNotification(reservations);
+            AlertFactory.showAlert(Alert.AlertType.INFORMATION, pendingReservationsInfoHeader, contentText);
         }
         return true;
     }

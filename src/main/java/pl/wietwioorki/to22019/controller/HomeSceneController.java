@@ -23,6 +23,9 @@ public class HomeSceneController extends AbstractWindowController {
     public Text loggedInUser;
 
     @FXML
+    public Button enterNotificationSettings;
+
+    @FXML
     private Button addBookButton;
 
     @FXML
@@ -53,11 +56,13 @@ public class HomeSceneController extends AbstractWindowController {
             if (sessionConstants.getUserLogin() != null) {
                 loggedInUser.setText(sessionConstants.getUserLogin());
                 enterLogin.setText("Logout");
+                enableSettingsButton();
             }
         } else {
             sessionConstants.logoutUser();
             loggedInUser.setText("guest");
             enterLogin.setText("Login");
+            disableSettingsButton();
             AlertFactory.showAlert(Alert.AlertType.INFORMATION, successfulLogout,
                     "You have successfully logout");
         }
@@ -120,6 +125,20 @@ public class HomeSceneController extends AbstractWindowController {
     public void handleShowStatisticsButton(ActionEvent actionEvent) {
         System.out.println("Show return book");
         openNewWindow("/layouts/Statistics.fxml");
+    }
+
+    @FXML
+    public void handleEnterNotificationSettings(ActionEvent actionEvent) {
+        System.out.println("Show notification settings");
+        openNewWindow("/layouts/NotificationSettings.fxml");
+    }
+
+    public void enableSettingsButton() {
+        enterNotificationSettings.setDisable(false);
+    }
+
+    public void disableSettingsButton() {
+        enterNotificationSettings.setDisable(true);
     }
 
     private void refreshButtons() {

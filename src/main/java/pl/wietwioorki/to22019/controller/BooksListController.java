@@ -14,6 +14,7 @@ import pl.wietwioorki.to22019.model.Reader;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.model.ReservationStatus;
 import pl.wietwioorki.to22019.util.AlertFactory;
+import pl.wietwioorki.to22019.util.EmailUtil;
 
 import java.text.ParseException;
 import java.time.DateTimeException;
@@ -110,6 +111,13 @@ public class BooksListController extends AbstractWindowController { //todo
 
         Reservation reservation = new Reservation(reader, book, null /*todo: today? */, null, reservationStatus);
         sessionConstants.getReservationRepository().save(reservation);
+
+        if(reservationStatus.equals(ReservationStatus.READY) &&
+                sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.READY)) {
+            EmailUtil.handleEmail(sessionConstants, reader);
+        } else if(reservationStatus.equals(ReservationStatus.PENDING) &&
+                sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.PENDING))
+            EmailUtil.handleEmail(sessionConstants, reader);
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyCreatedContent);
     }
