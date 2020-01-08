@@ -8,6 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.Reader;
+import pl.wietwioorki.to22019.model.ReservationStatus;
 import pl.wietwioorki.to22019.model.Role;
 import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.util.AlertFactory;
@@ -56,12 +57,12 @@ public class RegistrationController extends AbstractWindowController {
         Long peselNumber = Long.parseLong(pesel.getText());
 
         Reader reader = new Reader(peselNumber, name.getText());
-        HashMap<String, Boolean> notificationSettings = new HashMap<>();
-        notificationSettings.put("readyBookNotification", true);
-        notificationSettings.put("overdueBookNotification", true);
-        notificationSettings.put("newReservationNotification", false);
-        notificationSettings.put("borrowedBookNotification", false);
-        notificationSettings.put("returnedBookNotification", false);
+        HashMap<ReservationStatus, Boolean> notificationSettings = new HashMap<>();
+        notificationSettings.put(ReservationStatus.READY, true);
+        notificationSettings.put(ReservationStatus.OVERDUE, true);
+        notificationSettings.put(ReservationStatus.PENDING, false);
+        notificationSettings.put(ReservationStatus.ACTIVE, false);
+        notificationSettings.put(ReservationStatus.RETURNED, false);
         User user = new User(login.getText(), registrationPassword.getText(), Role.U, email.getText(), reader,
                 0, 0, notificationSettings);
         reader.setUser(user);

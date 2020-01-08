@@ -8,6 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.Reservation;
+import pl.wietwioorki.to22019.model.ReservationStatus;
 import pl.wietwioorki.to22019.model.User;
 import pl.wietwioorki.to22019.util.AlertFactory;
 import pl.wietwioorki.to22019.util.EmailUtil;
@@ -39,7 +40,7 @@ public class LoginController extends AbstractWindowController {
         }
         else {
             if(checkIfAnyBookIsOverdue() &&
-                    sessionConstants.getCurrentUser().getNotificationSettings().get("overdueBookNotification")) {
+                    sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.OVERDUE)) {
                 EmailUtil.handleEmail(sessionConstants, sessionConstants.getCurrentReader());
             }
 

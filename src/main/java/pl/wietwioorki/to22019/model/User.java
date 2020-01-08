@@ -35,7 +35,7 @@ public class User {
     private int noBorrowings;
 
     // notifications settings
-    HashMap<String, Boolean> notificationSettings;
+    HashMap<ReservationStatus, Boolean> notificationSettings;
 
     public void incrementNoLogins() { this.noLogins++; }
 
@@ -46,22 +46,22 @@ public class User {
     }
 
     public void changeReadyBook() {
-        notificationSettings.replace("readyBookNotification", !notificationSettings.get("readyBookNotification"));
+        notificationSettings.replace(ReservationStatus.READY, !notificationSettings.get(ReservationStatus.READY));
     }
 
     public void changeOverdueBook() {
-        notificationSettings.replace("overdueBookNotification", !notificationSettings.get("overdueBookNotification"));
+        notificationSettings.replace(ReservationStatus.OVERDUE, !notificationSettings.get(ReservationStatus.OVERDUE));
     }
 
     public void changeNewReservation() {
-        notificationSettings.replace("newReservationNotification", !notificationSettings.get("newReservationNotification"));
+        notificationSettings.replace(ReservationStatus.PENDING, !notificationSettings.get(ReservationStatus.PENDING));
     }
 
     public void changeBorrowedBook() {
-        notificationSettings.replace("borrowedBookNotification", !notificationSettings.get("borrowedBookNotification"));
+        notificationSettings.replace(ReservationStatus.ACTIVE, !notificationSettings.get(ReservationStatus.ACTIVE));
     }
 
     public void changeReturnedBook() {
-        notificationSettings.replace("returnedBookNotification", !notificationSettings.get("returnedBookNotification"));
+        notificationSettings.replace(ReservationStatus.RETURNED, !notificationSettings.get(ReservationStatus.RETURNED));
     }
 }

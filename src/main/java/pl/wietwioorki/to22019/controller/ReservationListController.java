@@ -134,7 +134,7 @@ public class ReservationListController extends AbstractWindowController {
         loggedInUser.incrementNoBorrowings();
         sessionConstants.getUserRepository().save(loggedInUser);
 
-        if(loggedInUser.getNotificationSettings().get("borrowedBookNotification")) {
+        if(loggedInUser.getNotificationSettings().get(ReservationStatus.ACTIVE)) {
             EmailUtil.handleEmail(sessionConstants, reservation.getReader());
         }
 
@@ -159,7 +159,7 @@ public class ReservationListController extends AbstractWindowController {
         reservation.returnBook();
         sessionConstants.getReservationRepository().save(reservation);
 
-        if(sessionConstants.getCurrentUser().getNotificationSettings().get("returnedBookNotification")) {
+        if(sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.RETURNED)) {
             EmailUtil.handleEmail(sessionConstants, reservation.getReader());
         }
 
