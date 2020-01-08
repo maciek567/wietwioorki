@@ -24,7 +24,7 @@ import java.util.List;
 public class CompleteReservationListController extends AbstractWindowController {
 
     enum FilterValue {
-        BookTitle, BorrowDate, /*ReturnDate,*/ ReservationID, WasOverdue
+        BookTitle, BorrowDate, ReservationID, WasOverdue
     }
 
     @FXML
@@ -136,9 +136,9 @@ public class CompleteReservationListController extends AbstractWindowController 
     private FilteredList<CompleteReservation> InitializeFilters() {
         FilteredList<CompleteReservation> filteredDataByPesel = new FilteredList<>(getReservationsObservable(), p -> true);
         peselField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredDataByPesel.setPredicate(fine -> {
+            filteredDataByPesel.setPredicate(reservation -> {
                 if (isCurrentUserAdmin()) {
-                    if (!(newValue == null || newValue.isEmpty() || fine.getReaderPeselProperty().getValue().toString().startsWith(newValue))) {
+                    if (!(newValue == null || newValue.isEmpty() || reservation.getReaderPeselProperty().getValue().toString().startsWith(newValue))) {
                         return false;
                     }
                 }
@@ -159,8 +159,6 @@ public class CompleteReservationListController extends AbstractWindowController 
                     return true;
                 } else if (compareSelectedFilter(FilterValue.BorrowDate)) {
                     return checkDatesBetweenDatepickers(reservation.getReservationStartDate());
-                /*} else if (compareSelectedFilter(FilterValue.ReturnDate)) {
-                    return checkDatesBetweenDatepickers(reservation.getReservationEndDate());*/
                 } else if (newValue.isEmpty()) {
                     return true;
                 } else {

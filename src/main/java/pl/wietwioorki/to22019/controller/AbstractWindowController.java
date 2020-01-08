@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
@@ -13,9 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.Role;
+import pl.wietwioorki.to22019.util.AlertFactory;
 import pl.wietwioorki.to22019.util.SessionConstants;
 
 import java.io.IOException;
+
+import static pl.wietwioorki.to22019.util.InfoMessage.*;
 
 @Controller
 public abstract class AbstractWindowController {
@@ -72,5 +76,13 @@ public abstract class AbstractWindowController {
             return sessionConstants.getCurrentUser().getRole().equals(Role.G);
         }
         return true;
+    }
+
+    public void showLogInNeededAlert() {
+        AlertFactory.showAlert(Alert.AlertType.WARNING, loggedAsGuestHeader, loggedAsGuestContent);
+    }
+
+    public void showAdministratorNeededAlert() {
+        AlertFactory.showAlert(Alert.AlertType.WARNING, adminNeededHeader, adminNeededContent);
     }
 }

@@ -23,5 +23,8 @@ public class InfoMessage {
     public static String successfulLogout = "Successful logout";
 
     public static String loggedAsGuestHeader = "Logged as guest";
-    public static String loggedAsGuestContent = "You need to log in to continue";
+    public static String loggedAsGuestContent = "You need to log in at your account to unlock full functionality";
+
+    public static String adminNeededHeader = "Administrator rights needed";
+    public static String adminNeededContent = "Only administrator can perform this action";
 }

@@ -57,16 +57,10 @@ public class Reservation {
     }
 
     public ObjectProperty<Long> getReaderPeselProperty() {
-        if (reader == null) {
-            System.out.println("Zaloguj się na swoje konto, aby wypożyczyć książkę!");
-        }
         return new SimpleObjectProperty<>(reader == null ? -1L : reader.getPesel());
     }
 
     public StringProperty getReaderNameProperty() {
-        if (reader == null) {
-            System.out.println("Zaloguj się na swoje konto, aby wypożyczyć książkę!");
-        }
         return new SimpleStringProperty(reader == null ? "" : reader.getFullName());
     }
 

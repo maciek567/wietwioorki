@@ -8,7 +8,7 @@ import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.util.AlertFactory;
 
-import static pl.wietwioorki.to22019.util.InfoMessage.*;
+import static pl.wietwioorki.to22019.util.InfoMessage.successfulLogout;
 
 @Controller
 public class HomeSceneController extends AbstractWindowController {
@@ -20,22 +20,7 @@ public class HomeSceneController extends AbstractWindowController {
     public Button enterRegistration;
 
     @FXML
-    public Button addReservationButton;
-
-    @FXML
-    public Button showReservationListButton;
-
-    @FXML
-    public Button showCompleteReservationListButton;
-
-    @FXML
-    public Button borrowBookButton;
-
-    @FXML
-    public Button returnBookButton;
-
-    @FXML
-    public Button showStatisticsButton;
+    public Text loggedInUser;
 
     @FXML
     private Button addBookButton;
@@ -47,18 +32,17 @@ public class HomeSceneController extends AbstractWindowController {
     private Button showFinesButton;
 
     @FXML
-    public Text loggedInUser;
+    public Button showReservationListButton;
 
     @FXML
-    public void handleNewBook(ActionEvent actionEvent) {
-        System.out.println("New book view");
-        openNewWindow("/layouts/AddBook.fxml");
-    }
+    public Button showCompleteReservationListButton;
 
     @FXML
-    public void handleShowBookList(ActionEvent actionEvent) {
-        System.out.println("Show book list");
-        openNewWindow("/layouts/BooksList.fxml");
+    public Button showStatisticsButton;
+
+    @FXML
+    private void initialize() {
+        refreshButtons();
     }
 
     @FXML
@@ -77,6 +61,7 @@ public class HomeSceneController extends AbstractWindowController {
             AlertFactory.showAlert(Alert.AlertType.INFORMATION, successfulLogout,
                     "You have successfully logout");
         }
+        refreshButtons();
     }
 
     @FXML
@@ -86,40 +71,19 @@ public class HomeSceneController extends AbstractWindowController {
     }
 
     @FXML
-    public void handleNewReservation(ActionEvent actionEvent) {
-        System.out.println("New reservation view");
-        openNewWindow("/layouts/AddReservation.fxml");
+    public void handleNewBook(ActionEvent actionEvent) {
+        if (isCurrentUserAdmin()) {
+            System.out.println("New book view");
+            openNewWindow("/layouts/AddBook.fxml");
+        } else {
+            showAdministratorNeededAlert();
+        }
     }
 
     @FXML
-    public void handleShowReservationList(ActionEvent actionEvent) {
-        System.out.println("Show reservation list");
-        openNewWindow("/layouts/ReservationList.fxml");
-    }
-
-    @FXML
-    public void handleShowCompleteReservationList(ActionEvent actionEvent) {
-        System.out.println("Show complete reservation list");
-        openNewWindow("/layouts/CompleteReservationList.fxml");
-    }
-
-    @FXML
-    public void handleBorrowBook(ActionEvent actionEvent) {
-        System.out.println("Show borrow book");
-        openNewWindow("/layouts/BookBorrow.fxml");
-    }
-
-    @FXML
-    public void handleReturnBook(ActionEvent actionEvent) {
-        System.out.println("Show return book");
-        openNewWindow("/layouts/BookReturn.fxml");
-    }
-
-    @FXML
-    public void handleShowStatisticsButton(ActionEvent actionEvent) {
-        System.out.println("Show return book");
-        GenerateStatisticsController generateStatisticsController = new GenerateStatisticsController();
-        openNewWindow("/layouts/Statistics.fxml");
+    public void handleShowBookList(ActionEvent actionEvent) {
+        System.out.println("Show book list");
+        openNewWindow("/layouts/BooksList.fxml");
     }
 
     @FXML
@@ -128,7 +92,40 @@ public class HomeSceneController extends AbstractWindowController {
             System.out.println("Show fines");
             openNewWindow("/layouts/FineList.fxml");
         } else {
-            AlertFactory.showAlert(Alert.AlertType.WARNING, loggedAsGuestHeader, loggedAsGuestContent);
+            showLogInNeededAlert();
         }
+    }
+
+    @FXML
+    public void handleShowReservationList(ActionEvent actionEvent) {
+        if (!isCurrentUserGuest()) {
+            System.out.println("Show reservation list");
+            openNewWindow("/layouts/ReservationList.fxml");
+        } else {
+            showLogInNeededAlert();
+        }
+    }
+
+    @FXML
+    public void handleShowCompleteReservationList(ActionEvent actionEvent) {
+        if (!isCurrentUserGuest()) {
+            System.out.println("Show complete reservation list");
+            openNewWindow("/layouts/CompleteReservationList.fxml");
+        } else {
+            showLogInNeededAlert();
+        }
+    }
+
+    @FXML
+    public void handleShowStatisticsButton(ActionEvent actionEvent) {
+        System.out.println("Show return book");
+        openNewWindow("/layouts/Statistics.fxml");
+    }
+
+    private void refreshButtons() {/*
+        addBookButton.setVisible(isCurrentUserAdmin());
+        showFinesButton.setVisible(!isCurrentUserGuest());
+        showReservationListButton.setVisible(!isCurrentUserGuest());
+        showCompleteReservationListButton.setVisible(!isCurrentUserGuest());*/
     }
 }
