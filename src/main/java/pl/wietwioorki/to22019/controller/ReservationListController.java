@@ -24,7 +24,7 @@ import static pl.wietwioorki.to22019.util.InfoMessage.*;
 @Controller
 public class ReservationListController extends AbstractWindowController {
     enum FilterValue {
-        BookTitle, BorrowDate, ReturnDate, Expiration, ReservationID
+        BookTitle, BorrowDate, ReturnDate, Overdue, ReservationID
     }
 
     @FXML
@@ -118,7 +118,7 @@ public class ReservationListController extends AbstractWindowController {
         boolean filterFieldVisible = true;
         boolean dateFieldsVisible = false;
 
-        if (compareSelectedFilter(FilterValue.Expiration)) {
+        if (compareSelectedFilter(FilterValue.Overdue)) {
             filterFieldVisible = false;
         }
 
@@ -129,8 +129,7 @@ public class ReservationListController extends AbstractWindowController {
 
         filterField.setVisible(filterFieldVisible);
         dateFields.setVisible(dateFieldsVisible);
-        filterField.setText(".");
-        filterField.setText("");
+        refreshFilters();
         reservationTable.refresh();
     }
 
@@ -252,7 +251,7 @@ public class ReservationListController extends AbstractWindowController {
             filteredDataByFilter.setPredicate(reservation -> {
                 if (newValue == null || selectedFilter.getSelectionModel().getSelectedItem() == null) {
                     return true;
-                } else if (compareSelectedFilter(FilterValue.Expiration)) {
+                } else if (compareSelectedFilter(FilterValue.Overdue)) {
                     return reservation.getReservationStatus().equals(ReservationStatus.ACTIVE) && reservation.getBorrowingDateProperty().getValue().compareTo(new Date()) > 0;
                 } else if (compareSelectedFilter(FilterValue.ReservationID) && reservation.getReservationId().toString().startsWith(newValue)) {
                     return true;

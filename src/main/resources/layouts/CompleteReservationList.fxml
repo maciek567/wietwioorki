@@ -9,7 +9,17 @@
         <HBox prefHeight="30" prefWidth="500" BorderPane.alignment="CENTER">
             <Text text="Filter: "/>
             <ComboBox fx:id="selectedFilter" onAction="#handleChangeSelectedFilter"/>
-            <TextField promptText="Write searching value" fx:id="filterField" prefHeight="30" prefWidth="300"/>
+            <StackPane>
+                <TextField promptText="Write searching value" fx:id="filterField" prefHeight="30" prefWidth="300"/>
+                <HBox fx:id="dateFields">
+                    <Text text="From: "/>
+                    <DatePicker fx:id="dateFrom" maxWidth="100" onAction="#handleChangeDate"/>
+                    <Text text="To: "/>
+                    <DatePicker fx:id="dateTo" maxWidth="100" onAction="#handleChangeDate"/>
+                </HBox>
+            </StackPane>
+            <Text text="Pesel: " fx:id="peselText"/>
+            <TextField promptText="Write searching pesel" fx:id="peselField" prefHeight="30" prefWidth="300"/>
         </HBox>
     </top>
     <center>
@@ -29,27 +39,27 @@
     </center>
     <right>
         <VBox>
-<!--            <Button id="cancelReservationFromReservationList" fx:id="cancelReservationFromReservationList"-->
-<!--                    onAction="#handleCancelReservationFromReservationList"-->
-<!--                    prefHeight="30" prefWidth="130" text="Cancel reservation">-->
-<!--                <VBox.margin>-->
-<!--                    <Insets bottom="7" left="10" right="15" top="20"/>-->
-<!--                </VBox.margin>-->
-<!--            </Button>-->
-<!--            <Button id="borrowBookFromReservationList" fx:id="borrowBookFromReservationList"-->
-<!--                    onAction="#handleBorrowBookFromReservationList"-->
-<!--                    prefHeight="30" prefWidth="130" text="Borrow book">-->
-<!--                <VBox.margin>-->
-<!--                    <Insets bottom="7" left="10" right="15" top="20"/>-->
-<!--                </VBox.margin>-->
-<!--            </Button>-->
-<!--            <Button id="returnBookFromReservationList" fx:id="returnBookFromReservationList"-->
-<!--                    onAction="#handleReturnBookFromReservationList"-->
-<!--                    prefHeight="30" prefWidth="130" text="Return book">-->
-<!--                <VBox.margin>-->
-<!--                    <Insets bottom="7" left="10" right="15" top="20"/>-->
-<!--                </VBox.margin>-->
-<!--            </Button>-->
+            <!--            <Button id="cancelReservationFromReservationList" fx:id="cancelReservationFromReservationList"-->
+            <!--                    onAction="#handleCancelReservationFromReservationList"-->
+            <!--                    prefHeight="30" prefWidth="130" text="Cancel reservation">-->
+            <!--                <VBox.margin>-->
+            <!--                    <Insets bottom="7" left="10" right="15" top="20"/>-->
+            <!--                </VBox.margin>-->
+            <!--            </Button>-->
+            <!--            <Button id="borrowBookFromReservationList" fx:id="borrowBookFromReservationList"-->
+            <!--                    onAction="#handleBorrowBookFromReservationList"-->
+            <!--                    prefHeight="30" prefWidth="130" text="Borrow book">-->
+            <!--                <VBox.margin>-->
+            <!--                    <Insets bottom="7" left="10" right="15" top="20"/>-->
+            <!--                </VBox.margin>-->
+            <!--            </Button>-->
+            <!--            <Button id="returnBookFromReservationList" fx:id="returnBookFromReservationList"-->
+            <!--                    onAction="#handleReturnBookFromReservationList"-->
+            <!--                    prefHeight="30" prefWidth="130" text="Return book">-->
+            <!--                <VBox.margin>-->
+            <!--                    <Insets bottom="7" left="10" right="15" top="20"/>-->
+            <!--                </VBox.margin>-->
+            <!--            </Button>-->
         </VBox>
     </right>
 </BorderPane>
