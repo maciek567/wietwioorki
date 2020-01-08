@@ -1,7 +1,12 @@
 .gradle
-build
+gradle
 
+build
 /build/
+
+.idea
+
+lib
 
 #User-specific files
 workspace.xml

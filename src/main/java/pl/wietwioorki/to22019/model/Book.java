@@ -101,8 +101,5 @@ public class Book {
         this.noBorrows++;
     }
 
-    public int getNoBorrows() {
-        return noBorrows;
-    }
 
 }
