@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import org.springframework.stereotype.Controller;
+import pl.wietwioorki.to22019.model.ReservationStatus;
 
 @Controller
 public class NotificationSettingsController extends AbstractWindowController {
@@ -24,12 +25,12 @@ public class NotificationSettingsController extends AbstractWindowController {
     public CheckBox returnedBook;
 
     @FXML
-    private void initialize() {//todo SW: wywala null jak nie zakomentuję, skopałem mergowanie, czy może coś nie tak jest u mnie
-        readyBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("readyBookNotification"));
-        overdueBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("overdueBookNotification"));
-        newReservation.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("newReservationNotification"));
-        borrowedBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("borrowedBookNotification"));
-        returnedBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("returnedBookNotification"));
+    private void initialize() {
+        readyBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.READY));
+        overdueBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.OVERDUE));
+        newReservation.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.PENDING));
+        borrowedBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.ACTIVE));
+        returnedBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.RETURNED));
     }
 
     @FXML
