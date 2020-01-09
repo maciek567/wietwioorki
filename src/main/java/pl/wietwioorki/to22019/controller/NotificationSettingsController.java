@@ -24,7 +24,7 @@ public class NotificationSettingsController extends AbstractWindowController {
     public CheckBox returnedBook;
 
     @FXML
-    private void initialize() {
+    private void initialize() {//todo SW: wywala null jak nie zakomentuję, skopałem mergowanie, czy może coś nie tak jest u mnie
         readyBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("readyBookNotification"));
         overdueBook.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("overdueBookNotification"));
         newReservation.setSelected(sessionConstants.getCurrentUser().getNotificationSettings().get("newReservationNotification"));

@@ -6,14 +6,15 @@ import javafx.collections.ObservableListBase;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.CompleteReservation;
-import pl.wietwioorki.to22019.model.Role;
+import pl.wietwioorki.to22019.model.Reader;
 
+import java.text.ParseException;
+import java.time.DateTimeException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -21,9 +22,8 @@ import java.util.List;
 
 @Controller
 public class CompleteReservationListController extends AbstractWindowController {
-
     enum FilterValue {
-        Pesel, BorrowDate, ReturnDate, BookTitle, ReservationID, WasOverdue
+        BookTitle, BorrowDate, ReservationID, WasOverdue
     }
 
     @FXML
@@ -48,10 +48,25 @@ public class CompleteReservationListController extends AbstractWindowController 
     public TableColumn<CompleteReservation, Boolean> wasOverdue;
 
     @FXML
+    private Text peselText;
+
+    @FXML
+    private TextField peselField;
+
+    @FXML
     private ComboBox selectedFilter;
 
     @FXML
     private TextField filterField;
+
+    @FXML
+    private HBox dateFields;
+
+    @FXML
+    private DatePicker dateFrom;
+
+    @FXML
+    private DatePicker dateTo;
 
     @FXML
     private void initialize() {
@@ -63,75 +78,158 @@ public class CompleteReservationListController extends AbstractWindowController 
         wasOverdue.setCellValueFactory(dataValue -> dataValue.getValue().getWasOverdueProperty());
         reservationTable.setItems(InitializeFilters());
 
-        boolean isAdmin = false;
-        if(sessionConstants.getCurrentUser() != null){
-            isAdmin = sessionConstants.getCurrentUser().getRole().equals(Role.L);
-        }
+        selectedFilter.setItems(getFilterItems());
 
-        selectedFilter.setItems(getFilterItems(isAdmin));
+        selectedFilter.getSelectionModel().select(0);
+
+        if (!isCurrentUserAdmin()) {
+            peselText.setVisible(false);
+            peselField.setVisible(false);
+        }
+        dateFields.setVisible(false);
     }
 
-    private boolean compareSelectedFilter(FilterValue expected){
+    private boolean compareSelectedFilter(FilterValue expected) {
         return selectedFilter.getSelectionModel().getSelectedItem().equals(expected);
     }
 
     @FXML
-    public void handleChangeSelectedFilter(ActionEvent actionEvent){
-        filterField.setVisible(true);
-        filterField.setText(".");
-        filterField.setText("");
+    public void handleChangeSelectedFilter(ActionEvent actionEvent) {
+        boolean filterFieldVisible = true;
+        boolean dateFieldsVisible = false;
+
+        if (compareSelectedFilter(FilterValue.WasOverdue)) {
+            filterFieldVisible = false;
+        }
+
+        if (compareSelectedFilter(FilterValue.BorrowDate)) {
+            dateFieldsVisible = true;
+            filterFieldVisible = false;
+        }
+
+        filterField.setVisible(filterFieldVisible);
+        dateFields.setVisible(dateFieldsVisible);
+        refreshFilters();
         reservationTable.refresh();
     }
 
-    private ObservableList getFilterItems(boolean isAdmin){
-        ArrayList list = new ArrayList();
-
-        list.addAll(Arrays.asList(FilterValue.values()));
-        if(!isAdmin) {
-            list.remove(FilterValue.Pesel);
-        }
-        return FXCollections.observableList(list);
+    @FXML
+    public void handleChangeDate(ActionEvent actionEvent) {
+        refreshFilters();
     }
 
-    private FilteredList<CompleteReservation> InitializeFilters(){
-        FilteredList<CompleteReservation> filteredData = new FilteredList<>(getReservationsObservable(sessionConstants.getCompleteReservationRepository().findAll()), p -> true);
-        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(reservation -> {
-                if (newValue == null || selectedFilter.getSelectionModel().getSelectedItem() == null) {
-                    return true;
+    private void refreshFilters() {
+        String filterText = filterField.getText();
+        filterField.setText(filterText + " ");
+        filterField.setText(filterText);
+
+        String peselText = peselField.getText();
+        peselField.setText(peselText + " ");
+        peselField.setText(peselText);
+    }
+
+    private ObservableList getFilterItems() {
+        return FXCollections.observableList(Arrays.asList(FilterValue.values()));
+    }
+
+    private FilteredList<CompleteReservation> InitializeFilters() {
+        FilteredList<CompleteReservation> filteredDataByPesel = new FilteredList<>(getReservationsObservable(), p -> true);
+        peselField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredDataByPesel.setPredicate(reservation -> {
+                if (isCurrentUserAdmin()) {
+                    if (!(newValue == null || newValue.isEmpty() || reservation.getReaderPeselProperty().getValue().toString().startsWith(newValue))) {
+                        return false;
+                    }
                 }
-                else if(newValue.isEmpty()){
-                    return true;
-                }
-                if (compareSelectedFilter(FilterValue.Pesel) && reservation.getReaderPeselProperty().getValue().toString().startsWith(newValue)) {
-                    return true;
-                }
-                else if(compareSelectedFilter(FilterValue.ReservationID) && reservation.getReservationId().toString().startsWith(newValue)){
-                    return true;
-                }
-                else if(compareSelectedFilter(FilterValue.BookTitle) && reservation.getBooksTitleProperty().getValue().startsWith(newValue)){
-                    return true;
-                }
-                else if(compareSelectedFilter(FilterValue.BorrowDate) && reservation.getBorrowingDateProperty().toString().startsWith(newValue)){
-                    return true;
-                }
-                else return compareSelectedFilter(FilterValue.WasOverdue) && reservation.getWasOverdueProperty().toString().startsWith(newValue);
+                return true;
             });
         });
-        return filteredData;
+
+        FilteredList<CompleteReservation> filteredDataByFilter = new FilteredList<>(filteredDataByPesel, p -> true);
+        filterField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredDataByFilter.setPredicate(reservation -> {
+                if (newValue == null || selectedFilter.getSelectionModel().getSelectedItem() == null) {
+                    return true;
+                } else if (compareSelectedFilter(FilterValue.WasOverdue)) {
+                    return reservation.getWasOverdue();
+                } else if (compareSelectedFilter(FilterValue.ReservationID) && reservation.getReservationId().toString().startsWith(newValue)) {
+                    return true;
+                } else if (compareSelectedFilter(FilterValue.BookTitle) && reservation.getBooksTitleProperty().getValue().startsWith(newValue)) {
+                    return true;
+                } else if (compareSelectedFilter(FilterValue.BorrowDate)) {
+                    return checkDatesBetweenDatepickers(reservation.getReservationStartDate());
+                } else if (newValue.isEmpty()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+        });
+        return filteredDataByFilter;
     }
 
-    private ObservableList<CompleteReservation> getReservationsObservable(List<CompleteReservation> reservations){
+    private ObservableList<CompleteReservation> getReservationsObservable() {
+        List<CompleteReservation> reservations = null;
+        if (isCurrentUserAdmin()) {
+            reservations = sessionConstants.getCompleteReservationRepository().findAll();
+        } else {
+            Reader reader = sessionConstants.getCurrentReader();
+            if (reader != null) {
+                reservations = sessionConstants.getCompleteReservationRepository().findByReader(reader);
+            } else {
+                reservations = new ArrayList<>();
+            }
+        }
+        List<CompleteReservation> finalReservations = reservations;
         return new ObservableListBase<CompleteReservation>() {
             @Override
             public CompleteReservation get(int index) {
-                return reservations.get(index);
+                return finalReservations.get(index);
             }
 
             @Override
             public int size() {
-                return reservations.size();
+                return finalReservations.size();
             }
         };
+    }
+
+    private boolean checkDatesBetweenDatepickers(Date checkedDate) {
+        if (checkedDate == null) {
+            return false;
+        }
+        return checkDateAfterDatepicker(checkedDate) && checkDateBeforeDatepicker(checkedDate);
+    }
+
+    private boolean checkDateAfterDatepicker(Date checkedDate) {
+        if (dateFrom.getEditor().getText().equals("")) {
+            return true;
+        }
+        Date dateFromValue;
+        try {
+            dateFromValue = sessionConstants.datePickerConverter(dateFrom);
+        } catch (ParseException | DateTimeException | NullPointerException e) {
+            return false;
+        }
+        if (dateFromValue.compareTo(checkedDate) > 0) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkDateBeforeDatepicker(Date checkedDate) {
+        if (dateTo.getEditor().getText().equals("")) {
+            return true;
+        }
+        Date dateToValue;
+        try {
+            dateToValue = sessionConstants.datePickerConverter(dateTo);
+        } catch (ParseException | DateTimeException | NullPointerException e) {
+            return false;
+        }
+        if (dateToValue.compareTo(checkedDate) < 0) {
+            return false;
+        }
+        return true;
     }
 }

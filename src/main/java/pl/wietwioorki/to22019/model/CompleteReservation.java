@@ -43,6 +43,13 @@ public class CompleteReservation {
         this.wasOverdue = wasOverdue;
     }
 
+    public CompleteReservation(Reservation reservation, boolean overdue) {
+        this.reader = reservation.getReader();
+        this.book = reservation.getBook();
+        this.reservationStartDate = reservation.getReservationStartDate();
+        this.wasOverdue = overdue;
+    }
+
     public ObjectProperty<Long> getReservationIdProperty() {
         return new SimpleObjectProperty<>(reservationId);
     }

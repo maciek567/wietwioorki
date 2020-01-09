@@ -10,39 +10,58 @@
         <HBox alignment="TOP_LEFT" prefHeight="30" prefWidth="500" BorderPane.alignment="CENTER">
             <Text text="Filter: "/>
             <ComboBox fx:id="selectedFilter" onAction="#handleChangeSelectedFilter"/>
-            <TextField promptText="Write searching value" fx:id="filterField" prefHeight="30" prefWidth="300"/>
+            <StackPane>
+                <TextField promptText="Write searching value" fx:id="filterField" prefHeight="30" prefWidth="300"/>
+                <HBox fx:id="dateFields">
+                    <Text text="From: "/>
+                    <DatePicker fx:id="dateFrom" maxWidth="100" onAction="#handleChangeDate"/>
+                    <Text text="To: "/>
+                    <DatePicker fx:id="dateTo" maxWidth="100" onAction="#handleChangeDate"/>
+                </HBox>
+            </StackPane>
+            <Text text="Pesel: " fx:id="peselText"/>
+            <TextField promptText="Write searching pesel" fx:id="peselField" prefHeight="30" prefWidth="300"/>
         </HBox>
     </top>
     <center>
         <TableView fx:id="reservationTable" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn fx:id="reservationId" prefWidth="75.0" text="reservation id" />
-                <TableColumn fx:id="readerPesel" prefWidth="75.0" text="pesel" />
-                <TableColumn fx:id="readerName" prefWidth="75.0" text="name" />
-                <TableColumn fx:id="booksTittle" prefWidth="75.0" text="book's tittle" />
-                <TableColumn fx:id="reservationStatus" prefWidth="75.0" text="status" />
-                <TableColumn fx:id="borrowingDate" prefWidth="75.0" text="borrow date" />
-                <TableColumn fx:id="returnDate" prefWidth="75.0" text="return date" />
+                <TableColumn fx:id="reservationId" prefWidth="75.0" text="reservation id"/>
+                <TableColumn fx:id="readerPesel" prefWidth="75.0" text="pesel"/>
+                <TableColumn fx:id="readerName" prefWidth="75.0" text="name"/>
+                <TableColumn fx:id="booksTittle" prefWidth="75.0" text="book's tittle"/>
+                <TableColumn fx:id="reservationStatus" prefWidth="75.0" text="status"/>
+                <TableColumn fx:id="borrowingDate" prefWidth="75.0" text="borrow date"/>
+                <TableColumn fx:id="returnDate" prefWidth="75.0" text="return date"/>
             </columns>
             <columnResizePolicy>
-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
             </columnResizePolicy>
         </TableView>
     </center>
     <right>
         <VBox>
-            <Button id="cancelReservationFromReservationList" fx:id="cancelReservationFromReservationList" onAction="#handleCancelReservationFromReservationList"
+            <Button id="cancelReservationFromReservationList" fx:id="cancelReservationFromReservationList"
+                    onAction="#handleCancelReservationFromReservationList"
                     prefHeight="30" prefWidth="130" text="Cancel reservation">
-                <VBox.margin><Insets bottom="7" left="10" right="15" top="20" />
-                </VBox.margin></Button>
-            <Button id="borrowBookFromReservationList" fx:id="borrowBookFromReservationList" onAction="#handleBorrowBookFromReservationList"
+                <VBox.margin>
+                    <Insets bottom="7" left="10" right="15" top="20"/>
+                </VBox.margin>
+            </Button>
+            <Button id="borrowBookFromReservationList" fx:id="borrowBookFromReservationList"
+                    onAction="#handleBorrowBookFromReservationList"
                     prefHeight="30" prefWidth="130" text="Borrow book">
-                <VBox.margin><Insets bottom="7" left="10" right="15" top="20" />
-                </VBox.margin></Button>
-            <Button id="returnBookFromReservationList" fx:id="returnBookFromReservationList" onAction="#handleReturnBookFromReservationList"
+                <VBox.margin>
+                    <Insets bottom="7" left="10" right="15" top="20"/>
+                </VBox.margin>
+            </Button>
+            <Button id="returnBookFromReservationList" fx:id="returnBookFromReservationList"
+                    onAction="#handleReturnBookFromReservationList"
                     prefHeight="30" prefWidth="130" text="Return book">
-                <VBox.margin><Insets bottom="7" left="10" right="15" top="20" />
-                </VBox.margin></Button>
+                <VBox.margin>
+                    <Insets bottom="7" left="10" right="15" top="20"/>
+                </VBox.margin>
+            </Button>
         </VBox>
     </right>
 </BorderPane>
