@@ -1,34 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="300.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pl.wietwioorki.to22019.controller.HomeSceneController">
 
-<?import javafx.scene.control.Tab?>
-<TabPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
-         tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1"
-         fx:controller="pl.wietwioorki.to22019.controller.HomeSceneController">
+    <TabPane tabClosingPolicy="UNAVAILABLE" AnchorPane.rightAnchor="150.0" AnchorPane.leftAnchor="0.0"
+             AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
+        <Tab text="Show book list" fx:id="showBookListTab">
+            <fx:include source="BooksList.fxml"/>
+        </Tab>
+        <Tab text="Show reservations" fx:id="showReservationListTab">
+            <fx:include source="ReservationList.fxml"/>
+        </Tab>
+        <Tab text="Show statistics" fx:id="showStatisticsTab">
+            <fx:include source="Statistics.fxml"/>
+        </Tab>
+        <Tab text="Show complete reservations" fx:id="showCompleteReservationListTab">
+            <fx:include source="CompleteReservationList.fxml"/>
+        </Tab>
+        <Tab text="Show fines" fx:id="showFinesTab">
+            <fx:include source="FineList.fxml"/>
+        </Tab>
+        <Tab text="Add New Book" fx:id="addBookTab">
+            <fx:include source="AddBook.fxml"/>
+        </Tab>
 
-    <Tab text="Show book list" fx:id="showBookListTab">
-        <fx:include source="BooksList.fxml"/>
-    </Tab>
-    <Tab text="Show reservations" fx:id="showReservationListTab">
-        <fx:include source="ReservationList.fxml"/>
-    </Tab>
-    <Tab text="Show statistics" fx:id="showStatisticsTab">
-        <fx:include source="Statistics.fxml"/>
-    </Tab>
-    <Tab text="Show complete reservations" fx:id="showCompleteReservationListTab">
-        <fx:include source="CompleteReservationList.fxml"/>
-    </Tab>
-    <Tab text="Show fines" fx:id="showFinesTab">
-        <fx:include source="FineList.fxml"/>
-    </Tab>
-    <Tab text="Add New Book" fx:id="addBookTab">
-        <fx:include source="AddBook.fxml"/>
-    </Tab>
-    <Tab text="Profile" fx:id="enterProfile">
-        <fx:include source="Profile.fxml"/>
-    </Tab>
-    <!--<Tab text="NotificationSettings" fx:id="enterNotificationSettings">-->
-        <!--<fx:include source="NotificationSettings.fxml"/>-->
-    <!--</Tab>-->
-</TabPane>
+    </TabPane>
+    <VBox alignment="TOP_RIGHT" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="10.0">
+        <Button id="enterLogin" fx:id="enterLogin" onAction="#handleEnterLogin"
+                prefHeight="50.0" prefWidth="100.0" text="Login">
+            <VBox.margin>
+                <Insets bottom="7" right="30" top="40"/>
+            </VBox.margin>
+        </Button>
+        <Button id="enterRegistration" fx:id="enterRegistration" onAction="#handleEnterRegistration"
+                prefHeight="50.0" prefWidth="100.0" text="Register">
+            <VBox.margin>
+                <Insets bottom="5" right="30" top="7"/>
+            </VBox.margin>
+        </Button>
+        <Button id="enterNotificationSettings" fx:id="enterNotificationSettings"
+                onAction="#handleEnterNotificationSettings"
+                prefHeight="50.0" prefWidth="100.0" text="settings" disable="true">
+            <VBox.margin>
+                <Insets bottom="5" right="30" top="7"/>
+            </VBox.margin>
+        </Button>
+        <Button id="enterEditProfile" fx:id="enterEditProfile"
+                onAction="#handleEnterEditProfile"
+                prefHeight="50.0" prefWidth="100.0" text="edit profile" disable="true">
+            <VBox.margin>
+                <Insets bottom="5" right="30" top="7"/>
+            </VBox.margin>
+        </Button>
+        <Text text="Logged as:">
+            <font>
+                <Font size="20"/>
+            </font>
+            <VBox.margin>
+                <Insets bottom="5" right="20" top="5"/>
+            </VBox.margin>
+        </Text>
+        <Text fx:id="loggedInUser" text="guest">
+            <font>
+                <Font size="20"/>
+            </font>
+            <VBox.margin>
+                <Insets bottom="5" right="20" top="5"/>
+            </VBox.margin>
+        </Text>
+    </VBox>
+</AnchorPane>

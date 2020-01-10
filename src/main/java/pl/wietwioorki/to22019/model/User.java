@@ -1,9 +1,6 @@
 package pl.wietwioorki.to22019.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashMap;
@@ -11,6 +8,7 @@ import java.util.HashMap;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @ToString
 @Entity
 @Table(name = "\"user\"")
