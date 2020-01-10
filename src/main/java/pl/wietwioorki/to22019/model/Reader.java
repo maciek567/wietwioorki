@@ -7,6 +7,7 @@ import javax.persistence.*;
 @AllArgsConstructor // ok here because its pesel, not just auto-generated id
 @NoArgsConstructor
 @Getter
+@Setter
 @ToString
 @Entity
 @Table(name = "reader")

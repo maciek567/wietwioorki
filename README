@@ -3,6 +3,11 @@ Library Project created by Maciej Banaś, Monika Dziedzic, Hubert Guzowski, Seba
 Wymagania:
 - java 11
 - lombok plugin (przy uruchamianiu w Intellij)
+- PostgreSQL
+- Lokalna instancja bazy PostgreSQL
 
 Uruchamianie:
-wywołanie komendy ./gradlew run z roota projektu
+po pobraniu i otworzeniu projektu w Intellij powinien się on sam zacząć indeksować
+w przypadku błędu należy wybrać dla projektu java jdk 11 i spróbować ponownie
+wywołanie komendy ./gradlew run z roota projektu, lub poprzez GUI programu Intellij
+w przypadku problemów z lombokiem należy zaznaczyć opcję Enalbe Annotation Processing
