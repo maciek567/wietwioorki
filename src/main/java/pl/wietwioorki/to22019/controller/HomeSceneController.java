@@ -69,7 +69,7 @@ public class HomeSceneController extends AbstractWindowController {
             sessionConstants.logoutUser();
             loggedInUser.setText("guest");
             enterLogin.setText("Login");
-            disnableProfileButtons();
+            disableProfileButtons();
             AlertFactory.showAlert(Alert.AlertType.INFORMATION, successfulLogout,
                     "You have successfully logout");
         }
@@ -100,7 +100,7 @@ public class HomeSceneController extends AbstractWindowController {
         enterRegistration.setDisable(true);
     }
 
-    private void disnableProfileButtons(){
+    private void disableProfileButtons(){
         enterNotificationSettings.setDisable(true);
         enterEditProfile.setDisable(true);
         enterRegistration.setDisable(false);
