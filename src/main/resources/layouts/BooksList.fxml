@@ -36,15 +36,15 @@
             </columnResizePolicy>
         </TableView>
     </center>
-    <right>
+    <left>
         <VBox>
             <Button id="addReservationFromBookList" fx:id="addReservationFromBookList"
                     onAction="#handleAddReservationFromBookList"
                     prefHeight="30" prefWidth="100" text="Add reservation">
                 <VBox.margin>
-                    <Insets bottom="7" left="10" right="15" top="40"/>
+                    <Insets bottom="7" left="10" right="15" top="20"/>
                 </VBox.margin>
             </Button>
         </VBox>
-    </right>
+    </left>
 </BorderPane>

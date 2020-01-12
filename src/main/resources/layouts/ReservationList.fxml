@@ -39,7 +39,7 @@
             </columnResizePolicy>
         </TableView>
     </center>
-    <right>
+    <left>
         <VBox>
             <Button id="cancelReservationFromReservationList" fx:id="cancelReservationFromReservationList"
                     onAction="#handleCancelReservationFromReservationList"
@@ -63,5 +63,5 @@
                 </VBox.margin>
             </Button>
         </VBox>
-    </right>
+    </left>
 </BorderPane>

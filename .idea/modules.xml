@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/librarySystem.iml" filepath="$PROJECT_DIR$/.idea/modules/librarySystem.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/librarySystem_main.iml" filepath="$PROJECT_DIR$/.idea/modules/librarySystem_main.iml" group="librarySystem" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/librarySystem_test.iml" filepath="$PROJECT_DIR$/.idea/modules/librarySystem_test.iml" group="librarySystem" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/librarySystem.main.iml" filepath="$PROJECT_DIR$/.idea/modules/librarySystem.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/librarySystem.test.iml" filepath="$PROJECT_DIR$/.idea/modules/librarySystem.test.iml" />
     </modules>
   </component>
 </project>

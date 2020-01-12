@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.wietwioorki.to22019.controller.GenerateStatisticsController">
-    <VBox prefHeight="200.0" prefWidth="200.0">
 
+    <top>
+    <VBox prefHeight="200.0" prefWidth="200.0">
         <HBox>
             <Text text="Statistics:">
             <font>
@@ -21,12 +23,11 @@
                 <Insets left="30" top="30.0" />
             </VBox.margin>
         </HBox>
-
         <HBox>
-            <Text text="The most frequently borrowed book:   " />
+            <Text text="The most frequently borrowed book:" />
             <Text text="tittle: " />
             <Text id="mostBorrowedBookTittle" fx:id="mostBorrowedBookTittle" />
-            <Text text="   borrowings: " />
+            <Text text="borrowings: " />
             <Text id="mostBorrowedBookBorrowings" fx:id="mostBorrowedBookBorrowings" />
             <VBox.margin>
                 <Insets left="30" top="30.0" />
@@ -91,4 +92,19 @@
             </VBox.margin>
         </HBox>
     </VBox>
+    </top>
+
+    <bottom>
+        <LineChart fx:id="lineChart" layoutX="506.0" layoutY="31.0" minHeight="-Infinity" prefHeight="250.0" title="new reservations in last month" xAxis="day" yAxis="reservation">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" label="days"/>
+                <NumberAxis animated="false"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" label="reservations"/>
+                <NumberAxis animated="false"/>
+            </yAxis>
+        </LineChart>
+    </bottom>
+
 </BorderPane>

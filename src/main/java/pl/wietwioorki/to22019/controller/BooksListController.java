@@ -86,7 +86,7 @@ public class BooksListController extends AbstractWindowController { //todo
         selectedFilter.getSelectionModel().select(0);
 
         dateFields.setVisible(false);
-        addReservationFromBookList.setVisible(!isCurrentUserGuest());
+        //addReservationFromBookList.setVisible(!isCurrentUserGuest()); // fixme - it hides button even when logged in
     }
 
     @FXML
