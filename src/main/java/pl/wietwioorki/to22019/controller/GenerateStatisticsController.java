@@ -2,12 +2,20 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.model.*;
+import pl.wietwioorki.to22019.model.Book;
+import pl.wietwioorki.to22019.model.Reservation;
+import pl.wietwioorki.to22019.model.User;
 
-import java.util.List;
+import java.io.IOException;
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Controller
 public class GenerateStatisticsController extends AbstractWindowController {
@@ -42,7 +50,10 @@ public class GenerateStatisticsController extends AbstractWindowController {
     private Text noGenres;
 
     @FXML
-    public void handleGenerateStatistics(ActionEvent actionEvent) {
+    private LineChart<String, Long> lineChart;
+
+    @FXML
+    public void handleGenerateStatistics(ActionEvent actionEvent) throws IOException {
         System.out.println("generating statistics");
 
         Book mostBorrowedBook = theMostBorrowedBook();
@@ -62,6 +73,8 @@ public class GenerateStatisticsController extends AbstractWindowController {
         noReservations.setText(String.valueOf(getNoReservations()));
         noAuthors.setText(String.valueOf(getNoAuthors()));
         noGenres.setText(String.valueOf(getNoGenres()));
+
+        showChart();
     }
 
     private Book theMostBorrowedBook() {
@@ -127,4 +140,49 @@ public class GenerateStatisticsController extends AbstractWindowController {
     private int getNoGenres() {
         return sessionConstants.getGenreRepository().findAll().size();
     }
+
+    private Map<Date, Long> getCountedReservations() throws IOException {
+        List<Reservation> reservations = sessionConstants.getReservationRepository().findAll();
+        Stream<Reservation> reservationStream =  reservations.stream();
+
+        // filter reservations from last month
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, -1);
+        Date oneMonthAgo = cal.getTime();
+        Predicate<Reservation> reservationLastMonth = reservation -> reservation.getReservationStartDate().after(oneMonthAgo);
+        List<Reservation> filteredReservations = reservationStream.filter(reservationLastMonth).collect(Collectors.toList());
+
+        // group by reservation day and count reservations in every day
+        Map<Date, Long> reservationsGrouped = filteredReservations.stream().collect(
+                Collectors.groupingBy(Reservation::getReservationStartDate, Collectors.counting()));
+
+        // insert 0 if in certain day nobody reserved any book
+        for(int i=0; i<=30; i++) {
+            reservationsGrouped.putIfAbsent(cal.getTime(), 0L);
+            cal.add(Calendar.DAY_OF_MONTH, 1);
+        }
+
+        // sort by day (treeMap do it automatically)
+        return new TreeMap<>(reservationsGrouped);
+    }
+
+   //  display line chart
+    private void showChart() {
+        XYChart.Series<String, Long> series = new XYChart.Series<>();
+        Calendar calendar = Calendar.getInstance();
+        try {
+            for(Map.Entry<Date, Long> reservationCount : getCountedReservations().entrySet()) {
+                calendar.setTime(reservationCount.getKey());
+                String dayName = calendar.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.US);
+                series.getData().add(new XYChart.Data<>(calendar.get(Calendar.DAY_OF_MONTH)
+                        + " " + dayName, reservationCount.getValue()));
+
+            }
+            lineChart.getData().add(series);
+        } catch(RuntimeException | IOException e) {
+            System.out.println("Wrong data in line chart");
+        }
+        lineChart.setAxisSortingPolicy(LineChart.SortingPolicy.X_AXIS);
+    }
+
 }
