@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import org.controlsfx.control.Rating;
 import org.springframework.stereotype.Controller;
 import pl.wietwioorki.to22019.model.*;
 import pl.wietwioorki.to22019.util.AlertFactory;
@@ -18,12 +19,12 @@ import java.text.ParseException;
 import java.time.DateTimeException;
 import java.util.*;
 
-import static pl.wietwioorki.to22019.util.ErrorMessage.generalErrorHeader;
-import static pl.wietwioorki.to22019.util.ErrorMessage.noReservationSelectedErrorContent;
+import static pl.wietwioorki.to22019.util.ErrorMessage.*;
 import static pl.wietwioorki.to22019.util.InfoMessage.*;
 
 @Controller
-public class ReservationListController extends AbstractWindowController {
+public class ReservationListController extends AbstractWindowController /*implements Initializable*/ {
+
     enum FilterValue {
         BookTitle, BorrowDate, ReturnDate, Overdue, ReservationID
     }
@@ -83,6 +84,12 @@ public class ReservationListController extends AbstractWindowController {
     private DatePicker dateTo;
 
     @FXML
+    private Rating bookRating = new Rating();
+
+    @FXML
+    private Label msg;
+
+    @FXML
     private void initialize() {
         reservationId.setCellValueFactory(dataValue -> dataValue.getValue().getReservationIdProperty());
         readerPesel.setCellValueFactory(dataValue -> dataValue.getValue().getReaderPeselProperty());
@@ -104,6 +111,12 @@ public class ReservationListController extends AbstractWindowController {
         }
         dateFields.setVisible(false);
     }
+
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources) {
+//        msg.setText("Rating: 2.0");
+//        bookRating.ratingProperty().addListener((observable, oldValue, newValue) -> msg.setText("Rating: " + newValue));
+//    }
 
     private void refreshData() {
         reservationTable.setItems(InitializeFilters());
@@ -178,17 +191,25 @@ public class ReservationListController extends AbstractWindowController {
 
     @FXML
     public void handleReturnBookFromReservationList(ActionEvent actionEvent) {
+        openNewWindow("/layouts/BookReturn.fxml");
         Reservation reservation = reservationTable.getSelectionModel().getSelectedItem();
         if (reservation == null) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "returning book", noReservationSelectedErrorContent);
             return;
         }
-        if (!reservation.getReservationStatus().equals(ReservationStatus.ACTIVE)) {
-            System.out.println("Bad reservation status");
-            //todo: add alert
+        if (!reservation.getReservationStatus().equals(ReservationStatus.ACTIVE) &&
+                !reservation.getReservationStatus().equals(ReservationStatus.OVERDUE)) {
+            System.out.println("RESERVATION STATUS: " + reservation.getReservationStatus());
+            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "returning book", cannotReturnBookErrorContent);
             return;
         }
         reservation.setReservationStatus(ReservationStatus.RETURNED);
+
+        Book book = reservation.getBook();
+        double tempSum = book.getAverageRating() * book.getVotesCount() + Double.parseDouble(msg.getText().substring(8));
+        book.incrementVotesCount();
+        book.setAverageRating(tempSum / book.getVotesCount());
+        sessionConstants.getBookRepository().save(book);
 
         Fine fine = reservation.returnBook();
         if (fine != null) {
@@ -198,7 +219,8 @@ public class ReservationListController extends AbstractWindowController {
         sessionConstants.getReservationRepository().delete(reservation);
 
         CompleteReservation completeReservation = new CompleteReservation(reservation, fine != null);
-        sessionConstants.getCompleteReservationRepository().save(completeReservation);
+        sessionConstants.getCompleteReservationRepository().save(new CompleteReservation(reservation.getReader(), reservation.getBook(),
+                reservation.getReservationStartDate(), reservation.getReservationStatus().equals(ReservationStatus.OVERDUE)));
         refreshData();
         refreshFilters();
 

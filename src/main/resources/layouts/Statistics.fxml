@@ -24,10 +24,10 @@
             </VBox.margin>
         </HBox>
         <HBox>
-            <Text text="The most frequently borrowed book:" />
+            <Text text="The most frequently borrowed book: " />
             <Text text="tittle: " />
             <Text id="mostBorrowedBookTittle" fx:id="mostBorrowedBookTittle" />
-            <Text text="borrowings: " />
+            <Text text="    borrowings: " />
             <Text id="mostBorrowedBookBorrowings" fx:id="mostBorrowedBookBorrowings" />
             <VBox.margin>
                 <Insets left="30" top="30.0" />
