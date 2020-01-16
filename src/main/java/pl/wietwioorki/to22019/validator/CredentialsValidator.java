@@ -38,4 +38,9 @@ public class CredentialsValidator extends MyValidator {
         }
         return true;
     }
+
+    public boolean validateLogin(SessionConstants sessionConstants, String userName){
+        User logUser = sessionConstants.getUserRepository().findByLogin(userName);
+        return logUser != null;
+    }
 }

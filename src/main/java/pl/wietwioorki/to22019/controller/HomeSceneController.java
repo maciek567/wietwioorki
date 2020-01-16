@@ -15,9 +15,6 @@ import static pl.wietwioorki.to22019.util.InfoMessage.successfulLogout;
 public class HomeSceneController extends AbstractWindowController {
 
     @FXML
-    public Tab enterProfile;
-
-    @FXML
     private Tab addBookTab;
 
     @FXML
@@ -34,6 +31,9 @@ public class HomeSceneController extends AbstractWindowController {
 
     @FXML
     public Tab showStatisticsTab;
+
+    @FXML
+    public Tab showRecommendationsTab;
 
     @FXML
     public Button enterLogin;
