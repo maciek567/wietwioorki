@@ -99,16 +99,12 @@ public class ReservationListController extends AbstractWindowController /*implem
         borrowingDate.setCellValueFactory(dataValue -> dataValue.getValue().getBorrowingDateProperty());
         returnDate.setCellValueFactory(dataValue -> dataValue.getValue().getReturnDateProperty());
 
-        refreshData();
+        refreshWindow();
 
         selectedFilter.setItems(getFilterItems());
 
         selectedFilter.getSelectionModel().select(0);
 
-        if (!isCurrentUserAdmin()) {
-            peselText.setVisible(false);
-            peselField.setVisible(false);
-        }
         dateFields.setVisible(false);
     }
 
@@ -261,6 +257,23 @@ public class ReservationListController extends AbstractWindowController /*implem
         String peselText = peselField.getText();
         peselField.setText(peselText + " ");
         peselField.setText(peselText);
+    }
+
+    public void handleChangeUser() {
+        refreshWindow();
+    }
+
+    public void handleChangeData() {
+        refreshData();
+    }
+
+    private void refreshWindow() {
+        refreshData();
+
+        if (!isCurrentUserAdmin()) {
+            peselText.setVisible(false);
+            peselField.setVisible(false);
+        }
     }
 
     private ObservableList getFilterItems() {

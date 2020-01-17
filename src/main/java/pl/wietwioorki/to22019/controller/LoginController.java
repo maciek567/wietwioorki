@@ -37,9 +37,8 @@ public class LoginController extends AbstractWindowController {
 
         if (!sessionConstants.getCredentialsValidator().validateCredentials(sessionConstants, userName.getText(), password.getText())) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, loginErrorHeader, wrongCredentialsErrorContent);
-        }
-        else {
-            if(checkIfAnyBookIsOverdue() &&
+        } else {
+            if (checkIfAnyBookIsOverdue() &&
                     sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.OVERDUE)) {
                 EmailUtil.handleEmail(sessionConstants, sessionConstants.getCurrentReader());
             }
@@ -54,8 +53,8 @@ public class LoginController extends AbstractWindowController {
 
     private boolean checkIfAnyBookIsOverdue() {
         List<Reservation> reservations = sessionConstants.getReservationRepository().findByReader(sessionConstants.getCurrentReader());
-        for(Reservation reservation : reservations) {
-            if(reservation.getReservationEndDate().before(new Date())) {
+        for (Reservation reservation : reservations) {
+            if (reservation.getReservationEndDate() != null && reservation.getReservationEndDate().before(new Date())) {
                 return true;
             }
         }

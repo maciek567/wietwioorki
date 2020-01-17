@@ -67,16 +67,10 @@ public class FineListController extends AbstractWindowController {
         cancelFine.disableProperty().bind(Bindings.isEmpty(fineTable.getSelectionModel().getSelectedItems()));
         payFine.disableProperty().bind(Bindings.isEmpty(fineTable.getSelectionModel().getSelectedItems()));
 
-        if (!isCurrentUserAdmin()) {
-            peselField.setVisible(false);
-            peselText.setVisible(false);
-            cancelFine.setVisible(false);
-            payFine.setVisible(false);
-        }
+        refreshWindow();
 
         selectedStatus.setItems(getFilterItems());
 
-        refreshDataInTable();
         selectedStatus.getSelectionModel().select(0);
     }
 
@@ -129,7 +123,7 @@ public class FineListController extends AbstractWindowController {
         peselField.setText(text);
     }
 
-    private void refreshDataInTable() {
+    private void refreshData() {
         fineTable.setItems(InitializeFilters());
     }
 
@@ -165,7 +159,7 @@ public class FineListController extends AbstractWindowController {
             Fine canceledFine = fineTable.getSelectionModel().getSelectedItem();
             sessionConstants.getFineRepository().delete(canceledFine);
 
-            refreshDataInTable();
+            refreshData();
             refreshfilters();
         }
     }
@@ -179,6 +173,25 @@ public class FineListController extends AbstractWindowController {
 
             fineTable.refresh();
             refreshfilters();
+        }
+    }
+
+    public void handleChangeUser() {
+        refreshWindow();
+    }
+
+    public void handleChangeData() {
+        refreshData();
+    }
+
+    private void refreshWindow() {
+        refreshData();
+
+        if (!isCurrentUserAdmin()) {
+            peselField.setVisible(false);
+            peselText.setVisible(false);
+            cancelFine.setVisible(false);
+            payFine.setVisible(false);
         }
     }
 }
