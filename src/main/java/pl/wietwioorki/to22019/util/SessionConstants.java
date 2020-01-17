@@ -71,10 +71,12 @@ public class SessionConstants {
 
     public void logUser(User user) {
         currentUser = user;
+        events.userChanged();
     }
 
     public void logoutUser() {
         currentUser = null;
+        events.userChanged();
     }
 
     public String getUserLogin() {
@@ -120,4 +122,6 @@ public class SessionConstants {
         }
         return reservedBook;
     }
+
+    public MyEventHandler events = new MyEventHandler();
 }

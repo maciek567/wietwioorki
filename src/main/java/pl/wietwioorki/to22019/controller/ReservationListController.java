@@ -16,7 +16,10 @@ import pl.wietwioorki.to22019.util.EmailUtil;
 
 import java.text.ParseException;
 import java.time.DateTimeException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
 import static pl.wietwioorki.to22019.util.ErrorMessage.generalErrorHeader;
 import static pl.wietwioorki.to22019.util.ErrorMessage.noReservationSelectedErrorContent;
@@ -99,6 +102,8 @@ public class ReservationListController extends AbstractWindowController {
         selectedFilter.getSelectionModel().select(0);
 
         dateFields.setVisible(false);
+
+        sessionConstants.events.AddListener(this);
     }
 
     private void refreshData() {
@@ -144,14 +149,6 @@ public class ReservationListController extends AbstractWindowController {
             return;
         }
 
-        reservation.setReservationStatus(ReservationStatus.ACTIVE);
-
-        Calendar calendar = Calendar.getInstance();
-        reservation.setReservationStartDate(calendar.getTime());
-
-        calendar.add(Calendar.DATE, Reservation.getBorrowingTimeInDays());
-        reservation.setReservationEndDate(calendar.getTime());
-
         reservation.borrowBook();
         sessionConstants.getReservationRepository().save(reservation);
 
@@ -163,13 +160,13 @@ public class ReservationListController extends AbstractWindowController {
         User loggedInUser = sessionConstants.getCurrentUser();
         loggedInUser.incrementNoBorrowings();
         sessionConstants.getUserRepository().save(loggedInUser);
+        sessionConstants.events.dataChanged();
 
         if (loggedInUser.getNotificationSettings().get(ReservationStatus.ACTIVE)) {
             EmailUtil.handleEmail(sessionConstants, reservation.getReader());
         }
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyBorrowedContent);
-        reservationTable.refresh();
     }
 
     @FXML
@@ -195,8 +192,8 @@ public class ReservationListController extends AbstractWindowController {
 
         CompleteReservation completeReservation = new CompleteReservation(reservation, fine != null);
         sessionConstants.getCompleteReservationRepository().save(completeReservation);
-        refreshData();
-        refreshFilters();
+
+        sessionConstants.events.dataChanged();
 
         if (sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.RETURNED)) {
             EmailUtil.handleEmail(sessionConstants, reservation.getReader());
@@ -214,12 +211,10 @@ public class ReservationListController extends AbstractWindowController {
         }
 
         sessionConstants.getReservationRepository().delete(reservation);
+
+        sessionConstants.events.dataChanged();
+
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyDeletedContent);
-
-        refreshData();
-        refreshFilters();
-
-        //reservationTable.refresh();
     }
 
     @FXML

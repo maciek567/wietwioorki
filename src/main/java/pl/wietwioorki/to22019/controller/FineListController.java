@@ -72,6 +72,8 @@ public class FineListController extends AbstractWindowController {
         selectedStatus.setItems(getFilterItems());
 
         selectedStatus.getSelectionModel().select(0);
+
+        sessionConstants.events.AddListener(this);
     }
 
     private ObservableList getFilterItems() {
@@ -159,8 +161,7 @@ public class FineListController extends AbstractWindowController {
             Fine canceledFine = fineTable.getSelectionModel().getSelectedItem();
             sessionConstants.getFineRepository().delete(canceledFine);
 
-            refreshData();
-            refreshfilters();
+            sessionConstants.events.dataChanged();
         }
     }
 
@@ -171,8 +172,7 @@ public class FineListController extends AbstractWindowController {
             actualFine.payFine();
             sessionConstants.getFineRepository().save(actualFine);
 
-            fineTable.refresh();
-            refreshfilters();
+            sessionConstants.events.dataChanged();
         }
     }
 

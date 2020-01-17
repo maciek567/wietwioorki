@@ -85,4 +85,10 @@ public abstract class AbstractWindowController {
     public void showAdministratorNeededAlert() {
         AlertFactory.showAlert(Alert.AlertType.WARNING, adminNeededHeader, adminNeededContent);
     }
+
+    public void handleChangeUser() {
+    }
+
+    public void handleChangeData() {
+    }
 }

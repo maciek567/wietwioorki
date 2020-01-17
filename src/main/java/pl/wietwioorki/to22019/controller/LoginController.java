@@ -43,6 +43,8 @@ public class LoginController extends AbstractWindowController {
                 EmailUtil.handleEmail(sessionConstants, sessionConstants.getCurrentReader());
             }
 
+            sessionConstants.events.userChanged();
+
             // for statistics
             User loggedInUser = sessionConstants.getUserRepository().findByLogin(userName.getText());
             loggedInUser.incrementNoLogins();
