@@ -84,6 +84,8 @@ public class CompleteReservationListController extends AbstractWindowController 
         selectedFilter.getSelectionModel().select(0);
 
         dateFields.setVisible(false);
+
+        sessionConstants.events.AddListener(this);
     }
 
     private boolean compareSelectedFilter(FilterValue expected) {

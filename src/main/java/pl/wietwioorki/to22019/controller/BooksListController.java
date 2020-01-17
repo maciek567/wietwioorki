@@ -86,6 +86,8 @@ public class BooksListController extends AbstractWindowController { //todo
         selectedFilter.getSelectionModel().select(0);
 
         dateFields.setVisible(false);
+
+        sessionConstants.events.AddListener(this);
     }
 
     @FXML
@@ -110,6 +112,8 @@ public class BooksListController extends AbstractWindowController { //todo
 
         Reservation reservation = new Reservation(reader, book, null /*todo: today? */, null, reservationStatus);
         sessionConstants.getReservationRepository().save(reservation);
+
+        sessionConstants.events.dataChanged();
 
         if (reservationStatus.equals(ReservationStatus.READY) &&
                 sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.READY)) {
@@ -152,7 +156,7 @@ public class BooksListController extends AbstractWindowController { //todo
 
     private void refreshWindow() {
         refreshData();
-        //addReservationFromBookList.setVisible(!isCurrentUserGuest()); // fixme - it hides button even when logged in //because it was not been rerun after log in uncomment after repair refreshing windows
+        addReservationFromBookList.setVisible(!isCurrentUserGuest());
     }
 
     private void refreshData() {

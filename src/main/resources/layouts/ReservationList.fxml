@@ -22,12 +22,15 @@
             </StackPane>
             <Text text="Pesel: " fx:id="peselText"/>
             <TextField promptText="Write searching pesel" fx:id="peselField" prefHeight="40" prefWidth="200"/>
-            <AnchorPane  xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml">
-                <Rating id="bookRating" fx:id="bookRating" layoutX="75"/>
-                <Label id="msg" fx:id="msg"  />
-            </AnchorPane>
+
         </HBox>
     </top>
+    <bottom>
+        <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="70">
+            <Rating fx:id="rating" layoutX="250" layoutY="20"/>
+            <Label fx:id="msg" text="Rate book: " prefHeight="17.0" layoutX="160" layoutY="20"/>
+        </AnchorPane>
+    </bottom>
     <center>
         <TableView fx:id="reservationTable" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <columns>

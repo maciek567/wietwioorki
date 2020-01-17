@@ -17,13 +17,16 @@ import pl.wietwioorki.to22019.util.EmailUtil;
 
 import java.text.ParseException;
 import java.time.DateTimeException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
 import static pl.wietwioorki.to22019.util.ErrorMessage.*;
 import static pl.wietwioorki.to22019.util.InfoMessage.*;
 
 @Controller
-public class ReservationListController extends AbstractWindowController /*implements Initializable*/ {
+public class ReservationListController extends AbstractWindowController {
 
     enum FilterValue {
         BookTitle, BorrowDate, ReturnDate, Overdue, ReservationID
@@ -84,10 +87,11 @@ public class ReservationListController extends AbstractWindowController /*implem
     private DatePicker dateTo;
 
     @FXML
-    private Rating bookRating = new Rating();
+    public Rating rating;
 
     @FXML
-    private Label msg;
+    public Label msg;
+
 
     @FXML
     private void initialize() {
@@ -106,13 +110,9 @@ public class ReservationListController extends AbstractWindowController /*implem
         selectedFilter.getSelectionModel().select(0);
 
         dateFields.setVisible(false);
-    }
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        msg.setText("Rating: 2.0");
-//        bookRating.ratingProperty().addListener((observable, oldValue, newValue) -> msg.setText("Rating: " + newValue));
-//    }
+        sessionConstants.events.AddListener(this);
+    }
 
     private void refreshData() {
         reservationTable.setItems(InitializeFilters());
@@ -157,14 +157,6 @@ public class ReservationListController extends AbstractWindowController /*implem
             return;
         }
 
-        reservation.setReservationStatus(ReservationStatus.ACTIVE);
-
-        Calendar calendar = Calendar.getInstance();
-        reservation.setReservationStartDate(calendar.getTime());
-
-        calendar.add(Calendar.DATE, Reservation.getBorrowingTimeInDays());
-        reservation.setReservationEndDate(calendar.getTime());
-
         reservation.borrowBook();
         sessionConstants.getReservationRepository().save(reservation);
 
@@ -176,18 +168,17 @@ public class ReservationListController extends AbstractWindowController /*implem
         User loggedInUser = sessionConstants.getCurrentUser();
         loggedInUser.incrementNoBorrowings();
         sessionConstants.getUserRepository().save(loggedInUser);
+        sessionConstants.events.dataChanged();
 
         if (loggedInUser.getNotificationSettings().get(ReservationStatus.ACTIVE)) {
             EmailUtil.handleEmail(sessionConstants, reservation.getReader());
         }
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyBorrowedContent);
-        reservationTable.refresh();
     }
 
     @FXML
     public void handleReturnBookFromReservationList(ActionEvent actionEvent) {
-        openNewWindow("/layouts/BookReturn.fxml");
         Reservation reservation = reservationTable.getSelectionModel().getSelectedItem();
         if (reservation == null) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "returning book", noReservationSelectedErrorContent);
@@ -202,7 +193,7 @@ public class ReservationListController extends AbstractWindowController /*implem
         reservation.setReservationStatus(ReservationStatus.RETURNED);
 
         Book book = reservation.getBook();
-        double tempSum = book.getAverageRating() * book.getVotesCount() + Double.parseDouble(msg.getText().substring(8));
+        double tempSum = book.getAverageRating() * book.getVotesCount() + rating.getRating();
         book.incrementVotesCount();
         book.setAverageRating(tempSum / book.getVotesCount());
         sessionConstants.getBookRepository().save(book);
@@ -215,10 +206,9 @@ public class ReservationListController extends AbstractWindowController /*implem
         sessionConstants.getReservationRepository().delete(reservation);
 
         CompleteReservation completeReservation = new CompleteReservation(reservation, fine != null);
-        sessionConstants.getCompleteReservationRepository().save(new CompleteReservation(reservation.getReader(), reservation.getBook(),
-                reservation.getReservationStartDate(), reservation.getReservationStatus().equals(ReservationStatus.OVERDUE)));
-        refreshData();
-        refreshFilters();
+        sessionConstants.getCompleteReservationRepository().save(completeReservation);
+
+        sessionConstants.events.dataChanged();
 
         if (sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.RETURNED)) {
             EmailUtil.handleEmail(sessionConstants, reservation.getReader());
@@ -236,12 +226,9 @@ public class ReservationListController extends AbstractWindowController /*implem
         }
 
         sessionConstants.getReservationRepository().delete(reservation);
+        sessionConstants.events.dataChanged();
+
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, reservationSuccessfullyDeletedContent);
-
-        refreshData();
-        refreshFilters();
-
-        //reservationTable.refresh();
     }
 
     @FXML
