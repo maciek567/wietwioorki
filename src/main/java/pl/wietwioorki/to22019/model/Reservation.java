@@ -10,6 +10,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -81,8 +82,13 @@ public class Reservation {
     }
 
     public void borrowBook() {
+        Calendar calendar = Calendar.getInstance();
+        setReservationStartDate(calendar.getTime());
+        calendar.add(Calendar.DATE, getBorrowingTimeInDays());
+        setReservationEndDate(calendar.getTime());
+
         book.popReaderFromQueue();
-        setReservationStartDate(new Date(System.currentTimeMillis()));
+
         setReservationStatus(ReservationStatus.ACTIVE);
     }
 

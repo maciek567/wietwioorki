@@ -45,12 +45,8 @@ public class AddBookController extends AbstractWindowController {
         sessionConstants.getBookRepository().save(new Book(bookTitle.getText(), bookValidator.getAuthor(),
                 bookValidator.getDate(), bookValidator.getGenre()));
 
-        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyCreatedContent);
-        closeWindowAfterSuccessfulAction(actionEvent);
-    }
+        sessionConstants.events.dataChanged();
 
-    @FXML
-    public void handleShowBookList(ActionEvent actionEvent) {
-        openNewWindow("/layouts/BooksList.fxml");
+        AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyCreatedContent);
     }
 }

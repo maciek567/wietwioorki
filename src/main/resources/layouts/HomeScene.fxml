@@ -29,6 +29,9 @@
         <Tab text="Add New Book" fx:id="addBookTab">
             <fx:include source="AddBook.fxml"/>
         </Tab>
+        <Tab text="Show recommendations" fx:id="showRecommendationsTab">
+            <fx:include source="Recommendations.fxml"/>
+        </Tab>
 
     </TabPane>
     <VBox alignment="TOP_RIGHT" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="10.0">

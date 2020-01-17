@@ -67,17 +67,13 @@ public class FineListController extends AbstractWindowController {
         cancelFine.disableProperty().bind(Bindings.isEmpty(fineTable.getSelectionModel().getSelectedItems()));
         payFine.disableProperty().bind(Bindings.isEmpty(fineTable.getSelectionModel().getSelectedItems()));
 
-        if (!isCurrentUserAdmin()) {
-            peselField.setVisible(false);
-            peselText.setVisible(false);
-            cancelFine.setVisible(false);
-            payFine.setVisible(false);
-        }
+        refreshWindow();
 
         selectedStatus.setItems(getFilterItems());
 
-        refreshDataInTable();
         selectedStatus.getSelectionModel().select(0);
+
+        sessionConstants.events.AddListener(this);
     }
 
     private ObservableList getFilterItems() {
@@ -129,7 +125,7 @@ public class FineListController extends AbstractWindowController {
         peselField.setText(text);
     }
 
-    private void refreshDataInTable() {
+    private void refreshData() {
         fineTable.setItems(InitializeFilters());
     }
 
@@ -165,8 +161,7 @@ public class FineListController extends AbstractWindowController {
             Fine canceledFine = fineTable.getSelectionModel().getSelectedItem();
             sessionConstants.getFineRepository().delete(canceledFine);
 
-            refreshDataInTable();
-            refreshfilters();
+            sessionConstants.events.dataChanged();
         }
     }
 
@@ -177,8 +172,26 @@ public class FineListController extends AbstractWindowController {
             actualFine.payFine();
             sessionConstants.getFineRepository().save(actualFine);
 
-            fineTable.refresh();
-            refreshfilters();
+            sessionConstants.events.dataChanged();
+        }
+    }
+
+    public void handleChangeUser() {
+        refreshWindow();
+    }
+
+    public void handleChangeData() {
+        refreshData();
+    }
+
+    private void refreshWindow() {
+        refreshData();
+
+        if (!isCurrentUserAdmin()) {
+            peselField.setVisible(false);
+            peselText.setVisible(false);
+            cancelFine.setVisible(false);
+            payFine.setVisible(false);
         }
     }
 }
