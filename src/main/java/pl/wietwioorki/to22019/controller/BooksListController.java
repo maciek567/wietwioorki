@@ -79,14 +79,13 @@ public class BooksListController extends AbstractWindowController { //todo
         genreColumn.setCellValueFactory(dataValue -> dataValue.getValue().getGenreProperty());
         ratingColumn.setCellValueFactory(dataValue -> dataValue.getValue().getAverageRatingProperty().asObject());
 
-        booksTable.setItems(InitializeFilters());
+        refreshWindow();
 
         selectedFilter.setItems(getFilterItems());
 
         selectedFilter.getSelectionModel().select(0);
 
         dateFields.setVisible(false);
-        //addReservationFromBookList.setVisible(!isCurrentUserGuest()); // fixme - it hides button even when logged in
     }
 
     @FXML
@@ -112,10 +111,10 @@ public class BooksListController extends AbstractWindowController { //todo
         Reservation reservation = new Reservation(reader, book, null /*todo: today? */, null, reservationStatus);
         sessionConstants.getReservationRepository().save(reservation);
 
-        if(reservationStatus.equals(ReservationStatus.READY) &&
+        if (reservationStatus.equals(ReservationStatus.READY) &&
                 sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.READY)) {
             EmailUtil.handleEmail(sessionConstants, reader);
-        } else if(reservationStatus.equals(ReservationStatus.PENDING) &&
+        } else if (reservationStatus.equals(ReservationStatus.PENDING) &&
                 sessionConstants.getCurrentUser().getNotificationSettings().get(ReservationStatus.PENDING))
             EmailUtil.handleEmail(sessionConstants, reader);
 
@@ -141,6 +140,23 @@ public class BooksListController extends AbstractWindowController { //todo
         dateFields.setVisible(dateFieldsVisible);
         refreshFilters();
         booksTable.refresh();
+    }
+
+    public void handleChangeUser() {
+        refreshWindow();
+    }
+
+    public void handleChangeData() {
+        refreshData();
+    }
+
+    private void refreshWindow() {
+        refreshData();
+        //addReservationFromBookList.setVisible(!isCurrentUserGuest()); // fixme - it hides button even when logged in //because it was not been rerun after log in uncomment after repair refreshing windows
+    }
+
+    private void refreshData() {
+        booksTable.setItems(InitializeFilters());
     }
 
     private void refreshFilters() {
