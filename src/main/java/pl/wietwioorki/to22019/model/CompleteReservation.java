@@ -27,7 +27,7 @@ public class CompleteReservation {
     @ManyToOne
     @JoinColumn(name = "book_id",
             referencedColumnName = "book_id")
-    private Book book; // todo: only one book in each reservation?
+    private Book book;
 
     @Column(name = "start_date")
     private Date reservationStartDate;

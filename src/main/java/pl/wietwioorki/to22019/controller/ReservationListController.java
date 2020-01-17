@@ -143,17 +143,17 @@ public class ReservationListController extends AbstractWindowController {
     }
 
     @FXML
-    public void handleBorrowBookFromReservationList(ActionEvent actionEvent) { //todo: add alerts
+    public void handleBorrowBookFromReservationList(ActionEvent actionEvent) {
         Reservation reservation = reservationTable.getSelectionModel().getSelectedItem();
         if (reservation == null) {
             System.out.println("No reservation selected");
-            // here
+            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "borrowing book", noReservationSelectedErrorContent);
             return;
         }
 
         if (!reservation.getReservationStatus().equals(ReservationStatus.READY)) {
             System.out.println("Wrong reservation status: " + reservation.getReservationStatus());
-            // here
+            AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + "borrowing book", cannotReturnBookErrorContent);
             return;
         }
 

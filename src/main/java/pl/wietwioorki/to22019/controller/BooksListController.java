@@ -26,7 +26,7 @@ import static pl.wietwioorki.to22019.util.ErrorMessage.*;
 import static pl.wietwioorki.to22019.util.InfoMessage.*;
 
 @Controller
-public class BooksListController extends AbstractWindowController { //todo
+public class BooksListController extends AbstractWindowController {
     enum FilterValue {
         Title, Author, Genre, PublicationDate, Id
     }
@@ -110,7 +110,8 @@ public class BooksListController extends AbstractWindowController { //todo
 
         book.pushReaderToQueue(reader);
 
-        Reservation reservation = new Reservation(reader, book, null /*todo: today? */, null, reservationStatus);
+        // null because start date means time of borrowing, not reservation
+        Reservation reservation = new Reservation(reader, book, null, null, reservationStatus);
         sessionConstants.getReservationRepository().save(reservation);
 
         sessionConstants.events.dataChanged();

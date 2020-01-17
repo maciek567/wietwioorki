@@ -95,13 +95,14 @@
     </top>
 
     <bottom>
-        <LineChart fx:id="lineChart" layoutX="506.0" layoutY="31.0" minHeight="-Infinity" prefHeight="250.0" title="new reservations in last month" xAxis="day" yAxis="reservation">
+        <LineChart fx:id="lineChart" layoutX="506.0" layoutY="31.0" minHeight="-Infinity" prefHeight="250.0"
+                   title="Borrowed books in last month" xAxis="day" yAxis="borrowings">
             <xAxis>
                 <CategoryAxis side="BOTTOM" label="days"/>
                 <NumberAxis animated="false"/>
             </xAxis>
             <yAxis>
-                <NumberAxis side="LEFT" label="reservations"/>
+                <NumberAxis side="LEFT" label="borrowings"/>
                 <NumberAxis animated="false"/>
             </yAxis>
         </LineChart>
