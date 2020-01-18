@@ -24,10 +24,10 @@
             </VBox.margin>
         </HBox>
         <HBox>
-            <Text text="The most frequently borrowed book:" />
+            <Text text="The most frequently borrowed book: " />
             <Text text="tittle: " />
             <Text id="mostBorrowedBookTittle" fx:id="mostBorrowedBookTittle" />
-            <Text text="borrowings: " />
+            <Text text="    borrowings: " />
             <Text id="mostBorrowedBookBorrowings" fx:id="mostBorrowedBookBorrowings" />
             <VBox.margin>
                 <Insets left="30" top="30.0" />
@@ -95,13 +95,14 @@
     </top>
 
     <bottom>
-        <LineChart fx:id="lineChart" layoutX="506.0" layoutY="31.0" minHeight="-Infinity" prefHeight="250.0" title="new reservations in last month" xAxis="day" yAxis="reservation">
+        <LineChart fx:id="lineChart" layoutX="506.0" layoutY="31.0" minHeight="-Infinity" prefHeight="250.0"
+                   title="Borrowed books in last month" xAxis="day" yAxis="borrowings">
             <xAxis>
                 <CategoryAxis side="BOTTOM" label="days"/>
                 <NumberAxis animated="false"/>
             </xAxis>
             <yAxis>
-                <NumberAxis side="LEFT" label="reservations"/>
+                <NumberAxis side="LEFT" label="borrowings"/>
                 <NumberAxis animated="false"/>
             </yAxis>
         </LineChart>

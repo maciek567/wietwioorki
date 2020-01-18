@@ -7,13 +7,10 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
-import pl.wietwioorki.to22019.model.Book;
-import pl.wietwioorki.to22019.model.Reservation;
-import pl.wietwioorki.to22019.model.User;
+import pl.wietwioorki.to22019.model.*;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -141,25 +138,79 @@ public class GenerateStatisticsController extends AbstractWindowController {
         return sessionConstants.getGenreRepository().findAll().size();
     }
 
-    private Map<Date, Long> getCountedReservations() throws IOException {
-        List<Reservation> reservations = sessionConstants.getReservationRepository().findAll();
-        Stream<Reservation> reservationStream =  reservations.stream();
+//    private Map<Date, Long> getCountedReservations() throws IOException {
+//        List<Reservation> reservations = sessionConstants.getReservationRepository().findAll();
+//        Stream<Reservation> reservationStream =  reservations.stream();
+//
+//        // filter reservations from last month
+//        Calendar cal = Calendar.getInstance();
+//        cal.add(Calendar.MONTH, -1);
+//        Date oneMonthAgo = cal.getTime();
+//        Predicate<Reservation> reservationLastMonth = reservation -> reservation.getReservationStartDate().after(oneMonthAgo);
+//        List<Reservation> filteredReservations = reservationStream.filter(reservationLastMonth).collect(Collectors.toList());
+//
+//        // group by reservation day and count reservations in every day
+//        Map<Date, Long> reservationsGrouped = filteredReservations.stream().collect(
+//                Collectors.groupingBy(Reservation::getReservationStartDate, Collectors.counting()));
+//
+//        // insert 0 if in certain day nobody reserved any book
+//        for(int i=0; i<=30; i++) {
+//            reservationsGrouped.putIfAbsent(cal.getTime(), 0L);
+//            cal.add(Calendar.DAY_OF_MONTH, 1);
+//        }
+//
+//        // sort by day (treeMap do it automatically)
+//        return new TreeMap<>(reservationsGrouped);
+//    }
 
-        // filter reservations from last month
+    private Map<Date, Long> getCountedReservations() throws IOException {
+        // current and all completed reservations
+        List<Reservation> reservations = sessionConstants.getReservationRepository().findAll();
+        List<CompleteReservation> completeReservations = sessionConstants.getCompleteReservationRepository().findAll();
+        for(CompleteReservation complete : completeReservations ) {
+            Reservation reservation = new Reservation(complete.getReader(), complete.getBook(),
+                    complete.getReservationStartDate(), null, ReservationStatus.RETURNED);
+            reservations.add(reservation);
+        }
+
+
+
+        // stream data and filter borrowed books from last month
+        Stream<Reservation> reservationStream =  reservations.stream();
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.MONTH, -1);
         Date oneMonthAgo = cal.getTime();
-        Predicate<Reservation> reservationLastMonth = reservation -> reservation.getReservationStartDate().after(oneMonthAgo);
-        List<Reservation> filteredReservations = reservationStream.filter(reservationLastMonth).collect(Collectors.toList());
+        List<Reservation> filteredReservations = reservationStream
+                .filter(reservation -> !reservation.getReservationStatus().equals(ReservationStatus.PENDING))
+                .filter(reservation -> !reservation.getReservationStatus().equals(ReservationStatus.READY))
+                .filter(reservation -> Objects.nonNull(reservation.getReservationStartDate()))
+                .filter(reservation -> reservation.getReservationStartDate().after(oneMonthAgo))
+                .collect(Collectors.toList());
 
+        // set hoers, minutes and seconds to 0 so that reservations with the same day are treated identically
         // group by reservation day and count reservations in every day
-        Map<Date, Long> reservationsGrouped = filteredReservations.stream().collect(
-                Collectors.groupingBy(Reservation::getReservationStartDate, Collectors.counting()));
+        Map<Date, Long> reservationsGrouped = filteredReservations.stream()
+                .map(reservation -> {
+                    Calendar cal2 = Calendar.getInstance();
+                    cal2.setTime(reservation.getReservationStartDate());
+                    cal2.set(Calendar.HOUR_OF_DAY, 0);
+                    cal2.set(Calendar.MINUTE, 0);
+                    cal2.set(Calendar.SECOND, 0);
+                    cal2.set(Calendar.MILLISECOND, 0);
+                    reservation.setReservationStartDate(cal2.getTime());
+                    return reservation;
+                })
+                .collect(Collectors.groupingBy(Reservation::getReservationStartDate, Collectors.counting()));
+
 
         // insert 0 if in certain day nobody reserved any book
         for(int i=0; i<=30; i++) {
             reservationsGrouped.putIfAbsent(cal.getTime(), 0L);
             cal.add(Calendar.DAY_OF_MONTH, 1);
+        }
+
+        for(Map.Entry<Date, Long> reservationCount : reservationsGrouped.entrySet()) {
+            System.out.println(reservationCount.getKey() + " " + reservationCount.getValue());
         }
 
         // sort by day (treeMap do it automatically)
@@ -181,6 +232,7 @@ public class GenerateStatisticsController extends AbstractWindowController {
             lineChart.getData().add(series);
         } catch(RuntimeException | IOException e) {
             System.out.println("Wrong data in line chart");
+            System.out.println(e.getMessage());
         }
         lineChart.setAxisSortingPolicy(LineChart.SortingPolicy.X_AXIS);
     }

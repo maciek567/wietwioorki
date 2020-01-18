@@ -32,7 +32,6 @@ public abstract class AbstractWindowController {
     public void openNewWindow(String layoutPath) {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(springContext::getBean);
-
         fxmlLoader.setLocation(getClass().getResource(layoutPath));
         Parent rootNode = null;
 
