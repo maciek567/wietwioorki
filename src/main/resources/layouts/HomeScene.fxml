@@ -35,6 +35,22 @@
 
     </TabPane>
     <VBox alignment="TOP_RIGHT" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="10.0">
+        <Text text="Logged as:">
+            <font>
+                <Font size="20"/>
+            </font>
+            <VBox.margin>
+                <Insets bottom="5" right="20" top="5"/>
+            </VBox.margin>
+        </Text>
+        <Text fx:id="loggedInUser" text="guest">
+            <font>
+                <Font size="20"/>
+            </font>
+            <VBox.margin>
+                <Insets bottom="5" right="20" top="5"/>
+            </VBox.margin>
+        </Text>
         <Button id="enterLogin" fx:id="enterLogin" onAction="#handleEnterLogin"
                 prefHeight="50.0" prefWidth="100.0" text="Login">
             <VBox.margin>
@@ -61,21 +77,5 @@
                 <Insets bottom="5" right="30" top="7"/>
             </VBox.margin>
         </Button>
-        <Text text="Logged as:">
-            <font>
-                <Font size="20"/>
-            </font>
-            <VBox.margin>
-                <Insets bottom="5" right="20" top="5"/>
-            </VBox.margin>
-        </Text>
-        <Text fx:id="loggedInUser" text="guest">
-            <font>
-                <Font size="20"/>
-            </font>
-            <VBox.margin>
-                <Insets bottom="5" right="20" top="5"/>
-            </VBox.margin>
-        </Text>
     </VBox>
 </AnchorPane>

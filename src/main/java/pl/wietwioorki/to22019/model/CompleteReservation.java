@@ -13,7 +13,7 @@ import java.util.Date;
 @ToString
 @Entity
 @Table(name = "complete_reservation")
-public class CompleteReservation {
+public class CompleteReservation implements Comparable<CompleteReservation> {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "reservation_id")
@@ -78,5 +78,10 @@ public class CompleteReservation {
 
     public ObjectProperty<Date> getBorrowingDateProperty() {
         return new SimpleObjectProperty<>(reservationStartDate);
+    }
+
+    @Override
+    public int compareTo(CompleteReservation o) {
+        return this.getReservationStartDate().compareTo(o.getReservationStartDate());
     }
 }

@@ -108,6 +108,7 @@ public class HomeSceneController extends AbstractWindowController {
 
     private void refreshTabs() {
         addBookTab.setDisable(!isCurrentUserAdmin());
+        showRecommendationsTab.setDisable(!isCurrentUserAdmin());
         showFinesTab.setDisable(isCurrentUserGuest());
         showReservationListTab.setDisable(isCurrentUserGuest());
         showCompleteReservationListTab.setDisable(isCurrentUserGuest());

@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/librarySystem.iml" filepath="$PROJECT_DIR$/.idea/modules/librarySystem.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/librarySystem.main.iml" filepath="$PROJECT_DIR$/.idea/modules/librarySystem.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/librarySystem.test.iml" filepath="$PROJECT_DIR$/.idea/modules/librarySystem.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/pl.wietwioorki.to22019.librarySystem.iml" filepath="$PROJECT_DIR$/.idea/modules/pl.wietwioorki.to22019.librarySystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/pl.wietwioorki.to22019.librarySystem.main.iml" filepath="$PROJECT_DIR$/.idea/modules/pl.wietwioorki.to22019.librarySystem.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/pl.wietwioorki.to22019.librarySystem.test.iml" filepath="$PROJECT_DIR$/.idea/modules/pl.wietwioorki.to22019.librarySystem.test.iml" />
