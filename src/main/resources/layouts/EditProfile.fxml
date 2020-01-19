@@ -26,31 +26,19 @@
                     <Insets bottom="15" left="20" right="20" top="15"/>
                 </VBox.margin>
             </TextField>
-            <TextField promptText="Pesel:" fx:id="pesel"
-                       prefHeight="30" prefWidth="200">
-                <VBox.margin>
-                    <Insets bottom="15" left="20" right="20" top="15"/>
-                </VBox.margin>
-            </TextField>
-            <TextField promptText="Login:" id="registrationUserName" fx:id="login"
-                       prefHeight="30" prefWidth="200">
-                <VBox.margin>
-                    <Insets bottom="15" left="20" right="20" top="15"/>
-                </VBox.margin>
-            </TextField>
             <TextField promptText="E-mail:" id="email" fx:id="email"
                        prefHeight="30" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="15" left="20" right="20" top="15"/>
                 </VBox.margin>
             </TextField>
-            <PasswordField promptText="Password:" id="registrationPassword" fx:id="registrationPassword"
+            <PasswordField promptText="Password:" id="registrationPassword" fx:id="newPassword"
                            prefHeight="30" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="15" left="20" right="20" top="15"/>
                 </VBox.margin>
             </PasswordField>
-            <PasswordField promptText="Confirm password:" id="passwordConfirmation" fx:id="passwordConfirmation"
+            <PasswordField promptText="Confirm password:" id="passwordConfirmation" fx:id="newPasswordConfirmation"
                            prefHeight="30" prefWidth="200">
                 <VBox.margin>
                     <Insets bottom="15" left="20" right="20" top="15"/>
