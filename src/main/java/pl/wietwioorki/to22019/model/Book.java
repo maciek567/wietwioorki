@@ -14,7 +14,7 @@ import java.util.Date;
 @ToString
 @Entity
 @Table(name = "book")
-public class Book {
+public class Book implements Comparable<Book> {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "book_id")
@@ -101,5 +101,11 @@ public class Book {
         this.noBorrows++;
     }
 
+
+    @Override
+    public int compareTo(Book o) {
+        Double result = o.getAverageRating() * o.getVotesCount() - this.averageRating * this.votesCount;
+        return result.intValue();
+    }
 
 }
