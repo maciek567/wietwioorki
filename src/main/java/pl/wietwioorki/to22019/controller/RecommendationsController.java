@@ -1,5 +1,6 @@
 package pl.wietwioorki.to22019.controller;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -109,18 +110,28 @@ public class RecommendationsController extends AbstractWindowController {
                 List<Book> matchingGenre = sessionConstants.getBookRepository().findBooksByGenre(lastReservation.getBook().getGenre());
                 mostPopularBooks.sort(Book::compareTo);
 
-                matchingAuthor.subList(5, matchingAuthor.size()).clear();
-                matchingGenre.subList(5, matchingGenre.size()).clear();
-                mostPopularBooks.subList(5, mostPopularBooks.size()).clear();
+                if(matchingAuthor.size() > 5)
+                    matchingAuthor.subList(5, matchingAuthor.size()).clear();
 
-                booksFromUsersGenres.setItems((ObservableList<Book>) matchingGenre);
-                booksFromUsersAuthors.setItems((ObservableList<Book>) matchingAuthor);
-                mostPopular.setItems((ObservableList<Book>) mostPopularBooks);
+                if(matchingGenre.size() > 5)
+                    matchingGenre.subList(5, matchingGenre.size()).clear();
+
+                if(mostPopularBooks.size() > 5)
+                    mostPopularBooks.subList(5, mostPopularBooks.size()).clear();
+
+                booksFromUsersGenres.setItems(getObservableList(matchingGenre));
+                booksFromUsersAuthors.setItems(getObservableList(matchingAuthor));
+                mostPopular.setItems(getObservableList(mostPopularBooks));
 
             }
         }
 
     }
+
+    private ObservableList<Book> getObservableList(List<Book> metricBookList) {
+        return FXCollections.observableList(metricBookList);
+    }
+
 
 
 }
