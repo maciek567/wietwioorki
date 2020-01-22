@@ -10,6 +10,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -31,7 +32,7 @@ public class Reservation {
     @ManyToOne
     @JoinColumn(name = "book_id",
             referencedColumnName = "book_id")
-    private Book book; // todo: only one book in each reservation? //SW Dont change this, what if many readers want get the same book
+    private Book book;
 
     @Column(name = "start_date")
     private Date reservationStartDate;
@@ -81,8 +82,13 @@ public class Reservation {
     }
 
     public void borrowBook() {
+        Calendar calendar = Calendar.getInstance();
+        setReservationStartDate(calendar.getTime());
+        calendar.add(Calendar.DATE, getBorrowingTimeInDays());
+        setReservationEndDate(calendar.getTime());
+
         book.popReaderFromQueue();
-        setReservationStartDate(new Date(System.currentTimeMillis()));
+
         setReservationStatus(ReservationStatus.ACTIVE);
     }
 
@@ -99,7 +105,6 @@ public class Reservation {
         return fine;
     }
 
-    // fixme - to discuss - how long should be borrowing time?
     public static int getBorrowingTimeInDays() {
         return 14;
     }

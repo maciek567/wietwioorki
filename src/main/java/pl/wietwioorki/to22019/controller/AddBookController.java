@@ -45,6 +45,8 @@ public class AddBookController extends AbstractWindowController {
         sessionConstants.getBookRepository().save(new Book(bookTitle.getText(), bookValidator.getAuthor(),
                 bookValidator.getDate(), bookValidator.getGenre()));
 
+        sessionConstants.events.dataChanged();
+
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyCreatedContent);
 //        closeWindowAfterSuccessfulAction(actionEvent);
     }

@@ -32,7 +32,6 @@ public abstract class AbstractWindowController {
     public void openNewWindow(String layoutPath) {
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setControllerFactory(springContext::getBean);
-
         fxmlLoader.setLocation(getClass().getResource(layoutPath));
         Parent rootNode = null;
 
@@ -84,5 +83,11 @@ public abstract class AbstractWindowController {
 
     public void showAdministratorNeededAlert() {
         AlertFactory.showAlert(Alert.AlertType.WARNING, adminNeededHeader, adminNeededContent);
+    }
+
+    public void handleChangeUser() {
+    }
+
+    public void handleChangeData() {
     }
 }

@@ -4,10 +4,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
+<?import org.controlsfx.control.Rating?>
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="pl.wietwioorki.to22019.controller.ReservationListController">
     <top>
-        <HBox alignment="TOP_LEFT" prefHeight="30" prefWidth="500" BorderPane.alignment="CENTER">
+        <HBox prefHeight="30" prefWidth="500" BorderPane.alignment="CENTER">
             <Text text="Filter: "/>
             <ComboBox fx:id="selectedFilter" onAction="#handleChangeSelectedFilter"/>
             <StackPane>
@@ -20,9 +21,16 @@
                 </HBox>
             </StackPane>
             <Text text="Pesel: " fx:id="peselText"/>
-            <TextField promptText="Write searching pesel" fx:id="peselField" prefHeight="30" prefWidth="300"/>
+            <TextField promptText="Write searching pesel" fx:id="peselField" prefHeight="40" prefWidth="200"/>
+
         </HBox>
     </top>
+    <bottom>
+        <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="70">
+            <Rating fx:id="rating" layoutX="250" layoutY="20"/>
+            <Label fx:id="msg" text="Rate book: " prefHeight="17.0" layoutX="160" layoutY="20"/>
+        </AnchorPane>
+    </bottom>
     <center>
         <TableView fx:id="reservationTable" prefHeight="600.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <columns>
