@@ -65,14 +65,14 @@
         </Button>
         <Button id="enterNotificationSettings" fx:id="enterNotificationSettings"
                 onAction="#handleEnterNotificationSettings"
-                prefHeight="50.0" prefWidth="100.0" text="settings" disable="true">
+                prefHeight="50.0" prefWidth="100.0" text="Settings" disable="true">
             <VBox.margin>
                 <Insets bottom="5" right="30" top="7"/>
             </VBox.margin>
         </Button>
         <Button id="enterEditProfile" fx:id="enterEditProfile"
                 onAction="#handleEnterEditProfile"
-                prefHeight="50.0" prefWidth="100.0" text="edit profile" disable="true">
+                prefHeight="50.0" prefWidth="100.0" text="Edit profile" disable="true">
             <VBox.margin>
                 <Insets bottom="5" right="30" top="7"/>
             </VBox.margin>

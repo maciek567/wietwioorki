@@ -1,5 +1,6 @@
 package pl.wietwioorki.to22019.controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -88,37 +89,38 @@ public class RecommendationsController extends AbstractWindowController {
     }
 
     @FXML
-    public void recommendBooks(ActionEvent actionEvent){
+    public void recommendBooks(ActionEvent actionEvent) {
         System.out.println("Searching for " + userName.getText());
 
         if (!sessionConstants.getCredentialsValidator().validateLogin(sessionConstants, userName.getText())) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, noSuchUserHeader, enterValidUserLoginContent);
-        }else{
-            List<CompleteReservation> reservations =  sessionConstants.getCompleteReservationRepository()
+        } else {
+            List<CompleteReservation> reservations = sessionConstants.getCompleteReservationRepository()
                     .findByReader(sessionConstants.getUserRepository().findByLogin(userName.getText()).getReader());
 
-            if (reservations.isEmpty()){
+            if (reservations.isEmpty()) {
                 AlertFactory.showAlert(Alert.AlertType.ERROR, noReservationsHeader, noReservationsForRecommendationsContent);
             } else {
                 reservations.sort(CompleteReservation::compareTo);
                 CompleteReservation lastReservation = reservations.get(0);
-                List<Book> mostPopular = sessionConstants.getBookRepository().findAll();
+                List<Book> mostPopularBooks = sessionConstants.getBookRepository().findAll();
 
                 List<Book> matchingAuthor = sessionConstants.getBookRepository().findBooksByAuthor(lastReservation.getBook().getAuthor());
                 List<Book> matchingGenre = sessionConstants.getBookRepository().findBooksByGenre(lastReservation.getBook().getGenre());
-                mostPopular.sort(Book::compareTo);
+                mostPopularBooks.sort(Book::compareTo);
 
                 matchingAuthor.subList(5, matchingAuthor.size()).clear();
                 matchingGenre.subList(5, matchingGenre.size()).clear();
-                mostPopular.subList(5, mostPopular.size()).clear();
+                mostPopularBooks.subList(5, mostPopularBooks.size()).clear();
 
-//                booksFromUsersGenres.setItems(matchingGenre);
+                booksFromUsersGenres.setItems((ObservableList<Book>) matchingGenre);
+                booksFromUsersAuthors.setItems((ObservableList<Book>) matchingAuthor);
+                mostPopular.setItems((ObservableList<Book>) mostPopularBooks);
 
             }
         }
 
     }
-
 
 
 }

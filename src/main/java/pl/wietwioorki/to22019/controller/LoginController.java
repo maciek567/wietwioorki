@@ -16,6 +16,7 @@ import pl.wietwioorki.to22019.util.EmailUtil;
 import java.util.Date;
 import java.util.List;
 
+import static pl.wietwioorki.to22019.model.ReservationStatus.ACTIVE;
 import static pl.wietwioorki.to22019.util.ErrorMessage.loginErrorHeader;
 import static pl.wietwioorki.to22019.util.ErrorMessage.wrongCredentialsErrorContent;
 
@@ -55,8 +56,10 @@ public class LoginController extends AbstractWindowController {
     private boolean checkIfAnyBookIsOverdue() {
         List<Reservation> reservations = sessionConstants.getReservationRepository().findByReader(sessionConstants.getCurrentReader());
         for(Reservation reservation : reservations) {
-            if(reservation.getReservationEndDate().before(new Date())) {
-                return true;
+            if(reservation.getReservationStatus() == ACTIVE) {
+                if (reservation.getReservationEndDate().before(new Date())) {
+                    return true;
+                }
             }
         }
         return false;

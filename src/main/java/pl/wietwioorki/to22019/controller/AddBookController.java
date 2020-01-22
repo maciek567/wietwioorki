@@ -46,7 +46,7 @@ public class AddBookController extends AbstractWindowController {
                 bookValidator.getDate(), bookValidator.getGenre()));
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyCreatedContent);
-        closeWindowAfterSuccessfulAction(actionEvent);
+//        closeWindowAfterSuccessfulAction(actionEvent);
     }
 
     @FXML

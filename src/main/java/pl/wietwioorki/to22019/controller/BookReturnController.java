@@ -84,7 +84,7 @@ public class BookReturnController extends AbstractWindowController implements In
                 oldReservation.getReservationStartDate(), oldReservation.getReservationStatus().equals(ReservationStatus.OVERDUE)));
 
         AlertFactory.showAlert(Alert.AlertType.INFORMATION, successHeader, bookSuccessfullyReturnedContent);
-        closeWindowAfterSuccessfulAction(actionEvent);
+//        closeWindowAfterSuccessfulAction(actionEvent);
     }
 
     @Override
