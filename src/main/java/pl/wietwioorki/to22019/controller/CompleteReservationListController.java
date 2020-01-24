@@ -137,11 +137,9 @@ public class CompleteReservationListController extends AbstractWindowController 
 
     private void refreshWindow() {
         refreshData();
-
-        if (!isCurrentUserAdmin()) {
-            peselText.setVisible(false);
-            peselField.setVisible(false);
-        }
+        boolean showAdminFields = isCurrentUserAdmin();
+        peselField.setVisible(showAdminFields);
+        peselText.setVisible(showAdminFields);
     }
 
     private void refreshData() {

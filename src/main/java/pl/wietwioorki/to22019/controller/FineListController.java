@@ -186,12 +186,10 @@ public class FineListController extends AbstractWindowController {
 
     private void refreshWindow() {
         refreshData();
-
-        if (!isCurrentUserAdmin()) {
-            peselField.setVisible(false);
-            peselText.setVisible(false);
-            cancelFine.setVisible(false);
-            payFine.setVisible(false);
-        }
+        boolean showAdminFields = isCurrentUserAdmin();
+        peselField.setVisible(showAdminFields);
+        peselText.setVisible(showAdminFields);
+        cancelFine.setVisible(showAdminFields);
+        payFine.setVisible(showAdminFields);
     }
 }
