@@ -106,7 +106,7 @@ public class BooksListController extends AbstractWindowController {
             return;
         }
 
-        ReservationStatus reservationStatus = book.isReaderQueueEmpty() ? ReservationStatus.READY : ReservationStatus.PENDING;
+        ReservationStatus reservationStatus = book.isReaderQueueEmpty(sessionConstants.getReservationRepository()) ? ReservationStatus.READY : ReservationStatus.PENDING;
 
         book.pushReaderToQueue(reader);
 

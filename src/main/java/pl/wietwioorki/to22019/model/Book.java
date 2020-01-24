@@ -5,9 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import pl.wietwioorki.to22019.repository.BookRepository;
+import pl.wietwioorki.to22019.repository.ReservationRepository;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
@@ -83,8 +86,19 @@ public class Book implements Comparable<Book> {
         return null;
     }
 
-    public boolean isReaderQueueEmpty() {
-        return true;
+    public Reader checkNextReservation(ReservationRepository reservationRepo) {
+        List<Reservation> reservations = reservationRepo.findByBook(this);
+        if(!reservations.isEmpty()){
+            Reservation reservation = reservations.get(0);
+            reservation.setReservationStatus(ReservationStatus.READY);
+            reservationRepo.save(reservation);
+        }
+        return null;
+    }
+
+    public boolean isReaderQueueEmpty(ReservationRepository reservationRepo) {
+        List<Reservation> reservations = reservationRepo.findByBook(this);
+        return reservations.isEmpty();
 //        return this.waitingReaders.isEmpty();
     }
 

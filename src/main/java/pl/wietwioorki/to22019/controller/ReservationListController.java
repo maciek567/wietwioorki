@@ -204,7 +204,7 @@ public class ReservationListController extends AbstractWindowController {
             AlertFactory.showAlert(Alert.AlertType.INFORMATION, receiveFineInfoHeader, fine.getDescription() + "\nValue: " + fine.getValue());
         }
         sessionConstants.getReservationRepository().delete(reservation);
-
+        book.checkNextReservation(sessionConstants.getReservationRepository());
         CompleteReservation completeReservation = new CompleteReservation(reservation, fine != null);
         sessionConstants.getCompleteReservationRepository().save(completeReservation);
 
