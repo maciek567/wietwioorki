@@ -1,15 +1,14 @@
-.gradle
-gradle
+.gradle/
+gradle/
 
-build
-/build/
+build/
+build/
 
-.idea
-
-lib
+lib/
 
 #User-specific files
 workspace.xml
 
 #Intelliji
-/out/
+out/
+.idea/

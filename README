@@ -1,14 +1,32 @@
-Library Project created by Maciej Banaś, Monika Dziedzic, Hubert Guzowski, Sebastian Wilk.
+# Library Project #
+``` created by Maciej Banaś, Monika Dziedzic, Hubert Guzowski, Sebastian Wilk. ```
 
-Wymagania:
-- java 11
-- lombok plugin (przy uruchamianiu w Intellij)
-- PostgreSQL ( Windows: https://www.microfocus.com/documentation/idol/IDOL_12_0/MediaServer/Guides/html/English/Content/Getting_Started/Configure/_TRN_Set_up_PostgreSQL.htm
-               Fedora: https://computingforgeeks.com/how-to-install-postgresql-on-fedora/ )
-- Lokalna instancja bazy PostgreSQL
+A library system to store books, authors, 
 
-Uruchamianie:
-po pobraniu i otworzeniu projektu w Intellij powinien się on sam zacząć indeksować
-w przypadku błędu należy wybrać dla projektu java jdk 11 i spróbować ponownie
-wywołanie komendy ./gradlew run z roota projektu, lub poprzez GUI programu Intellij
-w przypadku problemów z lombokiem należy zaznaczyć opcję Enalbe Annotation Processing
+Requirements:
+* java 11/12
+* lombok plugin (przy uruchamianiu w Intellij)
+* PostgreSQL 
+    * [Windows](https://www.microfocus.com/documentation/idol/IDOL_12_0/MediaServer/Guides/html/English/Content/Getting_Started/Configure/_TRN_Set_up_PostgreSQL.htm) 
+    * [Fedora](https://computingforgeeks.com/how-to-install-postgresql-on-fedora)
+* Local instance of PostgreSQL database
+
+Launching:
+* After downloading import project in Intellij Idea.
+* In case of error choose Java version 11 or 12
+* Run commend ./gradlew from projects's root
+* Install or update Lombok and enable annotation processing option
+
+### Add new books ###
+![new_book](screens/new_book.png)
+
+### Filter and reserve books that interest you ###
+![filter_books](screens/filtering_books.png)
+
+### As librarian filter reservations and lend books to customers ###
+![reservations](screens/reservations.png)
+
+### Choose when you want to get e-mail notification ###
+![email_notification](screens/email_notifications.png)
+
+``` And much more! ```

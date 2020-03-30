@@ -97,7 +97,7 @@ public class Reservation {
         Fine fine = null;
         int late = returnDate.compareTo(reservationEndDate);
         if (late > 0) {
-            float amount = late * 1; //todo: add price to book
+            float amount = late * 1;
             String description = late + " days to late return book: " + book.getTitle() + ". Return date: " + returnDate;
             fine = new Fine(amount, description, reader);
         }

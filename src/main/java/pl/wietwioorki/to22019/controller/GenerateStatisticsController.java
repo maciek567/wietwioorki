@@ -138,30 +138,6 @@ public class GenerateStatisticsController extends AbstractWindowController {
         return sessionConstants.getGenreRepository().findAll().size();
     }
 
-//    private Map<Date, Long> getCountedReservations() throws IOException {
-//        List<Reservation> reservations = sessionConstants.getReservationRepository().findAll();
-//        Stream<Reservation> reservationStream =  reservations.stream();
-//
-//        // filter reservations from last month
-//        Calendar cal = Calendar.getInstance();
-//        cal.add(Calendar.MONTH, -1);
-//        Date oneMonthAgo = cal.getTime();
-//        Predicate<Reservation> reservationLastMonth = reservation -> reservation.getReservationStartDate().after(oneMonthAgo);
-//        List<Reservation> filteredReservations = reservationStream.filter(reservationLastMonth).collect(Collectors.toList());
-//
-//        // group by reservation day and count reservations in every day
-//        Map<Date, Long> reservationsGrouped = filteredReservations.stream().collect(
-//                Collectors.groupingBy(Reservation::getReservationStartDate, Collectors.counting()));
-//
-//        // insert 0 if in certain day nobody reserved any book
-//        for(int i=0; i<=30; i++) {
-//            reservationsGrouped.putIfAbsent(cal.getTime(), 0L);
-//            cal.add(Calendar.DAY_OF_MONTH, 1);
-//        }
-//
-//        // sort by day (treeMap do it automatically)
-//        return new TreeMap<>(reservationsGrouped);
-//    }
 
     private Map<Date, Long> getCountedReservations() throws IOException {
         // current and all completed reservations
@@ -172,7 +148,6 @@ public class GenerateStatisticsController extends AbstractWindowController {
                     complete.getReservationStartDate(), null, ReservationStatus.RETURNED);
             reservations.add(reservation);
         }
-
 
 
         // stream data and filter borrowed books from last month
