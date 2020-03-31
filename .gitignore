@@ -1,10 +1,13 @@
-.gradle
-build
-
-/build/
+#gradle
+.gradle/
+!gradle-wrapper.jar
+build/
 
 #User-specific files
 workspace.xml
 
 #Intelliji
-/out/
+out/
+.idea/modules.xml
+.idea/*.iml
+.idea/modules
