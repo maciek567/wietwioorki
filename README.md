@@ -20,15 +20,15 @@ Launching:
 * Install or update Lombok and enable annotation processing option
 
 ### Add new books ###
-![new_book](screens/new_book.png)
+![new_book](https://github.com/maciek567/wietwioorki/blob/master/screens/new_book.PNG)
 
 ### Filter and reserve books that interest you ###
-![filter_books](screens/filtering_books.png)
+![filter_books](https://github.com/maciek567/wietwioorki/blob/master/screens/filtering_books.PNG)
 
 ### As librarian filter reservations and lend books to customers ###
-![reservations](screens/reservations.png)
+![reservations](https://github.com/maciek567/wietwioorki/blob/master/screens/reservations.PNG)
 
 ### Choose when you want to get e-mail notification ###
-![email_notification](screens/email_notifications.png)
+![email_notification](https://github.com/maciek567/wietwioorki/blob/master/screens/email_notifications.PNG)
 
 ``` And much more! ```
