@@ -2,54 +2,78 @@ package pl.wietwioorki.to22019.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
 import javafx.scene.text.Text;
 import org.springframework.stereotype.Controller;
+import pl.wietwioorki.to22019.util.AlertFactory;
+
+import static pl.wietwioorki.to22019.util.InfoMessage.successfulLogout;
 
 @Controller
 public class HomeSceneController extends AbstractWindowController {
 
     @FXML
+    private Tab addBookTab;
+
+    @FXML
+    private Tab showBookListTab;
+
+    @FXML
+    private Tab showFinesTab;
+
+    @FXML
+    public Tab showReservationListTab;
+
+    @FXML
+    public Tab showCompleteReservationListTab;
+
+    @FXML
+    public Tab showStatisticsTab;
+
+    @FXML
+    public Tab showRecommendationsTab;
+
+    @FXML
     public Button enterLogin;
-
-    @FXML
-    public Button enterRegistration;
-
-    @FXML
-    public Button addReservationButton;
-
-    @FXML
-    public Button showReservationListButton;
-
-    @FXML
-    public Button statisticsButton;
-
-    @FXML
-    private Button addBookButton;
-
-    @FXML
-    private Button showBookListButton;
 
     @FXML
     public Text loggedInUser;
 
     @FXML
-    public void handleNewBook(ActionEvent actionEvent) {
-        System.out.println("New book view");
-        openNewWindow("/layouts/AddBook.fxml");
-    }
+    public Button enterRegistration;
 
     @FXML
-    public void handleShowBookList(ActionEvent actionEvent) {
-        System.out.println("Show book list");
-        openNewWindow("/layouts/BooksList.fxml");
+    public Button enterNotificationSettings;
+
+    @FXML
+    public Button enterEditProfile;
+
+    @FXML
+    private void initialize() {
+        refreshTabs();
     }
 
     @FXML
     public void handleEnterLogin(ActionEvent actionEvent) {
-        System.out.println("login view");
-        openNewWindow("/layouts/Login.fxml");
-        loggedInUser.setText(String.valueOf(sessionConstants.getUserLogin()));
+        if (sessionConstants.getUserLogin() == null) {
+            System.out.println("login view");
+            openNewWindow("/layouts/Login.fxml");
+            if (sessionConstants.getUserLogin() != null) {
+                loggedInUser.setText(sessionConstants.getUserLogin());
+                enterLogin.setText("Logout");
+                enableProfileButtons();
+            }
+        } else {
+            sessionConstants.logoutUser();
+            loggedInUser.setText("guest");
+            enterLogin.setText("Login");
+            disableProfileButtons();
+            AlertFactory.showAlert(Alert.AlertType.INFORMATION, successfulLogout,
+                    "You have successfully logout");
+        }
+        refreshTabs();
     }
 
     @FXML
@@ -59,14 +83,34 @@ public class HomeSceneController extends AbstractWindowController {
     }
 
     @FXML
-    public void handleShowReservationList(ActionEvent actionEvent) {
-        System.out.println("Show reservation list");
-        openNewWindow("/layouts/ReservationList.fxml");
+    public void handleEnterNotificationSettings(ActionEvent actionEvent) {
+        System.out.println("Show notification settings");
+        openNewWindow("/layouts/NotificationSettings.fxml");
     }
 
     @FXML
-    public void handleStatisticsButton(ActionEvent actionEvent) {
-        System.out.println("Show statistics");
-        openNewWindow("/layouts/Statistics.fxml");
+    public void handleEnterEditProfile(ActionEvent actionEvent) {
+        System.out.println("Show notification settings");
+        openNewWindow("/layouts/EditProfile.fxml");
+    }
+
+    private void enableProfileButtons(){
+        enterNotificationSettings.setDisable(false);
+        enterEditProfile.setDisable(false);
+        enterRegistration.setDisable(true);
+    }
+
+    private void disableProfileButtons(){
+        enterNotificationSettings.setDisable(true);
+        enterEditProfile.setDisable(true);
+        enterRegistration.setDisable(false);
+    }
+
+    private void refreshTabs() {
+        addBookTab.setDisable(!isCurrentUserAdmin());
+        showRecommendationsTab.setDisable(!isCurrentUserAdmin());
+        showFinesTab.setDisable(isCurrentUserGuest());
+        showReservationListTab.setDisable(isCurrentUserGuest());
+        showCompleteReservationListTab.setDisable(isCurrentUserGuest());
     }
 }

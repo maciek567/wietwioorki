@@ -32,7 +32,7 @@ public class BookValidator extends MyValidator {
     }
 
     public boolean validateAuthor(String authorName) {
-        author = authorRepository.findByFullName(authorName);
+        author = sessionConstants.getAuthorRepository().findByFullName(authorName);
         if (author == null) {
             Alert confirmationAlert = AlertFactory.createAlert(Alert.AlertType.CONFIRMATION, shouldNewAuthorBeCreatedHeader, shouldNewAuthorBeCreatedContent);
             Optional<ButtonType> result = confirmationAlert.showAndWait();
@@ -40,7 +40,7 @@ public class BookValidator extends MyValidator {
                 ButtonBar.ButtonData buttonData = result.get().getButtonData();
                 if (buttonData == ButtonBar.ButtonData.YES) {
                     author = new Author(authorName);
-                    authorRepository.save(author);
+                    sessionConstants.getAuthorRepository().save(author);
                     System.out.println("Created new author");
                     return true; // for the sake of readability...
                 } else if (buttonData == ButtonBar.ButtonData.NO) {
@@ -63,7 +63,7 @@ public class BookValidator extends MyValidator {
     }
 
     public boolean validateGenre(String genre) {
-        this.genre = genreRepository.findByName(genre);
+        this.genre = sessionConstants.getGenreRepository().findByName(genre);
         if (this.genre == null) {
             Alert confirmationAlert = AlertFactory.createAlert(Alert.AlertType.CONFIRMATION, shouldNewGenreBeCreatedHeader, shouldNewGenrerBeCreatedContent);
 
@@ -81,7 +81,7 @@ public class BookValidator extends MyValidator {
                     if (input.isPresent()) {
                         //  and add book to this newly-created genre!
                         this.genre = new Genre(genre, input.get());
-                        genreRepository.save(this.genre);
+                        sessionConstants.getGenreRepository().save(this.genre);
                         System.out.println("Created new genre");
                         return true;
                     }

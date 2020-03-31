@@ -5,16 +5,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import pl.wietwioorki.to22019.repository.BookRepository;
+import pl.wietwioorki.to22019.repository.ReservationRepository;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @NoArgsConstructor
 @Getter
 @ToString
 @Entity
 @Table(name = "book")
-public class Book {
+public class Book implements Comparable<Book> {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name = "book_id")
@@ -44,11 +47,15 @@ public class Book {
     private Double averageRating = 0.0;
     private int votesCount = 0;
 
+    private int noBorrows;
+
+
     public Book(String title, Author author, Date publicationDate, Genre genre) {
         this.title = title;
         this.author = author;
         this.publicationDate = publicationDate;
         this.genre = genre;
+        this.noBorrows = 0;
     }
 
     public ObjectProperty<Long> getIdProperty(){
@@ -79,8 +86,19 @@ public class Book {
         return null;
     }
 
-    public boolean isReaderQueueEmpty() {
-        return true;
+    public Reader checkNextReservation(ReservationRepository reservationRepo) {
+        List<Reservation> reservations = reservationRepo.findByBook(this);
+        if(!reservations.isEmpty()){
+            Reservation reservation = reservations.get(0);
+            reservation.setReservationStatus(ReservationStatus.READY);
+            reservationRepo.save(reservation);
+        }
+        return null;
+    }
+
+    public boolean isReaderQueueEmpty(ReservationRepository reservationRepo) {
+        List<Reservation> reservations = reservationRepo.findByBook(this);
+        return reservations.isEmpty();
 //        return this.waitingReaders.isEmpty();
     }
 
@@ -92,4 +110,16 @@ public class Book {
     public void incrementVotesCount() {
         this.votesCount++;
     }
+
+    public void incrementNoBorrows() {
+        this.noBorrows++;
+    }
+
+
+    @Override
+    public int compareTo(Book o) {
+        Double result = o.getAverageRating() * o.getVotesCount() - this.averageRating * this.votesCount;
+        return result.intValue();
+    }
+
 }

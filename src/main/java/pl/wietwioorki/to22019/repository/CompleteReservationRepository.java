@@ -11,6 +11,6 @@ import java.util.List;
 
 @Repository
 public interface CompleteReservationRepository extends JpaRepository<CompleteReservation, Long> {
-//    List<Reservation> findByReader(Reader reader);
+    List<CompleteReservation> findByReader(Reader reader);
 //    List<Reservation> findByBook(Book book);
 }

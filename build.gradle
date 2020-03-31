@@ -48,6 +48,9 @@ dependencies {
     // postgres
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation('org.postgresql:postgresql')
+
+    // sending e-mail notifications
+    compile 'javax.mail:mail:1.4.7'
 }
 
 javafx {

@@ -5,6 +5,8 @@ public class ErrorMessage {
     public static String loginErrorHeader = "Login error";
     public static String generalErrorHeader = "Error occurred when ";
     public static String emptySelectionErrorHeader = "Empty selection";
+    public static String noSuchUserHeader = "No such user found";
+    public static String noReservationsHeader = "No reservations found";
 
     //content
     public static String wrongCredentialsErrorContent = "Wrong credentials given";
@@ -14,6 +16,8 @@ public class ErrorMessage {
     public static String wrongEmailErrorContent = "Wrong email format";
     public static String wrongIdErrorContent = "Wrong id format";
     public static String wrongPasswordsErrorContent = "Password and password confirmation do not match";
+    public static String enterValidUserLoginContent = "Enter valid user login";
+    public static String noReservationsForRecommendationsContent = "Reader must have some reservations completed";
 
     public static String emptyFieldErrorContent = " should not be empty";
 

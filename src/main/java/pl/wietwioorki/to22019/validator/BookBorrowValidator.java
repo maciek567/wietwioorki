@@ -3,7 +3,6 @@ package pl.wietwioorki.to22019.validator;
 import javafx.scene.control.Alert;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.wietwioorki.to22019.model.Reservation;
 import pl.wietwioorki.to22019.util.AlertFactory;
@@ -18,9 +17,6 @@ public class BookBorrowValidator extends MyValidator {
     private String specificErrorHeader = "borrowing book";
     private Reservation reservation;
 
-    @Autowired
-    PeselValidator peselValidator;
-
     public boolean validateReservation(String reservationId) {
         if (reservationId.isBlank()) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, "Id" + emptyFieldErrorContent);
@@ -31,7 +27,7 @@ public class BookBorrowValidator extends MyValidator {
             return false;
         }
 
-        Optional<Reservation> optionalReservation = reservationRepository.findById(Long.parseLong(reservationId));
+        Optional<Reservation> optionalReservation = sessionConstants.getReservationRepository().findById(Long.parseLong(reservationId));
 
         if (optionalReservation.isEmpty()) {
             AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, reservationWithGivenIdDoesNotExistErrorContent);
@@ -44,7 +40,7 @@ public class BookBorrowValidator extends MyValidator {
 
     public boolean validatePesel(String pesel) {
         if (new PeselValidator().validate(pesel, specificErrorHeader)) {
-            if (readerRepository.findById(Long.parseLong(pesel)).isEmpty()) {
+            if (sessionConstants.getReaderRepository().findById(Long.parseLong(pesel)).isEmpty()) {
                 AlertFactory.showAlert(Alert.AlertType.ERROR, generalErrorHeader + specificErrorHeader, readerWithGivenPeselDoesNotExistErrorContent);
                 return false;
             }

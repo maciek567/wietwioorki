@@ -1,50 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="pl.wietwioorki.to22019.controller.GenerateStatisticsController">
-    <VBox alignment="TOP_LEFT" prefHeight="200.0" prefWidth="200.0">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.wietwioorki.to22019.controller.GenerateStatisticsController">
 
+    <top>
+    <VBox prefHeight="200.0" prefWidth="200.0">
         <HBox>
-            <Text text="The most frequently borrowed book:   "/>
-            <Text text="value"/>
+            <Text text="Statistics:">
+            <font>
+               <Font size="19.0" />
+            </font></Text>
+            <Button id="generateStatisticsButton" fx:id="generateStatisticsButton" minWidth="150" onAction="#handleGenerateStatistics" prefHeight="25.0" prefWidth="200.0" text="generate statistics">
+            <HBox.margin>
+               <Insets left="20.0" />
+            </HBox.margin></Button>
             <VBox.margin>
-                <Insets top="30.0" left="30"/>
+                <Insets left="30" top="30.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox>
+            <Text text="The most frequently borrowed book: " />
+            <Text text="tittle: " />
+            <Text id="mostBorrowedBookTittle" fx:id="mostBorrowedBookTittle" />
+            <Text text="    borrowings: " />
+            <Text id="mostBorrowedBookBorrowings" fx:id="mostBorrowedBookBorrowings" />
+            <VBox.margin>
+                <Insets left="30" top="30.0" />
             </VBox.margin>
         </HBox>
 
         <HBox>
-            <Text text="The most frequently logged in user:   ">
-            </Text>
-            <Text text="value">
-            </Text>
+            <Text text="The most frequently logged in user:   " />
+            <Text text="login: " />
+            <Text id="mostLoggedInUserName" fx:id="mostLoggedInUserName" />
+            <Text text="   logins: " />
+            <Text id="mostLoggedInUserLogins" fx:id="mostLoggedInUserLogins" />
             <VBox.margin>
-                <Insets top="15.0" left="30"/>
+                <Insets left="30" top="15.0" />
             </VBox.margin>
         </HBox>
 
         <HBox>
-            <Text text="Number of users:   ">
-            </Text>
-            <Text text="value">
-            </Text>
+            <Text text="User that borrowed the most books:   " />
+            <Text text="login: " />
+            <Text id="userWithMostBorrowingsName" fx:id="userWithMostBorrowingsName" />
+            <Text text="   borrowings: " />
+            <Text id="userWithMostBorrowingsBorrowings" fx:id="userWithMostBorrowingsBorrowings" />
             <VBox.margin>
-                <Insets top="15.0" left="30"/>
+                <Insets left="30" top="15.0" />
             </VBox.margin>
         </HBox>
 
         <HBox>
-            <Text text="User that borrowed the most books:   ">
-            </Text>
-            <Text text="value">
-            </Text>
+            <Text text="Number of users:   " />
+            <Text id="noUsers" fx:id="noUsers" />
             <VBox.margin>
-                <Insets top="15.0" left="30"/>
+                <Insets left="30" top="15.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox>
+            <Text text="Number of books:   " />
+            <Text id="noBooks" fx:id="noBooks" />
+            <VBox.margin>
+                <Insets left="30" top="15.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox>
+            <Text text="Number of reservations:   " />
+            <Text id="noReservations" fx:id="noReservations" />
+            <VBox.margin>
+                <Insets left="30" top="15.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox>
+            <Text text="Number of authors:   " />
+            <Text id="noAuthors" fx:id="noAuthors" />
+            <VBox.margin>
+                <Insets left="30" top="15.0" />
+            </VBox.margin>
+        </HBox>
+        <HBox>
+            <Text text="Number of genres:   " />
+            <Text id="noGenres" fx:id="noGenres" />
+            <VBox.margin>
+                <Insets left="30" top="15.0" />
             </VBox.margin>
         </HBox>
     </VBox>
+    </top>
+
+    <bottom>
+        <LineChart fx:id="lineChart" layoutX="506.0" layoutY="31.0" minHeight="-Infinity" prefHeight="250.0"
+                   title="Borrowed books in last month" xAxis="day" yAxis="borrowings">
+            <xAxis>
+                <CategoryAxis side="BOTTOM" label="days"/>
+                <NumberAxis animated="false"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT" label="borrowings"/>
+                <NumberAxis animated="false"/>
+            </yAxis>
+        </LineChart>
+    </bottom>
+
 </BorderPane>

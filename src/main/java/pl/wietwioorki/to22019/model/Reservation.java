@@ -4,13 +4,13 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValue;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -26,19 +26,16 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "pesel",
-    referencedColumnName = "pesel")
+            referencedColumnName = "pesel")
     private Reader reader;
 
     @ManyToOne
     @JoinColumn(name = "book_id",
-    referencedColumnName = "book_id")
-    private Book book; // todo: only one book in each reservation?
+            referencedColumnName = "book_id")
+    private Book book;
 
     @Column(name = "start_date")
     private Date reservationStartDate;
-
-    @Column(name = "return_date")
-    private Date reservationReturnDate;
 
     @Column(name = "end_date")
     private Date reservationEndDate;
@@ -48,49 +45,69 @@ public class Reservation {
     @Setter
     private ReservationStatus reservationStatus;
 
-    public Reservation(Reader reader, Book book, Date reservationStartDate, Date reservationReturnDate, Date reservationEndDate, ReservationStatus reservationStatus) {
+    public Reservation(Reader reader, Book book, Date reservationStartDate, Date reservationEndDate, ReservationStatus reservationStatus) {
         this.reader = reader;
         this.book = book;
         this.reservationStartDate = reservationStartDate;
-        this.reservationReturnDate = reservationReturnDate;
         this.reservationEndDate = reservationEndDate;
         this.reservationStatus = reservationStatus;
     }
 
-    public ObjectProperty<Long> getReservationIdProperty(){
+    public ObjectProperty<Long> getReservationIdProperty() {
         return new SimpleObjectProperty<>(reservationId);
     }
-    public ObjectProperty<Long> getReaderPeselProperty(){
-        if(reader == null) {
-            System.out.println("Zaloguj się na swoje konto, aby wypożyczyć książkę!");
-        }
+
+    public ObjectProperty<Long> getReaderPeselProperty() {
         return new SimpleObjectProperty<>(reader == null ? -1L : reader.getPesel());
     }
-    public StringProperty getReaderNameProperty(){
-        if(reader == null) {
-            System.out.println("Zaloguj się na swoje konto, aby wypożyczyć książkę!");
-        }
-        return new SimpleStringProperty(reader == null ? "": reader.getFullName());
+
+    public StringProperty getReaderNameProperty() {
+        return new SimpleStringProperty(reader == null ? "" : reader.getFullName());
     }
-    public StringProperty getBooksTitleProperty(){
+
+    public StringProperty getBooksTitleProperty() {
         return new SimpleStringProperty(book.getTitle());
     }
-    public  ObjectProperty<ReservationStatus> getReservationStatusProperty() {return new SimpleObjectProperty<>(reservationStatus); }
-    public ObjectProperty<Date> getBorrowingDateProperty(){ return new SimpleObjectProperty<>(reservationStartDate); }
-    public ObjectProperty<Date> getReturnDateProperty(){ return new SimpleObjectProperty<>(reservationReturnDate); }
-    public ObjectProperty<Date> getReturnUntilDateProperty(){ return new SimpleObjectProperty<>(reservationEndDate); }
 
-    public void borrowBook(){
+    public ObjectProperty<ReservationStatus> getReservationStatusProperty() {
+        return new SimpleObjectProperty<>(reservationStatus);
+    }
+
+    public ObjectProperty<Date> getBorrowingDateProperty() {
+        return new SimpleObjectProperty<>(reservationStartDate);
+    }
+
+    public ObjectProperty<Date> getReturnDateProperty() {
+        return new SimpleObjectProperty<>(reservationEndDate);
+    }
+
+    public void borrowBook() {
+        Calendar calendar = Calendar.getInstance();
+        setReservationStartDate(calendar.getTime());
+        calendar.add(Calendar.DATE, getBorrowingTimeInDays());
+        setReservationEndDate(calendar.getTime());
+
         book.popReaderFromQueue();
-        setReservationStartDate(new Date(System.currentTimeMillis()));
+
         setReservationStatus(ReservationStatus.ACTIVE);
     }
 
-    public void returnBook(){
-        reservationEndDate = new Date(System.currentTimeMillis());
+    public Fine returnBook() {
+        Date returnDate = new Date(System.currentTimeMillis());
+        Fine fine = null;
+        int late = returnDate.compareTo(reservationEndDate);
+        if (late > 0) {
+            float amount = late * 1;
+            String description = late + " days to late return book: " + book.getTitle() + ". Return date: " + returnDate;
+            fine = new Fine(amount, description, reader);
+        }
+        reservationEndDate = returnDate;
+        return fine;
     }
 
-    public static int getBorrowingTimeInDays(){ return 14; }
+    public static int getBorrowingTimeInDays() {
+        return 14;
+    }
 
     public void setReservationStartDate(Date reservationStartDate) {
         this.reservationStartDate = reservationStartDate;
@@ -99,5 +116,4 @@ public class Reservation {
     public void setReservationEndDate(Date reservationEndDate) {
         this.reservationEndDate = reservationEndDate;
     }
-
 }
