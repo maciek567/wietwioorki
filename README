@@ -1,15 +1,17 @@
 # Library Project #
 ``` created by Maciej Banaś, Monika Dziedzic, Hubert Guzowski, Sebastian Wilk. ```
 
-A library system to store books, authors, 
+**A library system.**
+After registration you can view recomendations, search for books by title, author, genre etc. and reserve them.
+As a librarian you can add new books, borrow them and view statistics.
+Moreover readers get customized e-mail notifications regarding theirs reservations.
 
 Requirements:
 * java 11/12
 * lombok plugin (przy uruchamianiu w Intellij)
-* PostgreSQL 
+* PostgreSQL - Local instance of PostgreSQL database
     * [Windows](https://www.microfocus.com/documentation/idol/IDOL_12_0/MediaServer/Guides/html/English/Content/Getting_Started/Configure/_TRN_Set_up_PostgreSQL.htm) 
     * [Fedora](https://computingforgeeks.com/how-to-install-postgresql-on-fedora)
-* Local instance of PostgreSQL database
 
 Launching:
 * After downloading import project in Intellij Idea.
